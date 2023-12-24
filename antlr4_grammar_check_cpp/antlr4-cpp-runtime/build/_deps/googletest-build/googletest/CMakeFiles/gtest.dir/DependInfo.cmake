@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-src/googletest/src/gtest-all.cc" "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o" "gcc" "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d"
+  "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-src/googletest/src/gtest-all.cc" "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o" "gcc" "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d"
   )
 
 # Targets to which this target links.

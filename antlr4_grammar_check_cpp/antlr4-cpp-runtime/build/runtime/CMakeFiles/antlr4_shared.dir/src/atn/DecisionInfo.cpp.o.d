@@ -1,8 +1,8 @@
 runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.o: \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/DecisionInfo.cpp \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/ErrorInfo.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/DecisionEventInfo.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/DecisionInfo.cpp \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/ErrorInfo.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/DecisionEventInfo.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/algorithm \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/utility \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -257,10 +257,10 @@ runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.o: \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_stack.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/unordered_set \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/unordered_set.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/LookaheadEventInfo.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/DecisionInfo.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/ContextSensitivityInfo.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/AmbiguityInfo.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/BitSet.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/PredicateEvalInfo.h
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/LookaheadEventInfo.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/DecisionInfo.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/ContextSensitivityInfo.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/AmbiguityInfo.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/BitSet.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/atn/PredicateEvalInfo.h

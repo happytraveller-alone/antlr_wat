@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++-14")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "Clang")
 set(CMAKE_CXX_COMPILER_VERSION "14.0.0")
@@ -22,11 +22,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "/usr/bin/llvm-ar")
+set(CMAKE_AR "/usr/bin/llvm-ar-14")
 set(CMAKE_CXX_COMPILER_AR "/usr/bin/llvm-ar-14")
-set(CMAKE_RANLIB "/usr/bin/llvm-ranlib")
+set(CMAKE_RANLIB "/usr/bin/llvm-ranlib-14")
 set(CMAKE_CXX_COMPILER_RANLIB "/usr/bin/llvm-ranlib-14")
-set(CMAKE_LINKER "/usr/bin/ld.lld")
+set(CMAKE_LINKER "/usr/bin/ld.lld-14")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCXX )
 set(CMAKE_CXX_COMPILER_LOADED 1)

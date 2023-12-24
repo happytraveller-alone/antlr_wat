@@ -21,14 +21,14 @@ add_executable(Grammar_check
 )
 
 # Link against the ANTLR4 runtime library
-target_link_libraries(Grammar_check ${ANTLR4_ROOT}/runtime/libantlr4-runtime.a)
+target_link_libraries(Grammar_check ${ANTLR4_ROOT}/run/usr/local/lib/libantlr4-runtime.a)
 
 # Add compile flags
-target_compile_options(Grammar_check PRIVATE
-    -Wall            # Enable all warnings
-    # -Werror          # Treat warnings as errors
-    -Wextra          # Enable extra warnings
-    # Add any additional flags here
-)
+# target_compile_options(Grammar_check PRIVATE
+#     # -Wall            # Enable all warnings
+#     # -Werror          # Treat warnings as errors
+#     # -Wextra          # Enable extra warnings
+#     # Add any additional flags here
+# )
 
 # Specify any additional dependencies or flags here

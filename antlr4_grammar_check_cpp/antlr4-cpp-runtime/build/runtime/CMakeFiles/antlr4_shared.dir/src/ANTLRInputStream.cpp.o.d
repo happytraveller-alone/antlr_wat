@@ -1,5 +1,5 @@
 runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.o: \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/ANTLRInputStream.cpp \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/ANTLRInputStream.cpp \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h /usr/include/features-time64.h \
@@ -13,8 +13,8 @@ runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.o: \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/strings.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/Exceptions.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/Exceptions.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/algorithm \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/utility \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -257,11 +257,11 @@ runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.o: \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_stack.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/unordered_set \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/unordered_set.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/misc/Interval.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/IntStream.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Utf8.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/misc/Interval.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/IntStream.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Utf8.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/optional \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/CPPUtils.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/ANTLRInputStream.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/CharStream.h
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/CPPUtils.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/ANTLRInputStream.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/CharStream.h

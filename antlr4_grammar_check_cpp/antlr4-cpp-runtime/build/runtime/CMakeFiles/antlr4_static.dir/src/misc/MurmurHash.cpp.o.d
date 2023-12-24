@@ -1,5 +1,5 @@
 runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.o: \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/misc/MurmurHash.cpp \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/misc/MurmurHash.cpp \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/cstddef \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11/bits/c++config.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -29,9 +29,9 @@ runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.o: \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/strings.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/misc/MurmurHash.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/misc/MurmurHash.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/type_traits \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/algorithm \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/utility \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_relops.h \
@@ -259,4 +259,4 @@ runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.o: \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_stack.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/unordered_set \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/unordered_set.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h

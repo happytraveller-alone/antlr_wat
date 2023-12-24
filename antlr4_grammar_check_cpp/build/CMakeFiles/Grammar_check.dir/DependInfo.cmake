@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/Check.cpp" "CMakeFiles/Grammar_check.dir/Check.cpp.o" "gcc" "CMakeFiles/Grammar_check.dir/Check.cpp.o.d"
-  "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatLexer.cpp" "CMakeFiles/Grammar_check.dir/WatLexer.cpp.o" "gcc" "CMakeFiles/Grammar_check.dir/WatLexer.cpp.o.d"
-  "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatParser.cpp" "CMakeFiles/Grammar_check.dir/WatParser.cpp.o" "gcc" "CMakeFiles/Grammar_check.dir/WatParser.cpp.o.d"
+  "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/Check.cpp" "CMakeFiles/Grammar_check.dir/Check.cpp.o" "gcc" "CMakeFiles/Grammar_check.dir/Check.cpp.o.d"
+  "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatLexer.cpp" "CMakeFiles/Grammar_check.dir/WatLexer.cpp.o" "gcc" "CMakeFiles/Grammar_check.dir/WatLexer.cpp.o.d"
+  "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatParser.cpp" "CMakeFiles/Grammar_check.dir/WatParser.cpp.o" "gcc" "CMakeFiles/Grammar_check.dir/WatParser.cpp.o.d"
   )
 
 # Targets to which this target links.

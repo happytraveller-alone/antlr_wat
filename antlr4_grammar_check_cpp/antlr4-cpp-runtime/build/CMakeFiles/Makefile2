@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime
+CMAKE_SOURCE_DIR = /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build
+CMAKE_BINARY_DIR = /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -153,14 +153,14 @@ runtime/clean: _deps/googletest-build/clean
 runtime/CMakeFiles/antlr4_shared.dir/all:
 	$(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/depend
 	$(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48 "Built target antlr4_shared"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48 "Built target antlr4_shared"
 .PHONY : runtime/CMakeFiles/antlr4_shared.dir/all
 
 # Build rule for subdir invocation for target.
 runtime/CMakeFiles/antlr4_shared.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 48
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_shared.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : runtime/CMakeFiles/antlr4_shared.dir/rule
 
 # Convenience name for target.
@@ -179,14 +179,14 @@ runtime/CMakeFiles/antlr4_shared.dir/clean:
 runtime/CMakeFiles/antlr4_static.dir/all:
 	$(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/depend
 	$(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Built target antlr4_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Built target antlr4_static"
 .PHONY : runtime/CMakeFiles/antlr4_static.dir/all
 
 # Build rule for subdir invocation for target.
 runtime/CMakeFiles/antlr4_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 48
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_static.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : runtime/CMakeFiles/antlr4_static.dir/rule
 
 # Convenience name for target.
@@ -207,14 +207,14 @@ runtime/CMakeFiles/antlr4_tests.dir/all: _deps/googletest-build/googletest/CMake
 runtime/CMakeFiles/antlr4_tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=97 "Built target antlr4_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=97 "Built target antlr4_tests"
 .PHONY : runtime/CMakeFiles/antlr4_tests.dir/all
 
 # Build rule for subdir invocation for target.
 runtime/CMakeFiles/antlr4_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 51
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : runtime/CMakeFiles/antlr4_tests.dir/rule
 
 # Convenience name for target.
@@ -233,14 +233,14 @@ runtime/CMakeFiles/antlr4_tests.dir/clean:
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num= "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num= "Built target gmock"
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -260,14 +260,14 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletes
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=98 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=98 "Built target gmock_main"
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
@@ -286,14 +286,14 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=99 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=99 "Built target gtest"
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -312,14 +312,14 @@ _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=100 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles --progress-num=100 "Built target gtest_main"
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/clang++-14
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src
+CXX_INCLUDES = -I/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src
 
-CXX_FLAGS = -Wall -Wextra -std=gnu++17
+CXX_FLAGS = -std=gnu++17
 

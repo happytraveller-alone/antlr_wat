@@ -1,7 +1,7 @@
 runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.o: \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/IterativeParseTreeWalker.cpp \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/CPPUtils.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/IterativeParseTreeWalker.cpp \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/CPPUtils.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/antlr4-common.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/algorithm \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/utility \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -256,13 +256,13 @@ runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.o: \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/stl_stack.h \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/unordered_set \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/bits/unordered_set.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Casts.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTreeListener.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTree.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Any.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTreeType.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ErrorNode.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/TerminalNode.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/IterativeParseTreeWalker.h \
-  /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTreeWalker.h
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Declarations.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Casts.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTreeListener.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTree.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/support/Any.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTreeType.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ErrorNode.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/TerminalNode.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/IterativeParseTreeWalker.h \
+  /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/runtime/src/tree/ParseTreeWalker.h

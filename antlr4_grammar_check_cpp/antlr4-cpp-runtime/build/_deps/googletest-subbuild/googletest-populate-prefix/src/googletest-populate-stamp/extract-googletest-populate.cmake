@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-subbuild/googletest-populate-prefix/src/e2239ee6043f73722e7aa812a459f54a28552929.zip" ABSOLUTE)
-get_filename_component(directory "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-src" ABSOLUTE)
+get_filename_component(filename "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-subbuild/googletest-populate-prefix/src/e2239ee6043f73722e7aa812a459f54a28552929.zip" ABSOLUTE)
+get_filename_component(directory "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime
+CMAKE_SOURCE_DIR = /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build
+CMAKE_BINARY_DIR = /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-run
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CPackSourceConfig.cmake
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -162,14 +162,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/runtime//CMakeFiles/progress.marks
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/runtime//CMakeFiles/progress.marks
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/clean
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +178,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/preinstall
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/preinstall
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 runtime/CMakeFiles/antlr4_shared.dir/rule:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_shared.dir/rule
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_shared.dir/rule
 .PHONY : runtime/CMakeFiles/antlr4_shared.dir/rule
 
 # Convenience name for target.
@@ -202,12 +202,12 @@ antlr4_shared: runtime/CMakeFiles/antlr4_shared.dir/rule
 
 # fast build rule for target.
 antlr4_shared/fast:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/build
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/build
 .PHONY : antlr4_shared/fast
 
 # Convenience name for target.
 runtime/CMakeFiles/antlr4_static.dir/rule:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_static.dir/rule
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_static.dir/rule
 .PHONY : runtime/CMakeFiles/antlr4_static.dir/rule
 
 # Convenience name for target.
@@ -216,12 +216,12 @@ antlr4_static: runtime/CMakeFiles/antlr4_static.dir/rule
 
 # fast build rule for target.
 antlr4_static/fast:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/build
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/build
 .PHONY : antlr4_static/fast
 
 # Convenience name for target.
 runtime/CMakeFiles/antlr4_tests.dir/rule:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_tests.dir/rule
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runtime/CMakeFiles/antlr4_tests.dir/rule
 .PHONY : runtime/CMakeFiles/antlr4_tests.dir/rule
 
 # Convenience name for target.
@@ -230,7 +230,7 @@ antlr4_tests: runtime/CMakeFiles/antlr4_tests.dir/rule
 
 # fast build rule for target.
 antlr4_tests/fast:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/build
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/build
 .PHONY : antlr4_tests/fast
 
 src/ANTLRErrorListener.o: src/ANTLRErrorListener.cpp.o
@@ -238,8 +238,8 @@ src/ANTLRErrorListener.o: src/ANTLRErrorListener.cpp.o
 
 # target to build an object file
 src/ANTLRErrorListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorListener.cpp.o
 .PHONY : src/ANTLRErrorListener.cpp.o
 
 src/ANTLRErrorListener.i: src/ANTLRErrorListener.cpp.i
@@ -247,8 +247,8 @@ src/ANTLRErrorListener.i: src/ANTLRErrorListener.cpp.i
 
 # target to preprocess a source file
 src/ANTLRErrorListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorListener.cpp.i
 .PHONY : src/ANTLRErrorListener.cpp.i
 
 src/ANTLRErrorListener.s: src/ANTLRErrorListener.cpp.s
@@ -256,8 +256,8 @@ src/ANTLRErrorListener.s: src/ANTLRErrorListener.cpp.s
 
 # target to generate assembly for a file
 src/ANTLRErrorListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorListener.cpp.s
 .PHONY : src/ANTLRErrorListener.cpp.s
 
 src/ANTLRErrorStrategy.o: src/ANTLRErrorStrategy.cpp.o
@@ -265,8 +265,8 @@ src/ANTLRErrorStrategy.o: src/ANTLRErrorStrategy.cpp.o
 
 # target to build an object file
 src/ANTLRErrorStrategy.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorStrategy.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorStrategy.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorStrategy.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorStrategy.cpp.o
 .PHONY : src/ANTLRErrorStrategy.cpp.o
 
 src/ANTLRErrorStrategy.i: src/ANTLRErrorStrategy.cpp.i
@@ -274,8 +274,8 @@ src/ANTLRErrorStrategy.i: src/ANTLRErrorStrategy.cpp.i
 
 # target to preprocess a source file
 src/ANTLRErrorStrategy.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorStrategy.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorStrategy.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorStrategy.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorStrategy.cpp.i
 .PHONY : src/ANTLRErrorStrategy.cpp.i
 
 src/ANTLRErrorStrategy.s: src/ANTLRErrorStrategy.cpp.s
@@ -283,8 +283,8 @@ src/ANTLRErrorStrategy.s: src/ANTLRErrorStrategy.cpp.s
 
 # target to generate assembly for a file
 src/ANTLRErrorStrategy.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorStrategy.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorStrategy.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRErrorStrategy.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRErrorStrategy.cpp.s
 .PHONY : src/ANTLRErrorStrategy.cpp.s
 
 src/ANTLRFileStream.o: src/ANTLRFileStream.cpp.o
@@ -292,8 +292,8 @@ src/ANTLRFileStream.o: src/ANTLRFileStream.cpp.o
 
 # target to build an object file
 src/ANTLRFileStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRFileStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRFileStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRFileStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRFileStream.cpp.o
 .PHONY : src/ANTLRFileStream.cpp.o
 
 src/ANTLRFileStream.i: src/ANTLRFileStream.cpp.i
@@ -301,8 +301,8 @@ src/ANTLRFileStream.i: src/ANTLRFileStream.cpp.i
 
 # target to preprocess a source file
 src/ANTLRFileStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRFileStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRFileStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRFileStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRFileStream.cpp.i
 .PHONY : src/ANTLRFileStream.cpp.i
 
 src/ANTLRFileStream.s: src/ANTLRFileStream.cpp.s
@@ -310,8 +310,8 @@ src/ANTLRFileStream.s: src/ANTLRFileStream.cpp.s
 
 # target to generate assembly for a file
 src/ANTLRFileStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRFileStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRFileStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRFileStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRFileStream.cpp.s
 .PHONY : src/ANTLRFileStream.cpp.s
 
 src/ANTLRInputStream.o: src/ANTLRInputStream.cpp.o
@@ -319,8 +319,8 @@ src/ANTLRInputStream.o: src/ANTLRInputStream.cpp.o
 
 # target to build an object file
 src/ANTLRInputStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRInputStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRInputStream.cpp.o
 .PHONY : src/ANTLRInputStream.cpp.o
 
 src/ANTLRInputStream.i: src/ANTLRInputStream.cpp.i
@@ -328,8 +328,8 @@ src/ANTLRInputStream.i: src/ANTLRInputStream.cpp.i
 
 # target to preprocess a source file
 src/ANTLRInputStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRInputStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRInputStream.cpp.i
 .PHONY : src/ANTLRInputStream.cpp.i
 
 src/ANTLRInputStream.s: src/ANTLRInputStream.cpp.s
@@ -337,8 +337,8 @@ src/ANTLRInputStream.s: src/ANTLRInputStream.cpp.s
 
 # target to generate assembly for a file
 src/ANTLRInputStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRInputStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ANTLRInputStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ANTLRInputStream.cpp.s
 .PHONY : src/ANTLRInputStream.cpp.s
 
 src/BailErrorStrategy.o: src/BailErrorStrategy.cpp.o
@@ -346,8 +346,8 @@ src/BailErrorStrategy.o: src/BailErrorStrategy.cpp.o
 
 # target to build an object file
 src/BailErrorStrategy.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BailErrorStrategy.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BailErrorStrategy.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BailErrorStrategy.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BailErrorStrategy.cpp.o
 .PHONY : src/BailErrorStrategy.cpp.o
 
 src/BailErrorStrategy.i: src/BailErrorStrategy.cpp.i
@@ -355,8 +355,8 @@ src/BailErrorStrategy.i: src/BailErrorStrategy.cpp.i
 
 # target to preprocess a source file
 src/BailErrorStrategy.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BailErrorStrategy.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BailErrorStrategy.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BailErrorStrategy.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BailErrorStrategy.cpp.i
 .PHONY : src/BailErrorStrategy.cpp.i
 
 src/BailErrorStrategy.s: src/BailErrorStrategy.cpp.s
@@ -364,8 +364,8 @@ src/BailErrorStrategy.s: src/BailErrorStrategy.cpp.s
 
 # target to generate assembly for a file
 src/BailErrorStrategy.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BailErrorStrategy.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BailErrorStrategy.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BailErrorStrategy.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BailErrorStrategy.cpp.s
 .PHONY : src/BailErrorStrategy.cpp.s
 
 src/BaseErrorListener.o: src/BaseErrorListener.cpp.o
@@ -373,8 +373,8 @@ src/BaseErrorListener.o: src/BaseErrorListener.cpp.o
 
 # target to build an object file
 src/BaseErrorListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BaseErrorListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BaseErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BaseErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BaseErrorListener.cpp.o
 .PHONY : src/BaseErrorListener.cpp.o
 
 src/BaseErrorListener.i: src/BaseErrorListener.cpp.i
@@ -382,8 +382,8 @@ src/BaseErrorListener.i: src/BaseErrorListener.cpp.i
 
 # target to preprocess a source file
 src/BaseErrorListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BaseErrorListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BaseErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BaseErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BaseErrorListener.cpp.i
 .PHONY : src/BaseErrorListener.cpp.i
 
 src/BaseErrorListener.s: src/BaseErrorListener.cpp.s
@@ -391,8 +391,8 @@ src/BaseErrorListener.s: src/BaseErrorListener.cpp.s
 
 # target to generate assembly for a file
 src/BaseErrorListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BaseErrorListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BaseErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BaseErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BaseErrorListener.cpp.s
 .PHONY : src/BaseErrorListener.cpp.s
 
 src/BufferedTokenStream.o: src/BufferedTokenStream.cpp.o
@@ -400,8 +400,8 @@ src/BufferedTokenStream.o: src/BufferedTokenStream.cpp.o
 
 # target to build an object file
 src/BufferedTokenStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BufferedTokenStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BufferedTokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BufferedTokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BufferedTokenStream.cpp.o
 .PHONY : src/BufferedTokenStream.cpp.o
 
 src/BufferedTokenStream.i: src/BufferedTokenStream.cpp.i
@@ -409,8 +409,8 @@ src/BufferedTokenStream.i: src/BufferedTokenStream.cpp.i
 
 # target to preprocess a source file
 src/BufferedTokenStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BufferedTokenStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BufferedTokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BufferedTokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BufferedTokenStream.cpp.i
 .PHONY : src/BufferedTokenStream.cpp.i
 
 src/BufferedTokenStream.s: src/BufferedTokenStream.cpp.s
@@ -418,8 +418,8 @@ src/BufferedTokenStream.s: src/BufferedTokenStream.cpp.s
 
 # target to generate assembly for a file
 src/BufferedTokenStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BufferedTokenStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BufferedTokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/BufferedTokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/BufferedTokenStream.cpp.s
 .PHONY : src/BufferedTokenStream.cpp.s
 
 src/CharStream.o: src/CharStream.cpp.o
@@ -427,8 +427,8 @@ src/CharStream.o: src/CharStream.cpp.o
 
 # target to build an object file
 src/CharStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CharStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CharStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CharStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CharStream.cpp.o
 .PHONY : src/CharStream.cpp.o
 
 src/CharStream.i: src/CharStream.cpp.i
@@ -436,8 +436,8 @@ src/CharStream.i: src/CharStream.cpp.i
 
 # target to preprocess a source file
 src/CharStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CharStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CharStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CharStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CharStream.cpp.i
 .PHONY : src/CharStream.cpp.i
 
 src/CharStream.s: src/CharStream.cpp.s
@@ -445,8 +445,8 @@ src/CharStream.s: src/CharStream.cpp.s
 
 # target to generate assembly for a file
 src/CharStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CharStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CharStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CharStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CharStream.cpp.s
 .PHONY : src/CharStream.cpp.s
 
 src/CommonToken.o: src/CommonToken.cpp.o
@@ -454,8 +454,8 @@ src/CommonToken.o: src/CommonToken.cpp.o
 
 # target to build an object file
 src/CommonToken.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonToken.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonToken.cpp.o
 .PHONY : src/CommonToken.cpp.o
 
 src/CommonToken.i: src/CommonToken.cpp.i
@@ -463,8 +463,8 @@ src/CommonToken.i: src/CommonToken.cpp.i
 
 # target to preprocess a source file
 src/CommonToken.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonToken.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonToken.cpp.i
 .PHONY : src/CommonToken.cpp.i
 
 src/CommonToken.s: src/CommonToken.cpp.s
@@ -472,8 +472,8 @@ src/CommonToken.s: src/CommonToken.cpp.s
 
 # target to generate assembly for a file
 src/CommonToken.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonToken.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonToken.cpp.s
 .PHONY : src/CommonToken.cpp.s
 
 src/CommonTokenFactory.o: src/CommonTokenFactory.cpp.o
@@ -481,8 +481,8 @@ src/CommonTokenFactory.o: src/CommonTokenFactory.cpp.o
 
 # target to build an object file
 src/CommonTokenFactory.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenFactory.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenFactory.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenFactory.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenFactory.cpp.o
 .PHONY : src/CommonTokenFactory.cpp.o
 
 src/CommonTokenFactory.i: src/CommonTokenFactory.cpp.i
@@ -490,8 +490,8 @@ src/CommonTokenFactory.i: src/CommonTokenFactory.cpp.i
 
 # target to preprocess a source file
 src/CommonTokenFactory.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenFactory.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenFactory.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenFactory.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenFactory.cpp.i
 .PHONY : src/CommonTokenFactory.cpp.i
 
 src/CommonTokenFactory.s: src/CommonTokenFactory.cpp.s
@@ -499,8 +499,8 @@ src/CommonTokenFactory.s: src/CommonTokenFactory.cpp.s
 
 # target to generate assembly for a file
 src/CommonTokenFactory.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenFactory.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenFactory.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenFactory.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenFactory.cpp.s
 .PHONY : src/CommonTokenFactory.cpp.s
 
 src/CommonTokenStream.o: src/CommonTokenStream.cpp.o
@@ -508,8 +508,8 @@ src/CommonTokenStream.o: src/CommonTokenStream.cpp.o
 
 # target to build an object file
 src/CommonTokenStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenStream.cpp.o
 .PHONY : src/CommonTokenStream.cpp.o
 
 src/CommonTokenStream.i: src/CommonTokenStream.cpp.i
@@ -517,8 +517,8 @@ src/CommonTokenStream.i: src/CommonTokenStream.cpp.i
 
 # target to preprocess a source file
 src/CommonTokenStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenStream.cpp.i
 .PHONY : src/CommonTokenStream.cpp.i
 
 src/CommonTokenStream.s: src/CommonTokenStream.cpp.s
@@ -526,8 +526,8 @@ src/CommonTokenStream.s: src/CommonTokenStream.cpp.s
 
 # target to generate assembly for a file
 src/CommonTokenStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/CommonTokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/CommonTokenStream.cpp.s
 .PHONY : src/CommonTokenStream.cpp.s
 
 src/ConsoleErrorListener.o: src/ConsoleErrorListener.cpp.o
@@ -535,8 +535,8 @@ src/ConsoleErrorListener.o: src/ConsoleErrorListener.cpp.o
 
 # target to build an object file
 src/ConsoleErrorListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ConsoleErrorListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ConsoleErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ConsoleErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ConsoleErrorListener.cpp.o
 .PHONY : src/ConsoleErrorListener.cpp.o
 
 src/ConsoleErrorListener.i: src/ConsoleErrorListener.cpp.i
@@ -544,8 +544,8 @@ src/ConsoleErrorListener.i: src/ConsoleErrorListener.cpp.i
 
 # target to preprocess a source file
 src/ConsoleErrorListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ConsoleErrorListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ConsoleErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ConsoleErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ConsoleErrorListener.cpp.i
 .PHONY : src/ConsoleErrorListener.cpp.i
 
 src/ConsoleErrorListener.s: src/ConsoleErrorListener.cpp.s
@@ -553,8 +553,8 @@ src/ConsoleErrorListener.s: src/ConsoleErrorListener.cpp.s
 
 # target to generate assembly for a file
 src/ConsoleErrorListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ConsoleErrorListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ConsoleErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ConsoleErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ConsoleErrorListener.cpp.s
 .PHONY : src/ConsoleErrorListener.cpp.s
 
 src/DefaultErrorStrategy.o: src/DefaultErrorStrategy.cpp.o
@@ -562,8 +562,8 @@ src/DefaultErrorStrategy.o: src/DefaultErrorStrategy.cpp.o
 
 # target to build an object file
 src/DefaultErrorStrategy.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DefaultErrorStrategy.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DefaultErrorStrategy.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DefaultErrorStrategy.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DefaultErrorStrategy.cpp.o
 .PHONY : src/DefaultErrorStrategy.cpp.o
 
 src/DefaultErrorStrategy.i: src/DefaultErrorStrategy.cpp.i
@@ -571,8 +571,8 @@ src/DefaultErrorStrategy.i: src/DefaultErrorStrategy.cpp.i
 
 # target to preprocess a source file
 src/DefaultErrorStrategy.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DefaultErrorStrategy.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DefaultErrorStrategy.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DefaultErrorStrategy.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DefaultErrorStrategy.cpp.i
 .PHONY : src/DefaultErrorStrategy.cpp.i
 
 src/DefaultErrorStrategy.s: src/DefaultErrorStrategy.cpp.s
@@ -580,8 +580,8 @@ src/DefaultErrorStrategy.s: src/DefaultErrorStrategy.cpp.s
 
 # target to generate assembly for a file
 src/DefaultErrorStrategy.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DefaultErrorStrategy.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DefaultErrorStrategy.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DefaultErrorStrategy.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DefaultErrorStrategy.cpp.s
 .PHONY : src/DefaultErrorStrategy.cpp.s
 
 src/DiagnosticErrorListener.o: src/DiagnosticErrorListener.cpp.o
@@ -589,8 +589,8 @@ src/DiagnosticErrorListener.o: src/DiagnosticErrorListener.cpp.o
 
 # target to build an object file
 src/DiagnosticErrorListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DiagnosticErrorListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DiagnosticErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DiagnosticErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DiagnosticErrorListener.cpp.o
 .PHONY : src/DiagnosticErrorListener.cpp.o
 
 src/DiagnosticErrorListener.i: src/DiagnosticErrorListener.cpp.i
@@ -598,8 +598,8 @@ src/DiagnosticErrorListener.i: src/DiagnosticErrorListener.cpp.i
 
 # target to preprocess a source file
 src/DiagnosticErrorListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DiagnosticErrorListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DiagnosticErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DiagnosticErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DiagnosticErrorListener.cpp.i
 .PHONY : src/DiagnosticErrorListener.cpp.i
 
 src/DiagnosticErrorListener.s: src/DiagnosticErrorListener.cpp.s
@@ -607,8 +607,8 @@ src/DiagnosticErrorListener.s: src/DiagnosticErrorListener.cpp.s
 
 # target to generate assembly for a file
 src/DiagnosticErrorListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DiagnosticErrorListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DiagnosticErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/DiagnosticErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/DiagnosticErrorListener.cpp.s
 .PHONY : src/DiagnosticErrorListener.cpp.s
 
 src/Exceptions.o: src/Exceptions.cpp.o
@@ -616,8 +616,8 @@ src/Exceptions.o: src/Exceptions.cpp.o
 
 # target to build an object file
 src/Exceptions.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Exceptions.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Exceptions.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Exceptions.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Exceptions.cpp.o
 .PHONY : src/Exceptions.cpp.o
 
 src/Exceptions.i: src/Exceptions.cpp.i
@@ -625,8 +625,8 @@ src/Exceptions.i: src/Exceptions.cpp.i
 
 # target to preprocess a source file
 src/Exceptions.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Exceptions.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Exceptions.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Exceptions.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Exceptions.cpp.i
 .PHONY : src/Exceptions.cpp.i
 
 src/Exceptions.s: src/Exceptions.cpp.s
@@ -634,8 +634,8 @@ src/Exceptions.s: src/Exceptions.cpp.s
 
 # target to generate assembly for a file
 src/Exceptions.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Exceptions.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Exceptions.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Exceptions.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Exceptions.cpp.s
 .PHONY : src/Exceptions.cpp.s
 
 src/FailedPredicateException.o: src/FailedPredicateException.cpp.o
@@ -643,8 +643,8 @@ src/FailedPredicateException.o: src/FailedPredicateException.cpp.o
 
 # target to build an object file
 src/FailedPredicateException.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/FailedPredicateException.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/FailedPredicateException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/FailedPredicateException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/FailedPredicateException.cpp.o
 .PHONY : src/FailedPredicateException.cpp.o
 
 src/FailedPredicateException.i: src/FailedPredicateException.cpp.i
@@ -652,8 +652,8 @@ src/FailedPredicateException.i: src/FailedPredicateException.cpp.i
 
 # target to preprocess a source file
 src/FailedPredicateException.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/FailedPredicateException.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/FailedPredicateException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/FailedPredicateException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/FailedPredicateException.cpp.i
 .PHONY : src/FailedPredicateException.cpp.i
 
 src/FailedPredicateException.s: src/FailedPredicateException.cpp.s
@@ -661,8 +661,8 @@ src/FailedPredicateException.s: src/FailedPredicateException.cpp.s
 
 # target to generate assembly for a file
 src/FailedPredicateException.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/FailedPredicateException.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/FailedPredicateException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/FailedPredicateException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/FailedPredicateException.cpp.s
 .PHONY : src/FailedPredicateException.cpp.s
 
 src/InputMismatchException.o: src/InputMismatchException.cpp.o
@@ -670,8 +670,8 @@ src/InputMismatchException.o: src/InputMismatchException.cpp.o
 
 # target to build an object file
 src/InputMismatchException.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InputMismatchException.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InputMismatchException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InputMismatchException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InputMismatchException.cpp.o
 .PHONY : src/InputMismatchException.cpp.o
 
 src/InputMismatchException.i: src/InputMismatchException.cpp.i
@@ -679,8 +679,8 @@ src/InputMismatchException.i: src/InputMismatchException.cpp.i
 
 # target to preprocess a source file
 src/InputMismatchException.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InputMismatchException.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InputMismatchException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InputMismatchException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InputMismatchException.cpp.i
 .PHONY : src/InputMismatchException.cpp.i
 
 src/InputMismatchException.s: src/InputMismatchException.cpp.s
@@ -688,8 +688,8 @@ src/InputMismatchException.s: src/InputMismatchException.cpp.s
 
 # target to generate assembly for a file
 src/InputMismatchException.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InputMismatchException.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InputMismatchException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InputMismatchException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InputMismatchException.cpp.s
 .PHONY : src/InputMismatchException.cpp.s
 
 src/IntStream.o: src/IntStream.cpp.o
@@ -697,8 +697,8 @@ src/IntStream.o: src/IntStream.cpp.o
 
 # target to build an object file
 src/IntStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/IntStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/IntStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/IntStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/IntStream.cpp.o
 .PHONY : src/IntStream.cpp.o
 
 src/IntStream.i: src/IntStream.cpp.i
@@ -706,8 +706,8 @@ src/IntStream.i: src/IntStream.cpp.i
 
 # target to preprocess a source file
 src/IntStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/IntStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/IntStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/IntStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/IntStream.cpp.i
 .PHONY : src/IntStream.cpp.i
 
 src/IntStream.s: src/IntStream.cpp.s
@@ -715,8 +715,8 @@ src/IntStream.s: src/IntStream.cpp.s
 
 # target to generate assembly for a file
 src/IntStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/IntStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/IntStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/IntStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/IntStream.cpp.s
 .PHONY : src/IntStream.cpp.s
 
 src/InterpreterRuleContext.o: src/InterpreterRuleContext.cpp.o
@@ -724,8 +724,8 @@ src/InterpreterRuleContext.o: src/InterpreterRuleContext.cpp.o
 
 # target to build an object file
 src/InterpreterRuleContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InterpreterRuleContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InterpreterRuleContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InterpreterRuleContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InterpreterRuleContext.cpp.o
 .PHONY : src/InterpreterRuleContext.cpp.o
 
 src/InterpreterRuleContext.i: src/InterpreterRuleContext.cpp.i
@@ -733,8 +733,8 @@ src/InterpreterRuleContext.i: src/InterpreterRuleContext.cpp.i
 
 # target to preprocess a source file
 src/InterpreterRuleContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InterpreterRuleContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InterpreterRuleContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InterpreterRuleContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InterpreterRuleContext.cpp.i
 .PHONY : src/InterpreterRuleContext.cpp.i
 
 src/InterpreterRuleContext.s: src/InterpreterRuleContext.cpp.s
@@ -742,8 +742,8 @@ src/InterpreterRuleContext.s: src/InterpreterRuleContext.cpp.s
 
 # target to generate assembly for a file
 src/InterpreterRuleContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InterpreterRuleContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InterpreterRuleContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/InterpreterRuleContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/InterpreterRuleContext.cpp.s
 .PHONY : src/InterpreterRuleContext.cpp.s
 
 src/Lexer.o: src/Lexer.cpp.o
@@ -751,8 +751,8 @@ src/Lexer.o: src/Lexer.cpp.o
 
 # target to build an object file
 src/Lexer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Lexer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Lexer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Lexer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Lexer.cpp.o
 .PHONY : src/Lexer.cpp.o
 
 src/Lexer.i: src/Lexer.cpp.i
@@ -760,8 +760,8 @@ src/Lexer.i: src/Lexer.cpp.i
 
 # target to preprocess a source file
 src/Lexer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Lexer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Lexer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Lexer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Lexer.cpp.i
 .PHONY : src/Lexer.cpp.i
 
 src/Lexer.s: src/Lexer.cpp.s
@@ -769,8 +769,8 @@ src/Lexer.s: src/Lexer.cpp.s
 
 # target to generate assembly for a file
 src/Lexer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Lexer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Lexer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Lexer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Lexer.cpp.s
 .PHONY : src/Lexer.cpp.s
 
 src/LexerInterpreter.o: src/LexerInterpreter.cpp.o
@@ -778,8 +778,8 @@ src/LexerInterpreter.o: src/LexerInterpreter.cpp.o
 
 # target to build an object file
 src/LexerInterpreter.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerInterpreter.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerInterpreter.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerInterpreter.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerInterpreter.cpp.o
 .PHONY : src/LexerInterpreter.cpp.o
 
 src/LexerInterpreter.i: src/LexerInterpreter.cpp.i
@@ -787,8 +787,8 @@ src/LexerInterpreter.i: src/LexerInterpreter.cpp.i
 
 # target to preprocess a source file
 src/LexerInterpreter.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerInterpreter.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerInterpreter.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerInterpreter.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerInterpreter.cpp.i
 .PHONY : src/LexerInterpreter.cpp.i
 
 src/LexerInterpreter.s: src/LexerInterpreter.cpp.s
@@ -796,8 +796,8 @@ src/LexerInterpreter.s: src/LexerInterpreter.cpp.s
 
 # target to generate assembly for a file
 src/LexerInterpreter.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerInterpreter.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerInterpreter.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerInterpreter.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerInterpreter.cpp.s
 .PHONY : src/LexerInterpreter.cpp.s
 
 src/LexerNoViableAltException.o: src/LexerNoViableAltException.cpp.o
@@ -805,8 +805,8 @@ src/LexerNoViableAltException.o: src/LexerNoViableAltException.cpp.o
 
 # target to build an object file
 src/LexerNoViableAltException.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerNoViableAltException.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerNoViableAltException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerNoViableAltException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerNoViableAltException.cpp.o
 .PHONY : src/LexerNoViableAltException.cpp.o
 
 src/LexerNoViableAltException.i: src/LexerNoViableAltException.cpp.i
@@ -814,8 +814,8 @@ src/LexerNoViableAltException.i: src/LexerNoViableAltException.cpp.i
 
 # target to preprocess a source file
 src/LexerNoViableAltException.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerNoViableAltException.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerNoViableAltException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerNoViableAltException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerNoViableAltException.cpp.i
 .PHONY : src/LexerNoViableAltException.cpp.i
 
 src/LexerNoViableAltException.s: src/LexerNoViableAltException.cpp.s
@@ -823,8 +823,8 @@ src/LexerNoViableAltException.s: src/LexerNoViableAltException.cpp.s
 
 # target to generate assembly for a file
 src/LexerNoViableAltException.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerNoViableAltException.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerNoViableAltException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/LexerNoViableAltException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/LexerNoViableAltException.cpp.s
 .PHONY : src/LexerNoViableAltException.cpp.s
 
 src/ListTokenSource.o: src/ListTokenSource.cpp.o
@@ -832,8 +832,8 @@ src/ListTokenSource.o: src/ListTokenSource.cpp.o
 
 # target to build an object file
 src/ListTokenSource.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ListTokenSource.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ListTokenSource.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ListTokenSource.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ListTokenSource.cpp.o
 .PHONY : src/ListTokenSource.cpp.o
 
 src/ListTokenSource.i: src/ListTokenSource.cpp.i
@@ -841,8 +841,8 @@ src/ListTokenSource.i: src/ListTokenSource.cpp.i
 
 # target to preprocess a source file
 src/ListTokenSource.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ListTokenSource.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ListTokenSource.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ListTokenSource.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ListTokenSource.cpp.i
 .PHONY : src/ListTokenSource.cpp.i
 
 src/ListTokenSource.s: src/ListTokenSource.cpp.s
@@ -850,8 +850,8 @@ src/ListTokenSource.s: src/ListTokenSource.cpp.s
 
 # target to generate assembly for a file
 src/ListTokenSource.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ListTokenSource.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ListTokenSource.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ListTokenSource.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ListTokenSource.cpp.s
 .PHONY : src/ListTokenSource.cpp.s
 
 src/NoViableAltException.o: src/NoViableAltException.cpp.o
@@ -859,8 +859,8 @@ src/NoViableAltException.o: src/NoViableAltException.cpp.o
 
 # target to build an object file
 src/NoViableAltException.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/NoViableAltException.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/NoViableAltException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/NoViableAltException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/NoViableAltException.cpp.o
 .PHONY : src/NoViableAltException.cpp.o
 
 src/NoViableAltException.i: src/NoViableAltException.cpp.i
@@ -868,8 +868,8 @@ src/NoViableAltException.i: src/NoViableAltException.cpp.i
 
 # target to preprocess a source file
 src/NoViableAltException.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/NoViableAltException.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/NoViableAltException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/NoViableAltException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/NoViableAltException.cpp.i
 .PHONY : src/NoViableAltException.cpp.i
 
 src/NoViableAltException.s: src/NoViableAltException.cpp.s
@@ -877,8 +877,8 @@ src/NoViableAltException.s: src/NoViableAltException.cpp.s
 
 # target to generate assembly for a file
 src/NoViableAltException.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/NoViableAltException.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/NoViableAltException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/NoViableAltException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/NoViableAltException.cpp.s
 .PHONY : src/NoViableAltException.cpp.s
 
 src/Parser.o: src/Parser.cpp.o
@@ -886,8 +886,8 @@ src/Parser.o: src/Parser.cpp.o
 
 # target to build an object file
 src/Parser.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Parser.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Parser.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Parser.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Parser.cpp.o
 .PHONY : src/Parser.cpp.o
 
 src/Parser.i: src/Parser.cpp.i
@@ -895,8 +895,8 @@ src/Parser.i: src/Parser.cpp.i
 
 # target to preprocess a source file
 src/Parser.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Parser.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Parser.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Parser.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Parser.cpp.i
 .PHONY : src/Parser.cpp.i
 
 src/Parser.s: src/Parser.cpp.s
@@ -904,8 +904,8 @@ src/Parser.s: src/Parser.cpp.s
 
 # target to generate assembly for a file
 src/Parser.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Parser.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Parser.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Parser.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Parser.cpp.s
 .PHONY : src/Parser.cpp.s
 
 src/ParserInterpreter.o: src/ParserInterpreter.cpp.o
@@ -913,8 +913,8 @@ src/ParserInterpreter.o: src/ParserInterpreter.cpp.o
 
 # target to build an object file
 src/ParserInterpreter.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserInterpreter.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserInterpreter.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserInterpreter.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserInterpreter.cpp.o
 .PHONY : src/ParserInterpreter.cpp.o
 
 src/ParserInterpreter.i: src/ParserInterpreter.cpp.i
@@ -922,8 +922,8 @@ src/ParserInterpreter.i: src/ParserInterpreter.cpp.i
 
 # target to preprocess a source file
 src/ParserInterpreter.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserInterpreter.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserInterpreter.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserInterpreter.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserInterpreter.cpp.i
 .PHONY : src/ParserInterpreter.cpp.i
 
 src/ParserInterpreter.s: src/ParserInterpreter.cpp.s
@@ -931,8 +931,8 @@ src/ParserInterpreter.s: src/ParserInterpreter.cpp.s
 
 # target to generate assembly for a file
 src/ParserInterpreter.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserInterpreter.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserInterpreter.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserInterpreter.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserInterpreter.cpp.s
 .PHONY : src/ParserInterpreter.cpp.s
 
 src/ParserRuleContext.o: src/ParserRuleContext.cpp.o
@@ -940,8 +940,8 @@ src/ParserRuleContext.o: src/ParserRuleContext.cpp.o
 
 # target to build an object file
 src/ParserRuleContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserRuleContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserRuleContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserRuleContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserRuleContext.cpp.o
 .PHONY : src/ParserRuleContext.cpp.o
 
 src/ParserRuleContext.i: src/ParserRuleContext.cpp.i
@@ -949,8 +949,8 @@ src/ParserRuleContext.i: src/ParserRuleContext.cpp.i
 
 # target to preprocess a source file
 src/ParserRuleContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserRuleContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserRuleContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserRuleContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserRuleContext.cpp.i
 .PHONY : src/ParserRuleContext.cpp.i
 
 src/ParserRuleContext.s: src/ParserRuleContext.cpp.s
@@ -958,8 +958,8 @@ src/ParserRuleContext.s: src/ParserRuleContext.cpp.s
 
 # target to generate assembly for a file
 src/ParserRuleContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserRuleContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserRuleContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ParserRuleContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ParserRuleContext.cpp.s
 .PHONY : src/ParserRuleContext.cpp.s
 
 src/ProxyErrorListener.o: src/ProxyErrorListener.cpp.o
@@ -967,8 +967,8 @@ src/ProxyErrorListener.o: src/ProxyErrorListener.cpp.o
 
 # target to build an object file
 src/ProxyErrorListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ProxyErrorListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ProxyErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ProxyErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ProxyErrorListener.cpp.o
 .PHONY : src/ProxyErrorListener.cpp.o
 
 src/ProxyErrorListener.i: src/ProxyErrorListener.cpp.i
@@ -976,8 +976,8 @@ src/ProxyErrorListener.i: src/ProxyErrorListener.cpp.i
 
 # target to preprocess a source file
 src/ProxyErrorListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ProxyErrorListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ProxyErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ProxyErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ProxyErrorListener.cpp.i
 .PHONY : src/ProxyErrorListener.cpp.i
 
 src/ProxyErrorListener.s: src/ProxyErrorListener.cpp.s
@@ -985,8 +985,8 @@ src/ProxyErrorListener.s: src/ProxyErrorListener.cpp.s
 
 # target to generate assembly for a file
 src/ProxyErrorListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ProxyErrorListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ProxyErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/ProxyErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/ProxyErrorListener.cpp.s
 .PHONY : src/ProxyErrorListener.cpp.s
 
 src/RecognitionException.o: src/RecognitionException.cpp.o
@@ -994,8 +994,8 @@ src/RecognitionException.o: src/RecognitionException.cpp.o
 
 # target to build an object file
 src/RecognitionException.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RecognitionException.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RecognitionException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RecognitionException.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RecognitionException.cpp.o
 .PHONY : src/RecognitionException.cpp.o
 
 src/RecognitionException.i: src/RecognitionException.cpp.i
@@ -1003,8 +1003,8 @@ src/RecognitionException.i: src/RecognitionException.cpp.i
 
 # target to preprocess a source file
 src/RecognitionException.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RecognitionException.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RecognitionException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RecognitionException.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RecognitionException.cpp.i
 .PHONY : src/RecognitionException.cpp.i
 
 src/RecognitionException.s: src/RecognitionException.cpp.s
@@ -1012,8 +1012,8 @@ src/RecognitionException.s: src/RecognitionException.cpp.s
 
 # target to generate assembly for a file
 src/RecognitionException.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RecognitionException.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RecognitionException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RecognitionException.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RecognitionException.cpp.s
 .PHONY : src/RecognitionException.cpp.s
 
 src/Recognizer.o: src/Recognizer.cpp.o
@@ -1021,8 +1021,8 @@ src/Recognizer.o: src/Recognizer.cpp.o
 
 # target to build an object file
 src/Recognizer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Recognizer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Recognizer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Recognizer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Recognizer.cpp.o
 .PHONY : src/Recognizer.cpp.o
 
 src/Recognizer.i: src/Recognizer.cpp.i
@@ -1030,8 +1030,8 @@ src/Recognizer.i: src/Recognizer.cpp.i
 
 # target to preprocess a source file
 src/Recognizer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Recognizer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Recognizer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Recognizer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Recognizer.cpp.i
 .PHONY : src/Recognizer.cpp.i
 
 src/Recognizer.s: src/Recognizer.cpp.s
@@ -1039,8 +1039,8 @@ src/Recognizer.s: src/Recognizer.cpp.s
 
 # target to generate assembly for a file
 src/Recognizer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Recognizer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Recognizer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Recognizer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Recognizer.cpp.s
 .PHONY : src/Recognizer.cpp.s
 
 src/RuleContext.o: src/RuleContext.cpp.o
@@ -1048,8 +1048,8 @@ src/RuleContext.o: src/RuleContext.cpp.o
 
 # target to build an object file
 src/RuleContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContext.cpp.o
 .PHONY : src/RuleContext.cpp.o
 
 src/RuleContext.i: src/RuleContext.cpp.i
@@ -1057,8 +1057,8 @@ src/RuleContext.i: src/RuleContext.cpp.i
 
 # target to preprocess a source file
 src/RuleContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContext.cpp.i
 .PHONY : src/RuleContext.cpp.i
 
 src/RuleContext.s: src/RuleContext.cpp.s
@@ -1066,8 +1066,8 @@ src/RuleContext.s: src/RuleContext.cpp.s
 
 # target to generate assembly for a file
 src/RuleContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContext.cpp.s
 .PHONY : src/RuleContext.cpp.s
 
 src/RuleContextWithAltNum.o: src/RuleContextWithAltNum.cpp.o
@@ -1075,8 +1075,8 @@ src/RuleContextWithAltNum.o: src/RuleContextWithAltNum.cpp.o
 
 # target to build an object file
 src/RuleContextWithAltNum.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContextWithAltNum.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContextWithAltNum.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContextWithAltNum.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContextWithAltNum.cpp.o
 .PHONY : src/RuleContextWithAltNum.cpp.o
 
 src/RuleContextWithAltNum.i: src/RuleContextWithAltNum.cpp.i
@@ -1084,8 +1084,8 @@ src/RuleContextWithAltNum.i: src/RuleContextWithAltNum.cpp.i
 
 # target to preprocess a source file
 src/RuleContextWithAltNum.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContextWithAltNum.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContextWithAltNum.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContextWithAltNum.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContextWithAltNum.cpp.i
 .PHONY : src/RuleContextWithAltNum.cpp.i
 
 src/RuleContextWithAltNum.s: src/RuleContextWithAltNum.cpp.s
@@ -1093,8 +1093,8 @@ src/RuleContextWithAltNum.s: src/RuleContextWithAltNum.cpp.s
 
 # target to generate assembly for a file
 src/RuleContextWithAltNum.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContextWithAltNum.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContextWithAltNum.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuleContextWithAltNum.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuleContextWithAltNum.cpp.s
 .PHONY : src/RuleContextWithAltNum.cpp.s
 
 src/RuntimeMetaData.o: src/RuntimeMetaData.cpp.o
@@ -1102,8 +1102,8 @@ src/RuntimeMetaData.o: src/RuntimeMetaData.cpp.o
 
 # target to build an object file
 src/RuntimeMetaData.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuntimeMetaData.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuntimeMetaData.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuntimeMetaData.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuntimeMetaData.cpp.o
 .PHONY : src/RuntimeMetaData.cpp.o
 
 src/RuntimeMetaData.i: src/RuntimeMetaData.cpp.i
@@ -1111,8 +1111,8 @@ src/RuntimeMetaData.i: src/RuntimeMetaData.cpp.i
 
 # target to preprocess a source file
 src/RuntimeMetaData.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuntimeMetaData.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuntimeMetaData.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuntimeMetaData.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuntimeMetaData.cpp.i
 .PHONY : src/RuntimeMetaData.cpp.i
 
 src/RuntimeMetaData.s: src/RuntimeMetaData.cpp.s
@@ -1120,8 +1120,8 @@ src/RuntimeMetaData.s: src/RuntimeMetaData.cpp.s
 
 # target to generate assembly for a file
 src/RuntimeMetaData.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuntimeMetaData.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuntimeMetaData.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/RuntimeMetaData.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/RuntimeMetaData.cpp.s
 .PHONY : src/RuntimeMetaData.cpp.s
 
 src/Token.o: src/Token.cpp.o
@@ -1129,8 +1129,8 @@ src/Token.o: src/Token.cpp.o
 
 # target to build an object file
 src/Token.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Token.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Token.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Token.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Token.cpp.o
 .PHONY : src/Token.cpp.o
 
 src/Token.i: src/Token.cpp.i
@@ -1138,8 +1138,8 @@ src/Token.i: src/Token.cpp.i
 
 # target to preprocess a source file
 src/Token.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Token.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Token.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Token.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Token.cpp.i
 .PHONY : src/Token.cpp.i
 
 src/Token.s: src/Token.cpp.s
@@ -1147,8 +1147,8 @@ src/Token.s: src/Token.cpp.s
 
 # target to generate assembly for a file
 src/Token.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Token.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Token.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Token.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Token.cpp.s
 .PHONY : src/Token.cpp.s
 
 src/TokenSource.o: src/TokenSource.cpp.o
@@ -1156,8 +1156,8 @@ src/TokenSource.o: src/TokenSource.cpp.o
 
 # target to build an object file
 src/TokenSource.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenSource.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenSource.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenSource.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenSource.cpp.o
 .PHONY : src/TokenSource.cpp.o
 
 src/TokenSource.i: src/TokenSource.cpp.i
@@ -1165,8 +1165,8 @@ src/TokenSource.i: src/TokenSource.cpp.i
 
 # target to preprocess a source file
 src/TokenSource.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenSource.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenSource.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenSource.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenSource.cpp.i
 .PHONY : src/TokenSource.cpp.i
 
 src/TokenSource.s: src/TokenSource.cpp.s
@@ -1174,8 +1174,8 @@ src/TokenSource.s: src/TokenSource.cpp.s
 
 # target to generate assembly for a file
 src/TokenSource.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenSource.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenSource.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenSource.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenSource.cpp.s
 .PHONY : src/TokenSource.cpp.s
 
 src/TokenStream.o: src/TokenStream.cpp.o
@@ -1183,8 +1183,8 @@ src/TokenStream.o: src/TokenStream.cpp.o
 
 # target to build an object file
 src/TokenStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStream.cpp.o
 .PHONY : src/TokenStream.cpp.o
 
 src/TokenStream.i: src/TokenStream.cpp.i
@@ -1192,8 +1192,8 @@ src/TokenStream.i: src/TokenStream.cpp.i
 
 # target to preprocess a source file
 src/TokenStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStream.cpp.i
 .PHONY : src/TokenStream.cpp.i
 
 src/TokenStream.s: src/TokenStream.cpp.s
@@ -1201,8 +1201,8 @@ src/TokenStream.s: src/TokenStream.cpp.s
 
 # target to generate assembly for a file
 src/TokenStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStream.cpp.s
 .PHONY : src/TokenStream.cpp.s
 
 src/TokenStreamRewriter.o: src/TokenStreamRewriter.cpp.o
@@ -1210,8 +1210,8 @@ src/TokenStreamRewriter.o: src/TokenStreamRewriter.cpp.o
 
 # target to build an object file
 src/TokenStreamRewriter.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStreamRewriter.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStreamRewriter.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStreamRewriter.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStreamRewriter.cpp.o
 .PHONY : src/TokenStreamRewriter.cpp.o
 
 src/TokenStreamRewriter.i: src/TokenStreamRewriter.cpp.i
@@ -1219,8 +1219,8 @@ src/TokenStreamRewriter.i: src/TokenStreamRewriter.cpp.i
 
 # target to preprocess a source file
 src/TokenStreamRewriter.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStreamRewriter.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStreamRewriter.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStreamRewriter.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStreamRewriter.cpp.i
 .PHONY : src/TokenStreamRewriter.cpp.i
 
 src/TokenStreamRewriter.s: src/TokenStreamRewriter.cpp.s
@@ -1228,8 +1228,8 @@ src/TokenStreamRewriter.s: src/TokenStreamRewriter.cpp.s
 
 # target to generate assembly for a file
 src/TokenStreamRewriter.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStreamRewriter.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStreamRewriter.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/TokenStreamRewriter.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/TokenStreamRewriter.cpp.s
 .PHONY : src/TokenStreamRewriter.cpp.s
 
 src/UnbufferedCharStream.o: src/UnbufferedCharStream.cpp.o
@@ -1237,8 +1237,8 @@ src/UnbufferedCharStream.o: src/UnbufferedCharStream.cpp.o
 
 # target to build an object file
 src/UnbufferedCharStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedCharStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedCharStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedCharStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedCharStream.cpp.o
 .PHONY : src/UnbufferedCharStream.cpp.o
 
 src/UnbufferedCharStream.i: src/UnbufferedCharStream.cpp.i
@@ -1246,8 +1246,8 @@ src/UnbufferedCharStream.i: src/UnbufferedCharStream.cpp.i
 
 # target to preprocess a source file
 src/UnbufferedCharStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedCharStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedCharStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedCharStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedCharStream.cpp.i
 .PHONY : src/UnbufferedCharStream.cpp.i
 
 src/UnbufferedCharStream.s: src/UnbufferedCharStream.cpp.s
@@ -1255,8 +1255,8 @@ src/UnbufferedCharStream.s: src/UnbufferedCharStream.cpp.s
 
 # target to generate assembly for a file
 src/UnbufferedCharStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedCharStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedCharStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedCharStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedCharStream.cpp.s
 .PHONY : src/UnbufferedCharStream.cpp.s
 
 src/UnbufferedTokenStream.o: src/UnbufferedTokenStream.cpp.o
@@ -1264,8 +1264,8 @@ src/UnbufferedTokenStream.o: src/UnbufferedTokenStream.cpp.o
 
 # target to build an object file
 src/UnbufferedTokenStream.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedTokenStream.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedTokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedTokenStream.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedTokenStream.cpp.o
 .PHONY : src/UnbufferedTokenStream.cpp.o
 
 src/UnbufferedTokenStream.i: src/UnbufferedTokenStream.cpp.i
@@ -1273,8 +1273,8 @@ src/UnbufferedTokenStream.i: src/UnbufferedTokenStream.cpp.i
 
 # target to preprocess a source file
 src/UnbufferedTokenStream.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedTokenStream.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedTokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedTokenStream.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedTokenStream.cpp.i
 .PHONY : src/UnbufferedTokenStream.cpp.i
 
 src/UnbufferedTokenStream.s: src/UnbufferedTokenStream.cpp.s
@@ -1282,8 +1282,8 @@ src/UnbufferedTokenStream.s: src/UnbufferedTokenStream.cpp.s
 
 # target to generate assembly for a file
 src/UnbufferedTokenStream.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedTokenStream.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedTokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/UnbufferedTokenStream.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/UnbufferedTokenStream.cpp.s
 .PHONY : src/UnbufferedTokenStream.cpp.s
 
 src/Vocabulary.o: src/Vocabulary.cpp.o
@@ -1291,8 +1291,8 @@ src/Vocabulary.o: src/Vocabulary.cpp.o
 
 # target to build an object file
 src/Vocabulary.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Vocabulary.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Vocabulary.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Vocabulary.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Vocabulary.cpp.o
 .PHONY : src/Vocabulary.cpp.o
 
 src/Vocabulary.i: src/Vocabulary.cpp.i
@@ -1300,8 +1300,8 @@ src/Vocabulary.i: src/Vocabulary.cpp.i
 
 # target to preprocess a source file
 src/Vocabulary.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Vocabulary.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Vocabulary.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Vocabulary.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Vocabulary.cpp.i
 .PHONY : src/Vocabulary.cpp.i
 
 src/Vocabulary.s: src/Vocabulary.cpp.s
@@ -1309,8 +1309,8 @@ src/Vocabulary.s: src/Vocabulary.cpp.s
 
 # target to generate assembly for a file
 src/Vocabulary.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Vocabulary.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Vocabulary.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/Vocabulary.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/Vocabulary.cpp.s
 .PHONY : src/Vocabulary.cpp.s
 
 src/WritableToken.o: src/WritableToken.cpp.o
@@ -1318,8 +1318,8 @@ src/WritableToken.o: src/WritableToken.cpp.o
 
 # target to build an object file
 src/WritableToken.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/WritableToken.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/WritableToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/WritableToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/WritableToken.cpp.o
 .PHONY : src/WritableToken.cpp.o
 
 src/WritableToken.i: src/WritableToken.cpp.i
@@ -1327,8 +1327,8 @@ src/WritableToken.i: src/WritableToken.cpp.i
 
 # target to preprocess a source file
 src/WritableToken.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/WritableToken.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/WritableToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/WritableToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/WritableToken.cpp.i
 .PHONY : src/WritableToken.cpp.i
 
 src/WritableToken.s: src/WritableToken.cpp.s
@@ -1336,8 +1336,8 @@ src/WritableToken.s: src/WritableToken.cpp.s
 
 # target to generate assembly for a file
 src/WritableToken.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/WritableToken.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/WritableToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/WritableToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/WritableToken.cpp.s
 .PHONY : src/WritableToken.cpp.s
 
 src/atn/ATN.o: src/atn/ATN.cpp.o
@@ -1345,8 +1345,8 @@ src/atn/ATN.o: src/atn/ATN.cpp.o
 
 # target to build an object file
 src/atn/ATN.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATN.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATN.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATN.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATN.cpp.o
 .PHONY : src/atn/ATN.cpp.o
 
 src/atn/ATN.i: src/atn/ATN.cpp.i
@@ -1354,8 +1354,8 @@ src/atn/ATN.i: src/atn/ATN.cpp.i
 
 # target to preprocess a source file
 src/atn/ATN.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATN.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATN.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATN.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATN.cpp.i
 .PHONY : src/atn/ATN.cpp.i
 
 src/atn/ATN.s: src/atn/ATN.cpp.s
@@ -1363,8 +1363,8 @@ src/atn/ATN.s: src/atn/ATN.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATN.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATN.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATN.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATN.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATN.cpp.s
 .PHONY : src/atn/ATN.cpp.s
 
 src/atn/ATNConfig.o: src/atn/ATNConfig.cpp.o
@@ -1372,8 +1372,8 @@ src/atn/ATNConfig.o: src/atn/ATNConfig.cpp.o
 
 # target to build an object file
 src/atn/ATNConfig.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfig.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfig.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfig.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfig.cpp.o
 .PHONY : src/atn/ATNConfig.cpp.o
 
 src/atn/ATNConfig.i: src/atn/ATNConfig.cpp.i
@@ -1381,8 +1381,8 @@ src/atn/ATNConfig.i: src/atn/ATNConfig.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNConfig.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfig.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfig.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfig.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfig.cpp.i
 .PHONY : src/atn/ATNConfig.cpp.i
 
 src/atn/ATNConfig.s: src/atn/ATNConfig.cpp.s
@@ -1390,8 +1390,8 @@ src/atn/ATNConfig.s: src/atn/ATNConfig.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNConfig.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfig.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfig.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfig.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfig.cpp.s
 .PHONY : src/atn/ATNConfig.cpp.s
 
 src/atn/ATNConfigSet.o: src/atn/ATNConfigSet.cpp.o
@@ -1399,8 +1399,8 @@ src/atn/ATNConfigSet.o: src/atn/ATNConfigSet.cpp.o
 
 # target to build an object file
 src/atn/ATNConfigSet.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfigSet.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfigSet.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfigSet.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfigSet.cpp.o
 .PHONY : src/atn/ATNConfigSet.cpp.o
 
 src/atn/ATNConfigSet.i: src/atn/ATNConfigSet.cpp.i
@@ -1408,8 +1408,8 @@ src/atn/ATNConfigSet.i: src/atn/ATNConfigSet.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNConfigSet.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfigSet.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfigSet.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfigSet.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfigSet.cpp.i
 .PHONY : src/atn/ATNConfigSet.cpp.i
 
 src/atn/ATNConfigSet.s: src/atn/ATNConfigSet.cpp.s
@@ -1417,8 +1417,8 @@ src/atn/ATNConfigSet.s: src/atn/ATNConfigSet.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNConfigSet.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfigSet.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfigSet.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNConfigSet.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNConfigSet.cpp.s
 .PHONY : src/atn/ATNConfigSet.cpp.s
 
 src/atn/ATNDeserializationOptions.o: src/atn/ATNDeserializationOptions.cpp.o
@@ -1426,8 +1426,8 @@ src/atn/ATNDeserializationOptions.o: src/atn/ATNDeserializationOptions.cpp.o
 
 # target to build an object file
 src/atn/ATNDeserializationOptions.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializationOptions.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializationOptions.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializationOptions.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializationOptions.cpp.o
 .PHONY : src/atn/ATNDeserializationOptions.cpp.o
 
 src/atn/ATNDeserializationOptions.i: src/atn/ATNDeserializationOptions.cpp.i
@@ -1435,8 +1435,8 @@ src/atn/ATNDeserializationOptions.i: src/atn/ATNDeserializationOptions.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNDeserializationOptions.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializationOptions.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializationOptions.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializationOptions.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializationOptions.cpp.i
 .PHONY : src/atn/ATNDeserializationOptions.cpp.i
 
 src/atn/ATNDeserializationOptions.s: src/atn/ATNDeserializationOptions.cpp.s
@@ -1444,8 +1444,8 @@ src/atn/ATNDeserializationOptions.s: src/atn/ATNDeserializationOptions.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNDeserializationOptions.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializationOptions.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializationOptions.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializationOptions.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializationOptions.cpp.s
 .PHONY : src/atn/ATNDeserializationOptions.cpp.s
 
 src/atn/ATNDeserializer.o: src/atn/ATNDeserializer.cpp.o
@@ -1453,8 +1453,8 @@ src/atn/ATNDeserializer.o: src/atn/ATNDeserializer.cpp.o
 
 # target to build an object file
 src/atn/ATNDeserializer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializer.cpp.o
 .PHONY : src/atn/ATNDeserializer.cpp.o
 
 src/atn/ATNDeserializer.i: src/atn/ATNDeserializer.cpp.i
@@ -1462,8 +1462,8 @@ src/atn/ATNDeserializer.i: src/atn/ATNDeserializer.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNDeserializer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializer.cpp.i
 .PHONY : src/atn/ATNDeserializer.cpp.i
 
 src/atn/ATNDeserializer.s: src/atn/ATNDeserializer.cpp.s
@@ -1471,8 +1471,8 @@ src/atn/ATNDeserializer.s: src/atn/ATNDeserializer.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNDeserializer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNDeserializer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNDeserializer.cpp.s
 .PHONY : src/atn/ATNDeserializer.cpp.s
 
 src/atn/ATNSimulator.o: src/atn/ATNSimulator.cpp.o
@@ -1480,8 +1480,8 @@ src/atn/ATNSimulator.o: src/atn/ATNSimulator.cpp.o
 
 # target to build an object file
 src/atn/ATNSimulator.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNSimulator.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNSimulator.cpp.o
 .PHONY : src/atn/ATNSimulator.cpp.o
 
 src/atn/ATNSimulator.i: src/atn/ATNSimulator.cpp.i
@@ -1489,8 +1489,8 @@ src/atn/ATNSimulator.i: src/atn/ATNSimulator.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNSimulator.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNSimulator.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNSimulator.cpp.i
 .PHONY : src/atn/ATNSimulator.cpp.i
 
 src/atn/ATNSimulator.s: src/atn/ATNSimulator.cpp.s
@@ -1498,8 +1498,8 @@ src/atn/ATNSimulator.s: src/atn/ATNSimulator.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNSimulator.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNSimulator.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNSimulator.cpp.s
 .PHONY : src/atn/ATNSimulator.cpp.s
 
 src/atn/ATNState.o: src/atn/ATNState.cpp.o
@@ -1507,8 +1507,8 @@ src/atn/ATNState.o: src/atn/ATNState.cpp.o
 
 # target to build an object file
 src/atn/ATNState.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNState.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNState.cpp.o
 .PHONY : src/atn/ATNState.cpp.o
 
 src/atn/ATNState.i: src/atn/ATNState.cpp.i
@@ -1516,8 +1516,8 @@ src/atn/ATNState.i: src/atn/ATNState.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNState.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNState.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNState.cpp.i
 .PHONY : src/atn/ATNState.cpp.i
 
 src/atn/ATNState.s: src/atn/ATNState.cpp.s
@@ -1525,8 +1525,8 @@ src/atn/ATNState.s: src/atn/ATNState.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNState.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNState.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNState.cpp.s
 .PHONY : src/atn/ATNState.cpp.s
 
 src/atn/ATNStateType.o: src/atn/ATNStateType.cpp.o
@@ -1534,8 +1534,8 @@ src/atn/ATNStateType.o: src/atn/ATNStateType.cpp.o
 
 # target to build an object file
 src/atn/ATNStateType.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNStateType.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNStateType.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNStateType.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNStateType.cpp.o
 .PHONY : src/atn/ATNStateType.cpp.o
 
 src/atn/ATNStateType.i: src/atn/ATNStateType.cpp.i
@@ -1543,8 +1543,8 @@ src/atn/ATNStateType.i: src/atn/ATNStateType.cpp.i
 
 # target to preprocess a source file
 src/atn/ATNStateType.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNStateType.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNStateType.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNStateType.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNStateType.cpp.i
 .PHONY : src/atn/ATNStateType.cpp.i
 
 src/atn/ATNStateType.s: src/atn/ATNStateType.cpp.s
@@ -1552,8 +1552,8 @@ src/atn/ATNStateType.s: src/atn/ATNStateType.cpp.s
 
 # target to generate assembly for a file
 src/atn/ATNStateType.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNStateType.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNStateType.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ATNStateType.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ATNStateType.cpp.s
 .PHONY : src/atn/ATNStateType.cpp.s
 
 src/atn/ActionTransition.o: src/atn/ActionTransition.cpp.o
@@ -1561,8 +1561,8 @@ src/atn/ActionTransition.o: src/atn/ActionTransition.cpp.o
 
 # target to build an object file
 src/atn/ActionTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ActionTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ActionTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ActionTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ActionTransition.cpp.o
 .PHONY : src/atn/ActionTransition.cpp.o
 
 src/atn/ActionTransition.i: src/atn/ActionTransition.cpp.i
@@ -1570,8 +1570,8 @@ src/atn/ActionTransition.i: src/atn/ActionTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/ActionTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ActionTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ActionTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ActionTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ActionTransition.cpp.i
 .PHONY : src/atn/ActionTransition.cpp.i
 
 src/atn/ActionTransition.s: src/atn/ActionTransition.cpp.s
@@ -1579,8 +1579,8 @@ src/atn/ActionTransition.s: src/atn/ActionTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/ActionTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ActionTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ActionTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ActionTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ActionTransition.cpp.s
 .PHONY : src/atn/ActionTransition.cpp.s
 
 src/atn/AmbiguityInfo.o: src/atn/AmbiguityInfo.cpp.o
@@ -1588,8 +1588,8 @@ src/atn/AmbiguityInfo.o: src/atn/AmbiguityInfo.cpp.o
 
 # target to build an object file
 src/atn/AmbiguityInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AmbiguityInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AmbiguityInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AmbiguityInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AmbiguityInfo.cpp.o
 .PHONY : src/atn/AmbiguityInfo.cpp.o
 
 src/atn/AmbiguityInfo.i: src/atn/AmbiguityInfo.cpp.i
@@ -1597,8 +1597,8 @@ src/atn/AmbiguityInfo.i: src/atn/AmbiguityInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/AmbiguityInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AmbiguityInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AmbiguityInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AmbiguityInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AmbiguityInfo.cpp.i
 .PHONY : src/atn/AmbiguityInfo.cpp.i
 
 src/atn/AmbiguityInfo.s: src/atn/AmbiguityInfo.cpp.s
@@ -1606,8 +1606,8 @@ src/atn/AmbiguityInfo.s: src/atn/AmbiguityInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/AmbiguityInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AmbiguityInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AmbiguityInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AmbiguityInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AmbiguityInfo.cpp.s
 .PHONY : src/atn/AmbiguityInfo.cpp.s
 
 src/atn/ArrayPredictionContext.o: src/atn/ArrayPredictionContext.cpp.o
@@ -1615,8 +1615,8 @@ src/atn/ArrayPredictionContext.o: src/atn/ArrayPredictionContext.cpp.o
 
 # target to build an object file
 src/atn/ArrayPredictionContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ArrayPredictionContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ArrayPredictionContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ArrayPredictionContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ArrayPredictionContext.cpp.o
 .PHONY : src/atn/ArrayPredictionContext.cpp.o
 
 src/atn/ArrayPredictionContext.i: src/atn/ArrayPredictionContext.cpp.i
@@ -1624,8 +1624,8 @@ src/atn/ArrayPredictionContext.i: src/atn/ArrayPredictionContext.cpp.i
 
 # target to preprocess a source file
 src/atn/ArrayPredictionContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ArrayPredictionContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ArrayPredictionContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ArrayPredictionContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ArrayPredictionContext.cpp.i
 .PHONY : src/atn/ArrayPredictionContext.cpp.i
 
 src/atn/ArrayPredictionContext.s: src/atn/ArrayPredictionContext.cpp.s
@@ -1633,8 +1633,8 @@ src/atn/ArrayPredictionContext.s: src/atn/ArrayPredictionContext.cpp.s
 
 # target to generate assembly for a file
 src/atn/ArrayPredictionContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ArrayPredictionContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ArrayPredictionContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ArrayPredictionContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ArrayPredictionContext.cpp.s
 .PHONY : src/atn/ArrayPredictionContext.cpp.s
 
 src/atn/AtomTransition.o: src/atn/AtomTransition.cpp.o
@@ -1642,8 +1642,8 @@ src/atn/AtomTransition.o: src/atn/AtomTransition.cpp.o
 
 # target to build an object file
 src/atn/AtomTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AtomTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AtomTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AtomTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AtomTransition.cpp.o
 .PHONY : src/atn/AtomTransition.cpp.o
 
 src/atn/AtomTransition.i: src/atn/AtomTransition.cpp.i
@@ -1651,8 +1651,8 @@ src/atn/AtomTransition.i: src/atn/AtomTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/AtomTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AtomTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AtomTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AtomTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AtomTransition.cpp.i
 .PHONY : src/atn/AtomTransition.cpp.i
 
 src/atn/AtomTransition.s: src/atn/AtomTransition.cpp.s
@@ -1660,8 +1660,8 @@ src/atn/AtomTransition.s: src/atn/AtomTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/AtomTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AtomTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AtomTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/AtomTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/AtomTransition.cpp.s
 .PHONY : src/atn/AtomTransition.cpp.s
 
 src/atn/ContextSensitivityInfo.o: src/atn/ContextSensitivityInfo.cpp.o
@@ -1669,8 +1669,8 @@ src/atn/ContextSensitivityInfo.o: src/atn/ContextSensitivityInfo.cpp.o
 
 # target to build an object file
 src/atn/ContextSensitivityInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ContextSensitivityInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ContextSensitivityInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ContextSensitivityInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ContextSensitivityInfo.cpp.o
 .PHONY : src/atn/ContextSensitivityInfo.cpp.o
 
 src/atn/ContextSensitivityInfo.i: src/atn/ContextSensitivityInfo.cpp.i
@@ -1678,8 +1678,8 @@ src/atn/ContextSensitivityInfo.i: src/atn/ContextSensitivityInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/ContextSensitivityInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ContextSensitivityInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ContextSensitivityInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ContextSensitivityInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ContextSensitivityInfo.cpp.i
 .PHONY : src/atn/ContextSensitivityInfo.cpp.i
 
 src/atn/ContextSensitivityInfo.s: src/atn/ContextSensitivityInfo.cpp.s
@@ -1687,8 +1687,8 @@ src/atn/ContextSensitivityInfo.s: src/atn/ContextSensitivityInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/ContextSensitivityInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ContextSensitivityInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ContextSensitivityInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ContextSensitivityInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ContextSensitivityInfo.cpp.s
 .PHONY : src/atn/ContextSensitivityInfo.cpp.s
 
 src/atn/DecisionEventInfo.o: src/atn/DecisionEventInfo.cpp.o
@@ -1696,8 +1696,8 @@ src/atn/DecisionEventInfo.o: src/atn/DecisionEventInfo.cpp.o
 
 # target to build an object file
 src/atn/DecisionEventInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionEventInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionEventInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionEventInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionEventInfo.cpp.o
 .PHONY : src/atn/DecisionEventInfo.cpp.o
 
 src/atn/DecisionEventInfo.i: src/atn/DecisionEventInfo.cpp.i
@@ -1705,8 +1705,8 @@ src/atn/DecisionEventInfo.i: src/atn/DecisionEventInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/DecisionEventInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionEventInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionEventInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionEventInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionEventInfo.cpp.i
 .PHONY : src/atn/DecisionEventInfo.cpp.i
 
 src/atn/DecisionEventInfo.s: src/atn/DecisionEventInfo.cpp.s
@@ -1714,8 +1714,8 @@ src/atn/DecisionEventInfo.s: src/atn/DecisionEventInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/DecisionEventInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionEventInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionEventInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionEventInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionEventInfo.cpp.s
 .PHONY : src/atn/DecisionEventInfo.cpp.s
 
 src/atn/DecisionInfo.o: src/atn/DecisionInfo.cpp.o
@@ -1723,8 +1723,8 @@ src/atn/DecisionInfo.o: src/atn/DecisionInfo.cpp.o
 
 # target to build an object file
 src/atn/DecisionInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionInfo.cpp.o
 .PHONY : src/atn/DecisionInfo.cpp.o
 
 src/atn/DecisionInfo.i: src/atn/DecisionInfo.cpp.i
@@ -1732,8 +1732,8 @@ src/atn/DecisionInfo.i: src/atn/DecisionInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/DecisionInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionInfo.cpp.i
 .PHONY : src/atn/DecisionInfo.cpp.i
 
 src/atn/DecisionInfo.s: src/atn/DecisionInfo.cpp.s
@@ -1741,8 +1741,8 @@ src/atn/DecisionInfo.s: src/atn/DecisionInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/DecisionInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionInfo.cpp.s
 .PHONY : src/atn/DecisionInfo.cpp.s
 
 src/atn/DecisionState.o: src/atn/DecisionState.cpp.o
@@ -1750,8 +1750,8 @@ src/atn/DecisionState.o: src/atn/DecisionState.cpp.o
 
 # target to build an object file
 src/atn/DecisionState.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionState.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionState.cpp.o
 .PHONY : src/atn/DecisionState.cpp.o
 
 src/atn/DecisionState.i: src/atn/DecisionState.cpp.i
@@ -1759,8 +1759,8 @@ src/atn/DecisionState.i: src/atn/DecisionState.cpp.i
 
 # target to preprocess a source file
 src/atn/DecisionState.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionState.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionState.cpp.i
 .PHONY : src/atn/DecisionState.cpp.i
 
 src/atn/DecisionState.s: src/atn/DecisionState.cpp.s
@@ -1768,8 +1768,8 @@ src/atn/DecisionState.s: src/atn/DecisionState.cpp.s
 
 # target to generate assembly for a file
 src/atn/DecisionState.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionState.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/DecisionState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/DecisionState.cpp.s
 .PHONY : src/atn/DecisionState.cpp.s
 
 src/atn/EpsilonTransition.o: src/atn/EpsilonTransition.cpp.o
@@ -1777,8 +1777,8 @@ src/atn/EpsilonTransition.o: src/atn/EpsilonTransition.cpp.o
 
 # target to build an object file
 src/atn/EpsilonTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/EpsilonTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/EpsilonTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/EpsilonTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/EpsilonTransition.cpp.o
 .PHONY : src/atn/EpsilonTransition.cpp.o
 
 src/atn/EpsilonTransition.i: src/atn/EpsilonTransition.cpp.i
@@ -1786,8 +1786,8 @@ src/atn/EpsilonTransition.i: src/atn/EpsilonTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/EpsilonTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/EpsilonTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/EpsilonTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/EpsilonTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/EpsilonTransition.cpp.i
 .PHONY : src/atn/EpsilonTransition.cpp.i
 
 src/atn/EpsilonTransition.s: src/atn/EpsilonTransition.cpp.s
@@ -1795,8 +1795,8 @@ src/atn/EpsilonTransition.s: src/atn/EpsilonTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/EpsilonTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/EpsilonTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/EpsilonTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/EpsilonTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/EpsilonTransition.cpp.s
 .PHONY : src/atn/EpsilonTransition.cpp.s
 
 src/atn/ErrorInfo.o: src/atn/ErrorInfo.cpp.o
@@ -1804,8 +1804,8 @@ src/atn/ErrorInfo.o: src/atn/ErrorInfo.cpp.o
 
 # target to build an object file
 src/atn/ErrorInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ErrorInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ErrorInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ErrorInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ErrorInfo.cpp.o
 .PHONY : src/atn/ErrorInfo.cpp.o
 
 src/atn/ErrorInfo.i: src/atn/ErrorInfo.cpp.i
@@ -1813,8 +1813,8 @@ src/atn/ErrorInfo.i: src/atn/ErrorInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/ErrorInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ErrorInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ErrorInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ErrorInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ErrorInfo.cpp.i
 .PHONY : src/atn/ErrorInfo.cpp.i
 
 src/atn/ErrorInfo.s: src/atn/ErrorInfo.cpp.s
@@ -1822,8 +1822,8 @@ src/atn/ErrorInfo.s: src/atn/ErrorInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/ErrorInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ErrorInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ErrorInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ErrorInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ErrorInfo.cpp.s
 .PHONY : src/atn/ErrorInfo.cpp.s
 
 src/atn/LL1Analyzer.o: src/atn/LL1Analyzer.cpp.o
@@ -1831,8 +1831,8 @@ src/atn/LL1Analyzer.o: src/atn/LL1Analyzer.cpp.o
 
 # target to build an object file
 src/atn/LL1Analyzer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LL1Analyzer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LL1Analyzer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LL1Analyzer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LL1Analyzer.cpp.o
 .PHONY : src/atn/LL1Analyzer.cpp.o
 
 src/atn/LL1Analyzer.i: src/atn/LL1Analyzer.cpp.i
@@ -1840,8 +1840,8 @@ src/atn/LL1Analyzer.i: src/atn/LL1Analyzer.cpp.i
 
 # target to preprocess a source file
 src/atn/LL1Analyzer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LL1Analyzer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LL1Analyzer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LL1Analyzer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LL1Analyzer.cpp.i
 .PHONY : src/atn/LL1Analyzer.cpp.i
 
 src/atn/LL1Analyzer.s: src/atn/LL1Analyzer.cpp.s
@@ -1849,8 +1849,8 @@ src/atn/LL1Analyzer.s: src/atn/LL1Analyzer.cpp.s
 
 # target to generate assembly for a file
 src/atn/LL1Analyzer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LL1Analyzer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LL1Analyzer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LL1Analyzer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LL1Analyzer.cpp.s
 .PHONY : src/atn/LL1Analyzer.cpp.s
 
 src/atn/LexerATNConfig.o: src/atn/LexerATNConfig.cpp.o
@@ -1858,8 +1858,8 @@ src/atn/LexerATNConfig.o: src/atn/LexerATNConfig.cpp.o
 
 # target to build an object file
 src/atn/LexerATNConfig.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNConfig.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNConfig.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNConfig.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNConfig.cpp.o
 .PHONY : src/atn/LexerATNConfig.cpp.o
 
 src/atn/LexerATNConfig.i: src/atn/LexerATNConfig.cpp.i
@@ -1867,8 +1867,8 @@ src/atn/LexerATNConfig.i: src/atn/LexerATNConfig.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerATNConfig.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNConfig.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNConfig.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNConfig.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNConfig.cpp.i
 .PHONY : src/atn/LexerATNConfig.cpp.i
 
 src/atn/LexerATNConfig.s: src/atn/LexerATNConfig.cpp.s
@@ -1876,8 +1876,8 @@ src/atn/LexerATNConfig.s: src/atn/LexerATNConfig.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerATNConfig.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNConfig.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNConfig.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNConfig.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNConfig.cpp.s
 .PHONY : src/atn/LexerATNConfig.cpp.s
 
 src/atn/LexerATNSimulator.o: src/atn/LexerATNSimulator.cpp.o
@@ -1885,8 +1885,8 @@ src/atn/LexerATNSimulator.o: src/atn/LexerATNSimulator.cpp.o
 
 # target to build an object file
 src/atn/LexerATNSimulator.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNSimulator.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNSimulator.cpp.o
 .PHONY : src/atn/LexerATNSimulator.cpp.o
 
 src/atn/LexerATNSimulator.i: src/atn/LexerATNSimulator.cpp.i
@@ -1894,8 +1894,8 @@ src/atn/LexerATNSimulator.i: src/atn/LexerATNSimulator.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerATNSimulator.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNSimulator.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNSimulator.cpp.i
 .PHONY : src/atn/LexerATNSimulator.cpp.i
 
 src/atn/LexerATNSimulator.s: src/atn/LexerATNSimulator.cpp.s
@@ -1903,8 +1903,8 @@ src/atn/LexerATNSimulator.s: src/atn/LexerATNSimulator.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerATNSimulator.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNSimulator.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerATNSimulator.cpp.s
 .PHONY : src/atn/LexerATNSimulator.cpp.s
 
 src/atn/LexerAction.o: src/atn/LexerAction.cpp.o
@@ -1912,8 +1912,8 @@ src/atn/LexerAction.o: src/atn/LexerAction.cpp.o
 
 # target to build an object file
 src/atn/LexerAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerAction.cpp.o
 .PHONY : src/atn/LexerAction.cpp.o
 
 src/atn/LexerAction.i: src/atn/LexerAction.cpp.i
@@ -1921,8 +1921,8 @@ src/atn/LexerAction.i: src/atn/LexerAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerAction.cpp.i
 .PHONY : src/atn/LexerAction.cpp.i
 
 src/atn/LexerAction.s: src/atn/LexerAction.cpp.s
@@ -1930,8 +1930,8 @@ src/atn/LexerAction.s: src/atn/LexerAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerAction.cpp.s
 .PHONY : src/atn/LexerAction.cpp.s
 
 src/atn/LexerActionExecutor.o: src/atn/LexerActionExecutor.cpp.o
@@ -1939,8 +1939,8 @@ src/atn/LexerActionExecutor.o: src/atn/LexerActionExecutor.cpp.o
 
 # target to build an object file
 src/atn/LexerActionExecutor.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerActionExecutor.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerActionExecutor.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerActionExecutor.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerActionExecutor.cpp.o
 .PHONY : src/atn/LexerActionExecutor.cpp.o
 
 src/atn/LexerActionExecutor.i: src/atn/LexerActionExecutor.cpp.i
@@ -1948,8 +1948,8 @@ src/atn/LexerActionExecutor.i: src/atn/LexerActionExecutor.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerActionExecutor.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerActionExecutor.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerActionExecutor.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerActionExecutor.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerActionExecutor.cpp.i
 .PHONY : src/atn/LexerActionExecutor.cpp.i
 
 src/atn/LexerActionExecutor.s: src/atn/LexerActionExecutor.cpp.s
@@ -1957,8 +1957,8 @@ src/atn/LexerActionExecutor.s: src/atn/LexerActionExecutor.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerActionExecutor.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerActionExecutor.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerActionExecutor.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerActionExecutor.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerActionExecutor.cpp.s
 .PHONY : src/atn/LexerActionExecutor.cpp.s
 
 src/atn/LexerChannelAction.o: src/atn/LexerChannelAction.cpp.o
@@ -1966,8 +1966,8 @@ src/atn/LexerChannelAction.o: src/atn/LexerChannelAction.cpp.o
 
 # target to build an object file
 src/atn/LexerChannelAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerChannelAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerChannelAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerChannelAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerChannelAction.cpp.o
 .PHONY : src/atn/LexerChannelAction.cpp.o
 
 src/atn/LexerChannelAction.i: src/atn/LexerChannelAction.cpp.i
@@ -1975,8 +1975,8 @@ src/atn/LexerChannelAction.i: src/atn/LexerChannelAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerChannelAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerChannelAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerChannelAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerChannelAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerChannelAction.cpp.i
 .PHONY : src/atn/LexerChannelAction.cpp.i
 
 src/atn/LexerChannelAction.s: src/atn/LexerChannelAction.cpp.s
@@ -1984,8 +1984,8 @@ src/atn/LexerChannelAction.s: src/atn/LexerChannelAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerChannelAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerChannelAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerChannelAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerChannelAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerChannelAction.cpp.s
 .PHONY : src/atn/LexerChannelAction.cpp.s
 
 src/atn/LexerCustomAction.o: src/atn/LexerCustomAction.cpp.o
@@ -1993,8 +1993,8 @@ src/atn/LexerCustomAction.o: src/atn/LexerCustomAction.cpp.o
 
 # target to build an object file
 src/atn/LexerCustomAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerCustomAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerCustomAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerCustomAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerCustomAction.cpp.o
 .PHONY : src/atn/LexerCustomAction.cpp.o
 
 src/atn/LexerCustomAction.i: src/atn/LexerCustomAction.cpp.i
@@ -2002,8 +2002,8 @@ src/atn/LexerCustomAction.i: src/atn/LexerCustomAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerCustomAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerCustomAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerCustomAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerCustomAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerCustomAction.cpp.i
 .PHONY : src/atn/LexerCustomAction.cpp.i
 
 src/atn/LexerCustomAction.s: src/atn/LexerCustomAction.cpp.s
@@ -2011,8 +2011,8 @@ src/atn/LexerCustomAction.s: src/atn/LexerCustomAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerCustomAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerCustomAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerCustomAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerCustomAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerCustomAction.cpp.s
 .PHONY : src/atn/LexerCustomAction.cpp.s
 
 src/atn/LexerIndexedCustomAction.o: src/atn/LexerIndexedCustomAction.cpp.o
@@ -2020,8 +2020,8 @@ src/atn/LexerIndexedCustomAction.o: src/atn/LexerIndexedCustomAction.cpp.o
 
 # target to build an object file
 src/atn/LexerIndexedCustomAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerIndexedCustomAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerIndexedCustomAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerIndexedCustomAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerIndexedCustomAction.cpp.o
 .PHONY : src/atn/LexerIndexedCustomAction.cpp.o
 
 src/atn/LexerIndexedCustomAction.i: src/atn/LexerIndexedCustomAction.cpp.i
@@ -2029,8 +2029,8 @@ src/atn/LexerIndexedCustomAction.i: src/atn/LexerIndexedCustomAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerIndexedCustomAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerIndexedCustomAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerIndexedCustomAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerIndexedCustomAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerIndexedCustomAction.cpp.i
 .PHONY : src/atn/LexerIndexedCustomAction.cpp.i
 
 src/atn/LexerIndexedCustomAction.s: src/atn/LexerIndexedCustomAction.cpp.s
@@ -2038,8 +2038,8 @@ src/atn/LexerIndexedCustomAction.s: src/atn/LexerIndexedCustomAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerIndexedCustomAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerIndexedCustomAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerIndexedCustomAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerIndexedCustomAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerIndexedCustomAction.cpp.s
 .PHONY : src/atn/LexerIndexedCustomAction.cpp.s
 
 src/atn/LexerModeAction.o: src/atn/LexerModeAction.cpp.o
@@ -2047,8 +2047,8 @@ src/atn/LexerModeAction.o: src/atn/LexerModeAction.cpp.o
 
 # target to build an object file
 src/atn/LexerModeAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerModeAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerModeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerModeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerModeAction.cpp.o
 .PHONY : src/atn/LexerModeAction.cpp.o
 
 src/atn/LexerModeAction.i: src/atn/LexerModeAction.cpp.i
@@ -2056,8 +2056,8 @@ src/atn/LexerModeAction.i: src/atn/LexerModeAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerModeAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerModeAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerModeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerModeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerModeAction.cpp.i
 .PHONY : src/atn/LexerModeAction.cpp.i
 
 src/atn/LexerModeAction.s: src/atn/LexerModeAction.cpp.s
@@ -2065,8 +2065,8 @@ src/atn/LexerModeAction.s: src/atn/LexerModeAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerModeAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerModeAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerModeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerModeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerModeAction.cpp.s
 .PHONY : src/atn/LexerModeAction.cpp.s
 
 src/atn/LexerMoreAction.o: src/atn/LexerMoreAction.cpp.o
@@ -2074,8 +2074,8 @@ src/atn/LexerMoreAction.o: src/atn/LexerMoreAction.cpp.o
 
 # target to build an object file
 src/atn/LexerMoreAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerMoreAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerMoreAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerMoreAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerMoreAction.cpp.o
 .PHONY : src/atn/LexerMoreAction.cpp.o
 
 src/atn/LexerMoreAction.i: src/atn/LexerMoreAction.cpp.i
@@ -2083,8 +2083,8 @@ src/atn/LexerMoreAction.i: src/atn/LexerMoreAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerMoreAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerMoreAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerMoreAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerMoreAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerMoreAction.cpp.i
 .PHONY : src/atn/LexerMoreAction.cpp.i
 
 src/atn/LexerMoreAction.s: src/atn/LexerMoreAction.cpp.s
@@ -2092,8 +2092,8 @@ src/atn/LexerMoreAction.s: src/atn/LexerMoreAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerMoreAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerMoreAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerMoreAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerMoreAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerMoreAction.cpp.s
 .PHONY : src/atn/LexerMoreAction.cpp.s
 
 src/atn/LexerPopModeAction.o: src/atn/LexerPopModeAction.cpp.o
@@ -2101,8 +2101,8 @@ src/atn/LexerPopModeAction.o: src/atn/LexerPopModeAction.cpp.o
 
 # target to build an object file
 src/atn/LexerPopModeAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPopModeAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPopModeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPopModeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPopModeAction.cpp.o
 .PHONY : src/atn/LexerPopModeAction.cpp.o
 
 src/atn/LexerPopModeAction.i: src/atn/LexerPopModeAction.cpp.i
@@ -2110,8 +2110,8 @@ src/atn/LexerPopModeAction.i: src/atn/LexerPopModeAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerPopModeAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPopModeAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPopModeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPopModeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPopModeAction.cpp.i
 .PHONY : src/atn/LexerPopModeAction.cpp.i
 
 src/atn/LexerPopModeAction.s: src/atn/LexerPopModeAction.cpp.s
@@ -2119,8 +2119,8 @@ src/atn/LexerPopModeAction.s: src/atn/LexerPopModeAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerPopModeAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPopModeAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPopModeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPopModeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPopModeAction.cpp.s
 .PHONY : src/atn/LexerPopModeAction.cpp.s
 
 src/atn/LexerPushModeAction.o: src/atn/LexerPushModeAction.cpp.o
@@ -2128,8 +2128,8 @@ src/atn/LexerPushModeAction.o: src/atn/LexerPushModeAction.cpp.o
 
 # target to build an object file
 src/atn/LexerPushModeAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPushModeAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPushModeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPushModeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPushModeAction.cpp.o
 .PHONY : src/atn/LexerPushModeAction.cpp.o
 
 src/atn/LexerPushModeAction.i: src/atn/LexerPushModeAction.cpp.i
@@ -2137,8 +2137,8 @@ src/atn/LexerPushModeAction.i: src/atn/LexerPushModeAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerPushModeAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPushModeAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPushModeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPushModeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPushModeAction.cpp.i
 .PHONY : src/atn/LexerPushModeAction.cpp.i
 
 src/atn/LexerPushModeAction.s: src/atn/LexerPushModeAction.cpp.s
@@ -2146,8 +2146,8 @@ src/atn/LexerPushModeAction.s: src/atn/LexerPushModeAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerPushModeAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPushModeAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPushModeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerPushModeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerPushModeAction.cpp.s
 .PHONY : src/atn/LexerPushModeAction.cpp.s
 
 src/atn/LexerSkipAction.o: src/atn/LexerSkipAction.cpp.o
@@ -2155,8 +2155,8 @@ src/atn/LexerSkipAction.o: src/atn/LexerSkipAction.cpp.o
 
 # target to build an object file
 src/atn/LexerSkipAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerSkipAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerSkipAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerSkipAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerSkipAction.cpp.o
 .PHONY : src/atn/LexerSkipAction.cpp.o
 
 src/atn/LexerSkipAction.i: src/atn/LexerSkipAction.cpp.i
@@ -2164,8 +2164,8 @@ src/atn/LexerSkipAction.i: src/atn/LexerSkipAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerSkipAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerSkipAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerSkipAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerSkipAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerSkipAction.cpp.i
 .PHONY : src/atn/LexerSkipAction.cpp.i
 
 src/atn/LexerSkipAction.s: src/atn/LexerSkipAction.cpp.s
@@ -2173,8 +2173,8 @@ src/atn/LexerSkipAction.s: src/atn/LexerSkipAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerSkipAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerSkipAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerSkipAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerSkipAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerSkipAction.cpp.s
 .PHONY : src/atn/LexerSkipAction.cpp.s
 
 src/atn/LexerTypeAction.o: src/atn/LexerTypeAction.cpp.o
@@ -2182,8 +2182,8 @@ src/atn/LexerTypeAction.o: src/atn/LexerTypeAction.cpp.o
 
 # target to build an object file
 src/atn/LexerTypeAction.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerTypeAction.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerTypeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerTypeAction.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerTypeAction.cpp.o
 .PHONY : src/atn/LexerTypeAction.cpp.o
 
 src/atn/LexerTypeAction.i: src/atn/LexerTypeAction.cpp.i
@@ -2191,8 +2191,8 @@ src/atn/LexerTypeAction.i: src/atn/LexerTypeAction.cpp.i
 
 # target to preprocess a source file
 src/atn/LexerTypeAction.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerTypeAction.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerTypeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerTypeAction.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerTypeAction.cpp.i
 .PHONY : src/atn/LexerTypeAction.cpp.i
 
 src/atn/LexerTypeAction.s: src/atn/LexerTypeAction.cpp.s
@@ -2200,8 +2200,8 @@ src/atn/LexerTypeAction.s: src/atn/LexerTypeAction.cpp.s
 
 # target to generate assembly for a file
 src/atn/LexerTypeAction.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerTypeAction.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerTypeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LexerTypeAction.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LexerTypeAction.cpp.s
 .PHONY : src/atn/LexerTypeAction.cpp.s
 
 src/atn/LookaheadEventInfo.o: src/atn/LookaheadEventInfo.cpp.o
@@ -2209,8 +2209,8 @@ src/atn/LookaheadEventInfo.o: src/atn/LookaheadEventInfo.cpp.o
 
 # target to build an object file
 src/atn/LookaheadEventInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LookaheadEventInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LookaheadEventInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LookaheadEventInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LookaheadEventInfo.cpp.o
 .PHONY : src/atn/LookaheadEventInfo.cpp.o
 
 src/atn/LookaheadEventInfo.i: src/atn/LookaheadEventInfo.cpp.i
@@ -2218,8 +2218,8 @@ src/atn/LookaheadEventInfo.i: src/atn/LookaheadEventInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/LookaheadEventInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LookaheadEventInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LookaheadEventInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LookaheadEventInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LookaheadEventInfo.cpp.i
 .PHONY : src/atn/LookaheadEventInfo.cpp.i
 
 src/atn/LookaheadEventInfo.s: src/atn/LookaheadEventInfo.cpp.s
@@ -2227,8 +2227,8 @@ src/atn/LookaheadEventInfo.s: src/atn/LookaheadEventInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/LookaheadEventInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LookaheadEventInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LookaheadEventInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/LookaheadEventInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/LookaheadEventInfo.cpp.s
 .PHONY : src/atn/LookaheadEventInfo.cpp.s
 
 src/atn/NotSetTransition.o: src/atn/NotSetTransition.cpp.o
@@ -2236,8 +2236,8 @@ src/atn/NotSetTransition.o: src/atn/NotSetTransition.cpp.o
 
 # target to build an object file
 src/atn/NotSetTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/NotSetTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/NotSetTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/NotSetTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/NotSetTransition.cpp.o
 .PHONY : src/atn/NotSetTransition.cpp.o
 
 src/atn/NotSetTransition.i: src/atn/NotSetTransition.cpp.i
@@ -2245,8 +2245,8 @@ src/atn/NotSetTransition.i: src/atn/NotSetTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/NotSetTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/NotSetTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/NotSetTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/NotSetTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/NotSetTransition.cpp.i
 .PHONY : src/atn/NotSetTransition.cpp.i
 
 src/atn/NotSetTransition.s: src/atn/NotSetTransition.cpp.s
@@ -2254,8 +2254,8 @@ src/atn/NotSetTransition.s: src/atn/NotSetTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/NotSetTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/NotSetTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/NotSetTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/NotSetTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/NotSetTransition.cpp.s
 .PHONY : src/atn/NotSetTransition.cpp.s
 
 src/atn/OrderedATNConfigSet.o: src/atn/OrderedATNConfigSet.cpp.o
@@ -2263,8 +2263,8 @@ src/atn/OrderedATNConfigSet.o: src/atn/OrderedATNConfigSet.cpp.o
 
 # target to build an object file
 src/atn/OrderedATNConfigSet.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/OrderedATNConfigSet.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/OrderedATNConfigSet.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/OrderedATNConfigSet.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/OrderedATNConfigSet.cpp.o
 .PHONY : src/atn/OrderedATNConfigSet.cpp.o
 
 src/atn/OrderedATNConfigSet.i: src/atn/OrderedATNConfigSet.cpp.i
@@ -2272,8 +2272,8 @@ src/atn/OrderedATNConfigSet.i: src/atn/OrderedATNConfigSet.cpp.i
 
 # target to preprocess a source file
 src/atn/OrderedATNConfigSet.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/OrderedATNConfigSet.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/OrderedATNConfigSet.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/OrderedATNConfigSet.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/OrderedATNConfigSet.cpp.i
 .PHONY : src/atn/OrderedATNConfigSet.cpp.i
 
 src/atn/OrderedATNConfigSet.s: src/atn/OrderedATNConfigSet.cpp.s
@@ -2281,8 +2281,8 @@ src/atn/OrderedATNConfigSet.s: src/atn/OrderedATNConfigSet.cpp.s
 
 # target to generate assembly for a file
 src/atn/OrderedATNConfigSet.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/OrderedATNConfigSet.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/OrderedATNConfigSet.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/OrderedATNConfigSet.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/OrderedATNConfigSet.cpp.s
 .PHONY : src/atn/OrderedATNConfigSet.cpp.s
 
 src/atn/ParseInfo.o: src/atn/ParseInfo.cpp.o
@@ -2290,8 +2290,8 @@ src/atn/ParseInfo.o: src/atn/ParseInfo.cpp.o
 
 # target to build an object file
 src/atn/ParseInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParseInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParseInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParseInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParseInfo.cpp.o
 .PHONY : src/atn/ParseInfo.cpp.o
 
 src/atn/ParseInfo.i: src/atn/ParseInfo.cpp.i
@@ -2299,8 +2299,8 @@ src/atn/ParseInfo.i: src/atn/ParseInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/ParseInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParseInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParseInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParseInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParseInfo.cpp.i
 .PHONY : src/atn/ParseInfo.cpp.i
 
 src/atn/ParseInfo.s: src/atn/ParseInfo.cpp.s
@@ -2308,8 +2308,8 @@ src/atn/ParseInfo.s: src/atn/ParseInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/ParseInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParseInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParseInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParseInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParseInfo.cpp.s
 .PHONY : src/atn/ParseInfo.cpp.s
 
 src/atn/ParserATNSimulator.o: src/atn/ParserATNSimulator.cpp.o
@@ -2317,8 +2317,8 @@ src/atn/ParserATNSimulator.o: src/atn/ParserATNSimulator.cpp.o
 
 # target to build an object file
 src/atn/ParserATNSimulator.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParserATNSimulator.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParserATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParserATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParserATNSimulator.cpp.o
 .PHONY : src/atn/ParserATNSimulator.cpp.o
 
 src/atn/ParserATNSimulator.i: src/atn/ParserATNSimulator.cpp.i
@@ -2326,8 +2326,8 @@ src/atn/ParserATNSimulator.i: src/atn/ParserATNSimulator.cpp.i
 
 # target to preprocess a source file
 src/atn/ParserATNSimulator.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParserATNSimulator.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParserATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParserATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParserATNSimulator.cpp.i
 .PHONY : src/atn/ParserATNSimulator.cpp.i
 
 src/atn/ParserATNSimulator.s: src/atn/ParserATNSimulator.cpp.s
@@ -2335,8 +2335,8 @@ src/atn/ParserATNSimulator.s: src/atn/ParserATNSimulator.cpp.s
 
 # target to generate assembly for a file
 src/atn/ParserATNSimulator.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParserATNSimulator.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParserATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ParserATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ParserATNSimulator.cpp.s
 .PHONY : src/atn/ParserATNSimulator.cpp.s
 
 src/atn/PrecedencePredicateTransition.o: src/atn/PrecedencePredicateTransition.cpp.o
@@ -2344,8 +2344,8 @@ src/atn/PrecedencePredicateTransition.o: src/atn/PrecedencePredicateTransition.c
 
 # target to build an object file
 src/atn/PrecedencePredicateTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PrecedencePredicateTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PrecedencePredicateTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PrecedencePredicateTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PrecedencePredicateTransition.cpp.o
 .PHONY : src/atn/PrecedencePredicateTransition.cpp.o
 
 src/atn/PrecedencePredicateTransition.i: src/atn/PrecedencePredicateTransition.cpp.i
@@ -2353,8 +2353,8 @@ src/atn/PrecedencePredicateTransition.i: src/atn/PrecedencePredicateTransition.c
 
 # target to preprocess a source file
 src/atn/PrecedencePredicateTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PrecedencePredicateTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PrecedencePredicateTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PrecedencePredicateTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PrecedencePredicateTransition.cpp.i
 .PHONY : src/atn/PrecedencePredicateTransition.cpp.i
 
 src/atn/PrecedencePredicateTransition.s: src/atn/PrecedencePredicateTransition.cpp.s
@@ -2362,8 +2362,8 @@ src/atn/PrecedencePredicateTransition.s: src/atn/PrecedencePredicateTransition.c
 
 # target to generate assembly for a file
 src/atn/PrecedencePredicateTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PrecedencePredicateTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PrecedencePredicateTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PrecedencePredicateTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PrecedencePredicateTransition.cpp.s
 .PHONY : src/atn/PrecedencePredicateTransition.cpp.s
 
 src/atn/PredicateEvalInfo.o: src/atn/PredicateEvalInfo.cpp.o
@@ -2371,8 +2371,8 @@ src/atn/PredicateEvalInfo.o: src/atn/PredicateEvalInfo.cpp.o
 
 # target to build an object file
 src/atn/PredicateEvalInfo.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateEvalInfo.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateEvalInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateEvalInfo.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateEvalInfo.cpp.o
 .PHONY : src/atn/PredicateEvalInfo.cpp.o
 
 src/atn/PredicateEvalInfo.i: src/atn/PredicateEvalInfo.cpp.i
@@ -2380,8 +2380,8 @@ src/atn/PredicateEvalInfo.i: src/atn/PredicateEvalInfo.cpp.i
 
 # target to preprocess a source file
 src/atn/PredicateEvalInfo.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateEvalInfo.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateEvalInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateEvalInfo.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateEvalInfo.cpp.i
 .PHONY : src/atn/PredicateEvalInfo.cpp.i
 
 src/atn/PredicateEvalInfo.s: src/atn/PredicateEvalInfo.cpp.s
@@ -2389,8 +2389,8 @@ src/atn/PredicateEvalInfo.s: src/atn/PredicateEvalInfo.cpp.s
 
 # target to generate assembly for a file
 src/atn/PredicateEvalInfo.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateEvalInfo.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateEvalInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateEvalInfo.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateEvalInfo.cpp.s
 .PHONY : src/atn/PredicateEvalInfo.cpp.s
 
 src/atn/PredicateTransition.o: src/atn/PredicateTransition.cpp.o
@@ -2398,8 +2398,8 @@ src/atn/PredicateTransition.o: src/atn/PredicateTransition.cpp.o
 
 # target to build an object file
 src/atn/PredicateTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateTransition.cpp.o
 .PHONY : src/atn/PredicateTransition.cpp.o
 
 src/atn/PredicateTransition.i: src/atn/PredicateTransition.cpp.i
@@ -2407,8 +2407,8 @@ src/atn/PredicateTransition.i: src/atn/PredicateTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/PredicateTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateTransition.cpp.i
 .PHONY : src/atn/PredicateTransition.cpp.i
 
 src/atn/PredicateTransition.s: src/atn/PredicateTransition.cpp.s
@@ -2416,8 +2416,8 @@ src/atn/PredicateTransition.s: src/atn/PredicateTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/PredicateTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredicateTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredicateTransition.cpp.s
 .PHONY : src/atn/PredicateTransition.cpp.s
 
 src/atn/PredictionContext.o: src/atn/PredictionContext.cpp.o
@@ -2425,8 +2425,8 @@ src/atn/PredictionContext.o: src/atn/PredictionContext.cpp.o
 
 # target to build an object file
 src/atn/PredictionContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContext.cpp.o
 .PHONY : src/atn/PredictionContext.cpp.o
 
 src/atn/PredictionContext.i: src/atn/PredictionContext.cpp.i
@@ -2434,8 +2434,8 @@ src/atn/PredictionContext.i: src/atn/PredictionContext.cpp.i
 
 # target to preprocess a source file
 src/atn/PredictionContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContext.cpp.i
 .PHONY : src/atn/PredictionContext.cpp.i
 
 src/atn/PredictionContext.s: src/atn/PredictionContext.cpp.s
@@ -2443,8 +2443,8 @@ src/atn/PredictionContext.s: src/atn/PredictionContext.cpp.s
 
 # target to generate assembly for a file
 src/atn/PredictionContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContext.cpp.s
 .PHONY : src/atn/PredictionContext.cpp.s
 
 src/atn/PredictionContextCache.o: src/atn/PredictionContextCache.cpp.o
@@ -2452,8 +2452,8 @@ src/atn/PredictionContextCache.o: src/atn/PredictionContextCache.cpp.o
 
 # target to build an object file
 src/atn/PredictionContextCache.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextCache.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextCache.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextCache.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextCache.cpp.o
 .PHONY : src/atn/PredictionContextCache.cpp.o
 
 src/atn/PredictionContextCache.i: src/atn/PredictionContextCache.cpp.i
@@ -2461,8 +2461,8 @@ src/atn/PredictionContextCache.i: src/atn/PredictionContextCache.cpp.i
 
 # target to preprocess a source file
 src/atn/PredictionContextCache.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextCache.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextCache.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextCache.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextCache.cpp.i
 .PHONY : src/atn/PredictionContextCache.cpp.i
 
 src/atn/PredictionContextCache.s: src/atn/PredictionContextCache.cpp.s
@@ -2470,8 +2470,8 @@ src/atn/PredictionContextCache.s: src/atn/PredictionContextCache.cpp.s
 
 # target to generate assembly for a file
 src/atn/PredictionContextCache.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextCache.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextCache.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextCache.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextCache.cpp.s
 .PHONY : src/atn/PredictionContextCache.cpp.s
 
 src/atn/PredictionContextMergeCache.o: src/atn/PredictionContextMergeCache.cpp.o
@@ -2479,8 +2479,8 @@ src/atn/PredictionContextMergeCache.o: src/atn/PredictionContextMergeCache.cpp.o
 
 # target to build an object file
 src/atn/PredictionContextMergeCache.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextMergeCache.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextMergeCache.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextMergeCache.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextMergeCache.cpp.o
 .PHONY : src/atn/PredictionContextMergeCache.cpp.o
 
 src/atn/PredictionContextMergeCache.i: src/atn/PredictionContextMergeCache.cpp.i
@@ -2488,8 +2488,8 @@ src/atn/PredictionContextMergeCache.i: src/atn/PredictionContextMergeCache.cpp.i
 
 # target to preprocess a source file
 src/atn/PredictionContextMergeCache.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextMergeCache.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextMergeCache.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextMergeCache.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextMergeCache.cpp.i
 .PHONY : src/atn/PredictionContextMergeCache.cpp.i
 
 src/atn/PredictionContextMergeCache.s: src/atn/PredictionContextMergeCache.cpp.s
@@ -2497,8 +2497,8 @@ src/atn/PredictionContextMergeCache.s: src/atn/PredictionContextMergeCache.cpp.s
 
 # target to generate assembly for a file
 src/atn/PredictionContextMergeCache.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextMergeCache.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextMergeCache.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionContextMergeCache.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionContextMergeCache.cpp.s
 .PHONY : src/atn/PredictionContextMergeCache.cpp.s
 
 src/atn/PredictionMode.o: src/atn/PredictionMode.cpp.o
@@ -2506,8 +2506,8 @@ src/atn/PredictionMode.o: src/atn/PredictionMode.cpp.o
 
 # target to build an object file
 src/atn/PredictionMode.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionMode.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionMode.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionMode.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionMode.cpp.o
 .PHONY : src/atn/PredictionMode.cpp.o
 
 src/atn/PredictionMode.i: src/atn/PredictionMode.cpp.i
@@ -2515,8 +2515,8 @@ src/atn/PredictionMode.i: src/atn/PredictionMode.cpp.i
 
 # target to preprocess a source file
 src/atn/PredictionMode.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionMode.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionMode.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionMode.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionMode.cpp.i
 .PHONY : src/atn/PredictionMode.cpp.i
 
 src/atn/PredictionMode.s: src/atn/PredictionMode.cpp.s
@@ -2524,8 +2524,8 @@ src/atn/PredictionMode.s: src/atn/PredictionMode.cpp.s
 
 # target to generate assembly for a file
 src/atn/PredictionMode.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionMode.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionMode.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/PredictionMode.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/PredictionMode.cpp.s
 .PHONY : src/atn/PredictionMode.cpp.s
 
 src/atn/ProfilingATNSimulator.o: src/atn/ProfilingATNSimulator.cpp.o
@@ -2533,8 +2533,8 @@ src/atn/ProfilingATNSimulator.o: src/atn/ProfilingATNSimulator.cpp.o
 
 # target to build an object file
 src/atn/ProfilingATNSimulator.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ProfilingATNSimulator.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ProfilingATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ProfilingATNSimulator.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ProfilingATNSimulator.cpp.o
 .PHONY : src/atn/ProfilingATNSimulator.cpp.o
 
 src/atn/ProfilingATNSimulator.i: src/atn/ProfilingATNSimulator.cpp.i
@@ -2542,8 +2542,8 @@ src/atn/ProfilingATNSimulator.i: src/atn/ProfilingATNSimulator.cpp.i
 
 # target to preprocess a source file
 src/atn/ProfilingATNSimulator.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ProfilingATNSimulator.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ProfilingATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ProfilingATNSimulator.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ProfilingATNSimulator.cpp.i
 .PHONY : src/atn/ProfilingATNSimulator.cpp.i
 
 src/atn/ProfilingATNSimulator.s: src/atn/ProfilingATNSimulator.cpp.s
@@ -2551,8 +2551,8 @@ src/atn/ProfilingATNSimulator.s: src/atn/ProfilingATNSimulator.cpp.s
 
 # target to generate assembly for a file
 src/atn/ProfilingATNSimulator.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ProfilingATNSimulator.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ProfilingATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/ProfilingATNSimulator.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/ProfilingATNSimulator.cpp.s
 .PHONY : src/atn/ProfilingATNSimulator.cpp.s
 
 src/atn/RangeTransition.o: src/atn/RangeTransition.cpp.o
@@ -2560,8 +2560,8 @@ src/atn/RangeTransition.o: src/atn/RangeTransition.cpp.o
 
 # target to build an object file
 src/atn/RangeTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RangeTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RangeTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RangeTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RangeTransition.cpp.o
 .PHONY : src/atn/RangeTransition.cpp.o
 
 src/atn/RangeTransition.i: src/atn/RangeTransition.cpp.i
@@ -2569,8 +2569,8 @@ src/atn/RangeTransition.i: src/atn/RangeTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/RangeTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RangeTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RangeTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RangeTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RangeTransition.cpp.i
 .PHONY : src/atn/RangeTransition.cpp.i
 
 src/atn/RangeTransition.s: src/atn/RangeTransition.cpp.s
@@ -2578,8 +2578,8 @@ src/atn/RangeTransition.s: src/atn/RangeTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/RangeTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RangeTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RangeTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RangeTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RangeTransition.cpp.s
 .PHONY : src/atn/RangeTransition.cpp.s
 
 src/atn/RuleTransition.o: src/atn/RuleTransition.cpp.o
@@ -2587,8 +2587,8 @@ src/atn/RuleTransition.o: src/atn/RuleTransition.cpp.o
 
 # target to build an object file
 src/atn/RuleTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RuleTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RuleTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RuleTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RuleTransition.cpp.o
 .PHONY : src/atn/RuleTransition.cpp.o
 
 src/atn/RuleTransition.i: src/atn/RuleTransition.cpp.i
@@ -2596,8 +2596,8 @@ src/atn/RuleTransition.i: src/atn/RuleTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/RuleTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RuleTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RuleTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RuleTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RuleTransition.cpp.i
 .PHONY : src/atn/RuleTransition.cpp.i
 
 src/atn/RuleTransition.s: src/atn/RuleTransition.cpp.s
@@ -2605,8 +2605,8 @@ src/atn/RuleTransition.s: src/atn/RuleTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/RuleTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RuleTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RuleTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/RuleTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/RuleTransition.cpp.s
 .PHONY : src/atn/RuleTransition.cpp.s
 
 src/atn/SemanticContext.o: src/atn/SemanticContext.cpp.o
@@ -2614,8 +2614,8 @@ src/atn/SemanticContext.o: src/atn/SemanticContext.cpp.o
 
 # target to build an object file
 src/atn/SemanticContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SemanticContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SemanticContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SemanticContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SemanticContext.cpp.o
 .PHONY : src/atn/SemanticContext.cpp.o
 
 src/atn/SemanticContext.i: src/atn/SemanticContext.cpp.i
@@ -2623,8 +2623,8 @@ src/atn/SemanticContext.i: src/atn/SemanticContext.cpp.i
 
 # target to preprocess a source file
 src/atn/SemanticContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SemanticContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SemanticContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SemanticContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SemanticContext.cpp.i
 .PHONY : src/atn/SemanticContext.cpp.i
 
 src/atn/SemanticContext.s: src/atn/SemanticContext.cpp.s
@@ -2632,8 +2632,8 @@ src/atn/SemanticContext.s: src/atn/SemanticContext.cpp.s
 
 # target to generate assembly for a file
 src/atn/SemanticContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SemanticContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SemanticContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SemanticContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SemanticContext.cpp.s
 .PHONY : src/atn/SemanticContext.cpp.s
 
 src/atn/SetTransition.o: src/atn/SetTransition.cpp.o
@@ -2641,8 +2641,8 @@ src/atn/SetTransition.o: src/atn/SetTransition.cpp.o
 
 # target to build an object file
 src/atn/SetTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SetTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SetTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SetTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SetTransition.cpp.o
 .PHONY : src/atn/SetTransition.cpp.o
 
 src/atn/SetTransition.i: src/atn/SetTransition.cpp.i
@@ -2650,8 +2650,8 @@ src/atn/SetTransition.i: src/atn/SetTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/SetTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SetTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SetTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SetTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SetTransition.cpp.i
 .PHONY : src/atn/SetTransition.cpp.i
 
 src/atn/SetTransition.s: src/atn/SetTransition.cpp.s
@@ -2659,8 +2659,8 @@ src/atn/SetTransition.s: src/atn/SetTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/SetTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SetTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SetTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SetTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SetTransition.cpp.s
 .PHONY : src/atn/SetTransition.cpp.s
 
 src/atn/SingletonPredictionContext.o: src/atn/SingletonPredictionContext.cpp.o
@@ -2668,8 +2668,8 @@ src/atn/SingletonPredictionContext.o: src/atn/SingletonPredictionContext.cpp.o
 
 # target to build an object file
 src/atn/SingletonPredictionContext.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SingletonPredictionContext.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SingletonPredictionContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SingletonPredictionContext.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SingletonPredictionContext.cpp.o
 .PHONY : src/atn/SingletonPredictionContext.cpp.o
 
 src/atn/SingletonPredictionContext.i: src/atn/SingletonPredictionContext.cpp.i
@@ -2677,8 +2677,8 @@ src/atn/SingletonPredictionContext.i: src/atn/SingletonPredictionContext.cpp.i
 
 # target to preprocess a source file
 src/atn/SingletonPredictionContext.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SingletonPredictionContext.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SingletonPredictionContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SingletonPredictionContext.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SingletonPredictionContext.cpp.i
 .PHONY : src/atn/SingletonPredictionContext.cpp.i
 
 src/atn/SingletonPredictionContext.s: src/atn/SingletonPredictionContext.cpp.s
@@ -2686,8 +2686,8 @@ src/atn/SingletonPredictionContext.s: src/atn/SingletonPredictionContext.cpp.s
 
 # target to generate assembly for a file
 src/atn/SingletonPredictionContext.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SingletonPredictionContext.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SingletonPredictionContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/SingletonPredictionContext.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/SingletonPredictionContext.cpp.s
 .PHONY : src/atn/SingletonPredictionContext.cpp.s
 
 src/atn/StarLoopbackState.o: src/atn/StarLoopbackState.cpp.o
@@ -2695,8 +2695,8 @@ src/atn/StarLoopbackState.o: src/atn/StarLoopbackState.cpp.o
 
 # target to build an object file
 src/atn/StarLoopbackState.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/StarLoopbackState.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/StarLoopbackState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/StarLoopbackState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/StarLoopbackState.cpp.o
 .PHONY : src/atn/StarLoopbackState.cpp.o
 
 src/atn/StarLoopbackState.i: src/atn/StarLoopbackState.cpp.i
@@ -2704,8 +2704,8 @@ src/atn/StarLoopbackState.i: src/atn/StarLoopbackState.cpp.i
 
 # target to preprocess a source file
 src/atn/StarLoopbackState.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/StarLoopbackState.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/StarLoopbackState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/StarLoopbackState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/StarLoopbackState.cpp.i
 .PHONY : src/atn/StarLoopbackState.cpp.i
 
 src/atn/StarLoopbackState.s: src/atn/StarLoopbackState.cpp.s
@@ -2713,8 +2713,8 @@ src/atn/StarLoopbackState.s: src/atn/StarLoopbackState.cpp.s
 
 # target to generate assembly for a file
 src/atn/StarLoopbackState.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/StarLoopbackState.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/StarLoopbackState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/StarLoopbackState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/StarLoopbackState.cpp.s
 .PHONY : src/atn/StarLoopbackState.cpp.s
 
 src/atn/Transition.o: src/atn/Transition.cpp.o
@@ -2722,8 +2722,8 @@ src/atn/Transition.o: src/atn/Transition.cpp.o
 
 # target to build an object file
 src/atn/Transition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/Transition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/Transition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/Transition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/Transition.cpp.o
 .PHONY : src/atn/Transition.cpp.o
 
 src/atn/Transition.i: src/atn/Transition.cpp.i
@@ -2731,8 +2731,8 @@ src/atn/Transition.i: src/atn/Transition.cpp.i
 
 # target to preprocess a source file
 src/atn/Transition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/Transition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/Transition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/Transition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/Transition.cpp.i
 .PHONY : src/atn/Transition.cpp.i
 
 src/atn/Transition.s: src/atn/Transition.cpp.s
@@ -2740,8 +2740,8 @@ src/atn/Transition.s: src/atn/Transition.cpp.s
 
 # target to generate assembly for a file
 src/atn/Transition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/Transition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/Transition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/Transition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/Transition.cpp.s
 .PHONY : src/atn/Transition.cpp.s
 
 src/atn/TransitionType.o: src/atn/TransitionType.cpp.o
@@ -2749,8 +2749,8 @@ src/atn/TransitionType.o: src/atn/TransitionType.cpp.o
 
 # target to build an object file
 src/atn/TransitionType.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/TransitionType.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/TransitionType.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/TransitionType.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/TransitionType.cpp.o
 .PHONY : src/atn/TransitionType.cpp.o
 
 src/atn/TransitionType.i: src/atn/TransitionType.cpp.i
@@ -2758,8 +2758,8 @@ src/atn/TransitionType.i: src/atn/TransitionType.cpp.i
 
 # target to preprocess a source file
 src/atn/TransitionType.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/TransitionType.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/TransitionType.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/TransitionType.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/TransitionType.cpp.i
 .PHONY : src/atn/TransitionType.cpp.i
 
 src/atn/TransitionType.s: src/atn/TransitionType.cpp.s
@@ -2767,8 +2767,8 @@ src/atn/TransitionType.s: src/atn/TransitionType.cpp.s
 
 # target to generate assembly for a file
 src/atn/TransitionType.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/TransitionType.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/TransitionType.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/TransitionType.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/TransitionType.cpp.s
 .PHONY : src/atn/TransitionType.cpp.s
 
 src/atn/WildcardTransition.o: src/atn/WildcardTransition.cpp.o
@@ -2776,8 +2776,8 @@ src/atn/WildcardTransition.o: src/atn/WildcardTransition.cpp.o
 
 # target to build an object file
 src/atn/WildcardTransition.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/WildcardTransition.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/WildcardTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/WildcardTransition.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/WildcardTransition.cpp.o
 .PHONY : src/atn/WildcardTransition.cpp.o
 
 src/atn/WildcardTransition.i: src/atn/WildcardTransition.cpp.i
@@ -2785,8 +2785,8 @@ src/atn/WildcardTransition.i: src/atn/WildcardTransition.cpp.i
 
 # target to preprocess a source file
 src/atn/WildcardTransition.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/WildcardTransition.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/WildcardTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/WildcardTransition.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/WildcardTransition.cpp.i
 .PHONY : src/atn/WildcardTransition.cpp.i
 
 src/atn/WildcardTransition.s: src/atn/WildcardTransition.cpp.s
@@ -2794,8 +2794,8 @@ src/atn/WildcardTransition.s: src/atn/WildcardTransition.cpp.s
 
 # target to generate assembly for a file
 src/atn/WildcardTransition.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/WildcardTransition.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/WildcardTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/atn/WildcardTransition.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/atn/WildcardTransition.cpp.s
 .PHONY : src/atn/WildcardTransition.cpp.s
 
 src/dfa/DFA.o: src/dfa/DFA.cpp.o
@@ -2803,8 +2803,8 @@ src/dfa/DFA.o: src/dfa/DFA.cpp.o
 
 # target to build an object file
 src/dfa/DFA.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFA.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFA.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFA.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFA.cpp.o
 .PHONY : src/dfa/DFA.cpp.o
 
 src/dfa/DFA.i: src/dfa/DFA.cpp.i
@@ -2812,8 +2812,8 @@ src/dfa/DFA.i: src/dfa/DFA.cpp.i
 
 # target to preprocess a source file
 src/dfa/DFA.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFA.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFA.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFA.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFA.cpp.i
 .PHONY : src/dfa/DFA.cpp.i
 
 src/dfa/DFA.s: src/dfa/DFA.cpp.s
@@ -2821,8 +2821,8 @@ src/dfa/DFA.s: src/dfa/DFA.cpp.s
 
 # target to generate assembly for a file
 src/dfa/DFA.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFA.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFA.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFA.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFA.cpp.s
 .PHONY : src/dfa/DFA.cpp.s
 
 src/dfa/DFASerializer.o: src/dfa/DFASerializer.cpp.o
@@ -2830,8 +2830,8 @@ src/dfa/DFASerializer.o: src/dfa/DFASerializer.cpp.o
 
 # target to build an object file
 src/dfa/DFASerializer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFASerializer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFASerializer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFASerializer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFASerializer.cpp.o
 .PHONY : src/dfa/DFASerializer.cpp.o
 
 src/dfa/DFASerializer.i: src/dfa/DFASerializer.cpp.i
@@ -2839,8 +2839,8 @@ src/dfa/DFASerializer.i: src/dfa/DFASerializer.cpp.i
 
 # target to preprocess a source file
 src/dfa/DFASerializer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFASerializer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFASerializer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFASerializer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFASerializer.cpp.i
 .PHONY : src/dfa/DFASerializer.cpp.i
 
 src/dfa/DFASerializer.s: src/dfa/DFASerializer.cpp.s
@@ -2848,8 +2848,8 @@ src/dfa/DFASerializer.s: src/dfa/DFASerializer.cpp.s
 
 # target to generate assembly for a file
 src/dfa/DFASerializer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFASerializer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFASerializer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFASerializer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFASerializer.cpp.s
 .PHONY : src/dfa/DFASerializer.cpp.s
 
 src/dfa/DFAState.o: src/dfa/DFAState.cpp.o
@@ -2857,8 +2857,8 @@ src/dfa/DFAState.o: src/dfa/DFAState.cpp.o
 
 # target to build an object file
 src/dfa/DFAState.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFAState.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFAState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFAState.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFAState.cpp.o
 .PHONY : src/dfa/DFAState.cpp.o
 
 src/dfa/DFAState.i: src/dfa/DFAState.cpp.i
@@ -2866,8 +2866,8 @@ src/dfa/DFAState.i: src/dfa/DFAState.cpp.i
 
 # target to preprocess a source file
 src/dfa/DFAState.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFAState.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFAState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFAState.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFAState.cpp.i
 .PHONY : src/dfa/DFAState.cpp.i
 
 src/dfa/DFAState.s: src/dfa/DFAState.cpp.s
@@ -2875,8 +2875,8 @@ src/dfa/DFAState.s: src/dfa/DFAState.cpp.s
 
 # target to generate assembly for a file
 src/dfa/DFAState.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFAState.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFAState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/DFAState.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/DFAState.cpp.s
 .PHONY : src/dfa/DFAState.cpp.s
 
 src/dfa/LexerDFASerializer.o: src/dfa/LexerDFASerializer.cpp.o
@@ -2884,8 +2884,8 @@ src/dfa/LexerDFASerializer.o: src/dfa/LexerDFASerializer.cpp.o
 
 # target to build an object file
 src/dfa/LexerDFASerializer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/LexerDFASerializer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/LexerDFASerializer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/LexerDFASerializer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/LexerDFASerializer.cpp.o
 .PHONY : src/dfa/LexerDFASerializer.cpp.o
 
 src/dfa/LexerDFASerializer.i: src/dfa/LexerDFASerializer.cpp.i
@@ -2893,8 +2893,8 @@ src/dfa/LexerDFASerializer.i: src/dfa/LexerDFASerializer.cpp.i
 
 # target to preprocess a source file
 src/dfa/LexerDFASerializer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/LexerDFASerializer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/LexerDFASerializer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/LexerDFASerializer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/LexerDFASerializer.cpp.i
 .PHONY : src/dfa/LexerDFASerializer.cpp.i
 
 src/dfa/LexerDFASerializer.s: src/dfa/LexerDFASerializer.cpp.s
@@ -2902,8 +2902,8 @@ src/dfa/LexerDFASerializer.s: src/dfa/LexerDFASerializer.cpp.s
 
 # target to generate assembly for a file
 src/dfa/LexerDFASerializer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/LexerDFASerializer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/LexerDFASerializer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/dfa/LexerDFASerializer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/dfa/LexerDFASerializer.cpp.s
 .PHONY : src/dfa/LexerDFASerializer.cpp.s
 
 src/internal/Synchronization.o: src/internal/Synchronization.cpp.o
@@ -2911,8 +2911,8 @@ src/internal/Synchronization.o: src/internal/Synchronization.cpp.o
 
 # target to build an object file
 src/internal/Synchronization.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/internal/Synchronization.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/internal/Synchronization.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/internal/Synchronization.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/internal/Synchronization.cpp.o
 .PHONY : src/internal/Synchronization.cpp.o
 
 src/internal/Synchronization.i: src/internal/Synchronization.cpp.i
@@ -2920,8 +2920,8 @@ src/internal/Synchronization.i: src/internal/Synchronization.cpp.i
 
 # target to preprocess a source file
 src/internal/Synchronization.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/internal/Synchronization.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/internal/Synchronization.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/internal/Synchronization.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/internal/Synchronization.cpp.i
 .PHONY : src/internal/Synchronization.cpp.i
 
 src/internal/Synchronization.s: src/internal/Synchronization.cpp.s
@@ -2929,8 +2929,8 @@ src/internal/Synchronization.s: src/internal/Synchronization.cpp.s
 
 # target to generate assembly for a file
 src/internal/Synchronization.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/internal/Synchronization.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/internal/Synchronization.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/internal/Synchronization.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/internal/Synchronization.cpp.s
 .PHONY : src/internal/Synchronization.cpp.s
 
 src/misc/InterpreterDataReader.o: src/misc/InterpreterDataReader.cpp.o
@@ -2938,8 +2938,8 @@ src/misc/InterpreterDataReader.o: src/misc/InterpreterDataReader.cpp.o
 
 # target to build an object file
 src/misc/InterpreterDataReader.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/InterpreterDataReader.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/InterpreterDataReader.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/InterpreterDataReader.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/InterpreterDataReader.cpp.o
 .PHONY : src/misc/InterpreterDataReader.cpp.o
 
 src/misc/InterpreterDataReader.i: src/misc/InterpreterDataReader.cpp.i
@@ -2947,8 +2947,8 @@ src/misc/InterpreterDataReader.i: src/misc/InterpreterDataReader.cpp.i
 
 # target to preprocess a source file
 src/misc/InterpreterDataReader.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/InterpreterDataReader.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/InterpreterDataReader.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/InterpreterDataReader.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/InterpreterDataReader.cpp.i
 .PHONY : src/misc/InterpreterDataReader.cpp.i
 
 src/misc/InterpreterDataReader.s: src/misc/InterpreterDataReader.cpp.s
@@ -2956,8 +2956,8 @@ src/misc/InterpreterDataReader.s: src/misc/InterpreterDataReader.cpp.s
 
 # target to generate assembly for a file
 src/misc/InterpreterDataReader.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/InterpreterDataReader.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/InterpreterDataReader.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/InterpreterDataReader.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/InterpreterDataReader.cpp.s
 .PHONY : src/misc/InterpreterDataReader.cpp.s
 
 src/misc/Interval.o: src/misc/Interval.cpp.o
@@ -2965,8 +2965,8 @@ src/misc/Interval.o: src/misc/Interval.cpp.o
 
 # target to build an object file
 src/misc/Interval.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Interval.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Interval.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Interval.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Interval.cpp.o
 .PHONY : src/misc/Interval.cpp.o
 
 src/misc/Interval.i: src/misc/Interval.cpp.i
@@ -2974,8 +2974,8 @@ src/misc/Interval.i: src/misc/Interval.cpp.i
 
 # target to preprocess a source file
 src/misc/Interval.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Interval.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Interval.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Interval.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Interval.cpp.i
 .PHONY : src/misc/Interval.cpp.i
 
 src/misc/Interval.s: src/misc/Interval.cpp.s
@@ -2983,8 +2983,8 @@ src/misc/Interval.s: src/misc/Interval.cpp.s
 
 # target to generate assembly for a file
 src/misc/Interval.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Interval.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Interval.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Interval.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Interval.cpp.s
 .PHONY : src/misc/Interval.cpp.s
 
 src/misc/IntervalSet.o: src/misc/IntervalSet.cpp.o
@@ -2992,8 +2992,8 @@ src/misc/IntervalSet.o: src/misc/IntervalSet.cpp.o
 
 # target to build an object file
 src/misc/IntervalSet.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/IntervalSet.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/IntervalSet.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/IntervalSet.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/IntervalSet.cpp.o
 .PHONY : src/misc/IntervalSet.cpp.o
 
 src/misc/IntervalSet.i: src/misc/IntervalSet.cpp.i
@@ -3001,8 +3001,8 @@ src/misc/IntervalSet.i: src/misc/IntervalSet.cpp.i
 
 # target to preprocess a source file
 src/misc/IntervalSet.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/IntervalSet.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/IntervalSet.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/IntervalSet.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/IntervalSet.cpp.i
 .PHONY : src/misc/IntervalSet.cpp.i
 
 src/misc/IntervalSet.s: src/misc/IntervalSet.cpp.s
@@ -3010,8 +3010,8 @@ src/misc/IntervalSet.s: src/misc/IntervalSet.cpp.s
 
 # target to generate assembly for a file
 src/misc/IntervalSet.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/IntervalSet.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/IntervalSet.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/IntervalSet.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/IntervalSet.cpp.s
 .PHONY : src/misc/IntervalSet.cpp.s
 
 src/misc/MurmurHash.o: src/misc/MurmurHash.cpp.o
@@ -3019,8 +3019,8 @@ src/misc/MurmurHash.o: src/misc/MurmurHash.cpp.o
 
 # target to build an object file
 src/misc/MurmurHash.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/MurmurHash.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/MurmurHash.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.o
 .PHONY : src/misc/MurmurHash.cpp.o
 
 src/misc/MurmurHash.i: src/misc/MurmurHash.cpp.i
@@ -3028,8 +3028,8 @@ src/misc/MurmurHash.i: src/misc/MurmurHash.cpp.i
 
 # target to preprocess a source file
 src/misc/MurmurHash.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/MurmurHash.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/MurmurHash.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.i
 .PHONY : src/misc/MurmurHash.cpp.i
 
 src/misc/MurmurHash.s: src/misc/MurmurHash.cpp.s
@@ -3037,8 +3037,8 @@ src/misc/MurmurHash.s: src/misc/MurmurHash.cpp.s
 
 # target to generate assembly for a file
 src/misc/MurmurHash.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/MurmurHash.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/MurmurHash.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/MurmurHash.cpp.s
 .PHONY : src/misc/MurmurHash.cpp.s
 
 src/misc/Predicate.o: src/misc/Predicate.cpp.o
@@ -3046,8 +3046,8 @@ src/misc/Predicate.o: src/misc/Predicate.cpp.o
 
 # target to build an object file
 src/misc/Predicate.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Predicate.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Predicate.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Predicate.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Predicate.cpp.o
 .PHONY : src/misc/Predicate.cpp.o
 
 src/misc/Predicate.i: src/misc/Predicate.cpp.i
@@ -3055,8 +3055,8 @@ src/misc/Predicate.i: src/misc/Predicate.cpp.i
 
 # target to preprocess a source file
 src/misc/Predicate.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Predicate.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Predicate.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Predicate.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Predicate.cpp.i
 .PHONY : src/misc/Predicate.cpp.i
 
 src/misc/Predicate.s: src/misc/Predicate.cpp.s
@@ -3064,8 +3064,8 @@ src/misc/Predicate.s: src/misc/Predicate.cpp.s
 
 # target to generate assembly for a file
 src/misc/Predicate.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Predicate.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Predicate.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/misc/Predicate.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/misc/Predicate.cpp.s
 .PHONY : src/misc/Predicate.cpp.s
 
 src/support/Any.o: src/support/Any.cpp.o
@@ -3073,8 +3073,8 @@ src/support/Any.o: src/support/Any.cpp.o
 
 # target to build an object file
 src/support/Any.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Any.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Any.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Any.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Any.cpp.o
 .PHONY : src/support/Any.cpp.o
 
 src/support/Any.i: src/support/Any.cpp.i
@@ -3082,8 +3082,8 @@ src/support/Any.i: src/support/Any.cpp.i
 
 # target to preprocess a source file
 src/support/Any.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Any.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Any.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Any.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Any.cpp.i
 .PHONY : src/support/Any.cpp.i
 
 src/support/Any.s: src/support/Any.cpp.s
@@ -3091,8 +3091,8 @@ src/support/Any.s: src/support/Any.cpp.s
 
 # target to generate assembly for a file
 src/support/Any.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Any.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Any.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Any.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Any.cpp.s
 .PHONY : src/support/Any.cpp.s
 
 src/support/Arrays.o: src/support/Arrays.cpp.o
@@ -3100,8 +3100,8 @@ src/support/Arrays.o: src/support/Arrays.cpp.o
 
 # target to build an object file
 src/support/Arrays.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Arrays.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Arrays.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Arrays.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Arrays.cpp.o
 .PHONY : src/support/Arrays.cpp.o
 
 src/support/Arrays.i: src/support/Arrays.cpp.i
@@ -3109,8 +3109,8 @@ src/support/Arrays.i: src/support/Arrays.cpp.i
 
 # target to preprocess a source file
 src/support/Arrays.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Arrays.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Arrays.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Arrays.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Arrays.cpp.i
 .PHONY : src/support/Arrays.cpp.i
 
 src/support/Arrays.s: src/support/Arrays.cpp.s
@@ -3118,8 +3118,8 @@ src/support/Arrays.s: src/support/Arrays.cpp.s
 
 # target to generate assembly for a file
 src/support/Arrays.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Arrays.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Arrays.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Arrays.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Arrays.cpp.s
 .PHONY : src/support/Arrays.cpp.s
 
 src/support/CPPUtils.o: src/support/CPPUtils.cpp.o
@@ -3127,8 +3127,8 @@ src/support/CPPUtils.o: src/support/CPPUtils.cpp.o
 
 # target to build an object file
 src/support/CPPUtils.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/CPPUtils.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/CPPUtils.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/CPPUtils.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/CPPUtils.cpp.o
 .PHONY : src/support/CPPUtils.cpp.o
 
 src/support/CPPUtils.i: src/support/CPPUtils.cpp.i
@@ -3136,8 +3136,8 @@ src/support/CPPUtils.i: src/support/CPPUtils.cpp.i
 
 # target to preprocess a source file
 src/support/CPPUtils.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/CPPUtils.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/CPPUtils.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/CPPUtils.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/CPPUtils.cpp.i
 .PHONY : src/support/CPPUtils.cpp.i
 
 src/support/CPPUtils.s: src/support/CPPUtils.cpp.s
@@ -3145,8 +3145,8 @@ src/support/CPPUtils.s: src/support/CPPUtils.cpp.s
 
 # target to generate assembly for a file
 src/support/CPPUtils.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/CPPUtils.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/CPPUtils.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/CPPUtils.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/CPPUtils.cpp.s
 .PHONY : src/support/CPPUtils.cpp.s
 
 src/support/StringUtils.o: src/support/StringUtils.cpp.o
@@ -3154,8 +3154,8 @@ src/support/StringUtils.o: src/support/StringUtils.cpp.o
 
 # target to build an object file
 src/support/StringUtils.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/StringUtils.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/StringUtils.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/StringUtils.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/StringUtils.cpp.o
 .PHONY : src/support/StringUtils.cpp.o
 
 src/support/StringUtils.i: src/support/StringUtils.cpp.i
@@ -3163,8 +3163,8 @@ src/support/StringUtils.i: src/support/StringUtils.cpp.i
 
 # target to preprocess a source file
 src/support/StringUtils.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/StringUtils.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/StringUtils.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/StringUtils.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/StringUtils.cpp.i
 .PHONY : src/support/StringUtils.cpp.i
 
 src/support/StringUtils.s: src/support/StringUtils.cpp.s
@@ -3172,8 +3172,8 @@ src/support/StringUtils.s: src/support/StringUtils.cpp.s
 
 # target to generate assembly for a file
 src/support/StringUtils.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/StringUtils.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/StringUtils.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/StringUtils.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/StringUtils.cpp.s
 .PHONY : src/support/StringUtils.cpp.s
 
 src/support/Utf8.o: src/support/Utf8.cpp.o
@@ -3181,8 +3181,8 @@ src/support/Utf8.o: src/support/Utf8.cpp.o
 
 # target to build an object file
 src/support/Utf8.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Utf8.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Utf8.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Utf8.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Utf8.cpp.o
 .PHONY : src/support/Utf8.cpp.o
 
 src/support/Utf8.i: src/support/Utf8.cpp.i
@@ -3190,8 +3190,8 @@ src/support/Utf8.i: src/support/Utf8.cpp.i
 
 # target to preprocess a source file
 src/support/Utf8.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Utf8.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Utf8.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Utf8.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Utf8.cpp.i
 .PHONY : src/support/Utf8.cpp.i
 
 src/support/Utf8.s: src/support/Utf8.cpp.s
@@ -3199,8 +3199,8 @@ src/support/Utf8.s: src/support/Utf8.cpp.s
 
 # target to generate assembly for a file
 src/support/Utf8.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Utf8.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Utf8.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/support/Utf8.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/support/Utf8.cpp.s
 .PHONY : src/support/Utf8.cpp.s
 
 src/tree/ErrorNodeImpl.o: src/tree/ErrorNodeImpl.cpp.o
@@ -3208,8 +3208,8 @@ src/tree/ErrorNodeImpl.o: src/tree/ErrorNodeImpl.cpp.o
 
 # target to build an object file
 src/tree/ErrorNodeImpl.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ErrorNodeImpl.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ErrorNodeImpl.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ErrorNodeImpl.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ErrorNodeImpl.cpp.o
 .PHONY : src/tree/ErrorNodeImpl.cpp.o
 
 src/tree/ErrorNodeImpl.i: src/tree/ErrorNodeImpl.cpp.i
@@ -3217,8 +3217,8 @@ src/tree/ErrorNodeImpl.i: src/tree/ErrorNodeImpl.cpp.i
 
 # target to preprocess a source file
 src/tree/ErrorNodeImpl.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ErrorNodeImpl.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ErrorNodeImpl.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ErrorNodeImpl.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ErrorNodeImpl.cpp.i
 .PHONY : src/tree/ErrorNodeImpl.cpp.i
 
 src/tree/ErrorNodeImpl.s: src/tree/ErrorNodeImpl.cpp.s
@@ -3226,8 +3226,8 @@ src/tree/ErrorNodeImpl.s: src/tree/ErrorNodeImpl.cpp.s
 
 # target to generate assembly for a file
 src/tree/ErrorNodeImpl.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ErrorNodeImpl.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ErrorNodeImpl.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ErrorNodeImpl.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ErrorNodeImpl.cpp.s
 .PHONY : src/tree/ErrorNodeImpl.cpp.s
 
 src/tree/IterativeParseTreeWalker.o: src/tree/IterativeParseTreeWalker.cpp.o
@@ -3235,8 +3235,8 @@ src/tree/IterativeParseTreeWalker.o: src/tree/IterativeParseTreeWalker.cpp.o
 
 # target to build an object file
 src/tree/IterativeParseTreeWalker.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/IterativeParseTreeWalker.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/IterativeParseTreeWalker.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.o
 .PHONY : src/tree/IterativeParseTreeWalker.cpp.o
 
 src/tree/IterativeParseTreeWalker.i: src/tree/IterativeParseTreeWalker.cpp.i
@@ -3244,8 +3244,8 @@ src/tree/IterativeParseTreeWalker.i: src/tree/IterativeParseTreeWalker.cpp.i
 
 # target to preprocess a source file
 src/tree/IterativeParseTreeWalker.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/IterativeParseTreeWalker.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/IterativeParseTreeWalker.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.i
 .PHONY : src/tree/IterativeParseTreeWalker.cpp.i
 
 src/tree/IterativeParseTreeWalker.s: src/tree/IterativeParseTreeWalker.cpp.s
@@ -3253,8 +3253,8 @@ src/tree/IterativeParseTreeWalker.s: src/tree/IterativeParseTreeWalker.cpp.s
 
 # target to generate assembly for a file
 src/tree/IterativeParseTreeWalker.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/IterativeParseTreeWalker.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/IterativeParseTreeWalker.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/IterativeParseTreeWalker.cpp.s
 .PHONY : src/tree/IterativeParseTreeWalker.cpp.s
 
 src/tree/ParseTree.o: src/tree/ParseTree.cpp.o
@@ -3262,8 +3262,8 @@ src/tree/ParseTree.o: src/tree/ParseTree.cpp.o
 
 # target to build an object file
 src/tree/ParseTree.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTree.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTree.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTree.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTree.cpp.o
 .PHONY : src/tree/ParseTree.cpp.o
 
 src/tree/ParseTree.i: src/tree/ParseTree.cpp.i
@@ -3271,8 +3271,8 @@ src/tree/ParseTree.i: src/tree/ParseTree.cpp.i
 
 # target to preprocess a source file
 src/tree/ParseTree.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTree.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTree.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTree.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTree.cpp.i
 .PHONY : src/tree/ParseTree.cpp.i
 
 src/tree/ParseTree.s: src/tree/ParseTree.cpp.s
@@ -3280,8 +3280,8 @@ src/tree/ParseTree.s: src/tree/ParseTree.cpp.s
 
 # target to generate assembly for a file
 src/tree/ParseTree.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTree.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTree.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTree.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTree.cpp.s
 .PHONY : src/tree/ParseTree.cpp.s
 
 src/tree/ParseTreeListener.o: src/tree/ParseTreeListener.cpp.o
@@ -3289,8 +3289,8 @@ src/tree/ParseTreeListener.o: src/tree/ParseTreeListener.cpp.o
 
 # target to build an object file
 src/tree/ParseTreeListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeListener.cpp.o
 .PHONY : src/tree/ParseTreeListener.cpp.o
 
 src/tree/ParseTreeListener.i: src/tree/ParseTreeListener.cpp.i
@@ -3298,8 +3298,8 @@ src/tree/ParseTreeListener.i: src/tree/ParseTreeListener.cpp.i
 
 # target to preprocess a source file
 src/tree/ParseTreeListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeListener.cpp.i
 .PHONY : src/tree/ParseTreeListener.cpp.i
 
 src/tree/ParseTreeListener.s: src/tree/ParseTreeListener.cpp.s
@@ -3307,8 +3307,8 @@ src/tree/ParseTreeListener.s: src/tree/ParseTreeListener.cpp.s
 
 # target to generate assembly for a file
 src/tree/ParseTreeListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeListener.cpp.s
 .PHONY : src/tree/ParseTreeListener.cpp.s
 
 src/tree/ParseTreeVisitor.o: src/tree/ParseTreeVisitor.cpp.o
@@ -3316,8 +3316,8 @@ src/tree/ParseTreeVisitor.o: src/tree/ParseTreeVisitor.cpp.o
 
 # target to build an object file
 src/tree/ParseTreeVisitor.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeVisitor.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeVisitor.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeVisitor.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeVisitor.cpp.o
 .PHONY : src/tree/ParseTreeVisitor.cpp.o
 
 src/tree/ParseTreeVisitor.i: src/tree/ParseTreeVisitor.cpp.i
@@ -3325,8 +3325,8 @@ src/tree/ParseTreeVisitor.i: src/tree/ParseTreeVisitor.cpp.i
 
 # target to preprocess a source file
 src/tree/ParseTreeVisitor.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeVisitor.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeVisitor.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeVisitor.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeVisitor.cpp.i
 .PHONY : src/tree/ParseTreeVisitor.cpp.i
 
 src/tree/ParseTreeVisitor.s: src/tree/ParseTreeVisitor.cpp.s
@@ -3334,8 +3334,8 @@ src/tree/ParseTreeVisitor.s: src/tree/ParseTreeVisitor.cpp.s
 
 # target to generate assembly for a file
 src/tree/ParseTreeVisitor.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeVisitor.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeVisitor.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeVisitor.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeVisitor.cpp.s
 .PHONY : src/tree/ParseTreeVisitor.cpp.s
 
 src/tree/ParseTreeWalker.o: src/tree/ParseTreeWalker.cpp.o
@@ -3343,8 +3343,8 @@ src/tree/ParseTreeWalker.o: src/tree/ParseTreeWalker.cpp.o
 
 # target to build an object file
 src/tree/ParseTreeWalker.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeWalker.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeWalker.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeWalker.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeWalker.cpp.o
 .PHONY : src/tree/ParseTreeWalker.cpp.o
 
 src/tree/ParseTreeWalker.i: src/tree/ParseTreeWalker.cpp.i
@@ -3352,8 +3352,8 @@ src/tree/ParseTreeWalker.i: src/tree/ParseTreeWalker.cpp.i
 
 # target to preprocess a source file
 src/tree/ParseTreeWalker.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeWalker.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeWalker.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeWalker.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeWalker.cpp.i
 .PHONY : src/tree/ParseTreeWalker.cpp.i
 
 src/tree/ParseTreeWalker.s: src/tree/ParseTreeWalker.cpp.s
@@ -3361,8 +3361,8 @@ src/tree/ParseTreeWalker.s: src/tree/ParseTreeWalker.cpp.s
 
 # target to generate assembly for a file
 src/tree/ParseTreeWalker.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeWalker.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeWalker.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/ParseTreeWalker.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/ParseTreeWalker.cpp.s
 .PHONY : src/tree/ParseTreeWalker.cpp.s
 
 src/tree/TerminalNodeImpl.o: src/tree/TerminalNodeImpl.cpp.o
@@ -3370,8 +3370,8 @@ src/tree/TerminalNodeImpl.o: src/tree/TerminalNodeImpl.cpp.o
 
 # target to build an object file
 src/tree/TerminalNodeImpl.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/TerminalNodeImpl.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/TerminalNodeImpl.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/TerminalNodeImpl.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/TerminalNodeImpl.cpp.o
 .PHONY : src/tree/TerminalNodeImpl.cpp.o
 
 src/tree/TerminalNodeImpl.i: src/tree/TerminalNodeImpl.cpp.i
@@ -3379,8 +3379,8 @@ src/tree/TerminalNodeImpl.i: src/tree/TerminalNodeImpl.cpp.i
 
 # target to preprocess a source file
 src/tree/TerminalNodeImpl.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/TerminalNodeImpl.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/TerminalNodeImpl.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/TerminalNodeImpl.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/TerminalNodeImpl.cpp.i
 .PHONY : src/tree/TerminalNodeImpl.cpp.i
 
 src/tree/TerminalNodeImpl.s: src/tree/TerminalNodeImpl.cpp.s
@@ -3388,8 +3388,8 @@ src/tree/TerminalNodeImpl.s: src/tree/TerminalNodeImpl.cpp.s
 
 # target to generate assembly for a file
 src/tree/TerminalNodeImpl.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/TerminalNodeImpl.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/TerminalNodeImpl.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/TerminalNodeImpl.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/TerminalNodeImpl.cpp.s
 .PHONY : src/tree/TerminalNodeImpl.cpp.s
 
 src/tree/Trees.o: src/tree/Trees.cpp.o
@@ -3397,8 +3397,8 @@ src/tree/Trees.o: src/tree/Trees.cpp.o
 
 # target to build an object file
 src/tree/Trees.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/Trees.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/Trees.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/Trees.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/Trees.cpp.o
 .PHONY : src/tree/Trees.cpp.o
 
 src/tree/Trees.i: src/tree/Trees.cpp.i
@@ -3406,8 +3406,8 @@ src/tree/Trees.i: src/tree/Trees.cpp.i
 
 # target to preprocess a source file
 src/tree/Trees.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/Trees.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/Trees.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/Trees.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/Trees.cpp.i
 .PHONY : src/tree/Trees.cpp.i
 
 src/tree/Trees.s: src/tree/Trees.cpp.s
@@ -3415,8 +3415,8 @@ src/tree/Trees.s: src/tree/Trees.cpp.s
 
 # target to generate assembly for a file
 src/tree/Trees.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/Trees.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/Trees.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/Trees.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/Trees.cpp.s
 .PHONY : src/tree/Trees.cpp.s
 
 src/tree/pattern/Chunk.o: src/tree/pattern/Chunk.cpp.o
@@ -3424,8 +3424,8 @@ src/tree/pattern/Chunk.o: src/tree/pattern/Chunk.cpp.o
 
 # target to build an object file
 src/tree/pattern/Chunk.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/Chunk.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/Chunk.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/Chunk.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/Chunk.cpp.o
 .PHONY : src/tree/pattern/Chunk.cpp.o
 
 src/tree/pattern/Chunk.i: src/tree/pattern/Chunk.cpp.i
@@ -3433,8 +3433,8 @@ src/tree/pattern/Chunk.i: src/tree/pattern/Chunk.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/Chunk.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/Chunk.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/Chunk.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/Chunk.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/Chunk.cpp.i
 .PHONY : src/tree/pattern/Chunk.cpp.i
 
 src/tree/pattern/Chunk.s: src/tree/pattern/Chunk.cpp.s
@@ -3442,8 +3442,8 @@ src/tree/pattern/Chunk.s: src/tree/pattern/Chunk.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/Chunk.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/Chunk.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/Chunk.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/Chunk.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/Chunk.cpp.s
 .PHONY : src/tree/pattern/Chunk.cpp.s
 
 src/tree/pattern/ParseTreeMatch.o: src/tree/pattern/ParseTreeMatch.cpp.o
@@ -3451,8 +3451,8 @@ src/tree/pattern/ParseTreeMatch.o: src/tree/pattern/ParseTreeMatch.cpp.o
 
 # target to build an object file
 src/tree/pattern/ParseTreeMatch.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreeMatch.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreeMatch.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreeMatch.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreeMatch.cpp.o
 .PHONY : src/tree/pattern/ParseTreeMatch.cpp.o
 
 src/tree/pattern/ParseTreeMatch.i: src/tree/pattern/ParseTreeMatch.cpp.i
@@ -3460,8 +3460,8 @@ src/tree/pattern/ParseTreeMatch.i: src/tree/pattern/ParseTreeMatch.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/ParseTreeMatch.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreeMatch.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreeMatch.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreeMatch.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreeMatch.cpp.i
 .PHONY : src/tree/pattern/ParseTreeMatch.cpp.i
 
 src/tree/pattern/ParseTreeMatch.s: src/tree/pattern/ParseTreeMatch.cpp.s
@@ -3469,8 +3469,8 @@ src/tree/pattern/ParseTreeMatch.s: src/tree/pattern/ParseTreeMatch.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/ParseTreeMatch.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreeMatch.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreeMatch.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreeMatch.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreeMatch.cpp.s
 .PHONY : src/tree/pattern/ParseTreeMatch.cpp.s
 
 src/tree/pattern/ParseTreePattern.o: src/tree/pattern/ParseTreePattern.cpp.o
@@ -3478,8 +3478,8 @@ src/tree/pattern/ParseTreePattern.o: src/tree/pattern/ParseTreePattern.cpp.o
 
 # target to build an object file
 src/tree/pattern/ParseTreePattern.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePattern.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePattern.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePattern.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePattern.cpp.o
 .PHONY : src/tree/pattern/ParseTreePattern.cpp.o
 
 src/tree/pattern/ParseTreePattern.i: src/tree/pattern/ParseTreePattern.cpp.i
@@ -3487,8 +3487,8 @@ src/tree/pattern/ParseTreePattern.i: src/tree/pattern/ParseTreePattern.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/ParseTreePattern.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePattern.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePattern.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePattern.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePattern.cpp.i
 .PHONY : src/tree/pattern/ParseTreePattern.cpp.i
 
 src/tree/pattern/ParseTreePattern.s: src/tree/pattern/ParseTreePattern.cpp.s
@@ -3496,8 +3496,8 @@ src/tree/pattern/ParseTreePattern.s: src/tree/pattern/ParseTreePattern.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/ParseTreePattern.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePattern.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePattern.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePattern.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePattern.cpp.s
 .PHONY : src/tree/pattern/ParseTreePattern.cpp.s
 
 src/tree/pattern/ParseTreePatternMatcher.o: src/tree/pattern/ParseTreePatternMatcher.cpp.o
@@ -3505,8 +3505,8 @@ src/tree/pattern/ParseTreePatternMatcher.o: src/tree/pattern/ParseTreePatternMat
 
 # target to build an object file
 src/tree/pattern/ParseTreePatternMatcher.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.o
 .PHONY : src/tree/pattern/ParseTreePatternMatcher.cpp.o
 
 src/tree/pattern/ParseTreePatternMatcher.i: src/tree/pattern/ParseTreePatternMatcher.cpp.i
@@ -3514,8 +3514,8 @@ src/tree/pattern/ParseTreePatternMatcher.i: src/tree/pattern/ParseTreePatternMat
 
 # target to preprocess a source file
 src/tree/pattern/ParseTreePatternMatcher.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.i
 .PHONY : src/tree/pattern/ParseTreePatternMatcher.cpp.i
 
 src/tree/pattern/ParseTreePatternMatcher.s: src/tree/pattern/ParseTreePatternMatcher.cpp.s
@@ -3523,8 +3523,8 @@ src/tree/pattern/ParseTreePatternMatcher.s: src/tree/pattern/ParseTreePatternMat
 
 # target to generate assembly for a file
 src/tree/pattern/ParseTreePatternMatcher.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/ParseTreePatternMatcher.cpp.s
 .PHONY : src/tree/pattern/ParseTreePatternMatcher.cpp.s
 
 src/tree/pattern/RuleTagToken.o: src/tree/pattern/RuleTagToken.cpp.o
@@ -3532,8 +3532,8 @@ src/tree/pattern/RuleTagToken.o: src/tree/pattern/RuleTagToken.cpp.o
 
 # target to build an object file
 src/tree/pattern/RuleTagToken.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/RuleTagToken.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/RuleTagToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/RuleTagToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/RuleTagToken.cpp.o
 .PHONY : src/tree/pattern/RuleTagToken.cpp.o
 
 src/tree/pattern/RuleTagToken.i: src/tree/pattern/RuleTagToken.cpp.i
@@ -3541,8 +3541,8 @@ src/tree/pattern/RuleTagToken.i: src/tree/pattern/RuleTagToken.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/RuleTagToken.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/RuleTagToken.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/RuleTagToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/RuleTagToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/RuleTagToken.cpp.i
 .PHONY : src/tree/pattern/RuleTagToken.cpp.i
 
 src/tree/pattern/RuleTagToken.s: src/tree/pattern/RuleTagToken.cpp.s
@@ -3550,8 +3550,8 @@ src/tree/pattern/RuleTagToken.s: src/tree/pattern/RuleTagToken.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/RuleTagToken.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/RuleTagToken.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/RuleTagToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/RuleTagToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/RuleTagToken.cpp.s
 .PHONY : src/tree/pattern/RuleTagToken.cpp.s
 
 src/tree/pattern/TagChunk.o: src/tree/pattern/TagChunk.cpp.o
@@ -3559,8 +3559,8 @@ src/tree/pattern/TagChunk.o: src/tree/pattern/TagChunk.cpp.o
 
 # target to build an object file
 src/tree/pattern/TagChunk.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TagChunk.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TagChunk.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TagChunk.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TagChunk.cpp.o
 .PHONY : src/tree/pattern/TagChunk.cpp.o
 
 src/tree/pattern/TagChunk.i: src/tree/pattern/TagChunk.cpp.i
@@ -3568,8 +3568,8 @@ src/tree/pattern/TagChunk.i: src/tree/pattern/TagChunk.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/TagChunk.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TagChunk.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TagChunk.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TagChunk.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TagChunk.cpp.i
 .PHONY : src/tree/pattern/TagChunk.cpp.i
 
 src/tree/pattern/TagChunk.s: src/tree/pattern/TagChunk.cpp.s
@@ -3577,8 +3577,8 @@ src/tree/pattern/TagChunk.s: src/tree/pattern/TagChunk.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/TagChunk.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TagChunk.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TagChunk.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TagChunk.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TagChunk.cpp.s
 .PHONY : src/tree/pattern/TagChunk.cpp.s
 
 src/tree/pattern/TextChunk.o: src/tree/pattern/TextChunk.cpp.o
@@ -3586,8 +3586,8 @@ src/tree/pattern/TextChunk.o: src/tree/pattern/TextChunk.cpp.o
 
 # target to build an object file
 src/tree/pattern/TextChunk.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TextChunk.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TextChunk.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TextChunk.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TextChunk.cpp.o
 .PHONY : src/tree/pattern/TextChunk.cpp.o
 
 src/tree/pattern/TextChunk.i: src/tree/pattern/TextChunk.cpp.i
@@ -3595,8 +3595,8 @@ src/tree/pattern/TextChunk.i: src/tree/pattern/TextChunk.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/TextChunk.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TextChunk.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TextChunk.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TextChunk.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TextChunk.cpp.i
 .PHONY : src/tree/pattern/TextChunk.cpp.i
 
 src/tree/pattern/TextChunk.s: src/tree/pattern/TextChunk.cpp.s
@@ -3604,8 +3604,8 @@ src/tree/pattern/TextChunk.s: src/tree/pattern/TextChunk.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/TextChunk.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TextChunk.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TextChunk.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TextChunk.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TextChunk.cpp.s
 .PHONY : src/tree/pattern/TextChunk.cpp.s
 
 src/tree/pattern/TokenTagToken.o: src/tree/pattern/TokenTagToken.cpp.o
@@ -3613,8 +3613,8 @@ src/tree/pattern/TokenTagToken.o: src/tree/pattern/TokenTagToken.cpp.o
 
 # target to build an object file
 src/tree/pattern/TokenTagToken.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TokenTagToken.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TokenTagToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TokenTagToken.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TokenTagToken.cpp.o
 .PHONY : src/tree/pattern/TokenTagToken.cpp.o
 
 src/tree/pattern/TokenTagToken.i: src/tree/pattern/TokenTagToken.cpp.i
@@ -3622,8 +3622,8 @@ src/tree/pattern/TokenTagToken.i: src/tree/pattern/TokenTagToken.cpp.i
 
 # target to preprocess a source file
 src/tree/pattern/TokenTagToken.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TokenTagToken.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TokenTagToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TokenTagToken.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TokenTagToken.cpp.i
 .PHONY : src/tree/pattern/TokenTagToken.cpp.i
 
 src/tree/pattern/TokenTagToken.s: src/tree/pattern/TokenTagToken.cpp.s
@@ -3631,8 +3631,8 @@ src/tree/pattern/TokenTagToken.s: src/tree/pattern/TokenTagToken.cpp.s
 
 # target to generate assembly for a file
 src/tree/pattern/TokenTagToken.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TokenTagToken.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TokenTagToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/pattern/TokenTagToken.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/pattern/TokenTagToken.cpp.s
 .PHONY : src/tree/pattern/TokenTagToken.cpp.s
 
 src/tree/xpath/XPath.o: src/tree/xpath/XPath.cpp.o
@@ -3640,8 +3640,8 @@ src/tree/xpath/XPath.o: src/tree/xpath/XPath.cpp.o
 
 # target to build an object file
 src/tree/xpath/XPath.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPath.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPath.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPath.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPath.cpp.o
 .PHONY : src/tree/xpath/XPath.cpp.o
 
 src/tree/xpath/XPath.i: src/tree/xpath/XPath.cpp.i
@@ -3649,8 +3649,8 @@ src/tree/xpath/XPath.i: src/tree/xpath/XPath.cpp.i
 
 # target to preprocess a source file
 src/tree/xpath/XPath.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPath.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPath.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPath.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPath.cpp.i
 .PHONY : src/tree/xpath/XPath.cpp.i
 
 src/tree/xpath/XPath.s: src/tree/xpath/XPath.cpp.s
@@ -3658,8 +3658,8 @@ src/tree/xpath/XPath.s: src/tree/xpath/XPath.cpp.s
 
 # target to generate assembly for a file
 src/tree/xpath/XPath.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPath.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPath.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPath.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPath.cpp.s
 .PHONY : src/tree/xpath/XPath.cpp.s
 
 src/tree/xpath/XPathElement.o: src/tree/xpath/XPathElement.cpp.o
@@ -3667,8 +3667,8 @@ src/tree/xpath/XPathElement.o: src/tree/xpath/XPathElement.cpp.o
 
 # target to build an object file
 src/tree/xpath/XPathElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathElement.cpp.o
 .PHONY : src/tree/xpath/XPathElement.cpp.o
 
 src/tree/xpath/XPathElement.i: src/tree/xpath/XPathElement.cpp.i
@@ -3676,8 +3676,8 @@ src/tree/xpath/XPathElement.i: src/tree/xpath/XPathElement.cpp.i
 
 # target to preprocess a source file
 src/tree/xpath/XPathElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathElement.cpp.i
 .PHONY : src/tree/xpath/XPathElement.cpp.i
 
 src/tree/xpath/XPathElement.s: src/tree/xpath/XPathElement.cpp.s
@@ -3685,8 +3685,8 @@ src/tree/xpath/XPathElement.s: src/tree/xpath/XPathElement.cpp.s
 
 # target to generate assembly for a file
 src/tree/xpath/XPathElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathElement.cpp.s
 .PHONY : src/tree/xpath/XPathElement.cpp.s
 
 src/tree/xpath/XPathLexer.o: src/tree/xpath/XPathLexer.cpp.o
@@ -3694,8 +3694,8 @@ src/tree/xpath/XPathLexer.o: src/tree/xpath/XPathLexer.cpp.o
 
 # target to build an object file
 src/tree/xpath/XPathLexer.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexer.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexer.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexer.cpp.o
 .PHONY : src/tree/xpath/XPathLexer.cpp.o
 
 src/tree/xpath/XPathLexer.i: src/tree/xpath/XPathLexer.cpp.i
@@ -3703,8 +3703,8 @@ src/tree/xpath/XPathLexer.i: src/tree/xpath/XPathLexer.cpp.i
 
 # target to preprocess a source file
 src/tree/xpath/XPathLexer.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexer.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexer.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexer.cpp.i
 .PHONY : src/tree/xpath/XPathLexer.cpp.i
 
 src/tree/xpath/XPathLexer.s: src/tree/xpath/XPathLexer.cpp.s
@@ -3712,8 +3712,8 @@ src/tree/xpath/XPathLexer.s: src/tree/xpath/XPathLexer.cpp.s
 
 # target to generate assembly for a file
 src/tree/xpath/XPathLexer.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexer.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexer.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexer.cpp.s
 .PHONY : src/tree/xpath/XPathLexer.cpp.s
 
 src/tree/xpath/XPathLexerErrorListener.o: src/tree/xpath/XPathLexerErrorListener.cpp.o
@@ -3721,8 +3721,8 @@ src/tree/xpath/XPathLexerErrorListener.o: src/tree/xpath/XPathLexerErrorListener
 
 # target to build an object file
 src/tree/xpath/XPathLexerErrorListener.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexerErrorListener.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexerErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexerErrorListener.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexerErrorListener.cpp.o
 .PHONY : src/tree/xpath/XPathLexerErrorListener.cpp.o
 
 src/tree/xpath/XPathLexerErrorListener.i: src/tree/xpath/XPathLexerErrorListener.cpp.i
@@ -3730,8 +3730,8 @@ src/tree/xpath/XPathLexerErrorListener.i: src/tree/xpath/XPathLexerErrorListener
 
 # target to preprocess a source file
 src/tree/xpath/XPathLexerErrorListener.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexerErrorListener.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexerErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexerErrorListener.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexerErrorListener.cpp.i
 .PHONY : src/tree/xpath/XPathLexerErrorListener.cpp.i
 
 src/tree/xpath/XPathLexerErrorListener.s: src/tree/xpath/XPathLexerErrorListener.cpp.s
@@ -3739,8 +3739,8 @@ src/tree/xpath/XPathLexerErrorListener.s: src/tree/xpath/XPathLexerErrorListener
 
 # target to generate assembly for a file
 src/tree/xpath/XPathLexerErrorListener.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexerErrorListener.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexerErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathLexerErrorListener.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathLexerErrorListener.cpp.s
 .PHONY : src/tree/xpath/XPathLexerErrorListener.cpp.s
 
 src/tree/xpath/XPathRuleAnywhereElement.o: src/tree/xpath/XPathRuleAnywhereElement.cpp.o
@@ -3748,8 +3748,8 @@ src/tree/xpath/XPathRuleAnywhereElement.o: src/tree/xpath/XPathRuleAnywhereEleme
 
 # target to build an object file
 src/tree/xpath/XPathRuleAnywhereElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.o
 .PHONY : src/tree/xpath/XPathRuleAnywhereElement.cpp.o
 
 src/tree/xpath/XPathRuleAnywhereElement.i: src/tree/xpath/XPathRuleAnywhereElement.cpp.i
@@ -3757,8 +3757,8 @@ src/tree/xpath/XPathRuleAnywhereElement.i: src/tree/xpath/XPathRuleAnywhereEleme
 
 # target to preprocess a source file
 src/tree/xpath/XPathRuleAnywhereElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.i
 .PHONY : src/tree/xpath/XPathRuleAnywhereElement.cpp.i
 
 src/tree/xpath/XPathRuleAnywhereElement.s: src/tree/xpath/XPathRuleAnywhereElement.cpp.s
@@ -3766,8 +3766,8 @@ src/tree/xpath/XPathRuleAnywhereElement.s: src/tree/xpath/XPathRuleAnywhereEleme
 
 # target to generate assembly for a file
 src/tree/xpath/XPathRuleAnywhereElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleAnywhereElement.cpp.s
 .PHONY : src/tree/xpath/XPathRuleAnywhereElement.cpp.s
 
 src/tree/xpath/XPathRuleElement.o: src/tree/xpath/XPathRuleElement.cpp.o
@@ -3775,8 +3775,8 @@ src/tree/xpath/XPathRuleElement.o: src/tree/xpath/XPathRuleElement.cpp.o
 
 # target to build an object file
 src/tree/xpath/XPathRuleElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleElement.cpp.o
 .PHONY : src/tree/xpath/XPathRuleElement.cpp.o
 
 src/tree/xpath/XPathRuleElement.i: src/tree/xpath/XPathRuleElement.cpp.i
@@ -3784,8 +3784,8 @@ src/tree/xpath/XPathRuleElement.i: src/tree/xpath/XPathRuleElement.cpp.i
 
 # target to preprocess a source file
 src/tree/xpath/XPathRuleElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleElement.cpp.i
 .PHONY : src/tree/xpath/XPathRuleElement.cpp.i
 
 src/tree/xpath/XPathRuleElement.s: src/tree/xpath/XPathRuleElement.cpp.s
@@ -3793,8 +3793,8 @@ src/tree/xpath/XPathRuleElement.s: src/tree/xpath/XPathRuleElement.cpp.s
 
 # target to generate assembly for a file
 src/tree/xpath/XPathRuleElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathRuleElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathRuleElement.cpp.s
 .PHONY : src/tree/xpath/XPathRuleElement.cpp.s
 
 src/tree/xpath/XPathTokenAnywhereElement.o: src/tree/xpath/XPathTokenAnywhereElement.cpp.o
@@ -3802,8 +3802,8 @@ src/tree/xpath/XPathTokenAnywhereElement.o: src/tree/xpath/XPathTokenAnywhereEle
 
 # target to build an object file
 src/tree/xpath/XPathTokenAnywhereElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.o
 .PHONY : src/tree/xpath/XPathTokenAnywhereElement.cpp.o
 
 src/tree/xpath/XPathTokenAnywhereElement.i: src/tree/xpath/XPathTokenAnywhereElement.cpp.i
@@ -3811,8 +3811,8 @@ src/tree/xpath/XPathTokenAnywhereElement.i: src/tree/xpath/XPathTokenAnywhereEle
 
 # target to preprocess a source file
 src/tree/xpath/XPathTokenAnywhereElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.i
 .PHONY : src/tree/xpath/XPathTokenAnywhereElement.cpp.i
 
 src/tree/xpath/XPathTokenAnywhereElement.s: src/tree/xpath/XPathTokenAnywhereElement.cpp.s
@@ -3820,8 +3820,8 @@ src/tree/xpath/XPathTokenAnywhereElement.s: src/tree/xpath/XPathTokenAnywhereEle
 
 # target to generate assembly for a file
 src/tree/xpath/XPathTokenAnywhereElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenAnywhereElement.cpp.s
 .PHONY : src/tree/xpath/XPathTokenAnywhereElement.cpp.s
 
 src/tree/xpath/XPathTokenElement.o: src/tree/xpath/XPathTokenElement.cpp.o
@@ -3829,8 +3829,8 @@ src/tree/xpath/XPathTokenElement.o: src/tree/xpath/XPathTokenElement.cpp.o
 
 # target to build an object file
 src/tree/xpath/XPathTokenElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenElement.cpp.o
 .PHONY : src/tree/xpath/XPathTokenElement.cpp.o
 
 src/tree/xpath/XPathTokenElement.i: src/tree/xpath/XPathTokenElement.cpp.i
@@ -3838,8 +3838,8 @@ src/tree/xpath/XPathTokenElement.i: src/tree/xpath/XPathTokenElement.cpp.i
 
 # target to preprocess a source file
 src/tree/xpath/XPathTokenElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenElement.cpp.i
 .PHONY : src/tree/xpath/XPathTokenElement.cpp.i
 
 src/tree/xpath/XPathTokenElement.s: src/tree/xpath/XPathTokenElement.cpp.s
@@ -3847,8 +3847,8 @@ src/tree/xpath/XPathTokenElement.s: src/tree/xpath/XPathTokenElement.cpp.s
 
 # target to generate assembly for a file
 src/tree/xpath/XPathTokenElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathTokenElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathTokenElement.cpp.s
 .PHONY : src/tree/xpath/XPathTokenElement.cpp.s
 
 src/tree/xpath/XPathWildcardAnywhereElement.o: src/tree/xpath/XPathWildcardAnywhereElement.cpp.o
@@ -3856,8 +3856,8 @@ src/tree/xpath/XPathWildcardAnywhereElement.o: src/tree/xpath/XPathWildcardAnywh
 
 # target to build an object file
 src/tree/xpath/XPathWildcardAnywhereElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.o
 .PHONY : src/tree/xpath/XPathWildcardAnywhereElement.cpp.o
 
 src/tree/xpath/XPathWildcardAnywhereElement.i: src/tree/xpath/XPathWildcardAnywhereElement.cpp.i
@@ -3865,8 +3865,8 @@ src/tree/xpath/XPathWildcardAnywhereElement.i: src/tree/xpath/XPathWildcardAnywh
 
 # target to preprocess a source file
 src/tree/xpath/XPathWildcardAnywhereElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.i
 .PHONY : src/tree/xpath/XPathWildcardAnywhereElement.cpp.i
 
 src/tree/xpath/XPathWildcardAnywhereElement.s: src/tree/xpath/XPathWildcardAnywhereElement.cpp.s
@@ -3874,8 +3874,8 @@ src/tree/xpath/XPathWildcardAnywhereElement.s: src/tree/xpath/XPathWildcardAnywh
 
 # target to generate assembly for a file
 src/tree/xpath/XPathWildcardAnywhereElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardAnywhereElement.cpp.s
 .PHONY : src/tree/xpath/XPathWildcardAnywhereElement.cpp.s
 
 src/tree/xpath/XPathWildcardElement.o: src/tree/xpath/XPathWildcardElement.cpp.o
@@ -3883,8 +3883,8 @@ src/tree/xpath/XPathWildcardElement.o: src/tree/xpath/XPathWildcardElement.cpp.o
 
 # target to build an object file
 src/tree/xpath/XPathWildcardElement.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardElement.cpp.o
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardElement.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardElement.cpp.o
 .PHONY : src/tree/xpath/XPathWildcardElement.cpp.o
 
 src/tree/xpath/XPathWildcardElement.i: src/tree/xpath/XPathWildcardElement.cpp.i
@@ -3892,8 +3892,8 @@ src/tree/xpath/XPathWildcardElement.i: src/tree/xpath/XPathWildcardElement.cpp.i
 
 # target to preprocess a source file
 src/tree/xpath/XPathWildcardElement.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardElement.cpp.i
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardElement.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardElement.cpp.i
 .PHONY : src/tree/xpath/XPathWildcardElement.cpp.i
 
 src/tree/xpath/XPathWildcardElement.s: src/tree/xpath/XPathWildcardElement.cpp.s
@@ -3901,8 +3901,8 @@ src/tree/xpath/XPathWildcardElement.s: src/tree/xpath/XPathWildcardElement.cpp.s
 
 # target to generate assembly for a file
 src/tree/xpath/XPathWildcardElement.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardElement.cpp.s
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_shared.dir/build.make runtime/CMakeFiles/antlr4_shared.dir/src/tree/xpath/XPathWildcardElement.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_static.dir/build.make runtime/CMakeFiles/antlr4_static.dir/src/tree/xpath/XPathWildcardElement.cpp.s
 .PHONY : src/tree/xpath/XPathWildcardElement.cpp.s
 
 tests/Utf8Test.o: tests/Utf8Test.cpp.o
@@ -3910,7 +3910,7 @@ tests/Utf8Test.o: tests/Utf8Test.cpp.o
 
 # target to build an object file
 tests/Utf8Test.cpp.o:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/tests/Utf8Test.cpp.o
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/tests/Utf8Test.cpp.o
 .PHONY : tests/Utf8Test.cpp.o
 
 tests/Utf8Test.i: tests/Utf8Test.cpp.i
@@ -3918,7 +3918,7 @@ tests/Utf8Test.i: tests/Utf8Test.cpp.i
 
 # target to preprocess a source file
 tests/Utf8Test.cpp.i:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/tests/Utf8Test.cpp.i
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/tests/Utf8Test.cpp.i
 .PHONY : tests/Utf8Test.cpp.i
 
 tests/Utf8Test.s: tests/Utf8Test.cpp.s
@@ -3926,7 +3926,7 @@ tests/Utf8Test.s: tests/Utf8Test.cpp.s
 
 # target to generate assembly for a file
 tests/Utf8Test.cpp.s:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/tests/Utf8Test.cpp.s
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(MAKE) $(MAKESILENT) -f runtime/CMakeFiles/antlr4_tests.dir/build.make runtime/CMakeFiles/antlr4_tests.dir/tests/Utf8Test.cpp.s
 .PHONY : tests/Utf8Test.cpp.s
 
 # Help Target
@@ -4369,6 +4369,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

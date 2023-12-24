@@ -1,4 +1,4 @@
-# Install script for directory: /home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime
+# Install script for directory: /home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,13 +44,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/runtime/cmake_install.cmake")
+  include("/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/runtime/cmake_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/libantlr4" TYPE FILE FILES
-    "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/README.md"
-    "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/VERSION"
+    "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/README.md"
+    "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/VERSION"
     )
 endif()
 
@@ -62,5 +62,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

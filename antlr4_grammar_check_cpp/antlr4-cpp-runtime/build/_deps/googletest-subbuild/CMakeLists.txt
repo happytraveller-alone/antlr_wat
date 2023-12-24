@@ -14,8 +14,8 @@ project(googletest-populate NONE)
 include(ExternalProject)
 ExternalProject_Add(googletest-populate
                      "UPDATE_DISCONNECTED" "False" "URL" "https://github.com/google/googletest/archive/e2239ee6043f73722e7aa812a459f54a28552929.zip"
-                    SOURCE_DIR          "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-src"
-                    BINARY_DIR          "/home/xyf/antlr4_test/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-build"
+                    SOURCE_DIR          "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-src"
+                    BINARY_DIR          "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/antlr4-cpp-runtime/build/_deps/googletest-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

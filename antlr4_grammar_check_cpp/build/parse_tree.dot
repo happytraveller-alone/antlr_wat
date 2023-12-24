@@ -1,5 +1,0 @@
-digraph ParseTree {
-  node [shape=ellipse];
-  node0 [label="<EOF>"];
-  node1 [label="<EOF>"];
-  node0 -> node1;

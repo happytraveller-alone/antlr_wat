@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp
+CMAKE_SOURCE_DIR = /home/xyf/antlr_wat/antlr4_grammar_check_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xyf/antlr4_test/antlr4_grammar_check_cpp/build
+CMAKE_BINARY_DIR = /home/xyf/antlr_wat/antlr4_grammar_check_cpp/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Grammar_check.dir/depend.make
@@ -72,44 +72,44 @@ include CMakeFiles/Grammar_check.dir/flags.make
 CMakeFiles/Grammar_check.dir/Check.cpp.o: CMakeFiles/Grammar_check.dir/flags.make
 CMakeFiles/Grammar_check.dir/Check.cpp.o: ../Check.cpp
 CMakeFiles/Grammar_check.dir/Check.cpp.o: CMakeFiles/Grammar_check.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Grammar_check.dir/Check.cpp.o"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Grammar_check.dir/Check.cpp.o -MF CMakeFiles/Grammar_check.dir/Check.cpp.o.d -o CMakeFiles/Grammar_check.dir/Check.cpp.o -c /home/xyf/antlr4_test/antlr4_grammar_check_cpp/Check.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Grammar_check.dir/Check.cpp.o"
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Grammar_check.dir/Check.cpp.o -MF CMakeFiles/Grammar_check.dir/Check.cpp.o.d -o CMakeFiles/Grammar_check.dir/Check.cpp.o -c /home/xyf/antlr_wat/antlr4_grammar_check_cpp/Check.cpp
 
 CMakeFiles/Grammar_check.dir/Check.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Grammar_check.dir/Check.cpp.i"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xyf/antlr4_test/antlr4_grammar_check_cpp/Check.cpp > CMakeFiles/Grammar_check.dir/Check.cpp.i
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xyf/antlr_wat/antlr4_grammar_check_cpp/Check.cpp > CMakeFiles/Grammar_check.dir/Check.cpp.i
 
 CMakeFiles/Grammar_check.dir/Check.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grammar_check.dir/Check.cpp.s"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xyf/antlr4_test/antlr4_grammar_check_cpp/Check.cpp -o CMakeFiles/Grammar_check.dir/Check.cpp.s
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xyf/antlr_wat/antlr4_grammar_check_cpp/Check.cpp -o CMakeFiles/Grammar_check.dir/Check.cpp.s
 
 CMakeFiles/Grammar_check.dir/WatLexer.cpp.o: CMakeFiles/Grammar_check.dir/flags.make
 CMakeFiles/Grammar_check.dir/WatLexer.cpp.o: ../WatLexer.cpp
 CMakeFiles/Grammar_check.dir/WatLexer.cpp.o: CMakeFiles/Grammar_check.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Grammar_check.dir/WatLexer.cpp.o"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Grammar_check.dir/WatLexer.cpp.o -MF CMakeFiles/Grammar_check.dir/WatLexer.cpp.o.d -o CMakeFiles/Grammar_check.dir/WatLexer.cpp.o -c /home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatLexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Grammar_check.dir/WatLexer.cpp.o"
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Grammar_check.dir/WatLexer.cpp.o -MF CMakeFiles/Grammar_check.dir/WatLexer.cpp.o.d -o CMakeFiles/Grammar_check.dir/WatLexer.cpp.o -c /home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatLexer.cpp
 
 CMakeFiles/Grammar_check.dir/WatLexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Grammar_check.dir/WatLexer.cpp.i"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatLexer.cpp > CMakeFiles/Grammar_check.dir/WatLexer.cpp.i
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatLexer.cpp > CMakeFiles/Grammar_check.dir/WatLexer.cpp.i
 
 CMakeFiles/Grammar_check.dir/WatLexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grammar_check.dir/WatLexer.cpp.s"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatLexer.cpp -o CMakeFiles/Grammar_check.dir/WatLexer.cpp.s
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatLexer.cpp -o CMakeFiles/Grammar_check.dir/WatLexer.cpp.s
 
 CMakeFiles/Grammar_check.dir/WatParser.cpp.o: CMakeFiles/Grammar_check.dir/flags.make
 CMakeFiles/Grammar_check.dir/WatParser.cpp.o: ../WatParser.cpp
 CMakeFiles/Grammar_check.dir/WatParser.cpp.o: CMakeFiles/Grammar_check.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Grammar_check.dir/WatParser.cpp.o"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Grammar_check.dir/WatParser.cpp.o -MF CMakeFiles/Grammar_check.dir/WatParser.cpp.o.d -o CMakeFiles/Grammar_check.dir/WatParser.cpp.o -c /home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Grammar_check.dir/WatParser.cpp.o"
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Grammar_check.dir/WatParser.cpp.o -MF CMakeFiles/Grammar_check.dir/WatParser.cpp.o.d -o CMakeFiles/Grammar_check.dir/WatParser.cpp.o -c /home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatParser.cpp
 
 CMakeFiles/Grammar_check.dir/WatParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Grammar_check.dir/WatParser.cpp.i"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatParser.cpp > CMakeFiles/Grammar_check.dir/WatParser.cpp.i
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatParser.cpp > CMakeFiles/Grammar_check.dir/WatParser.cpp.i
 
 CMakeFiles/Grammar_check.dir/WatParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grammar_check.dir/WatParser.cpp.s"
-	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xyf/antlr4_test/antlr4_grammar_check_cpp/WatParser.cpp -o CMakeFiles/Grammar_check.dir/WatParser.cpp.s
+	/usr/bin/clang++-14 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xyf/antlr_wat/antlr4_grammar_check_cpp/WatParser.cpp -o CMakeFiles/Grammar_check.dir/WatParser.cpp.s
 
 # Object files for target Grammar_check
 Grammar_check_OBJECTS = \
@@ -124,9 +124,9 @@ Grammar_check: CMakeFiles/Grammar_check.dir/Check.cpp.o
 Grammar_check: CMakeFiles/Grammar_check.dir/WatLexer.cpp.o
 Grammar_check: CMakeFiles/Grammar_check.dir/WatParser.cpp.o
 Grammar_check: CMakeFiles/Grammar_check.dir/build.make
-Grammar_check: ../antlr4-cpp-runtime/runtime/libantlr4-runtime.a
+Grammar_check: ../antlr4-cpp-runtime/run/usr/local/lib/libantlr4-runtime.a
 Grammar_check: CMakeFiles/Grammar_check.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xyf/antlr4_test/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Grammar_check"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Grammar_check"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Grammar_check.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +138,6 @@ CMakeFiles/Grammar_check.dir/clean:
 .PHONY : CMakeFiles/Grammar_check.dir/clean
 
 CMakeFiles/Grammar_check.dir/depend:
-	cd /home/xyf/antlr4_test/antlr4_grammar_check_cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xyf/antlr4_test/antlr4_grammar_check_cpp /home/xyf/antlr4_test/antlr4_grammar_check_cpp /home/xyf/antlr4_test/antlr4_grammar_check_cpp/build /home/xyf/antlr4_test/antlr4_grammar_check_cpp/build /home/xyf/antlr4_test/antlr4_grammar_check_cpp/build/CMakeFiles/Grammar_check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/xyf/antlr_wat/antlr4_grammar_check_cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xyf/antlr_wat/antlr4_grammar_check_cpp /home/xyf/antlr_wat/antlr4_grammar_check_cpp /home/xyf/antlr_wat/antlr4_grammar_check_cpp/build /home/xyf/antlr_wat/antlr4_grammar_check_cpp/build /home/xyf/antlr_wat/antlr4_grammar_check_cpp/build/CMakeFiles/Grammar_check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Grammar_check.dir/depend
 
