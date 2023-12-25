@@ -4,8 +4,10 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <algorithm>
 #include <unordered_map>
 #include <random>
+#include <array>
 
 #include "WatLexer.h"
 #include "WatParser.h"
@@ -17,375 +19,83 @@
 using namespace antlr4;
 using namespace std;
 
-class OutputWatVisitor : public WatParserBaseVisitor {
-private:
-    // 文件输出流
-    std::ofstream outputfile;
-public:
-    OutputWatVisitor(std::string filename) :  outputfile(filename) {
-        if(!outputfile.is_open()) {
-            std::cerr << "open file failed" << std::endl;
-            exit(1);
-        }
-        else{
-            std::cout << "open file success" << std::endl;
-        }
 
-    }
-    ~OutputWatVisitor() {
-        std::cout << "close file" << std::endl;
-        outputfile.close();
-    
-    }
-    antlrcpp::Any visitTerminal(tree::TerminalNode* node) override {
-        // 输出终端节点的文本
-        std::cout << node->getText() << " ";
-        outputfile << node->getText() << " ";
-        // 如果是<EOF>则换行
-        if (node->getSymbol()->getType() == WatLexer::EOF) {
-            std::cout << std::endl;
-            outputfile << std::endl;
-        }
-        return antlrcpp::Any();
-    }
-};
 
 class CustomWatVisitor : public WatParserBaseVisitor {
 private:
+    // token rewriter
     TokenStreamRewriter &rewriter;
-    std::ofstream outputfile;
+    // visitor output file
+    std::ofstream original_outputfile;
+    // rewriter output file
+    std::ofstream rewriter_outputfile;
     // 随机数生成器
     mt19937 gen;
     // 均匀分布
     uniform_int_distribution<> dist;
+
+    // 替换array
+    static const std::array<std::string, 44> binaryArray;
+    static const std::array<std::string, 25> convertArray;
+    static const std::array<std::string, 4> constArray;
+    static const std::array<std::string, 14> loadArray;
+    static const std::array<std::string, 9> storeArray;
+    static const std::array<std::string, 32> compareArray;
 public:
-    CustomWatVisitor(TokenStreamRewriter &rewriter,std::string filename) : rewriter(rewriter) , outputfile(filename) {
-        if(!outputfile.is_open()) {
-            std::cerr << "open file failed" << std::endl;
+    CustomWatVisitor(TokenStreamRewriter &rewriter,std::string visitor_filename, std::string rewriter_filename): 
+        rewriter(rewriter) , 
+        original_outputfile(visitor_filename) ,
+        rewriter_outputfile(rewriter_filename) {
+        // file check
+        if(!original_outputfile.is_open()) {
+            std::cerr << "original_outputfile open file failed" << std::endl;
             exit(1);
         }
-        else{
-            std::cout << "open file success" << std::endl;
+        else{std::cout << "original_outputfile open file success" << std::endl;}
+        if(!rewriter_outputfile.is_open()) {
+            std::cerr << "rewriter_outputfile open file failed" << std::endl;
+            exit(1);
         }
+        else{std::cout << "rewriter_outputfile open file success" << std::endl;}
+        
+        // 随机数生成器
         std::random_device rd;
         gen = std::mt19937(rd());
-        dist = std::uniform_int_distribution<>(0, 2);
+
+        // 替换array初始化
     }
 
     ~CustomWatVisitor() {
-        std::cout << "close file" << std::endl;
-        outputfile.close();
-    
+        std::cout << "close files original_outputfile and rewriter_outputfile" << std::endl;
+        original_outputfile.close();
+        rewriter_outputfile.close();
     }
 
-    // 进行随机替换
-    std::string getRandomConstReplacement(int start, int end) {
-        dist = std::uniform_int_distribution<>(start, end);
-        int random = dist(gen);
-        // cout << "random: " << random << endl;
-        switch (random) {
-            case 0: return "i32.const"; break;
-            case 1: return "i64.const"; break;
-            case 2: return "f64.const"; break;
-            case 3: return "f32.const"; break;
-            default: return "f64.const"; break;  // Fallback, should not happen
-        }
-    }
 
-    // 换BINARY指令
-    std::string getRandomBinary(std::string text)
-    {
-        dist = std::uniform_int_distribution<>(0, 43);
+    // 模板替换函数
+    template <typename T, size_t N>
+    std::string getRandom(const std::string& text, const std::array<T, N>& arr){
+        std::uniform_int_distribution<> dist(0, arr.size() - 1);
         std::string result = text;
-        while (result == text)
-        {
+        do {
             int random = dist(gen);
-            switch (random)
-            {
-            case 0:
-                result = "i32.add";
-                break;
-            case 1:
-                result = "i32.sub";
-                break;
-            case 2:
-                result = "i32.mul";
-                break;
-            case 3:
-                result = "i32.div_s";
-                break;
-            case 4:
-                result = "i32.div_u";
-                break;
-            case 5:
-                result = "i32.rem_s";
-                break;
-            case 6:
-                result = "i32.rem_u";
-                break;
-            case 7:
-                result = "i32.and";
-                break;
-            case 8:
-                result = "i32.or";
-                break;
-            case 9:
-                result = "i32.xor";
-                break;
-            case 10:
-                result = "i32.shl";
-                break;
-            case 11:
-                result = "i32.shr_s";
-                break;
-            case 12:
-                result = "i32.shr_u";
-                break;
-            case 13:
-                result = "i32.rotl";
-                break;
-            case 14:
-                result = "i32.rotr";
-                break;
-            case 15:
-                result = "i64.add";
-                break;
-            case 16:
-                result = "i64.sub";
-                break;
-            case 17:
-                result = "i64.mul";
-                break;
-            case 18:
-                result = "i64.div_s";
-                break;
-            case 19:
-                result = "i64.div_u";
-                break;
-            case 20:
-                result = "i64.rem_s";
-                break;
-            case 21:
-                result = "i64.rem_u";
-                break;
-            case 22:
-                result = "i64.and";
-                break;
-            case 23:
-                result = "i64.or";
-                break;
-            case 24:
-                result = "i64.xor";
-                break;
-            case 25:
-                result = "i64.shl";
-                break;
-            case 26:
-                result = "i64.shr_s";
-                break;
-            case 27:
-                result = "i64.shr_u";
-                break;
-            case 28:
-                result = "i64.rotl";
-                break;
-            case 29:
-                result = "i64.rotr";
-                break;
-            case 30:
-                result = "f32.add";
-                break;
-            case 31:
-                result = "f32.sub";
-                break;
-            case 32:
-                result = "f32.mul";
-                break;
-            case 33:
-                result = "f32.div";
-                break;
-            case 34:
-                result = "f32.min";
-                break;
-            case 35:
-                result = "f32.max";
-                break;
-            case 36:
-                result = "f32.copysign";
-                break;
-            case 37:
-                result = "f64.add";
-                break;
-            case 38:
-                result = "f64.sub";
-                break;
-            case 39:
-                result = "f64.mul";
-                break;
-            case 40:
-                result = "f64.div";
-                break;
-            case 41:
-                result = "f64.min";
-                break;
-            case 42:
-                result = "f64.max";
-                break;
-            case 43:
-                result = "f64.copysign";
-                break;
-            default:
-                result = "i32.add";
-                break; // Fallback, should not happen
-            }
-        }
+            result = arr[random];
+        } while(result.compare(0, text.size(), text) == 0);
         return result;
     }
+    // 换BINARY指令,已重构
+    std::string getRandomBinary(const std::string& text){return getRandom(text, binaryArray);}
+    // 换CONVERT指令,已重构
+    std::string getRandomConvert(const std::string& text){return getRandom(text, convertArray);}
+    // 换CONST指令,已重构
+    std::string getRandomConst(const std::string& text){return getRandom(text, constArray);}
+    // 换LOAD指令,已重构
+    std::string getRandomLoad(const std::string& text){return getRandom(text, loadArray);}
+    // 换STORE指令,已重构
+    std::string getRandomStore(const std::string& text){return getRandom(text, storeArray);}
+    // 换COMPARE指令,已重构
+    std::string getRandomCompare(const std::string& text){return getRandom(text, compareArray);}
 
-    // 换CONVERT指令
-    std::string getRandomConvert(std::string text){
-        dist = std::uniform_int_distribution<>(0, 24);
-        std::string result = text;
-        while(result == text){int random = dist(gen);
-        // cout << "random: " << random << endl;
-        switch (random) {
-            case 0: result = "i32.wrap_i64"; break;
-            case 1: result = "i32.trunc_f32_s"; break;
-            case 2: result = "i32.trunc_f32_u"; break;
-            case 3: result = "i32.trunc_f64_s"; break;
-            case 4: result = "i32.trunc_f64_u"; break;
-            case 5: result = "i64.extend_i32_s"; break;
-            case 6: result = "i64.extend_i32_u"; break;
-            case 7: result = "i64.trunc_f32_s"; break;
-            case 8: result = "i64.trunc_f32_u"; break;
-            case 9: result = "i64.trunc_f64_s"; break;
-            case 10: result = "i64.trunc_f64_u"; break;
-            case 11: result = "f32.convert_i32_s"; break;
-            case 12: result = "f32.convert_i32_u"; break;
-            case 13: result = "f32.convert_i64_s"; break;
-            case 14: result = "f32.convert_i64_u"; break;
-            case 15: result = "f32.demote_f64"; break;
-            case 16: result = "f64.convert_i32_s"; break;
-            case 17: result = "f64.convert_i32_u"; break;
-            case 18: result = "f64.convert_i64_s"; break;
-            case 19: result = "f64.convert_i64_u"; break;
-            case 20: result = "f64.promote_f32"; break;
-            case 21: result = "i32.reinterpret_f32"; break;
-            case 22: result = "i64.reinterpret_f64"; break;
-            case 23: result = "f32.reinterpret_i32"; break;
-            case 24: result = "f64.reinterpret_i64"; break;
-            default: result = "i32.wrap_i64"; break;  // Fallback, should not happen
-        }}
-        return result;
-    }
-    
-    // 换CONST指令
-    std::string getRandomConst(std::string text){
-        dist = std::uniform_int_distribution<>(0, 3);
-        std::string result = text;
-        while(result == text){int random = dist(gen);
-        // cout << "random: " << random << endl;
-        switch (random) {
-            case 0: result = "i32.const"; break;
-            case 1: result = "i64.const"; break;
-            case 2: result = "f32.const"; break;
-            case 3: result = "f64.const"; break;
-            default: result = "i32.const"; break;  // Fallback, should not happen
-        }}
-        return result;
-    }
-    
-    // 换LOAD指令
-    std::string getRandomLoad(std::string text){
-        dist = std::uniform_int_distribution<>(0, 5);
-        std::string result = text;
-        while(result == text){int random = dist(gen);
-        // cout << "random: " << random << endl;
-        switch (random) {
-            case 0: result = "i32.load"; break;
-            case 1: result = "i64.load"; break;
-            case 2: result = "f32.load"; break;
-            case 3: result = "f64.load"; break;
-            case 4: result = "i32.load8_s"; break;
-            case 5: result = "i32.load8_u"; break;
-            case 6: result = "i32.load16_s"; break;
-            case 7: result = "i32.load16_u"; break;
-            case 8: result = "i64.load8_s"; break;
-            case 9: result = "i64.load8_u"; break;
-            case 10: result = "i64.load16_s"; break;
-            case 11: result = "i64.load16_u"; break;
-            case 12: result = "i64.load32_s"; break;
-            case 13: result = "i64.load32_u"; break;
-            default: result = "i32.load"; break;  // Fallback, should not happen
-        }}
-        return result;
-    }
-    
-    // 换STORE指令
-    std::string getRandomStore(std::string text){
-        dist = std::uniform_int_distribution<>(0, 5);
-        std::string result = text;
-        while(result == text){int random = dist(gen);
-        // cout << "random: " << random << endl;
-        switch (random) {
-            case 0: result = "i32.store"; break;
-            case 1: result = "i64.store"; break;
-            case 2: result = "f32.store"; break;
-            case 3: result = "f64.store"; break;
-            case 4: result = "i32.store8"; break;
-            case 5: result = "i32.store16"; break;
-            case 6: result = "i64.store8"; break;
-            case 7: result = "i64.store16"; break;
-            case 8: result = "i64.store32"; break;
-            default: result = "i32.store"; break;  // Fallback, should not happen
-        }}
-        return result;
-    }
-    
-    // 换COMPARE指令
-    std::string getRandomCompare(std::string text){
-        dist = std::uniform_int_distribution<>(0, 11);
-        std::string result = text;
-        while(result == text){int random = dist(gen);
-        // cout << "random: " << random << endl;
-        switch (random) {
-            case 0: result = "i32.eq"; break;
-            case 1: result = "i32.ne"; break;
-            case 2: result = "i32.lt_s"; break;
-            case 3: result = "i32.lt_u"; break;
-            case 4: result = "i32.gt_s"; break;
-            case 5: result = "i32.gt_u"; break;
-            case 6: result = "i32.le_s"; break;
-            case 7: result = "i32.le_u"; break;
-            case 8: result = "i32.ge_s"; break;
-            case 9: result = "i32.ge_u"; break;
-            case 10: result = "i64.eq"; break;
-            case 11: result = "i64.ne"; break;
-            case 12: result = "i64.lt_s"; break;
-            case 13: result = "i64.lt_u"; break;
-            case 14: result = "i64.gt_s"; break;
-            case 15: result = "i64.gt_u"; break;
-            case 16: result = "i64.le_s"; break;
-            case 17: result = "i64.le_u"; break;
-            case 18: result = "i64.ge_s"; break;
-            case 19: result = "i64.ge_u"; break;
-            case 20: result = "f32.eq"; break;
-            case 21: result = "f32.ne"; break;
-            case 22: result = "f32.lt"; break;
-            case 23: result = "f32.gt"; break;
-            case 24: result = "f32.le"; break;
-            case 25: result = "f32.ge"; break;
-            case 26: result = "f64.eq"; break;
-            case 27: result = "f64.ne"; break;
-            case 28: result = "f64.lt"; break;
-            case 29: result = "f64.gt"; break;
-            case 30: result = "f64.le"; break;
-            case 31: result = "f64.ge"; break;
-            default: result = "i32.eq"; break;  // Fallback, should not happen
-        }}
-        return result;
-    }
-    
     // 换值
     antlrcpp::Any visitLiteral(WatParser::LiteralContext *ctx) override {
         // // 获取终端节点的文本
@@ -409,57 +119,93 @@ public:
         
     }
 
-
+    // 节点访问换指令
     antlrcpp::Any visitTerminal(tree::TerminalNode* node) override {
+        // 定义函数指针类型
+        using FuncType = std::function<void(Token *,const std::string&)>;
+
+        // 创建一个映射表，将类型映射到对应的函数
+        std::unordered_map<int, FuncType> funcMap;
+        // 初始化
+        funcMap = {
+            {WatLexer::EOF,      [this](Token *token,const std::string& text) { rewriter.replace(token, text); }},
+            {WatLexer::BINARY,   [this](Token *token,const std::string& text) { rewriter.replace(token, getRandomBinary(text)); }},
+            {WatLexer::CONVERT,  [this](Token *token,const std::string& text) { rewriter.replace(token, getRandomConvert(text)); }},
+            {WatLexer::CONST,    [this](Token *token,const std::string& text) { rewriter.replace(token, getRandomConst(text)); }},
+            {WatLexer::LOAD,     [this](Token *token,const std::string& text) { rewriter.replace(token, getRandomLoad(text)); }},
+            {WatLexer::STORE,    [this](Token *token,const std::string& text) { rewriter.replace(token, getRandomStore(text)); }},
+            {WatLexer::COMPARE,  [this](Token *token,const std::string& text) { rewriter.replace(token, getRandomCompare(text)); }}
+        };
+
         // 输出终端节点的文本
         std::string text = node->getText();
         // 获取终端节点的类型
         auto type = node->getSymbol()->getType();
-        // 如果是<EOF>则换行
-        if (type == WatLexer::EOF) {
-            rewriter.replace(node->getSymbol(), "\r\n");
-            return antlrcpp::Any();
+        // 获取终端节点的符号
+        auto symbol = node->getSymbol();
+
+        // 查找对应的函数并执行
+        if(funcMap.count(type) > 0) {
+            if(type == WatLexer::EOF){
+                funcMap[type](symbol, "\r\n");
+            }
+            else{
+                funcMap[type](symbol, text);
+                // 插入空格
+                rewriter.insertAfter(symbol, " ");
+            }
+            
         }
-        
-        // 替换
-        switch(type){
-            case WatLexer::BINARY:{
-                rewriter.replace(node->getSymbol(), getRandomBinary(text));
-                break;
-            }
-            case WatLexer::CONVERT:{
-                rewriter.replace(node->getSymbol(), getRandomConvert(text));
-                break;
-            }
-            case WatLexer::CONST:{
-                rewriter.replace(node->getSymbol(), getRandomConst(text));
-                break;
-            }
-            case WatLexer::LOAD:{
-                rewriter.replace(node->getSymbol(), getRandomLoad(text));
-                break;
-            }
-            case WatLexer::STORE:{
-                rewriter.replace(node->getSymbol(), getRandomStore(text));
-                break;
-            }
-            case WatLexer::COMPARE:{
-                rewriter.replace(node->getSymbol(), getRandomCompare(text));
-                break;
-            }
-        }
-        
-        //  插入空格
-        rewriter.insertAfter(node->getSymbol(), " ");
-        
         return antlrcpp::Any();
     }
 
 };
 
+// 替换array初始化
+const std::array<std::string, 44> CustomWatVisitor::binaryArray = {
+    "i32.add", "i32.sub", "i32.mul", "i32.div_s", "i32.div_u", "i32.rem_s", "i32.rem_u", "i32.and", "i32.or",
+    "i32.xor", "i32.shl", "i32.shr_s", "i32.shr_u", "i32.rotl", "i32.rotr", "i64.add", "i64.sub", "i64.mul",
+    "i64.div_s", "i64.div_u", "i64.rem_s", "i64.rem_u", "i64.and", "i64.or", "i64.xor", "i64.shl", "i64.shr_s",
+    "i64.shr_u", "i64.rotl", "i64.rotr", "f32.add", "f32.sub", "f32.mul", "f32.div", "f32.min", "f32.max",
+    "f32.copysign", "f64.add", "f64.sub", "f64.mul", "f64.div", "f64.min", "f64.max", "f64.copysign"
+};
+const std::array<std::string, 25> CustomWatVisitor::convertArray = {
+    "i32.wrap_i64", "i32.trunc_f32_s", "i32.trunc_f32_u", "i32.trunc_f64_s",
+    "i32.trunc_f64_u", "i64.extend_i32_s", "i64.extend_i32_u", "i64.trunc_f32_s",
+    "i64.trunc_f32_u", "i64.trunc_f64_s", "i64.trunc_f64_u", "f32.convert_i32_s",
+    "f32.convert_i32_u", "f32.convert_i64_s", "f32.convert_i64_u", "f32.demote_f64",
+    "f64.convert_i32_s", "f64.convert_i32_u", "f64.convert_i64_s", "f64.convert_i64_u",
+    "f64.promote_f32", "i32.reinterpret_f32", "i64.reinterpret_f64", "f32.reinterpret_i32",
+    "f64.reinterpret_i64"
+};
+const std::array<std::string, 4> CustomWatVisitor::constArray = {
+    "i32.const", "i64.const", "f32.const", "f64.const"
+};
+const std::array<std::string, 14> CustomWatVisitor::loadArray = {
+    "i32.load", "i64.load", "f32.load", "f64.load",
+    "i32.load8_s", "i32.load8_u", "i32.load16_s", "i32.load16_u",
+    "i64.load8_s", "i64.load8_u", "i64.load16_s", "i64.load16_u",
+    "i64.load32_s", "i64.load32_u"
+};
+const std::array<std::string, 9> CustomWatVisitor::storeArray = {
+    "i32.store", "i64.store", "f32.store", "f64.store",
+    "i32.store8", "i32.store16", "i64.store8", "i64.store16",
+    "i64.store32"
+};
+const std::array<std::string, 32> CustomWatVisitor::compareArray = {
+    "i32.eq", "i32.ne", "i32.lt_s", "i32.lt_u",
+    "i32.gt_s", "i32.gt_u", "i32.le_s", "i32.le_u",
+    "i32.ge_s", "i32.ge_u", "i64.eq", "i64.ne",
+    "i64.lt_s", "i64.lt_u", "i64.gt_s", "i64.gt_u",
+    "i64.le_s", "i64.le_u", "i64.ge_s", "i64.ge_u",
+    "f32.eq", "f32.ne", "f32.lt", "f32.gt",
+    "f32.le", "f32.ge", "f64.eq", "f64.ne",
+    "f64.lt", "f64.gt", "f64.le", "f64.ge"
+};
+
 int main() {
     // Create an input stream from the file
-    ifstream input("../test_file/test1.wat");
+    ifstream input("../input_file/test2.wat");
     // Create a CharStream that reads from standard input
     ANTLRInputStream stream(input);
     // Create a lexer and parser
@@ -477,17 +223,11 @@ int main() {
     // 设置错误处理
     parser.removeErrorListeners();
     parser.addErrorListener(new BaseErrorListener());
-    std::cout << std::endl << "custom outputfile: " << std::endl;
-    // CustomWatVisitor visitor(); 
-    OutputWatVisitor visitor("test2_output.txt");
-    // 使用Visitor遍历AST并输出原始内容
-    visitor.visit(tree);
-    visitor.~OutputWatVisitor();
     // 使用命令对输出文件进行整理
     // 删除文件的<EOF>
-    system("sed -i 's/<EOF>//g' test2_output.txt");
-    // wat-desugar进行格式化
-    system("wat-desugar test2_output.txt --enable-all --output=test2_output.wat");
+    // system("sed -i 's/<EOF>//g' test2_output.txt");
+    // // wat-desugar进行格式化
+    // system("wat-desugar test2_output.txt --enable-all --output=test2_output.wat");
 
 
     // 设置Rewriter
@@ -495,7 +235,8 @@ int main() {
     // 输出重写后的内容
     std::cout << std::endl << "rewriter output: " << std::endl;
     // 使用Visitor遍历AST并输出重写后的内容
-    CustomWatVisitor customVisitor(rewriter,"test2_rewrite_output.txt");
+    CustomWatVisitor customVisitor(rewriter,"../output_file/test2_original_output.txt",
+        "../output_file/test2_rewrite_output.txt");
     customVisitor.visit(tree);
     // 输出重写后的内容
     // std::cout << customVisitor.customoutput("default") << std::endl;

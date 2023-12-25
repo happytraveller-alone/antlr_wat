@@ -1,1 +1,0 @@
-/usr/bin/clang++-14 CMakeFiles/Grammar_check.dir/Check.cpp.o CMakeFiles/Grammar_check.dir/WatLexer.cpp.o CMakeFiles/Grammar_check.dir/WatParser.cpp.o -o Grammar_check  ../antlr4-cpp-runtime/run/usr/local/lib/libantlr4-runtime.a 
