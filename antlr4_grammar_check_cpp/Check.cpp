@@ -8,7 +8,7 @@ int main() {
     // customVisitor.visit(tree);
     // customVisitor.customoutput();
     CustomWatVisitor custom_wat_visitor(
-        "../input_file/test1.wat",
+        "../input_file/test3.wat",
         "../output_file/test2_original_output.txt",
         "../output_file/test2_rewrite_output.txt",
         "../output_file/test2_lexer_error_output.wat",

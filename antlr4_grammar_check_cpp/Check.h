@@ -233,17 +233,6 @@ public:
     // 换COMPARE指令,已重构
     std::string getRandomCompare(const std::string& text){return getRandom(text, compareArray, dist_map_compare_array);}
 
-
-    // antlrcpp::Any visitPlain_instr(WatParser::Plain_instrContext *ctx) override {
-    //     // 缓冲区存储
-    //     // buffer += ctx->getText() + " ";
-    //     // 输出
-    //     std::cout << "visitPlain_instr: " << ctx->getText() << std::endl;
-    //     // 插入空格
-    //     // rewriter_changed.insertAfter(ctx->getStop(), "changed");
-    //     return visitChildren(ctx);
-    //     // visitChildren(ctx);
-    // }
     
     // 输出rewriter_changed
     std::string getRewriterChanged(){
@@ -402,15 +391,3 @@ const std::array<std::string, 32> CustomWatVisitor::compareArray = {
     "f32.le", "f32.ge", "f64.eq", "f64.ne",
     "f64.lt", "f64.gt", "f64.le", "f64.ge"
 };
-
-
-// class GrammarCheck: public Error {
-// private:
-//     // lexer error output file
-//     std::ofstream lexer_error_outputfile;
-//     // parser error output file
-//     std::ofstream parser_error_outputfile;
-//     // visitor output file
-// public:
-//     void SpecificationGrammarCheck() {}
-// };
