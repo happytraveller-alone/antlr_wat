@@ -11,8 +11,8 @@ int main() {
         "../input_file/test3.wat",
         "../output_file/test2_original_output.txt",
         "../output_file/test2_rewrite_output.txt",
-        "../output_file/test2_lexer_error_output.wat",
-        "../output_file/test2_parser_error_output.wat",
+        "../output_file/test2_lexer_error_output.txt",
+        "../output_file/test2_parser_error_output.txt",
         "../output_file/test2_format_output.wat"
     );
     custom_wat_visitor.printParseTree();
