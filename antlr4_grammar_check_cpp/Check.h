@@ -2,6 +2,7 @@
 #include <array>
 #include <cstdio>
 #include <cstdlib>
+#include <filesystem>
 #include <fstream>
 #include <functional>
 #include <iostream>
@@ -22,6 +23,126 @@
 using namespace antlr4;
 using namespace std;
 using FuncType = std::function<void(Token *, const std::string &)>;
+
+class FileHandler {
+private:
+  std::ofstream OUTPUTFILE;
+  std::string FILENAME;
+  std::string FILEPATH;
+  // std::string BUFFERSTORE;
+
+public:
+  FileHandler(const std::string &filename)
+      : OUTPUTFILE(filename), FILENAME(filename) {
+    if (fileExists(FILENAME)) {
+      fileClose(OUTPUTFILE);
+      fileRemove(FILENAME);
+    }
+    fileCreate(FILENAME);
+    setAbsolutePath(filename);
+  }
+  ~FileHandler() { fileClose(OUTPUTFILE); }
+
+  bool fileExists(const std::string &filenamepath) {
+    return std::filesystem::exists(filenamepath);
+  }
+  void fileClose() { OUTPUTFILE.close(); }
+  void fileClose(std::ofstream &file) { file.close(); }
+  void fileRemove(const std::string &filenamepath) {
+    if (!std::filesystem::remove(filenamepath)) {
+      throw std::runtime_error("Failed to delete file: " + filenamepath + "\n");
+    }
+  }
+  void fileCreate(const std::string &filenamepath) {
+    OUTPUTFILE.open(filenamepath, std::ios::out);
+    if (!OUTPUTFILE) {
+      throw std::runtime_error("Failed to create file: " + filenamepath + "\n");
+    }
+  }
+  void setAbsolutePath(const std::string &filename) {
+    if (fileExists(filename)) {
+      FILEPATH = std::filesystem::absolute(filename).string();
+    }
+  }
+  void writeOutputFile(std::string_view filestring) {
+    OUTPUTFILE << filestring;
+  }
+  void checkFileOpen() {
+    // OUTPUTFILE.open();
+    if (OUTPUTFILE.is_open()) {
+      fprintf(stdout, "%s open file successfully.\n", FILENAME.c_str());
+    } else {
+      throw std::runtime_error(FILENAME + " open file failed\n");
+    }
+  }
+  void checkFileClose() {
+    // OUTPUTFILE.close();
+    if (OUTPUTFILE.is_open()) {
+      throw std::runtime_error(FILENAME + " close file failed\n");
+    } else {
+      fprintf(stdout, "%s open file successfully.\n", FILENAME.c_str());
+    }
+  }
+
+  // void recreate(const std::string &filenamepath) {
+  //   if (exists(filenamepath)) {
+  //     remove(filenamepath);
+  //   }
+  //   create(filenamepath);
+  // }
+
+  // void clear(const std::string &filenamepath) {
+  //   if (OUTPUTFILE.is_open()) {
+  //     // fprintf(stdout, "Close %s successfully\n", filenamepath.c_str());
+  //     OUTPUTFILE.close();
+  //   }
+  //   remove(filenamepath);
+  // }
+  // std::string getAbsolutePath(const std::string &filenamepath) {
+  //   return std::filesystem::absolute(filenamepath).string();
+  // }
+};
+
+class CustomErrorListener : public BaseErrorListener {
+private:
+  FileHandler ERROROUTPUT;
+
+public:
+  CustomErrorListener(const std::string &file) : ERROROUTPUT(file) {
+    ERROROUTPUT.checkFileOpen();
+  }
+  ~CustomErrorListener() {
+    ERROROUTPUT.fileClose();
+    ERROROUTPUT.checkFileClose();
+  }
+
+  // lexer syyntactic error
+  void syntaxError(Recognizer *recognizer, Token *offendingSymbol, size_t line,
+                   size_t charPositionInLine, const std::string &msg,
+                   std::exception_ptr e) override {
+    // std::ostringstream oss;
+    std::ostringstream buffer;
+    buffer << "line " << line << ":" << charPositionInLine << " " << msg
+           << "\n";
+    // 使用 recognizer 和 offendingSymbol 参数
+    buffer << "Recognizer: " << recognizer->getGrammarFileName() << "\n";
+    buffer << "Offending Symbol: " << offendingSymbol->getText() << "\n";
+    std::string error_message = buffer.str();
+    ERROROUTPUT.writeOutputFile(error_message);
+
+    // 使用 e 参数
+    if (e) {
+      try {
+        std::rethrow_exception(e);
+      } catch (const std::exception &ex) {
+        std::string exception_message =
+            std::string(" Exception: ") + ex.what() + "\n";
+        ERROROUTPUT.writeOutputFile(exception_message);
+      }
+    }
+  }
+};
+
 // Path: antlr_wat/antlr4_grammar_check_cpp/Check.h
 class CustomWatVisitor : public WatParserBaseVisitor {
 private:
@@ -36,18 +157,15 @@ private:
   CommonTokenStream tokens;
   // paser
   WatParser parser;
-  // start rule
   WatParser::ModuleContext *tree;
 
   // token rewriter
   TokenStreamRewriter rewriter_original;
   TokenStreamRewriter rewriter_changed;
   // visitor output file
-  std::string original_output_filename;
-  std::ofstream original_outputfile;
+  FileHandler original_outputfile;
   // rewriter output file
-  std::string rewriter_output_filename;
-  std::ofstream rewriter_outputfile;
+  FileHandler rewriter_outputfile;
 
   // 随机数生成器
   mt19937 gen;
@@ -78,71 +196,10 @@ private:
       dist_map_compare_array;
 
   // 缓冲区，存储visitTerminal的终端节点文本
-  std::string buffer;
+  // std::string buffer;
 
-  // // lexer error output file
-  // std::ofstream lexer_error_outputfile;
-  // // parser error output file
-  // std::ofstream parser_error_outputfile;
   // format output file
-  std::string format_filename;
-  std::ofstream format_outputfile;
-
-  class CustomErrorListener : public BaseErrorListener {
-  private:
-    std::ofstream error_output;
-    std::string filename;
-    // CustomWatVisitor *CustomWatVisitor;
-
-  public:
-    CustomErrorListener(const string &file)
-        : error_output(file), filename(file) {
-      if (error_output.is_open()) {
-        std::cout << filename << " open file success" << std::endl;
-      } else {
-        std::cerr << filename << " open file failed" << std::endl;
-        exit(1);
-      }
-    }
-    ~CustomErrorListener() {
-      if (error_output.is_open()) {
-        std::cout << filename << " close file success" << std::endl;
-      } else {
-        std::cerr << filename << " close file failed" << std::endl;
-        exit(1);
-      }
-    }
-
-    // lexer syyntactic error
-    void syntaxError(Recognizer *recognizer, Token *offendingSymbol,
-                     size_t line, size_t charPositionInLine,
-                     const std::string &msg, std::exception_ptr e) override {
-      // std::ostringstream oss;
-      std::string error_message = "line " + std::to_string(line) + ":" +
-                                  std::to_string(charPositionInLine) + " " +
-                                  msg;
-      error_output << error_message << std::endl;
-
-      // 使用 recognizer 和 offendingSymbol 参数
-      std::string recognizer_info =
-          "Recognizer: " + recognizer->getGrammarFileName();
-      std::string offending_symbol_info =
-          "Offending Symbol: " + offendingSymbol->getText();
-
-      // 使用 e 参数
-      if (e) {
-        try {
-          std::rethrow_exception(e);
-        } catch (const std::exception &ex) {
-          error_output << " Exception: " << ex.what() << std::endl;
-        }
-      }
-
-      error_output << recognizer_info << std::endl;
-      error_output << offending_symbol_info << std::endl;
-    }
-  };
-
+  FileHandler format_outputfile;
   // custom error listener
   CustomErrorListener LexerErrorListener;
   // custom error listener
@@ -157,19 +214,15 @@ public:
       : input_filename(input_filename), input_file(input_filename),
         stream(input_file), lexer(&stream), tokens(&lexer), parser(&tokens),
         rewriter_original(&tokens), rewriter_changed(&tokens),
-        original_output_filename(visitor_filename),
         original_outputfile(visitor_filename),
-        rewriter_output_filename(rewriter_filename),
         rewriter_outputfile(rewriter_filename),
-        format_filename(format_filename), format_outputfile(format_filename),
+        format_outputfile(format_filename),
         LexerErrorListener(lexer_error_filename),
         ParserErrorListener(parser_error_filename) {
     // file check
-    check_file_open(original_outputfile, original_output_filename);
-    check_file_open(rewriter_outputfile, rewriter_output_filename);
-    // check_file_open(lexer_error_outputfile, "lexer_error_outputfile");
-    // check_file_open(parser_error_outputfile, "parser_error_outputfile");
-    check_file_open(format_outputfile, format_filename);
+    original_outputfile.checkFileOpen();
+    rewriter_outputfile.checkFileOpen();
+    format_outputfile.checkFileOpen();
 
     // 随机数生成器
     std::random_device rd;
@@ -213,28 +266,12 @@ public:
   }
 
   ~CustomWatVisitor() {
-    check_file_close(original_outputfile, original_output_filename);
-    check_file_close(rewriter_outputfile, rewriter_output_filename);
-    check_file_close(format_outputfile, format_filename);
-  }
-
-  // 检查文件关闭
-  void check_file_close(std::ofstream &file, const std::string &filename) {
-    if (file.is_open()) {
-      std::cout << filename << " close file success" << std::endl;
-    } else {
-      std::cerr << filename << " close file failed" << std::endl;
-      exit(1);
-    }
-  }
-  // 检查文件打开
-  void check_file_open(std::ofstream &file, const std::string &filename) {
-    if (!file.is_open()) {
-      std::cerr << filename << " open file failed" << std::endl;
-      exit(1);
-    } else {
-      std::cout << filename << " open file success" << std::endl;
-    }
+    original_outputfile.fileClose();
+    original_outputfile.checkFileClose();
+    rewriter_outputfile.fileClose();
+    rewriter_outputfile.checkFileClose();
+    format_outputfile.fileClose();
+    format_outputfile.checkFileClose();
   }
 
   // 模板替换函数
@@ -242,8 +279,6 @@ public:
   std::string
   getRandom(const std::string &text, const std::array<T, N> &arr,
             const std::map<std::string, std::pair<int, int>> &dist_map) {
-    // std::uniform_int_distribution<> dist;
-    // std::cout << "process: " << text << std::endl;
     std::string result = text;
     auto it = dist_map.find(text.substr(0, 3));
     if (it->second.first < it->second.second && it != dist_map.end()) {
@@ -295,24 +330,27 @@ public:
     auto symbol = node->getSymbol();
 
     // 查找对应的函数并执行
-    if (funcMap.count(type) > 0) {
+    auto it = funcMap.find(type);
+    if (it != funcMap.end()) {
       if (type == WatLexer::EOF) {
-        funcMap[type](node->getSymbol(), "\r\n");
+        // funcMap[type](node->getSymbol(), "\r\n");
+        it->second(symbol, "\r\n");
         // 修改rewriter存储
-        rewriter_changed.insertAfter(symbol, " ");
+        rewriter_changed.insertAfter(symbol, "\r\n");
         // 原始rewriter存储
         rewriter_original.insertAfter(symbol, "\r\n");
         // 缓冲区存储
-        buffer += "\r\n";
+        // buffer += "\r\n";
       } else {
         // std::cout << "visitTerminal:" << text << " " << type <<std::endl;
-        funcMap[type](symbol, node->getText());
+        // funcMap[type](symbol, node->getText());
+        it->second(symbol, node->getText());
         // 修改rewriter存储
         rewriter_changed.insertAfter(symbol, " ");
         // 原始rewriter存储
         rewriter_original.insertAfter(symbol, " ");
         // 缓冲区存储
-        buffer += text + " ";
+        // buffer += text + " ";
       }
 
     } else {
@@ -321,7 +359,7 @@ public:
       // 原始rewriter存储
       rewriter_original.insertAfter(symbol, " ");
       // 缓冲区存储
-      buffer += text + " ";
+      // buffer += text + " ";
     }
     return antlrcpp::Any();
   }
@@ -331,36 +369,23 @@ public:
 
   // 打印解析树访问
   void printParseTree() {
-    // WatParser::ModuleContext *tree = parser.module();
-    // Print the parse tree (LISP-style)
-    std::cout << std::endl
-              << "Parse tree: " << std::endl
-              << tree->toStringTree(&parser, false) << std::endl
-              << std::endl;
+    std::cout << "\nParse tree: \n"
+              << getParseTree()->toStringTree(&parser, false) << "\n\n";
   }
 
   // 打印buffer
-  void printBuffer() {
-    std::cout << std::endl
-              << "buffer: " << std::endl
-              << buffer << std::endl
-              << std::endl;
-  }
+  // void printBuffer() { std::cout << "\nbuffer: \n" << buffer << "\n\n"; }
 
   // 打印原始rewriter
   void printRewriterOriginal() {
-    std::cout << std::endl
-              << "rewriter_original: " << std::endl
-              << rewriter_original.getText() << std::endl
-              << std::endl;
+    std::cout << "\nrewriter_original: \n"
+              << rewriter_original.getText() << "\n\n";
   }
 
   // 打印修改rewriter
   void printRewriterChanged() {
-    std::cout << std::endl
-              << "rewriter_changed: " << std::endl
-              << rewriter_changed.getText() << std::endl
-              << std::endl;
+    std::cout << "\nrewriter_changed: \n"
+              << rewriter_changed.getText() << "\n\n";
   }
 };
 

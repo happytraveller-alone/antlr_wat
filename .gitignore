@@ -1,6 +1,7 @@
 *.out
 *.class
 antlr4_grammar_check_cpp/antlr4-cpp-runtime/
+antlr4_grammar_check_cpp/runtime/
 antlr4_grammar_check_cpp/build/
 antlr4_grammar_check_cpp/output_file/
 .vscode/
