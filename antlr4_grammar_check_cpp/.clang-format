@@ -1,0 +1,7 @@
+Language: Cpp
+BasedOnStyle: LLVM
+IndentWidth: 4
+AllowShortFunctionsOnASingleLine: All
+CommentPragmas: '^ IWYU pragma:'
+BreakBeforeBraces: Attach
+ColumnLimit: 0

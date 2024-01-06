@@ -42,6 +42,10 @@ INT        : Int;
 FLOAT      : Float;
 STRING_    : String_;
 VALUE_TYPE : NXX;
+
+VEC_TYPE : VXXX;
+VEC_SHAPE : V128_SHAPE;
+
 CONST      : NXX '.const';
 
 ANY     :  'any';
@@ -93,6 +97,9 @@ CALL_REF      : 'call_ref';
 RETURN_CALL   : 'return_call';
 RETURN_CALL_REF: 'return_call_ref';
 RETURN_CALL_INDIRECT: 'return_call_indirect';
+
+BR_ON_NULL : 'br_on_null' | 'br_on_non_null';
+BR_ON_CAST : 'br_on_cast' | 'br_on_cast_fail';
 
 LOCAL_GET  : 'local.get';
 LOCAL_SET  : 'local.set';
