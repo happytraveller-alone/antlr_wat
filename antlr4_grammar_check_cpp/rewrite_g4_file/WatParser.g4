@@ -50,8 +50,8 @@ name
 
 /* Types */
 
-value_type
-    : VALUE_TYPE
+num_type
+    : NUM_TYPE
     ;
 
 elem_type
@@ -59,8 +59,8 @@ elem_type
     ;
 
 global_type
-    : value_type
-    | LPAR MUT value_type RPAR
+    : num_type
+    | LPAR MUT num_type RPAR
     ;
 
 def_type
@@ -68,7 +68,7 @@ def_type
     ;
 
 func_type
-    : (LPAR (RESULT value_type* | PARAM value_type* | PARAM bind_var value_type) RPAR)*
+    : (LPAR (RESULT num_type* | PARAM num_type* | PARAM bind_var num_type) RPAR)*
     ;
 
 table_type
@@ -140,7 +140,7 @@ call_instr
     ;
 
 call_instr_params
-    : (LPAR PARAM value_type* RPAR)* (LPAR RESULT value_type* RPAR)*
+    : (LPAR PARAM num_type* RPAR)* (LPAR RESULT num_type* RPAR)*
     ;
 
 call_instr_instr
@@ -148,11 +148,11 @@ call_instr_instr
     ;
 
 call_instr_params_instr
-    : (LPAR PARAM value_type* RPAR)* call_instr_results_instr
+    : (LPAR PARAM num_type* RPAR)* call_instr_results_instr
     ;
 
 call_instr_results_instr
-    : (LPAR RESULT value_type* RPAR)* instr
+    : (LPAR RESULT num_type* RPAR)* instr
     ;
 
 block_instr
@@ -161,7 +161,7 @@ block_instr
     ;
 
 block_type
-    : LPAR RESULT value_type RPAR
+    : LPAR RESULT num_type RPAR
     ;
 
 block
@@ -185,11 +185,11 @@ call_expr_type
     ;
 
 call_expr_params
-    : (LPAR PARAM value_type* RPAR)* call_expr_results
+    : (LPAR PARAM num_type* RPAR)* call_expr_results
     ;
 
 call_expr_results
-    : (LPAR RESULT value_type* RPAR)* expr*
+    : (LPAR RESULT num_type* RPAR)* expr*
     ;
 
 if_block
@@ -218,23 +218,23 @@ func_fields
     ;
 
 func_fields_import
-    : (LPAR PARAM value_type* RPAR | LPAR PARAM bind_var value_type RPAR) func_fields_import_result
+    : (LPAR PARAM num_type* RPAR | LPAR PARAM bind_var num_type RPAR) func_fields_import_result
     ;
 
 func_fields_import_result
-    : (LPAR RESULT value_type* RPAR)*
+    : (LPAR RESULT num_type* RPAR)*
     ;
 
 func_fields_body
-    : (LPAR PARAM value_type* RPAR | LPAR PARAM bind_var value_type RPAR)* func_result_body
+    : (LPAR PARAM num_type* RPAR | LPAR PARAM bind_var num_type RPAR)* func_result_body
     ;
 
 func_result_body
-    : (LPAR RESULT value_type* RPAR)* func_body
+    : (LPAR RESULT num_type* RPAR)* func_body
     ;
 
 func_body
-    : (LPAR LOCAL value_type* RPAR | LPAR LOCAL bind_var value_type RPAR)* instr_list
+    : (LPAR LOCAL num_type* RPAR | LPAR LOCAL bind_var num_type RPAR)* instr_list
     ;
 
 /* Tables, Memories & Globals */

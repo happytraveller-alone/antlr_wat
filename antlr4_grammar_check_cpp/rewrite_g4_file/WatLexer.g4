@@ -41,12 +41,13 @@ NAT        : Nat;
 INT        : Int;
 FLOAT      : Float;
 STRING_    : String_;
-VALUE_TYPE : NXX;
+NUM_TYPE : NXX;
 
 VEC_TYPE : VXXX;
 VEC_SHAPE : V128_SHAPE;
 
 CONST      : NXX '.const';
+VEC_CONST  : VXXX '.const';
 
 ANY     :  'any';
 ANYREF  :  'anyref';
@@ -76,6 +77,11 @@ FIELD  :  'field';
 SUB  :  'sub';
 FINAL  :  'final';
 REC  :  'rec';
+
+REF_NULL : 'ref.null';
+REF_FUNC : 'ref.func';
+REF_EXTERN : 'ref.extern';
+REF_IS_NULL : 'ref.is_null';
 
 NOP           : 'nop';
 UNREACHABLE   : 'unreachable';
@@ -128,7 +134,9 @@ UNARY:
     IXX '.clz'
     | IXX '.ctz'
     | IXX '.popcnt'
-    | IXX '.eqz'
+    | IXX '.extend8_s'
+    | IXX '.extend16_s'
+    | i64_extend32_s
     | FXX '.neg'
     | FXX '.abs'
     | FXX '.sqrt'
@@ -163,6 +171,7 @@ BINARY:
     | FXX '.copysign'
 ;
 
+TEST: IXX '.eqz'
 
 COMPARE:
     IXX '.eq'
@@ -193,6 +202,10 @@ CONVERT:
     | IXX '.trunc_f32_u'
     | IXX '.trunc_f64_s'
     | IXX '.trunc_f64_u'
+    | IXX '.trunc_sat_f32_s';
+    | IXX '.trunc_sat_f32_u';
+    | IXX '.trunc_sat_f64_s';
+    | IXX '.trunc_sat_f64_u';
     | FXX '.convert_i32_s'
     | FXX '.convert_i32_u'
     | FXX '.convert_i64_s'
@@ -203,10 +216,130 @@ CONVERT:
     | 'i64.reinterpret_f64'
 ;
 
+VEC_LOAD:
+    VXXX '.load'
+    | VXXX '.load8x8' SIGN
+    | VXXX '.load16x4' SIGN
+    | VXXX '.load32x2' SIGN
+    | VXXX '.load8_splat'
+    | VXXX '.load16_splat'
+    | VXXX '.load32_splat'
+    | VXXX '.load64_splat'
+    | VXXX '.load32_zero'
+    | VXXX '.load64_zero'
+
+VEC_LOAD_LANE:
+    VXXX '.load8_lane'
+    | VXXX '.load16_lane'
+    | VXXX '.load32_lane'
+    | VXXX '.load64_lane'
+
+VEC_STORE_LANE:
+    VXXX '.store8_lane'
+    | VXXX '.store16_lane'
+    | VXXX '.store32_lane'
+    | VXXX '.store64_lane'
+
+VEC_UNARY:
+    VXXX '.not'
+    | VXXX '.and'
+    | VXXX '.andnot'
+    | VXXX '.or'
+    | VXXX '.xor'
+    | V128_SHAPE '.neg'
+    | V128_SHAPE '.abs'
+    | 'i8x16.popcnt'
+    | 'i8x16.avgr_u'
+    | 'i16x8.avgr_u'
+    | V128_FLOAT_SHAPE '.sqrt'
+    | V128_FLOAT_SHAPE '.ceil'
+    | V128_FLOAT_SHAPE '.floor'
+    | V128_FLOAT_SHAPE '.trunc'
+    | V128_FLOAT_SHAPE '.nearest'
+    | 'i32x4.trunc_sat_f32x4_' SIGN
+    | 'i32x4.trunc_sat_f64x2_' SIGN
+    | 'f64x2.promote_low_f32x4'
+    | 'f32x4.demote_f64x2_zero'
+    | 'f32x4.convert_i32x4_' SIGN
+    | 'f64x2.convert_low_i32x4_' SIGN
+    | 'i16x8.extadd_pairwise_i8x16_' SIGN
+    | 'i32x4.extadd_pairwise_i16x8_' SIGN
+    | 'i16x8.extend_low_i8x16_' SIGN
+    | 'i16x8.extend_high_i8x16_' SIGN
+    | 'i32x4.extend_low_i16x8_' SIGN
+    | 'i32x4.extend_high_i16x8_' SIGN
+    | 'i64x2.extend_low_i32x4_' SIGN
+    | 'i64x2.extend_high_i32x4_' SIGN
+
+VEC_BINARY:
+    V128_SHAPE '.eq'
+    | V128_SHAPE '.ne'
+    | V128_INT_SHAPE '.lt_s'
+    | V128_INT_SHAPE_EXCEPT_64 '.lt_u'
+    | V128_INT_SHAPE '.le_s'
+    | V128_INT_SHAPE_EXCEPT_64 '.le_u'
+    | V128_INT_SHAPE '.gt_s'
+    | V128_INT_SHAPE_EXCEPT_64 '.gt_u'
+    | V128_INT_SHAPE '.ge_s'
+    | V128_INT_SHAPE_EXCEPT_64 '.ge_u'
+    | V128_FLOAT_SHAPE '.lt'
+    | V128_FLOAT_SHAPE '.le'
+    | V128_FLOAT_SHAPE '.gt'
+    | V128_FLOAT_SHAPE '.ge'
+    | 'i8x16.swizzle'
+    | V128_SHAPE '.add'
+    | V128_SHAPE '.sub'
+    | V128_INT_SHAPE_EXCEPT_64 '.min_s'
+    | V128_INT_SHAPE_EXCEPT_64 '.min_u'
+    | V128_INT_SHAPE_EXCEPT_64 '.max_s'
+    | V128_INT_SHAPE_EXCEPT_64 '.max_u'
+    | V128_INT_SHAPE_EXCEPT_64 '.mul'
+    | V128_FLOAT_SHAPE '.mul'
+    | V128_FLOAT_SHAPE '.div'
+    | V128_FLOAT_SHAPE '.min'
+    | V128_FLOAT_SHAPE '.max'
+    | V128_FLOAT_SHAPE '.pmin'
+    | V128_FLOAT_SHAPE '.pmax'
+    | 'i8x16.add_sat_' SIGN
+    | 'i8x16.sub_sat_' SIGN
+    | 'i16x8.add_sat_' SIGN
+    | 'i16x8.sub_sat_' SIGN
+    | 'i32x4.dot_i16x8_s'
+    | 'i8x16.narrow_i16x8_' SIGN
+    | 'i16x8.narrow_i32x4_' SIGN
+    | 'i16x8.extmul_low_i8x16_' SIGN
+    | 'i16x8.extmul_high_i8x16_' SIGN
+    | 'i32x4.extmul_low_i16x8_' SIGN
+    | 'i32x4.extmul_high_i16x8_' SIGN
+    | 'i64x2.extmul_low_i32x4_' SIGN
+    | 'i64x2.extmul_high_i32x4_' SIGN
+    | 'i16x8.q15mulr_sat_s'
+
+VEC_TERNARY: VXXX '.bitselect'
+VEC_TEST : VXXX '.any_true' | V128_INT_SHAPE '.all_true'
+VEC_BITMASK : V128_INT_SHAPE '.bitmask'
+
+VEC_SHIFT:
+    V128_INT_SHAPE '.shl'
+    | V128_INT_SHAPE '.shr_s'
+    | V128_INT_SHAPE '.shr_u'
+
+VEC_SHUFFLE : 'i8x16.shuffle'
+VEC_SPLAT : V128_SHAPE '.splat'
+VEC_EXTRACT :
+    'i32x4.extract_lane'
+    | 'i64x2.extract_lane'
+    | V128_FLOAT_SHAPE '.extract_lane'
+    | 'i8x16.extract_lane_' SIGN
+    | 'i16x8.extract_lane_' SIGN
+VEC_REPLACE : V128_SHAPE '.replace_lane'
+
+
 MEMORY_SIZE : 'memory.size';
 MEMORY_GROW : 'memory.grow';
 MEMORY_FILL : 'memory.fill';
 MEMORY_COPY : 'memory.copy';
+MEMORY_INIT : 'memory.init';
 
 TYPE   : 'type';
 FUNC   : 'func';
@@ -319,8 +452,9 @@ fragment SIGN     : 's' | 'u';
 fragment MEM_SIZE : '8' | '16' | '32';
 
 fragment VXXX     : 'v128';
-fragment V128_INT_SHAPE = "i8x16" | "i16x8" | "i32x4" | "i64x2"
-fragment V128_FLOAT_SHAPE = "f32x4" | "f64x2"
+fragment V128_INT_SHAPE = 'i8x16' | 'i16x8' | 'i32x4' | 'i64x2'
+fragment V128_INT_SHAPE_EXCEPT_64 = 'i8x16' | 'i16x8' | 'i32x4'
+fragment V128_FLOAT_SHAPE = 'f32x4' | 'f64x2'
 fragment V128_SHAPE = V128_INT_SHAPE | V128_FLOAT_SHAPE
 
 fragment Char        : ~["'\\\u0000-\u001f\u007f-\u00ff];
