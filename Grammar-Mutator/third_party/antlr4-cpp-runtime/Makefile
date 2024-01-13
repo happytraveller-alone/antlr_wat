@@ -16,8 +16,8 @@
 #
 
 TARGET = libantlr4-runtime.a
-
-ANTLR4_CXX_RUNTIME_ZIP = antlr4-cpp-runtime-4.8-source.zip
+# https://www.antlr.org/download/antlr4-cpp-runtime-4.13.1-source.zip
+ANTLR4_CXX_RUNTIME_ZIP = antlr4-cpp-runtime-4.13.1-source.zip
 ANTLR4_CXX_RUNTIME_DOWNLOAD_URL = https://www.antlr.org/download/$(ANTLR4_CXX_RUNTIME_ZIP)
 ANTLR4_CXX_RUNTIME_DIR = antlr4-cpp-runtime-src
 

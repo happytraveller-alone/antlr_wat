@@ -1,412 +1,8 @@
-/*
-Copyright (c) 2019 Renata Hodovan.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
-3. Neither the name of the copyright holder nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
-
 // $antlr-format alignTrailingComments true, columnLimit 150, maxEmptyLinesToKeep 1, reflowComments false, useTab false
 // $antlr-format allowShortRulesOnASingleLine true, allowShortBlocksOnASingleLine true, minEmptyLines 0, alignSemicolons ownLine
 // $antlr-format alignColons trailing, singleLineOverrulesHangingColon true, alignLexerCommands true, alignLabels true, alignTrailers true
 
 lexer grammar WatLexer;
-
-LPAR : '(';
-RPAR : ')';
-
-NAT        : Nat;
-INT        : Int;
-FLOAT      : Float;
-STRING_    : String_;
-NUM_TYPE : NXX;
-
-VEC_TYPE : VXXX;
-VEC_SHAPE : V128_SHAPE;
-
-CONST      : NXX '.const';
-VEC_CONST  : VXXX '.const';
-
-ANY     :  'any';
-ANYREF  :  'anyref';
-NONE    :  'none';
-NULLREF :  'nullref';
-EQ      :  'eq';
-EQREF   :  'eqref';
-I31     :  'i31';
-I31REF  :  'i31ref';
-STRUCTREF: 'structref';
-ARRAYREF:  'arrayref';
-NOFUNC  :  'nofunc';
-
-FUNCREF : 'funcref';
-MUT     : 'mut';
-
-NULLFUNCREF : 'nullfuncref';
-EXTERN  : 'extern';
-NOEXTERN  : 'noextern';
-EXTERNREF  : 'externref';
-NULLEXTERNREF  :  'nullexternref';
-REF   :  'ref';
-NULL  :  'null';
-ARRAY :  'array';
-STRUCT  :  'struct';
-FIELD  :  'field';
-SUB  :  'sub';
-FINAL  :  'final';
-REC  :  'rec';
-
-REF_NULL : 'ref.null';
-REF_FUNC : 'ref.func';
-REF_EXTERN : 'ref.extern';
-REF_IS_NULL : 'ref.is_null';
-
-NOP           : 'nop';
-UNREACHABLE   : 'unreachable';
-DROP          : 'drop';
-BLOCK         : 'block';
-LOOP          : 'loop';
-END           : 'end';
-BR            : 'br';
-BR_IF         : 'br_if';
-BR_TABLE      : 'br_table';
-RETURN        : 'return';
-IF            : 'if';
-THEN          : 'then';
-ELSE          : 'else';
-SELECT        : 'select';
-CALL          : 'call';
-CALL_INDIRECT : 'call_indirect';
-CALL_REF      : 'call_ref';
-RETURN_CALL   : 'return_call';
-RETURN_CALL_REF: 'return_call_ref';
-RETURN_CALL_INDIRECT: 'return_call_indirect';
-
-BR_ON_NULL : 'br_on_null' | 'br_on_non_null';
-BR_ON_CAST : 'br_on_cast' | 'br_on_cast_fail';
-
-LOCAL_GET  : 'local.get';
-LOCAL_SET  : 'local.set';
-LOCAL_TEE  : 'local.tee';
-GLOBAL_GET : 'global.get';
-GLOBAL_SET : 'global.set';
-
-TABLE_GET : 'table_get';
-TABLE_SET : 'table_set';
-TABEL_SIZE: 'table_size';
-TABLE_GROW: 'table_grow';
-TABLE_FILL: 'table_fill';
-TABLE_COPY: 'table_copy';
-TABLE_INIT: 'table_init';
-
-DATA_DROP: 'data.drop';
-ELEM_DROP: 'elem.drop';
-
-LOAD  : NXX '.load' (MEM_SIZE '_' SIGN)?;
-STORE : NXX '.store' (MEM_SIZE)?;
-
-OFFSET_EQ_NAT : 'offset=' Nat;
-ALIGN_EQ_NAT  : 'align=' Nat;
-
-UNARY:
-    IXX '.clz'
-    | IXX '.ctz'
-    | IXX '.popcnt'
-    | IXX '.extend8_s'
-    | IXX '.extend16_s'
-    | i64_extend32_s
-    | FXX '.neg'
-    | FXX '.abs'
-    | FXX '.sqrt'
-    | FXX '.ceil'
-    | FXX '.floor'
-    | FXX '.trunc'
-    | FXX '.nearest'
-;
-
-BINARY:
-    IXX '.add'
-    | IXX '.sub'
-    | IXX '.mul'
-    | IXX '.div_s'
-    | IXX '.div_u'
-    | IXX '.rem_s'
-    | IXX '.rem_u'
-    | IXX '.and'
-    | IXX '.or'
-    | IXX '.xor'
-    | IXX '.shl'
-    | IXX '.shr_s'
-    | IXX '.shr_u'
-    | IXX '.rotl'
-    | IXX '.rotr'
-    | FXX '.add'
-    | FXX '.sub'
-    | FXX '.mul'
-    | FXX '.div'
-    | FXX '.min'
-    | FXX '.max'
-    | FXX '.copysign'
-;
-
-TEST: IXX '.eqz'
-
-COMPARE:
-    IXX '.eq'
-    | IXX '.ne'
-    | IXX '.lt_s'
-    | IXX '.lt_u'
-    | IXX '.le_s'
-    | IXX '.le_u'
-    | IXX '.gt_s'
-    | IXX '.gt_u'
-    | IXX '.ge_s'
-    | IXX '.ge_u'
-    | FXX '.eq'
-    | FXX '.ne'
-    | FXX '.lt'
-    | FXX '.le'
-    | FXX '.gt'
-    | FXX '.ge'
-;
-
-CONVERT:
-    'i32.wrap_i64'
-    | 'i64.extend_i32_s'
-    | 'i64.extend_i32_u'
-    | 'f32.demote_f64'
-    | 'f64.promote_f32'
-    | IXX '.trunc_f32_s'
-    | IXX '.trunc_f32_u'
-    | IXX '.trunc_f64_s'
-    | IXX '.trunc_f64_u'
-    | IXX '.trunc_sat_f32_s';
-    | IXX '.trunc_sat_f32_u';
-    | IXX '.trunc_sat_f64_s';
-    | IXX '.trunc_sat_f64_u';
-    | FXX '.convert_i32_s'
-    | FXX '.convert_i32_u'
-    | FXX '.convert_i64_s'
-    | FXX '.convert_i64_u'
-    | 'f32.reinterpret_i32'
-    | 'f64.reinterpret_i64'
-    | 'i32.reinterpret_f32'
-    | 'i64.reinterpret_f64'
-;
-
-VEC_LOAD:
-    VXXX '.load'
-    | VXXX '.load8x8' SIGN
-    | VXXX '.load16x4' SIGN
-    | VXXX '.load32x2' SIGN
-    | VXXX '.load8_splat'
-    | VXXX '.load16_splat'
-    | VXXX '.load32_splat'
-    | VXXX '.load64_splat'
-    | VXXX '.load32_zero'
-    | VXXX '.load64_zero'
-
-VEC_LOAD_LANE:
-    VXXX '.load8_lane'
-    | VXXX '.load16_lane'
-    | VXXX '.load32_lane'
-    | VXXX '.load64_lane'
-
-VEC_STORE_LANE:
-    VXXX '.store8_lane'
-    | VXXX '.store16_lane'
-    | VXXX '.store32_lane'
-    | VXXX '.store64_lane'
-
-VEC_UNARY:
-    VXXX '.not'
-    | VXXX '.and'
-    | VXXX '.andnot'
-    | VXXX '.or'
-    | VXXX '.xor'
-    | V128_SHAPE '.neg'
-    | V128_SHAPE '.abs'
-    | 'i8x16.popcnt'
-    | 'i8x16.avgr_u'
-    | 'i16x8.avgr_u'
-    | V128_FLOAT_SHAPE '.sqrt'
-    | V128_FLOAT_SHAPE '.ceil'
-    | V128_FLOAT_SHAPE '.floor'
-    | V128_FLOAT_SHAPE '.trunc'
-    | V128_FLOAT_SHAPE '.nearest'
-    | 'i32x4.trunc_sat_f32x4_' SIGN
-    | 'i32x4.trunc_sat_f64x2_' SIGN
-    | 'f64x2.promote_low_f32x4'
-    | 'f32x4.demote_f64x2_zero'
-    | 'f32x4.convert_i32x4_' SIGN
-    | 'f64x2.convert_low_i32x4_' SIGN
-    | 'i16x8.extadd_pairwise_i8x16_' SIGN
-    | 'i32x4.extadd_pairwise_i16x8_' SIGN
-    | 'i16x8.extend_low_i8x16_' SIGN
-    | 'i16x8.extend_high_i8x16_' SIGN
-    | 'i32x4.extend_low_i16x8_' SIGN
-    | 'i32x4.extend_high_i16x8_' SIGN
-    | 'i64x2.extend_low_i32x4_' SIGN
-    | 'i64x2.extend_high_i32x4_' SIGN
-
-VEC_BINARY:
-    V128_SHAPE '.eq'
-    | V128_SHAPE '.ne'
-    | V128_INT_SHAPE '.lt_s'
-    | V128_INT_SHAPE_EXCEPT_64 '.lt_u'
-    | V128_INT_SHAPE '.le_s'
-    | V128_INT_SHAPE_EXCEPT_64 '.le_u'
-    | V128_INT_SHAPE '.gt_s'
-    | V128_INT_SHAPE_EXCEPT_64 '.gt_u'
-    | V128_INT_SHAPE '.ge_s'
-    | V128_INT_SHAPE_EXCEPT_64 '.ge_u'
-    | V128_FLOAT_SHAPE '.lt'
-    | V128_FLOAT_SHAPE '.le'
-    | V128_FLOAT_SHAPE '.gt'
-    | V128_FLOAT_SHAPE '.ge'
-    | 'i8x16.swizzle'
-    | V128_SHAPE '.add'
-    | V128_SHAPE '.sub'
-    | V128_INT_SHAPE_EXCEPT_64 '.min_s'
-    | V128_INT_SHAPE_EXCEPT_64 '.min_u'
-    | V128_INT_SHAPE_EXCEPT_64 '.max_s'
-    | V128_INT_SHAPE_EXCEPT_64 '.max_u'
-    | V128_INT_SHAPE_EXCEPT_64 '.mul'
-    | V128_FLOAT_SHAPE '.mul'
-    | V128_FLOAT_SHAPE '.div'
-    | V128_FLOAT_SHAPE '.min'
-    | V128_FLOAT_SHAPE '.max'
-    | V128_FLOAT_SHAPE '.pmin'
-    | V128_FLOAT_SHAPE '.pmax'
-    | 'i8x16.add_sat_' SIGN
-    | 'i8x16.sub_sat_' SIGN
-    | 'i16x8.add_sat_' SIGN
-    | 'i16x8.sub_sat_' SIGN
-    | 'i32x4.dot_i16x8_s'
-    | 'i8x16.narrow_i16x8_' SIGN
-    | 'i16x8.narrow_i32x4_' SIGN
-    | 'i16x8.extmul_low_i8x16_' SIGN
-    | 'i16x8.extmul_high_i8x16_' SIGN
-    | 'i32x4.extmul_low_i16x8_' SIGN
-    | 'i32x4.extmul_high_i16x8_' SIGN
-    | 'i64x2.extmul_low_i32x4_' SIGN
-    | 'i64x2.extmul_high_i32x4_' SIGN
-    | 'i16x8.q15mulr_sat_s'
-
-VEC_TERNARY: VXXX '.bitselect'
-VEC_TEST : VXXX '.any_true' | V128_INT_SHAPE '.all_true'
-VEC_BITMASK : V128_INT_SHAPE '.bitmask'
-
-VEC_SHIFT:
-    V128_INT_SHAPE '.shl'
-    | V128_INT_SHAPE '.shr_s'
-    | V128_INT_SHAPE '.shr_u'
-
-VEC_SHUFFLE : 'i8x16.shuffle'
-VEC_SPLAT : V128_SHAPE '.splat'
-VEC_EXTRACT :
-    'i32x4.extract_lane'
-    | 'i64x2.extract_lane'
-    | V128_FLOAT_SHAPE '.extract_lane'
-    | 'i8x16.extract_lane_' SIGN
-    | 'i16x8.extract_lane_' SIGN
-VEC_REPLACE : V128_SHAPE '.replace_lane'
-
-
-MEMORY_SIZE : 'memory.size';
-MEMORY_GROW : 'memory.grow';
-MEMORY_FILL : 'memory.fill';
-MEMORY_COPY : 'memory.copy';
-MEMORY_INIT : 'memory.init';
-
-TYPE   : 'type';
-FUNC   : 'func';
-START_ : 'start';
-PARAM  : 'param';
-RESULT : 'result';
-LOCAL  : 'local';
-GLOBAL : 'global';
-TABLE  : 'table';
-MEMORY : 'memory';
-ELEM   : 'elem';
-DATA   : 'data';
-OFFSET : 'offset';
-IMPORT : 'import';
-EXPORT : 'export';
-DECLARE: 'declare';
-ITEM : 'item';
-
-MODULE : 'module';
-BIN    : 'binary';
-QUOTE  : 'quote';
-
-SCRIPT                       : 'script';
-REGISTER                     : 'register';
-INVOKE                       : 'invoke';
-GET                          : 'get';
-ASSERT_MALFORMED             : 'assert_malformed';
-ASSERT_INVALID               : 'assert_invalid';
-ASSERT_UNLINKABLE            : 'assert_unlinkable';
-ASSERT_RETURN                : 'assert_return';
-ASSERT_RETURN_CANONICAL_NAN  : 'assert_return_canonical_nan';
-ASSERT_RETURN_ARITHMETIC_NAN : 'assert_return_arithmetic_nan';
-ASSERT_TRAP                  : 'assert_trap';
-ASSERT_EXHAUSTION            : 'assert_exhaustion';
-INPUT                        : 'input';
-OUTPUT                       : 'output';
-
-VAR: Name;
-
-SPACE: [ \t\r\n] -> skip;
-
-COMMENT: ( '(;' .*? ';)' | ';;' .*? '\n') -> skip;
-
-fragment Symbol:
-    '.'
-    | '+'
-    | '-'
-    | '*'
-    | '/'
-    | '\\'
-    | '^'
-    | '~'
-    | '='
-    | '<'
-    | '>'
-    | '!'
-    | '?'
-    | '@'
-    | '#'
-    | '$'
-    | '%'
-    | '&'
-    | '|'
-    | ':'
-    | '\''
-    | '`'
-;
 
 fragment Num: Digit ('_'? Digit)*;
 
@@ -451,18 +47,17 @@ fragment MFXX     : 'f' ('32' | '64');
 fragment SIGN     : 's' | 'u';
 fragment MEM_SIZE : '8' | '16' | '32';
 
-fragment VXXX     : 'v128';
-fragment V128_INT_SHAPE = 'i8x16' | 'i16x8' | 'i32x4' | 'i64x2'
-fragment V128_INT_SHAPE_EXCEPT_64 = 'i8x16' | 'i16x8' | 'i32x4'
-fragment V128_FLOAT_SHAPE = 'f32x4' | 'f64x2'
-fragment V128_SHAPE = V128_INT_SHAPE | V128_FLOAT_SHAPE
-
-fragment Char        : ~["'\\\u0000-\u001f\u007f-\u00ff];
-fragment Ascii       : [\u0000-\u007f];
-fragment Ascii_no_nl : [\u0000-\u0009\u000b-\u007f];
-fragment Utf8Cont    : [\u0080-\u00bf];
-fragment Utf8        : Ascii | Utf8Enc;
-fragment Utf8_no_nl  : Ascii_no_nl | Utf8Enc;
+fragment VXXX                     : 'v128';
+fragment V128_INT_SHAPE           : 'i8x16' | 'i16x8' | 'i32x4' | 'i64x2';
+fragment V128_INT_SHAPE_EXCEPT_64 : 'i8x16' | 'i16x8' | 'i32x4';
+fragment V128_FLOAT_SHAPE         : 'f32x4' | 'f64x2';
+fragment V128_SHAPE               : V128_INT_SHAPE | V128_FLOAT_SHAPE;
+fragment Char                     : ~["'\\\u0000-\u001f\u007f-\u00ff];
+fragment Ascii                    : [\u0000-\u007f];
+fragment Ascii_no_nl              : [\u0000-\u0009\u000b-\u007f];
+fragment Utf8Cont                 : [\u0080-\u00bf];
+fragment Utf8                     : Ascii | Utf8Enc;
+fragment Utf8_no_nl               : Ascii_no_nl | Utf8Enc;
 
 fragment Utf8Enc:
     [\u00c2-\u00df] Utf8Cont
@@ -473,3 +68,329 @@ fragment Utf8Enc:
     | [\u00f4] [\u0080-\u008f] Utf8Cont Utf8Cont
     | [\u00f1-\u00f3] Utf8Cont Utf8Cont Utf8Cont
 ;
+
+fragment Symbol:
+    '.'
+    | '+'
+    | '-'
+    | '*'
+    | '/'
+    | '\\'
+    | '^'
+    | '~'
+    | '='
+    | '<'
+    | '>'
+    | '!'
+    | '?'
+    | '@'
+    | '#'
+    | '$'
+    | '%'
+    | '&'
+    | '|'
+    | ':'
+    | '\''
+    | '`'
+;
+
+LPAR : '(';
+RPAR : ')';
+
+NAT      : Nat;
+INT      : Int;
+FLOAT    : Float;
+STRING_  : String_;
+NUM_TYPE : NXX;
+
+VEC_TYPE  : VXXX;
+VEC_SHAPE : V128_SHAPE;
+
+CONST     : NXX '.const';
+VEC_CONST : VXXX '.const';
+
+ANY       : 'any';
+ANYREF    : 'anyref';
+NONE      : 'none';
+NULLREF   : 'nullref';
+EQ        : 'eq';
+EQREF     : 'eqref';
+I31       : 'i31';
+I31REF    : 'i31ref';
+STRUCTREF : 'structref';
+ARRAYREF  : 'arrayref';
+NOFUNC    : 'nofunc';
+
+FUNCREF : 'funcref';
+MUT     : 'mut';
+
+NULLFUNCREF   : 'nullfuncref';
+EXTERN        : 'extern';
+NOEXTERN      : 'noextern';
+EXTERNREF     : 'externref';
+NULLEXTERNREF : 'nullexternref';
+REF           : 'ref';
+NULL          : 'null';
+ARRAY         : 'array';
+STRUCT        : 'struct';
+FIELD         : 'field';
+SUB           : 'sub';
+FINAL         : 'final';
+REC           : 'rec';
+
+REF_NULL    : 'ref.null';
+REF_FUNC    : 'ref.func';
+REF_EXTERN  : 'ref.extern';
+REF_IS_NULL : 'ref.is_null';
+
+NOP                  : 'nop';
+UNREACHABLE          : 'unreachable';
+DROP                 : 'drop';
+BLOCK                : 'block';
+LOOP                 : 'loop';
+END                  : 'end';
+BR                   : 'br';
+BR_IF                : 'br_if';
+BR_TABLE             : 'br_table';
+RETURN               : 'return';
+IF                   : 'if';
+THEN                 : 'then';
+ELSE                 : 'else';
+SELECT               : 'select';
+CALL                 : 'call';
+CALL_INDIRECT        : 'call_indirect';
+CALL_REF             : 'call_ref';
+RETURN_CALL          : 'return_call';
+RETURN_CALL_REF      : 'return_call_ref';
+RETURN_CALL_INDIRECT : 'return_call_indirect';
+
+BR_ON_NULL : 'br_on_null' | 'br_on_non_null';
+BR_ON_CAST : 'br_on_cast' | 'br_on_cast_fail';
+
+LOCAL_GET  : 'local.get';
+LOCAL_SET  : 'local.set';
+LOCAL_TEE  : 'local.tee';
+GLOBAL_GET : 'global.get';
+GLOBAL_SET : 'global.set';
+
+TABLE_GET  : 'table_get';
+TABLE_SET  : 'table_set';
+TABEL_SIZE : 'table_size';
+TABLE_GROW : 'table_grow';
+TABLE_FILL : 'table_fill';
+TABLE_COPY : 'table_copy';
+TABLE_INIT : 'table_init';
+
+DATA_DROP : 'data.drop';
+ELEM_DROP : 'elem.drop';
+
+LOAD  : NXX '.load' (MEM_SIZE '_' SIGN)?;
+STORE : NXX '.store' (MEM_SIZE)?;
+
+OFFSET_EQ_NAT : 'offset=' Nat;
+ALIGN_EQ_NAT  : 'align=' Nat;
+
+UNARY:
+    IXX ('.clz' | '.ctz' | '.popcnt' | '.extend8_s' | '.extend16_s')
+    | 'i64_extend32_s'
+    | FXX ('.neg' | '.abs' | '.sqrt' | '.ceil' | '.floor' | '.trunc' | '.nearest')
+;
+
+BINARY:
+    IXX (
+        '.add'
+        | '.sub'
+        | '.mul'
+        | '.div_s'
+        | '.div_u'
+        | '.rem_s'
+        | '.rem_u'
+        | '.and'
+        | '.or'
+        | '.xor'
+        | '.shl'
+        | '.shr_s'
+        | '.shr_u'
+        | '.rotl'
+        | '.rotr'
+    )
+    | FXX ('.add' | '.sub' | '.mul' | '.div' | '.min' | '.max' | '.copysign')
+;
+
+TEST: IXX '.eqz';
+
+COMPARE:
+    IXX (
+        '.eq'
+        | '.ne'
+        | '.lt_s'
+        | '.lt_u'
+        | '.le_s'
+        | '.le_u'
+        | '.gt_s'
+        | '.gt_u'
+        | '.ge_s'
+        | '.ge_u'
+    )
+    | FXX ('.eq' | '.ne' | '.lt' | '.le' | '.gt' | '.ge')
+;
+
+CONVERT:
+    'i32.wrap_i64'
+    | 'i64.extend_i32_s'
+    | 'i64.extend_i32_u'
+    | 'f32.demote_f64'
+    | 'f64.promote_f32'
+    | IXX ('.trunc_f32_s' | '.trunc_f32_u' | '.trunc_f64_s' | '.trunc_f64_u')
+    | IXX ('.trunc_sat_f32_s' | '.trunc_sat_f32_u' | '.trunc_sat_f64_s' | '.trunc_sat_f64_u')
+    | FXX ('.convert_i32_s' | '.convert_i32_u' | '.convert_i64_s' | '.convert_i64_u')
+    | 'f32.reinterpret_i32'
+    | 'f64.reinterpret_i64'
+    | 'i32.reinterpret_f32'
+    | 'i64.reinterpret_f64'
+;
+
+VEC_LOAD:
+    VXXX (
+        '.load'
+        | '.load8_splat'
+        | '.load16_splat'
+        | '.load32_splat'
+        | '.load64_splat'
+        | '.load32_zero'
+        | '.load64_zero'
+    )
+    | VXXX '.load' ('8x8' | '16x4' | '32x2') SIGN
+;
+
+VEC_LOAD_LANE  : VXXX ('.load8_lane' | '.load16_lane' | '.load32_lane' | '.load64_lane');
+VEC_STORE_LANE : VXXX ('.store8_lane' | '.store16_lane' | '.store32_lane' | '.store64_lane');
+VEC_UNARY:
+    VXXX ('.not' | '.and' | '.andnot' | '.or' | '.xor')
+    | V128_SHAPE ('.neg' | '.abs')
+    | 'i8x16.popcnt'
+    | 'i8x16.avgr_u'
+    | 'i16x8.avgr_u'
+    | 'f64x2.promote_low_f32x4'
+    | 'f32x4.demote_f64x2_zero'
+    | V128_FLOAT_SHAPE ('.sqrt' | '.ceil' | '.floor' | '.trunc' | '.nearest')
+    | (
+        'i32x4.trunc_sat_f32x4_'
+        | 'i32x4.trunc_sat_f64x2_'
+        | 'f32x4.convert_i32x4_'
+        | 'f64x2.convert_low_i32x4_'
+        | 'i16x8.extadd_pairwise_i8x16_'
+        | 'i32x4.extadd_pairwise_i16x8_'
+        | 'i16x8.extend_low_i8x16_'
+        | 'i16x8.extend_high_i8x16_'
+        | 'i32x4.extend_low_i16x8_'
+        | 'i32x4.extend_high_i16x8_'
+        | 'i64x2.extend_low_i32x4_'
+        | 'i64x2.extend_high_i32x4_'
+    ) SIGN
+;
+VEC_BINARY:
+    V128_SHAPE ('.eq' | '.ne' | 'add' | '.sub')
+    | V128_INT_SHAPE_EXCEPT_64 (
+        '.lt_u'
+        | '.le_u'
+        | '.gt_u'
+        | '.ge_u'
+        | '.min_s'
+        | '.min_u'
+        | '.max_s'
+        | '.max_u'
+        | '.mul'
+    )
+    | V128_INT_SHAPE ('.lt_s' | '.le_s' | '.gt_s' | '.ge_s')
+    | V128_FLOAT_SHAPE (
+        '.lt'
+        | '.le'
+        | '.gt'
+        | '.ge'
+        | '.mul'
+        | '.div'
+        | '.min'
+        | '.max'
+        | '.pmin'
+        | '.pmax'
+    )
+    | (
+        'i8x16.add_sat_'
+        | 'i8x16.sub_sat_'
+        | 'i16x8.add_sat_'
+        | 'i16x8.sub_sat_'
+        | 'i8x16.narrow_i16x8_'
+        | 'i16x8.narrow_i32x4_'
+        | 'i16x8.extmul_low_i8x16_'
+        | 'i16x8.extmul_high_i8x16_'
+        | 'i32x4.extmul_low_i16x8_'
+        | 'i32x4.extmul_high_i16x8_'
+        | 'i64x2.extmul_low_i32x4_'
+        | 'i64x2.extmul_high_i32x4_'
+    ) SIGN
+    | 'i16x8.q15mulr_sat_s'
+    | 'i32x4.dot_i16x8_s'
+    | 'i8x16.swizzle'
+;
+VEC_TERNARY : VXXX '.bitselect';
+VEC_TEST    : VXXX '.any_true' | V128_INT_SHAPE '.all_true';
+VEC_BITMASK : V128_INT_SHAPE '.bitmask';
+
+VEC_SHIFT: V128_INT_SHAPE ('.shl' | '.shr_s' | '.shr_u');
+
+VEC_SHUFFLE : 'i8x16.shuffle';
+VEC_SPLAT   : V128_SHAPE '.splat';
+VEC_EXTRACT:
+    ('i32x4' | 'i64x2') '.extract_lane'
+    | ('i8x16' | 'i16x8') '.extract_lane_' SIGN
+    | V128_FLOAT_SHAPE '.extract_lane'
+;
+VEC_REPLACE : V128_SHAPE '.replace_lane';
+MEMORY_SIZE : 'memory.size';
+MEMORY_GROW : 'memory.grow';
+MEMORY_FILL : 'memory.fill';
+MEMORY_COPY : 'memory.copy';
+MEMORY_INIT : 'memory.init';
+
+TYPE    : 'type';
+FUNC    : 'func';
+START_  : 'start';
+PARAM   : 'param';
+RESULT  : 'result';
+LOCAL   : 'local';
+GLOBAL  : 'global';
+TABLE   : 'table';
+MEMORY  : 'memory';
+ELEM    : 'elem';
+DATA    : 'data';
+OFFSET  : 'offset';
+IMPORT  : 'import';
+EXPORT  : 'export';
+DECLARE : 'declare';
+ITEM    : 'item';
+
+MODULE : 'module';
+BIN    : 'binary';
+QUOTE  : 'quote';
+
+SCRIPT                       : 'script';
+REGISTER                     : 'register';
+INVOKE                       : 'invoke';
+GET                          : 'get';
+ASSERT_MALFORMED             : 'assert_malformed';
+ASSERT_INVALID               : 'assert_invalid';
+ASSERT_UNLINKABLE            : 'assert_unlinkable';
+ASSERT_RETURN                : 'assert_return';
+ASSERT_RETURN_CANONICAL_NAN  : 'assert_return_canonical_nan';
+ASSERT_RETURN_ARITHMETIC_NAN : 'assert_return_arithmetic_nan';
+ASSERT_TRAP                  : 'assert_trap';
+ASSERT_EXHAUSTION            : 'assert_exhaustion';
+INPUT                        : 'input';
+OUTPUT                       : 'output';
+
+VAR: Name;
+
+SPACE: [ \t\r\n] -> skip;
+
+COMMENT: ( '(;' .*? ';)' | ';;' .*? '\n') -> skip;
