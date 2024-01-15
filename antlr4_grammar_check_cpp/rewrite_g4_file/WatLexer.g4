@@ -175,7 +175,7 @@ GLOBAL_SET : 'global.set';
 
 TABLE_GET  : 'table_get';
 TABLE_SET  : 'table_set';
-TABEL_SIZE : 'table_size';
+TABLE_SIZE : 'table_size';
 TABLE_GROW : 'table_grow';
 TABLE_FILL : 'table_fill';
 TABLE_COPY : 'table_copy';
@@ -382,13 +382,13 @@ ASSERT_MALFORMED             : 'assert_malformed';
 ASSERT_INVALID               : 'assert_invalid';
 ASSERT_UNLINKABLE            : 'assert_unlinkable';
 ASSERT_RETURN                : 'assert_return';
-ASSERT_RETURN_CANONICAL_NAN  : 'assert_return_canonical_nan';
-ASSERT_RETURN_ARITHMETIC_NAN : 'assert_return_arithmetic_nan';
+// ASSERT_RETURN_CANONICAL_NAN  : 'assert_return_canonical_nan';
+// ASSERT_RETURN_ARITHMETIC_NAN : 'assert_return_arithmetic_nan';
 ASSERT_TRAP                  : 'assert_trap';
 ASSERT_EXHAUSTION            : 'assert_exhaustion';
 INPUT                        : 'input';
 OUTPUT                       : 'output';
-
+NAN                          : 'nan:canonical' | 'nan:arithmetic';
 VAR: Name;
 
 SPACE: [ \t\r\n] -> skip;

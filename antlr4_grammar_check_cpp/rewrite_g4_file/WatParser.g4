@@ -21,13 +21,25 @@ name
 
 /* Types */
 
-num_type
-    : NUM_TYPE
+ref_kind 
+    : FUNC
+    | EXTERN
     ;
 
-elem_type
+ref_type 
     : FUNCREF
+    | EXTERNREF
     ;
+
+num_type
+    : NUM_TYPE
+    | ref_type
+    ;
+
+// elem_type
+//     // : FUNCREF
+//     : num_type num_type*
+//     ;
 
 global_type
     : num_type
@@ -43,7 +55,7 @@ func_type
     ;
 
 table_type
-    : NAT NAT? elem_type
+    : NAT NAT? ref_type 
     ;
 
 memory_type
@@ -56,7 +68,7 @@ type_use
 
 /* Immediates */
 
-literal
+num
     : NAT
     | INT
     | FLOAT
@@ -75,6 +87,7 @@ bind_var
 
 instr
     : plain_instr
+    | select_instr_instr
     | call_instr_instr
     | block_instr
     | expr
@@ -95,11 +108,26 @@ plain_instr
     | LOCAL_TEE var_
     | GLOBAL_GET var_
     | GLOBAL_SET var_
+    | TABLE_GET var_?
+    | TABLE_SET var_?
+    | TABLE_SIZE var_?
+    | TABLE_GROW var_?
+    | TABLE_FILL var_?
+    | TABLE_COPY (var_ var_)?
+    | TABLE_INIT var_ var_?
+    | ELEM_DROP var_
     | LOAD OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     | STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     | MEMORY_SIZE
     | MEMORY_GROW
-    | CONST literal
+    | CONST num
+    | MEMORY_FILL
+    | MEMORY_COPY
+    | MEMORY_INIT var_
+    | DATA_DROP var_
+    | REF_NULL ref_kind
+    | REF_IS_NULL
+    | REF_FUNC var_
     | TEST
     | COMPARE
     | UNARY
@@ -107,8 +135,22 @@ plain_instr
     | CONVERT
     ;
 
+select_instr 
+    : SELECT select_instr_results
+    ;
+
+select_instr_results 
+    : (LPAR RESULT num_type* RPAR)*
+    ;
+
+select_instr_instr 
+    : SELECT (LPAR RESULT num_type* RPAR)* instr
+    ;
+
 call_instr
-    : CALL_INDIRECT type_use? call_instr_params
+    : CALL_INDIRECT var_ type_use? call_instr_params
+    | CALL_INDIRECT type_use? call_instr_params
+    
     ;
 
 call_instr_params
@@ -116,7 +158,8 @@ call_instr_params
     ;
 
 call_instr_instr
-    : CALL_INDIRECT type_use? call_instr_params_instr
+    : CALL_INDIRECT var_ type_use? call_instr_params_instr
+    | CALL_INDIRECT type_use? call_instr_params_instr
     ;
 
 call_instr_params_instr
@@ -151,10 +194,16 @@ expr
 
 expr1
     : plain_instr expr*
-    | CALL_INDIRECT call_expr_type
+    // | CALL_INDIRECT call_expr_type
+    | SELECT select_expr_results
+    | CALL_INDIRECT var_? call_expr_params
     | BLOCK bind_var? block
     | LOOP bind_var? block
     | IF bind_var? if_block
+    ;
+
+select_expr_results
+    : (LPAR RESULT num_type* RPAR)* expr*
     ;
 
 call_expr_type
@@ -182,6 +231,7 @@ if_block_result_body
 
 instr_list
     : instr* call_instr?
+    | select_instr
     ;
 
 const_expr
@@ -222,14 +272,49 @@ func_body
     ;
 
 /* Tables, Memories & Globals */
+table_use
+    : LPAR TABLE var_ RPAR
+    ;
+
+memory_use
+    : LPAR MEMORY var_ RPAR
+    ;
+
 
 offset
     : LPAR OFFSET const_expr RPAR
     | expr
     ;
 
+elem_kind
+    : FUNC
+    ;
+
+elem_expr
+    : LPAR ITEM const_expr RPAR
+    | expr
+    ;
+
+elem_expr_list
+    : elem_expr*
+    ;
+
+elem_var_list
+    : var_*
+    ;
+
+elem_list
+    : elem_kind elem_var_list
+    | ref_type elem_expr_list
+    ;
+
 elem
-    : LPAR ELEM var_? offset var_* RPAR
+    // : LPAR ELEM var_? offset var_* RPAR
+    // : LPAR ELEM bind_var? elem_list RPAR
+    : LPAR ELEM bind_var? table_use offset elem_list RPAR
+    // | LPAR ELEM bind_var?  elem_list RPAR
+    | LPAR ELEM bind_var? (offset? | DECLARE) elem_list RPAR
+    | LPAR ELEM bind_var? offset elem_var_list RPAR
     ;
 
 table
@@ -240,11 +325,13 @@ table_fields
     : table_type
     | inline_import table_type
     | inline_export table_fields
-    | elem_type LPAR ELEM var_* RPAR
+    | ref_type LPAR ELEM (var_* | elem_expr elem_expr*) RPAR
     ;
 
 data
-    : LPAR DATA var_? offset STRING_* RPAR
+    // : LPAR DATA var_? offset STRING_* RPAR
+    : LPAR DATA bind_var? memory_use offset STRING_* RPAR
+    | LPAR DATA bind_var? offset? STRING_* RPAR
     ;
 
 memory
@@ -349,9 +436,9 @@ assertion
     | LPAR ASSERT_INVALID script_module STRING_ RPAR
     | LPAR ASSERT_UNLINKABLE script_module STRING_ RPAR
     | LPAR ASSERT_TRAP script_module STRING_ RPAR
-    | LPAR ASSERT_RETURN action_ const_list RPAR
-    | LPAR ASSERT_RETURN_CANONICAL_NAN action_ RPAR
-    | LPAR ASSERT_RETURN_ARITHMETIC_NAN action_ RPAR
+    | LPAR ASSERT_RETURN action_ result* RPAR
+    // | LPAR ASSERT_RETURN_CANONICAL_NAN action_ RPAR
+    // | LPAR ASSERT_RETURN_ARITHMETIC_NAN action_ RPAR
     | LPAR ASSERT_TRAP action_ STRING_ RPAR
     | LPAR ASSERT_EXHAUSTION action_ STRING_ RPAR
     ;
@@ -372,12 +459,21 @@ meta
     ;
 
 wconst
-    : LPAR CONST literal RPAR
+    : LPAR CONST num RPAR
+    | LPAR REF_NULL ref_kind RPAR
+    | LPAR REF_EXTERN NAT RPAR
     ;
 
 const_list
     : wconst*
     ;
+
+result
+    : wconst
+    | LPAR CONST NAN RPAR
+    | LPAR (REF_FUNC | REF_EXTERN) RPAR
+    ;
+
 
 script
     : cmd* EOF
