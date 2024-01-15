@@ -14,15 +14,9 @@
 
 
 
-elem_type :
-  | ANYFUNC { AnyFuncType }
 
-global_type :
-  | VALUE_TYPE { GlobalType ($1, Immutable) }
-  | LPAR MUT VALUE_TYPE RPAR { GlobalType ($3, Mutable) }
 
-def_type :
-  | LPAR FUNC func_type RPAR { $3 }
+
 
 func_type :
   | /* empty */

@@ -66,12 +66,9 @@ value_type :
 
 
 
-global_type :
-  | value_type { GlobalType ($1, Immutable) }
-  | LPAR MUT value_type RPAR { GlobalType ($3, Mutable) }
 
-def_type :
-  | LPAR FUNC func_type RPAR { $3 }
+
+
 
 func_type :
   | func_type_result

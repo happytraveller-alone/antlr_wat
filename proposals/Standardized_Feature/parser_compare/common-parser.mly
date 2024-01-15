@@ -57,3 +57,13 @@ value_type :
 value_type_list :
   | /* empty */ { [] }
   | value_type value_type_list { $1 :: $2 }
+
+global_type :
+  | VALUE_TYPE { GlobalType ($1, Immutable) }
+  | LPAR MUT VALUE_TYPE RPAR { GlobalType ($3, Mutable) }
+
+def_type :
+  | LPAR FUNC func_type RPAR { $3 }
+
+elem_type :
+  | FUNCREF { FuncRefType }
