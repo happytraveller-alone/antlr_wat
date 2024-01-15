@@ -3,27 +3,77 @@
 %token FUNCREF VALUE_TYPE MUT
 %token UNREACHABLE NOP DROP SELECT
 %token BLOCK END IF THEN ELSE LOOP BR BR_IF BR_TABLE
-
+%token CALL CALL_INDIRECT RETURN
+%token LOCAL_GET LOCAL_SET LOCAL_TEE GLOBAL_GET GLOBAL_SET
 %token TABLE_COPY TABLE_INIT ELEM_DROP
 %token MEMORY_SIZE MEMORY_GROW MEMORY_FILL MEMORY_COPY MEMORY_INIT DATA_DROP
 %token LOAD STORE OFFSET_EQ_NAT ALIGN_EQ_NAT
 %token CONST UNARY BINARY TEST COMPARE CONVERT
 %token REF_NULL REF_FUNC
-
+%token FUNC START TYPE PARAM RESULT LOCAL GLOBAL
+%token TABLE ELEM MEMORY DATA OFFSET IMPORT EXPORT TABLE
+%token MODULE BIN QUOTE
+%token SCRIPT REGISTER INVOKE GET
 %token ASSERT_MALFORMED ASSERT_INVALID ASSERT_SOFT_INVALID ASSERT_UNLINKABLE
 %token ASSERT_RETURN ASSERT_TRAP ASSERT_EXHAUSTION
+%token NAN
+%token INPUT OUTPUT
+%token EOF
+
+%token<string> NAT
+%token<string> INT
+%token<string> FLOAT
+%token<string> STRING
+%token<string> VAR
+%token<Types.value_type> VALUE_TYPE
+%token<string Source.phrase -> Ast.instr' * Values.value> CONST
+%token<Ast.instr'> UNARY
+%token<Ast.instr'> BINARY
+%token<Ast.instr'> TEST
+%token<Ast.instr'> COMPARE
+%token<Ast.instr'> CONVERT
+%token<int option -> Memory.offset -> Ast.instr'> LOAD
+%token<int option -> Memory.offset -> Ast.instr'> STORE
+%token<string> OFFSET_EQ_NAT
+%token<string> ALIGN_EQ_NAT
+
+%token<Script.nan> NAN
+
+%nonassoc LOW
+%nonassoc VAR
+
+%start script script1 module1
+%type<Script.script> script
+%type<Script.script> script1
+%type<Script.var option * Script.definition> module1
+
+%%
+
+/* Auxiliaries */
+
+name :
+  | STRING { name $1 (at ()) }
+
+string_list :
+  | /* empty */ { "" }
+  | string_list STRING { $1 ^ $2 }
 
 
+/* Types */
 
+value_type_list :
+  | /* empty */ { [] }
+  | VALUE_TYPE value_type_list { $1 :: $2 }
 
+elem_type :
+  | FUNCREF { FuncRefType }
 
+global_type :
+  | VALUE_TYPE { GlobalType ($1, Immutable) }
+  | LPAR MUT VALUE_TYPE RPAR { GlobalType ($3, Mutable) }
 
-
-
-
-
-
-
+def_type :
+  | LPAR FUNC func_type RPAR { $3 }
 
 func_type :
   | /* empty */

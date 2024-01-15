@@ -1,5 +1,5 @@
 
-// Generated from C:\Users\xiang\Documents\GitHub\js_parser\ECMAScript.g4 by ANTLR 4.7
+// Generated from ECMAScript.g4 by ANTLR 4.13.1
 
 
 #include "ECMAScriptVisitor.h"
@@ -8,14 +8,355 @@
 
 
 using namespace antlrcpp;
+
 using namespace antlr4;
 
-ECMAScriptParser::ECMAScriptParser(TokenStream *input) : Parser(input) {
-  _interpreter = new atn::ParserATNSimulator(this, _atn, _decisionToDFA, _sharedContextCache);
+namespace {
+
+struct ECMAScriptParserStaticData final {
+  ECMAScriptParserStaticData(std::vector<std::string> ruleNames,
+                        std::vector<std::string> literalNames,
+                        std::vector<std::string> symbolicNames)
+      : ruleNames(std::move(ruleNames)), literalNames(std::move(literalNames)),
+        symbolicNames(std::move(symbolicNames)),
+        vocabulary(this->literalNames, this->symbolicNames) {}
+
+  ECMAScriptParserStaticData(const ECMAScriptParserStaticData&) = delete;
+  ECMAScriptParserStaticData(ECMAScriptParserStaticData&&) = delete;
+  ECMAScriptParserStaticData& operator=(const ECMAScriptParserStaticData&) = delete;
+  ECMAScriptParserStaticData& operator=(ECMAScriptParserStaticData&&) = delete;
+
+  std::vector<antlr4::dfa::DFA> decisionToDFA;
+  antlr4::atn::PredictionContextCache sharedContextCache;
+  const std::vector<std::string> ruleNames;
+  const std::vector<std::string> literalNames;
+  const std::vector<std::string> symbolicNames;
+  const antlr4::dfa::Vocabulary vocabulary;
+  antlr4::atn::SerializedATNView serializedATN;
+  std::unique_ptr<antlr4::atn::ATN> atn;
+};
+
+::antlr4::internal::OnceFlag ecmascriptParserOnceFlag;
+#if ANTLR4_USE_THREAD_LOCAL_CACHE
+static thread_local
+#endif
+ECMAScriptParserStaticData *ecmascriptParserStaticData = nullptr;
+
+void ecmascriptParserInitialize() {
+#if ANTLR4_USE_THREAD_LOCAL_CACHE
+  if (ecmascriptParserStaticData != nullptr) {
+    return;
+  }
+#else
+  assert(ecmascriptParserStaticData == nullptr);
+#endif
+  auto staticData = std::make_unique<ECMAScriptParserStaticData>(
+    std::vector<std::string>{
+      "program", "sourceElements", "sourceElement", "statement", "block", 
+      "statementList", "variableStatement", "variableDeclarationList", "variableDeclaration", 
+      "initialiser", "emptyStatement", "expressionStatement", "ifStatement", 
+      "iterationStatement", "continueStatement", "breakStatement", "returnStatement", 
+      "withStatement", "switchStatement", "caseBlock", "caseClauses", "caseClause", 
+      "defaultClause", "labelledStatement", "throwStatement", "tryStatement", 
+      "catchProduction", "finallyProduction", "debuggerStatement", "functionDeclaration", 
+      "formalParameterList", "functionBody", "arrayLiteral", "elementList", 
+      "elision", "objectLiteral", "propertyNameAndValueList", "propertyAssignment", 
+      "propertyName", "propertySetParameterList", "arguments", "argumentList", 
+      "expressionSequence", "singleExpression", "assignmentOperator", "literal", 
+      "numericLiteral", "identifierName", "reservedWord", "keyword", "futureReservedWord", 
+      "getter", "setter", "eos", "eof"
+    },
+    std::vector<std::string>{
+      "", "", "", "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", "','", 
+      "'='", "'\\u003F'", "':'", "'.'", "'++'", "'--'", "'+'", "'-'", "'~'", 
+      "'!'", "'*'", "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", 
+      "'<='", "'>='", "'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", 
+      "'&&'", "'||'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", 
+      "'>>>='", "'&='", "'^='", "'|='", "'null'", "", "", "", "", "'break'", 
+      "'do'", "'instanceof'", "'typeof'", "'case'", "'else'", "'new'", "'var'", 
+      "'let'", "'catch'", "'finally'", "'return'", "'void'", "'continue'", 
+      "'for'", "'switch'", "'while'", "'debugger'", "'function'", "'this'", 
+      "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", "'try'", 
+      "'class'", "'enum'", "'extends'", "'super'", "'const'", "'export'", 
+      "'import'", "'implements'", "'private'", "'public'", "'interface'", 
+      "'package'", "'protected'", "'static'", "'yield'"
+    },
+    std::vector<std::string>{
+      "", "RegularExpressionLiteral", "LineTerminator", "OpenBracket", "CloseBracket", 
+      "OpenParen", "CloseParen", "OpenBrace", "CloseBrace", "SemiColon", 
+      "Comma", "Assign", "QuestionMark", "Colon", "Dot", "PlusPlus", "MinusMinus", 
+      "Plus", "Minus", "BitNot", "Not", "Multiply", "Divide", "Modulus", 
+      "RightShiftArithmetic", "LeftShiftArithmetic", "RightShiftLogical", 
+      "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", "Equals_", 
+      "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", "BitXOr", 
+      "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+      "PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+      "RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+      "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
+      "OctalIntegerLiteral", "Break", "Do", "Instanceof", "Typeof", "Case", 
+      "Else", "New", "Var", "Let", "Catch", "Finally", "Return", "Void", 
+      "Continue", "For", "Switch", "While", "Debugger", "Function", "This", 
+      "With", "Default", "If", "Throw", "Delete", "In", "Try", "Class", 
+      "Enum", "Extends", "Super", "Const", "Export", "Import", "Implements", 
+      "Private", "Public", "Interface", "Package", "Protected", "Static", 
+      "Yield", "Identifier", "StringLiteral", "WhiteSpaces", "MultiLineComment", 
+      "SingleLineComment", "HtmlComment", "UnexpectedCharacter"
+    }
+  );
+  static const int32_t serializedATNSegment[] = {
+  	4,1,104,652,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,
+  	7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,
+  	14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,
+  	21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,
+  	28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,33,7,33,2,34,7,34,2,35,7,
+  	35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,39,2,40,7,40,2,41,7,41,2,42,7,
+  	42,2,43,7,43,2,44,7,44,2,45,7,45,2,46,7,46,2,47,7,47,2,48,7,48,2,49,7,
+  	49,2,50,7,50,2,51,7,51,2,52,7,52,2,53,7,53,2,54,7,54,1,0,3,0,112,8,0,
+  	1,0,1,0,1,1,4,1,117,8,1,11,1,12,1,118,1,2,1,2,3,2,123,8,2,1,3,1,3,1,3,
+  	1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,3,3,140,8,3,1,4,1,4,3,
+  	4,144,8,4,1,4,1,4,1,5,4,5,149,8,5,11,5,12,5,150,1,6,1,6,1,6,1,6,1,6,1,
+  	6,1,6,1,6,3,6,161,8,6,1,7,1,7,1,7,5,7,166,8,7,10,7,12,7,169,9,7,1,8,1,
+  	8,3,8,173,8,8,1,9,1,9,1,9,1,10,1,10,1,11,1,11,1,11,1,11,1,12,1,12,1,12,
+  	1,12,1,12,1,12,1,12,3,12,191,8,12,1,13,1,13,1,13,1,13,1,13,1,13,1,13,
+  	1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,3,13,210,8,13,1,13,
+  	1,13,3,13,214,8,13,1,13,1,13,3,13,218,8,13,1,13,1,13,1,13,1,13,1,13,1,
+  	13,1,13,1,13,3,13,228,8,13,1,13,1,13,3,13,232,8,13,1,13,1,13,1,13,1,13,
+  	1,13,1,13,1,13,1,13,1,13,3,13,243,8,13,1,13,1,13,3,13,247,8,13,1,13,1,
+  	13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,
+  	13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,3,
+  	13,278,8,13,1,14,1,14,1,14,3,14,283,8,14,1,14,1,14,1,15,1,15,1,15,3,15,
+  	290,8,15,1,15,1,15,1,16,1,16,1,16,3,16,297,8,16,1,16,1,16,1,17,1,17,1,
+  	17,1,17,1,17,1,17,1,18,1,18,1,18,1,18,1,18,1,18,1,19,1,19,3,19,315,8,
+  	19,1,19,1,19,3,19,319,8,19,3,19,321,8,19,1,19,1,19,1,20,4,20,326,8,20,
+  	11,20,12,20,327,1,21,1,21,1,21,1,21,3,21,334,8,21,1,22,1,22,1,22,3,22,
+  	339,8,22,1,23,1,23,1,23,1,23,1,24,1,24,1,24,1,24,1,24,1,25,1,25,1,25,
+  	1,25,1,25,1,25,1,25,1,25,1,25,1,25,1,25,1,25,1,25,3,25,363,8,25,1,26,
+  	1,26,1,26,1,26,1,26,1,26,1,27,1,27,1,27,1,28,1,28,1,28,1,29,1,29,1,29,
+  	1,29,3,29,381,8,29,1,29,1,29,1,29,1,29,1,29,1,30,1,30,1,30,5,30,391,8,
+  	30,10,30,12,30,394,9,30,1,31,3,31,397,8,31,1,32,1,32,3,32,401,8,32,1,
+  	32,3,32,404,8,32,1,32,3,32,407,8,32,1,32,1,32,1,33,3,33,412,8,33,1,33,
+  	1,33,1,33,3,33,417,8,33,1,33,5,33,420,8,33,10,33,12,33,423,9,33,1,34,
+  	4,34,426,8,34,11,34,12,34,427,1,35,1,35,3,35,432,8,35,1,35,3,35,435,8,
+  	35,1,35,1,35,1,36,1,36,1,36,5,36,442,8,36,10,36,12,36,445,9,36,1,37,1,
+  	37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,37,1,
+  	37,1,37,1,37,1,37,3,37,466,8,37,1,38,1,38,1,38,3,38,471,8,38,1,39,1,39,
+  	1,40,1,40,3,40,477,8,40,1,40,1,40,1,41,1,41,1,41,5,41,484,8,41,10,41,
+  	12,41,487,9,41,1,42,1,42,1,42,5,42,492,8,42,10,42,12,42,495,9,42,1,43,
+  	1,43,1,43,3,43,500,8,43,1,43,1,43,3,43,504,8,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,3,43,514,8,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,1,43,1,43,3,43,543,8,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,
+  	43,1,43,1,43,1,43,5,43,610,8,43,10,43,12,43,613,9,43,1,44,1,44,1,45,1,
+  	45,3,45,619,8,45,1,46,1,46,1,47,1,47,3,47,625,8,47,1,48,1,48,1,48,3,48,
+  	630,8,48,1,49,1,49,1,50,1,50,1,51,1,51,1,51,1,51,1,52,1,52,1,52,1,52,
+  	1,53,1,53,1,53,1,53,3,53,648,8,53,1,54,1,54,1,54,0,1,86,55,0,2,4,6,8,
+  	10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,
+  	56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,
+  	102,104,106,108,0,11,1,0,21,23,1,0,17,18,1,0,24,26,1,0,27,30,1,0,31,34,
+  	1,0,40,50,3,0,1,1,51,52,99,99,1,0,53,55,1,0,51,52,1,0,56,82,1,0,83,97,
+  	710,0,111,1,0,0,0,2,116,1,0,0,0,4,122,1,0,0,0,6,139,1,0,0,0,8,141,1,0,
+  	0,0,10,148,1,0,0,0,12,160,1,0,0,0,14,162,1,0,0,0,16,170,1,0,0,0,18,174,
+  	1,0,0,0,20,177,1,0,0,0,22,179,1,0,0,0,24,183,1,0,0,0,26,277,1,0,0,0,28,
+  	279,1,0,0,0,30,286,1,0,0,0,32,293,1,0,0,0,34,300,1,0,0,0,36,306,1,0,0,
+  	0,38,312,1,0,0,0,40,325,1,0,0,0,42,329,1,0,0,0,44,335,1,0,0,0,46,340,
+  	1,0,0,0,48,344,1,0,0,0,50,362,1,0,0,0,52,364,1,0,0,0,54,370,1,0,0,0,56,
+  	373,1,0,0,0,58,376,1,0,0,0,60,387,1,0,0,0,62,396,1,0,0,0,64,398,1,0,0,
+  	0,66,411,1,0,0,0,68,425,1,0,0,0,70,429,1,0,0,0,72,438,1,0,0,0,74,465,
+  	1,0,0,0,76,470,1,0,0,0,78,472,1,0,0,0,80,474,1,0,0,0,82,480,1,0,0,0,84,
+  	488,1,0,0,0,86,542,1,0,0,0,88,614,1,0,0,0,90,618,1,0,0,0,92,620,1,0,0,
+  	0,94,624,1,0,0,0,96,629,1,0,0,0,98,631,1,0,0,0,100,633,1,0,0,0,102,635,
+  	1,0,0,0,104,639,1,0,0,0,106,647,1,0,0,0,108,649,1,0,0,0,110,112,3,2,1,
+  	0,111,110,1,0,0,0,111,112,1,0,0,0,112,113,1,0,0,0,113,114,5,0,0,1,114,
+  	1,1,0,0,0,115,117,3,4,2,0,116,115,1,0,0,0,117,118,1,0,0,0,118,116,1,0,
+  	0,0,118,119,1,0,0,0,119,3,1,0,0,0,120,123,3,6,3,0,121,123,3,58,29,0,122,
+  	120,1,0,0,0,122,121,1,0,0,0,123,5,1,0,0,0,124,140,3,8,4,0,125,140,3,12,
+  	6,0,126,140,3,20,10,0,127,140,3,22,11,0,128,140,3,24,12,0,129,140,3,26,
+  	13,0,130,140,3,28,14,0,131,140,3,30,15,0,132,140,3,32,16,0,133,140,3,
+  	34,17,0,134,140,3,46,23,0,135,140,3,36,18,0,136,140,3,48,24,0,137,140,
+  	3,50,25,0,138,140,3,56,28,0,139,124,1,0,0,0,139,125,1,0,0,0,139,126,1,
+  	0,0,0,139,127,1,0,0,0,139,128,1,0,0,0,139,129,1,0,0,0,139,130,1,0,0,0,
+  	139,131,1,0,0,0,139,132,1,0,0,0,139,133,1,0,0,0,139,134,1,0,0,0,139,135,
+  	1,0,0,0,139,136,1,0,0,0,139,137,1,0,0,0,139,138,1,0,0,0,140,7,1,0,0,0,
+  	141,143,5,7,0,0,142,144,3,10,5,0,143,142,1,0,0,0,143,144,1,0,0,0,144,
+  	145,1,0,0,0,145,146,5,8,0,0,146,9,1,0,0,0,147,149,3,6,3,0,148,147,1,0,
+  	0,0,149,150,1,0,0,0,150,148,1,0,0,0,150,151,1,0,0,0,151,11,1,0,0,0,152,
+  	153,5,63,0,0,153,154,3,14,7,0,154,155,3,106,53,0,155,161,1,0,0,0,156,
+  	157,5,64,0,0,157,158,3,14,7,0,158,159,3,106,53,0,159,161,1,0,0,0,160,
+  	152,1,0,0,0,160,156,1,0,0,0,161,13,1,0,0,0,162,167,3,16,8,0,163,164,5,
+  	10,0,0,164,166,3,16,8,0,165,163,1,0,0,0,166,169,1,0,0,0,167,165,1,0,0,
+  	0,167,168,1,0,0,0,168,15,1,0,0,0,169,167,1,0,0,0,170,172,5,98,0,0,171,
+  	173,3,18,9,0,172,171,1,0,0,0,172,173,1,0,0,0,173,17,1,0,0,0,174,175,5,
+  	11,0,0,175,176,3,86,43,0,176,19,1,0,0,0,177,178,5,9,0,0,178,21,1,0,0,
+  	0,179,180,4,11,0,0,180,181,3,84,42,0,181,182,3,106,53,0,182,23,1,0,0,
+  	0,183,184,5,78,0,0,184,185,5,5,0,0,185,186,3,84,42,0,186,187,5,6,0,0,
+  	187,190,3,6,3,0,188,189,5,61,0,0,189,191,3,6,3,0,190,188,1,0,0,0,190,
+  	191,1,0,0,0,191,25,1,0,0,0,192,193,5,57,0,0,193,194,3,6,3,0,194,195,5,
+  	72,0,0,195,196,5,5,0,0,196,197,3,84,42,0,197,198,5,6,0,0,198,199,3,106,
+  	53,0,199,278,1,0,0,0,200,201,5,72,0,0,201,202,5,5,0,0,202,203,3,84,42,
+  	0,203,204,5,6,0,0,204,205,3,6,3,0,205,278,1,0,0,0,206,207,5,70,0,0,207,
+  	209,5,5,0,0,208,210,3,84,42,0,209,208,1,0,0,0,209,210,1,0,0,0,210,211,
+  	1,0,0,0,211,213,5,9,0,0,212,214,3,84,42,0,213,212,1,0,0,0,213,214,1,0,
+  	0,0,214,215,1,0,0,0,215,217,5,9,0,0,216,218,3,84,42,0,217,216,1,0,0,0,
+  	217,218,1,0,0,0,218,219,1,0,0,0,219,220,5,6,0,0,220,278,3,6,3,0,221,222,
+  	5,70,0,0,222,223,5,5,0,0,223,224,5,63,0,0,224,225,3,14,7,0,225,227,5,
+  	9,0,0,226,228,3,84,42,0,227,226,1,0,0,0,227,228,1,0,0,0,228,229,1,0,0,
+  	0,229,231,5,9,0,0,230,232,3,84,42,0,231,230,1,0,0,0,231,232,1,0,0,0,232,
+  	233,1,0,0,0,233,234,5,6,0,0,234,235,3,6,3,0,235,278,1,0,0,0,236,237,5,
+  	70,0,0,237,238,5,5,0,0,238,239,5,64,0,0,239,240,3,14,7,0,240,242,5,9,
+  	0,0,241,243,3,84,42,0,242,241,1,0,0,0,242,243,1,0,0,0,243,244,1,0,0,0,
+  	244,246,5,9,0,0,245,247,3,84,42,0,246,245,1,0,0,0,246,247,1,0,0,0,247,
+  	248,1,0,0,0,248,249,5,6,0,0,249,250,3,6,3,0,250,278,1,0,0,0,251,252,5,
+  	70,0,0,252,253,5,5,0,0,253,254,3,86,43,0,254,255,5,81,0,0,255,256,3,84,
+  	42,0,256,257,5,6,0,0,257,258,3,6,3,0,258,278,1,0,0,0,259,260,5,70,0,0,
+  	260,261,5,5,0,0,261,262,5,63,0,0,262,263,3,16,8,0,263,264,5,81,0,0,264,
+  	265,3,84,42,0,265,266,5,6,0,0,266,267,3,6,3,0,267,278,1,0,0,0,268,269,
+  	5,70,0,0,269,270,5,5,0,0,270,271,5,64,0,0,271,272,3,16,8,0,272,273,5,
+  	81,0,0,273,274,3,84,42,0,274,275,5,6,0,0,275,276,3,6,3,0,276,278,1,0,
+  	0,0,277,192,1,0,0,0,277,200,1,0,0,0,277,206,1,0,0,0,277,221,1,0,0,0,277,
+  	236,1,0,0,0,277,251,1,0,0,0,277,259,1,0,0,0,277,268,1,0,0,0,278,27,1,
+  	0,0,0,279,282,5,69,0,0,280,281,4,14,1,0,281,283,5,98,0,0,282,280,1,0,
+  	0,0,282,283,1,0,0,0,283,284,1,0,0,0,284,285,3,106,53,0,285,29,1,0,0,0,
+  	286,289,5,56,0,0,287,288,4,15,2,0,288,290,5,98,0,0,289,287,1,0,0,0,289,
+  	290,1,0,0,0,290,291,1,0,0,0,291,292,3,106,53,0,292,31,1,0,0,0,293,296,
+  	5,67,0,0,294,295,4,16,3,0,295,297,3,84,42,0,296,294,1,0,0,0,296,297,1,
+  	0,0,0,297,298,1,0,0,0,298,299,3,106,53,0,299,33,1,0,0,0,300,301,5,76,
+  	0,0,301,302,5,5,0,0,302,303,3,84,42,0,303,304,5,6,0,0,304,305,3,6,3,0,
+  	305,35,1,0,0,0,306,307,5,71,0,0,307,308,5,5,0,0,308,309,3,84,42,0,309,
+  	310,5,6,0,0,310,311,3,38,19,0,311,37,1,0,0,0,312,314,5,7,0,0,313,315,
+  	3,40,20,0,314,313,1,0,0,0,314,315,1,0,0,0,315,320,1,0,0,0,316,318,3,44,
+  	22,0,317,319,3,40,20,0,318,317,1,0,0,0,318,319,1,0,0,0,319,321,1,0,0,
+  	0,320,316,1,0,0,0,320,321,1,0,0,0,321,322,1,0,0,0,322,323,5,8,0,0,323,
+  	39,1,0,0,0,324,326,3,42,21,0,325,324,1,0,0,0,326,327,1,0,0,0,327,325,
+  	1,0,0,0,327,328,1,0,0,0,328,41,1,0,0,0,329,330,5,60,0,0,330,331,3,84,
+  	42,0,331,333,5,13,0,0,332,334,3,10,5,0,333,332,1,0,0,0,333,334,1,0,0,
+  	0,334,43,1,0,0,0,335,336,5,77,0,0,336,338,5,13,0,0,337,339,3,10,5,0,338,
+  	337,1,0,0,0,338,339,1,0,0,0,339,45,1,0,0,0,340,341,5,98,0,0,341,342,5,
+  	13,0,0,342,343,3,6,3,0,343,47,1,0,0,0,344,345,5,79,0,0,345,346,4,24,4,
+  	0,346,347,3,84,42,0,347,348,3,106,53,0,348,49,1,0,0,0,349,350,5,82,0,
+  	0,350,351,3,8,4,0,351,352,3,52,26,0,352,363,1,0,0,0,353,354,5,82,0,0,
+  	354,355,3,8,4,0,355,356,3,54,27,0,356,363,1,0,0,0,357,358,5,82,0,0,358,
+  	359,3,8,4,0,359,360,3,52,26,0,360,361,3,54,27,0,361,363,1,0,0,0,362,349,
+  	1,0,0,0,362,353,1,0,0,0,362,357,1,0,0,0,363,51,1,0,0,0,364,365,5,65,0,
+  	0,365,366,5,5,0,0,366,367,5,98,0,0,367,368,5,6,0,0,368,369,3,8,4,0,369,
+  	53,1,0,0,0,370,371,5,66,0,0,371,372,3,8,4,0,372,55,1,0,0,0,373,374,5,
+  	73,0,0,374,375,3,106,53,0,375,57,1,0,0,0,376,377,5,74,0,0,377,378,5,98,
+  	0,0,378,380,5,5,0,0,379,381,3,60,30,0,380,379,1,0,0,0,380,381,1,0,0,0,
+  	381,382,1,0,0,0,382,383,5,6,0,0,383,384,5,7,0,0,384,385,3,62,31,0,385,
+  	386,5,8,0,0,386,59,1,0,0,0,387,392,5,98,0,0,388,389,5,10,0,0,389,391,
+  	5,98,0,0,390,388,1,0,0,0,391,394,1,0,0,0,392,390,1,0,0,0,392,393,1,0,
+  	0,0,393,61,1,0,0,0,394,392,1,0,0,0,395,397,3,2,1,0,396,395,1,0,0,0,396,
+  	397,1,0,0,0,397,63,1,0,0,0,398,400,5,3,0,0,399,401,3,66,33,0,400,399,
+  	1,0,0,0,400,401,1,0,0,0,401,403,1,0,0,0,402,404,5,10,0,0,403,402,1,0,
+  	0,0,403,404,1,0,0,0,404,406,1,0,0,0,405,407,3,68,34,0,406,405,1,0,0,0,
+  	406,407,1,0,0,0,407,408,1,0,0,0,408,409,5,4,0,0,409,65,1,0,0,0,410,412,
+  	3,68,34,0,411,410,1,0,0,0,411,412,1,0,0,0,412,413,1,0,0,0,413,421,3,86,
+  	43,0,414,416,5,10,0,0,415,417,3,68,34,0,416,415,1,0,0,0,416,417,1,0,0,
+  	0,417,418,1,0,0,0,418,420,3,86,43,0,419,414,1,0,0,0,420,423,1,0,0,0,421,
+  	419,1,0,0,0,421,422,1,0,0,0,422,67,1,0,0,0,423,421,1,0,0,0,424,426,5,
+  	10,0,0,425,424,1,0,0,0,426,427,1,0,0,0,427,425,1,0,0,0,427,428,1,0,0,
+  	0,428,69,1,0,0,0,429,431,5,7,0,0,430,432,3,72,36,0,431,430,1,0,0,0,431,
+  	432,1,0,0,0,432,434,1,0,0,0,433,435,5,10,0,0,434,433,1,0,0,0,434,435,
+  	1,0,0,0,435,436,1,0,0,0,436,437,5,8,0,0,437,71,1,0,0,0,438,443,3,74,37,
+  	0,439,440,5,10,0,0,440,442,3,74,37,0,441,439,1,0,0,0,442,445,1,0,0,0,
+  	443,441,1,0,0,0,443,444,1,0,0,0,444,73,1,0,0,0,445,443,1,0,0,0,446,447,
+  	3,76,38,0,447,448,5,13,0,0,448,449,3,86,43,0,449,466,1,0,0,0,450,451,
+  	3,102,51,0,451,452,5,5,0,0,452,453,5,6,0,0,453,454,5,7,0,0,454,455,3,
+  	62,31,0,455,456,5,8,0,0,456,466,1,0,0,0,457,458,3,104,52,0,458,459,5,
+  	5,0,0,459,460,3,78,39,0,460,461,5,6,0,0,461,462,5,7,0,0,462,463,3,62,
+  	31,0,463,464,5,8,0,0,464,466,1,0,0,0,465,446,1,0,0,0,465,450,1,0,0,0,
+  	465,457,1,0,0,0,466,75,1,0,0,0,467,471,3,94,47,0,468,471,5,99,0,0,469,
+  	471,3,92,46,0,470,467,1,0,0,0,470,468,1,0,0,0,470,469,1,0,0,0,471,77,
+  	1,0,0,0,472,473,5,98,0,0,473,79,1,0,0,0,474,476,5,5,0,0,475,477,3,82,
+  	41,0,476,475,1,0,0,0,476,477,1,0,0,0,477,478,1,0,0,0,478,479,5,6,0,0,
+  	479,81,1,0,0,0,480,485,3,86,43,0,481,482,5,10,0,0,482,484,3,86,43,0,483,
+  	481,1,0,0,0,484,487,1,0,0,0,485,483,1,0,0,0,485,486,1,0,0,0,486,83,1,
+  	0,0,0,487,485,1,0,0,0,488,493,3,86,43,0,489,490,5,10,0,0,490,492,3,86,
+  	43,0,491,489,1,0,0,0,492,495,1,0,0,0,493,491,1,0,0,0,493,494,1,0,0,0,
+  	494,85,1,0,0,0,495,493,1,0,0,0,496,497,6,43,-1,0,497,499,5,74,0,0,498,
+  	500,5,98,0,0,499,498,1,0,0,0,499,500,1,0,0,0,500,501,1,0,0,0,501,503,
+  	5,5,0,0,502,504,3,60,30,0,503,502,1,0,0,0,503,504,1,0,0,0,504,505,1,0,
+  	0,0,505,506,5,6,0,0,506,507,5,7,0,0,507,508,3,62,31,0,508,509,5,8,0,0,
+  	509,543,1,0,0,0,510,511,5,62,0,0,511,513,3,86,43,0,512,514,3,80,40,0,
+  	513,512,1,0,0,0,513,514,1,0,0,0,514,543,1,0,0,0,515,516,5,80,0,0,516,
+  	543,3,86,43,30,517,518,5,68,0,0,518,543,3,86,43,29,519,520,5,59,0,0,520,
+  	543,3,86,43,28,521,522,5,15,0,0,522,543,3,86,43,27,523,524,5,16,0,0,524,
+  	543,3,86,43,26,525,526,5,17,0,0,526,543,3,86,43,25,527,528,5,18,0,0,528,
+  	543,3,86,43,24,529,530,5,19,0,0,530,543,3,86,43,23,531,532,5,20,0,0,532,
+  	543,3,86,43,22,533,543,5,75,0,0,534,543,5,98,0,0,535,543,3,90,45,0,536,
+  	543,3,64,32,0,537,543,3,70,35,0,538,539,5,5,0,0,539,540,3,84,42,0,540,
+  	541,5,6,0,0,541,543,1,0,0,0,542,496,1,0,0,0,542,510,1,0,0,0,542,515,1,
+  	0,0,0,542,517,1,0,0,0,542,519,1,0,0,0,542,521,1,0,0,0,542,523,1,0,0,0,
+  	542,525,1,0,0,0,542,527,1,0,0,0,542,529,1,0,0,0,542,531,1,0,0,0,542,533,
+  	1,0,0,0,542,534,1,0,0,0,542,535,1,0,0,0,542,536,1,0,0,0,542,537,1,0,0,
+  	0,542,538,1,0,0,0,543,611,1,0,0,0,544,545,10,21,0,0,545,546,7,0,0,0,546,
+  	610,3,86,43,22,547,548,10,20,0,0,548,549,7,1,0,0,549,610,3,86,43,21,550,
+  	551,10,19,0,0,551,552,7,2,0,0,552,610,3,86,43,20,553,554,10,18,0,0,554,
+  	555,7,3,0,0,555,610,3,86,43,19,556,557,10,17,0,0,557,558,5,58,0,0,558,
+  	610,3,86,43,18,559,560,10,16,0,0,560,561,5,81,0,0,561,610,3,86,43,17,
+  	562,563,10,15,0,0,563,564,7,4,0,0,564,610,3,86,43,16,565,566,10,14,0,
+  	0,566,567,5,35,0,0,567,610,3,86,43,15,568,569,10,13,0,0,569,570,5,36,
+  	0,0,570,610,3,86,43,14,571,572,10,12,0,0,572,573,5,37,0,0,573,610,3,86,
+  	43,13,574,575,10,11,0,0,575,576,5,38,0,0,576,610,3,86,43,12,577,578,10,
+  	10,0,0,578,579,5,39,0,0,579,610,3,86,43,11,580,581,10,9,0,0,581,582,5,
+  	12,0,0,582,583,3,86,43,0,583,584,5,13,0,0,584,585,3,86,43,10,585,610,
+  	1,0,0,0,586,587,10,8,0,0,587,588,5,11,0,0,588,610,3,86,43,9,589,590,10,
+  	7,0,0,590,591,3,88,44,0,591,592,3,86,43,8,592,610,1,0,0,0,593,594,10,
+  	36,0,0,594,595,5,3,0,0,595,596,3,84,42,0,596,597,5,4,0,0,597,610,1,0,
+  	0,0,598,599,10,35,0,0,599,600,5,14,0,0,600,610,3,94,47,0,601,602,10,34,
+  	0,0,602,610,3,80,40,0,603,604,10,32,0,0,604,605,4,43,24,0,605,610,5,15,
+  	0,0,606,607,10,31,0,0,607,608,4,43,26,0,608,610,5,16,0,0,609,544,1,0,
+  	0,0,609,547,1,0,0,0,609,550,1,0,0,0,609,553,1,0,0,0,609,556,1,0,0,0,609,
+  	559,1,0,0,0,609,562,1,0,0,0,609,565,1,0,0,0,609,568,1,0,0,0,609,571,1,
+  	0,0,0,609,574,1,0,0,0,609,577,1,0,0,0,609,580,1,0,0,0,609,586,1,0,0,0,
+  	609,589,1,0,0,0,609,593,1,0,0,0,609,598,1,0,0,0,609,601,1,0,0,0,609,603,
+  	1,0,0,0,609,606,1,0,0,0,610,613,1,0,0,0,611,609,1,0,0,0,611,612,1,0,0,
+  	0,612,87,1,0,0,0,613,611,1,0,0,0,614,615,7,5,0,0,615,89,1,0,0,0,616,619,
+  	7,6,0,0,617,619,3,92,46,0,618,616,1,0,0,0,618,617,1,0,0,0,619,91,1,0,
+  	0,0,620,621,7,7,0,0,621,93,1,0,0,0,622,625,5,98,0,0,623,625,3,96,48,0,
+  	624,622,1,0,0,0,624,623,1,0,0,0,625,95,1,0,0,0,626,630,3,98,49,0,627,
+  	630,3,100,50,0,628,630,7,8,0,0,629,626,1,0,0,0,629,627,1,0,0,0,629,628,
+  	1,0,0,0,630,97,1,0,0,0,631,632,7,9,0,0,632,99,1,0,0,0,633,634,7,10,0,
+  	0,634,101,1,0,0,0,635,636,4,51,27,0,636,637,5,98,0,0,637,638,3,76,38,
+  	0,638,103,1,0,0,0,639,640,4,52,28,0,640,641,5,98,0,0,641,642,3,76,38,
+  	0,642,105,1,0,0,0,643,648,5,9,0,0,644,648,5,0,0,1,645,648,4,53,29,0,646,
+  	648,4,53,30,0,647,643,1,0,0,0,647,644,1,0,0,0,647,645,1,0,0,0,647,646,
+  	1,0,0,0,648,107,1,0,0,0,649,650,5,0,0,1,650,109,1,0,0,0,56,111,118,122,
+  	139,143,150,160,167,172,190,209,213,217,227,231,242,246,277,282,289,296,
+  	314,318,320,327,333,338,362,380,392,396,400,403,406,411,416,421,427,431,
+  	434,443,465,470,476,485,493,499,503,513,542,609,611,618,624,629,647
+  };
+  staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
+
+  antlr4::atn::ATNDeserializer deserializer;
+  staticData->atn = deserializer.deserialize(staticData->serializedATN);
+
+  const size_t count = staticData->atn->getNumberOfDecisions();
+  staticData->decisionToDFA.reserve(count);
+  for (size_t i = 0; i < count; i++) { 
+    staticData->decisionToDFA.emplace_back(staticData->atn->getDecisionState(i), i);
+  }
+  ecmascriptParserStaticData = staticData.release();
+}
+
+}
+
+ECMAScriptParser::ECMAScriptParser(TokenStream *input) : ECMAScriptParser(input, antlr4::atn::ParserATNSimulatorOptions()) {}
+
+ECMAScriptParser::ECMAScriptParser(TokenStream *input, const antlr4::atn::ParserATNSimulatorOptions &options) : Parser(input) {
+  ECMAScriptParser::initialize();
+  _interpreter = new atn::ParserATNSimulator(this, *ecmascriptParserStaticData->atn, ecmascriptParserStaticData->decisionToDFA, ecmascriptParserStaticData->sharedContextCache, options);
 }
 
 ECMAScriptParser::~ECMAScriptParser() {
   delete _interpreter;
+}
+
+const atn::ATN& ECMAScriptParser::getATN() const {
+  return *ecmascriptParserStaticData->atn;
 }
 
 std::string ECMAScriptParser::getGrammarFileName() const {
@@ -23,11 +364,15 @@ std::string ECMAScriptParser::getGrammarFileName() const {
 }
 
 const std::vector<std::string>& ECMAScriptParser::getRuleNames() const {
-  return _ruleNames;
+  return ecmascriptParserStaticData->ruleNames;
 }
 
-dfa::Vocabulary& ECMAScriptParser::getVocabulary() const {
-  return _vocabulary;
+const dfa::Vocabulary& ECMAScriptParser::getVocabulary() const {
+  return ecmascriptParserStaticData->vocabulary;
+}
+
+antlr4::atn::SerializedATNView ECMAScriptParser::getSerializedATN() const {
+  return ecmascriptParserStaticData->serializedATN;
 }
 
 
@@ -50,7 +395,8 @@ size_t ECMAScriptParser::ProgramContext::getRuleIndex() const {
   return ECMAScriptParser::RuleProgram;
 }
 
-antlrcpp::Any ECMAScriptParser::ProgramContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ProgramContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitProgram(this);
   else
@@ -61,7 +407,11 @@ ECMAScriptParser::ProgramContext* ECMAScriptParser::program() {
   ProgramContext *_localctx = _tracker.createInstance<ProgramContext>(_ctx, getState());
   enterRule(_localctx, 0, ECMAScriptParser::RuleProgram);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -76,6 +426,8 @@ ECMAScriptParser::ProgramContext* ECMAScriptParser::program() {
       break;
     }
 
+    default:
+      break;
     }
     setState(113);
     match(ECMAScriptParser::EOF);
@@ -109,7 +461,8 @@ size_t ECMAScriptParser::SourceElementsContext::getRuleIndex() const {
   return ECMAScriptParser::RuleSourceElements;
 }
 
-antlrcpp::Any ECMAScriptParser::SourceElementsContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::SourceElementsContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitSourceElements(this);
   else
@@ -120,7 +473,11 @@ ECMAScriptParser::SourceElementsContext* ECMAScriptParser::sourceElements() {
   SourceElementsContext *_localctx = _tracker.createInstance<SourceElementsContext>(_ctx, getState());
   enterRule(_localctx, 2, ECMAScriptParser::RuleSourceElements);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -174,7 +531,8 @@ size_t ECMAScriptParser::SourceElementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleSourceElement;
 }
 
-antlrcpp::Any ECMAScriptParser::SourceElementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::SourceElementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitSourceElement(this);
   else
@@ -185,7 +543,11 @@ ECMAScriptParser::SourceElementContext* ECMAScriptParser::sourceElement() {
   SourceElementContext *_localctx = _tracker.createInstance<SourceElementContext>(_ctx, getState());
   enterRule(_localctx, 4, ECMAScriptParser::RuleSourceElement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -206,6 +568,8 @@ ECMAScriptParser::SourceElementContext* ECMAScriptParser::sourceElement() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -289,7 +653,8 @@ size_t ECMAScriptParser::StatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::StatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::StatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitStatement(this);
   else
@@ -300,7 +665,11 @@ ECMAScriptParser::StatementContext* ECMAScriptParser::statement() {
   StatementContext *_localctx = _tracker.createInstance<StatementContext>(_ctx, getState());
   enterRule(_localctx, 6, ECMAScriptParser::RuleStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -412,6 +781,8 @@ ECMAScriptParser::StatementContext* ECMAScriptParser::statement() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -430,6 +801,14 @@ ECMAScriptParser::BlockContext::BlockContext(ParserRuleContext *parent, size_t i
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::BlockContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::BlockContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
+}
+
 ECMAScriptParser::StatementListContext* ECMAScriptParser::BlockContext::statementList() {
   return getRuleContext<ECMAScriptParser::StatementListContext>(0);
 }
@@ -439,7 +818,8 @@ size_t ECMAScriptParser::BlockContext::getRuleIndex() const {
   return ECMAScriptParser::RuleBlock;
 }
 
-antlrcpp::Any ECMAScriptParser::BlockContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BlockContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBlock(this);
   else
@@ -450,7 +830,11 @@ ECMAScriptParser::BlockContext* ECMAScriptParser::block() {
   BlockContext *_localctx = _tracker.createInstance<BlockContext>(_ctx, getState());
   enterRule(_localctx, 8, ECMAScriptParser::RuleBlock);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -467,6 +851,8 @@ ECMAScriptParser::BlockContext* ECMAScriptParser::block() {
       break;
     }
 
+    default:
+      break;
     }
     setState(145);
     match(ECMAScriptParser::CloseBrace);
@@ -500,7 +886,8 @@ size_t ECMAScriptParser::StatementListContext::getRuleIndex() const {
   return ECMAScriptParser::RuleStatementList;
 }
 
-antlrcpp::Any ECMAScriptParser::StatementListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::StatementListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitStatementList(this);
   else
@@ -511,7 +898,11 @@ ECMAScriptParser::StatementListContext* ECMAScriptParser::statementList() {
   StatementListContext *_localctx = _tracker.createInstance<StatementListContext>(_ctx, getState());
   enterRule(_localctx, 10, ECMAScriptParser::RuleStatementList);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -573,7 +964,8 @@ size_t ECMAScriptParser::VariableStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleVariableStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::VariableStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::VariableStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitVariableStatement(this);
   else
@@ -584,7 +976,11 @@ ECMAScriptParser::VariableStatementContext* ECMAScriptParser::variableStatement(
   VariableStatementContext *_localctx = _tracker.createInstance<VariableStatementContext>(_ctx, getState());
   enterRule(_localctx, 12, ECMAScriptParser::RuleVariableStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -641,12 +1037,21 @@ ECMAScriptParser::VariableDeclarationContext* ECMAScriptParser::VariableDeclarat
   return getRuleContext<ECMAScriptParser::VariableDeclarationContext>(i);
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::VariableDeclarationListContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::VariableDeclarationListContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::VariableDeclarationListContext::getRuleIndex() const {
   return ECMAScriptParser::RuleVariableDeclarationList;
 }
 
-antlrcpp::Any ECMAScriptParser::VariableDeclarationListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::VariableDeclarationListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitVariableDeclarationList(this);
   else
@@ -657,7 +1062,11 @@ ECMAScriptParser::VariableDeclarationListContext* ECMAScriptParser::variableDecl
   VariableDeclarationListContext *_localctx = _tracker.createInstance<VariableDeclarationListContext>(_ctx, getState());
   enterRule(_localctx, 14, ECMAScriptParser::RuleVariableDeclarationList);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -709,7 +1118,8 @@ size_t ECMAScriptParser::VariableDeclarationContext::getRuleIndex() const {
   return ECMAScriptParser::RuleVariableDeclaration;
 }
 
-antlrcpp::Any ECMAScriptParser::VariableDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::VariableDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitVariableDeclaration(this);
   else
@@ -720,7 +1130,11 @@ ECMAScriptParser::VariableDeclarationContext* ECMAScriptParser::variableDeclarat
   VariableDeclarationContext *_localctx = _tracker.createInstance<VariableDeclarationContext>(_ctx, getState());
   enterRule(_localctx, 16, ECMAScriptParser::RuleVariableDeclaration);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -737,6 +1151,8 @@ ECMAScriptParser::VariableDeclarationContext* ECMAScriptParser::variableDeclarat
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -755,6 +1171,10 @@ ECMAScriptParser::InitialiserContext::InitialiserContext(ParserRuleContext *pare
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::InitialiserContext::Assign() {
+  return getToken(ECMAScriptParser::Assign, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::InitialiserContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
@@ -764,7 +1184,8 @@ size_t ECMAScriptParser::InitialiserContext::getRuleIndex() const {
   return ECMAScriptParser::RuleInitialiser;
 }
 
-antlrcpp::Any ECMAScriptParser::InitialiserContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::InitialiserContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitInitialiser(this);
   else
@@ -775,7 +1196,11 @@ ECMAScriptParser::InitialiserContext* ECMAScriptParser::initialiser() {
   InitialiserContext *_localctx = _tracker.createInstance<InitialiserContext>(_ctx, getState());
   enterRule(_localctx, 18, ECMAScriptParser::RuleInitialiser);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -810,7 +1235,8 @@ size_t ECMAScriptParser::EmptyStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleEmptyStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::EmptyStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::EmptyStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitEmptyStatement(this);
   else
@@ -821,7 +1247,11 @@ ECMAScriptParser::EmptyStatementContext* ECMAScriptParser::emptyStatement() {
   EmptyStatementContext *_localctx = _tracker.createInstance<EmptyStatementContext>(_ctx, getState());
   enterRule(_localctx, 20, ECMAScriptParser::RuleEmptyStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -858,7 +1288,8 @@ size_t ECMAScriptParser::ExpressionStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleExpressionStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::ExpressionStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ExpressionStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitExpressionStatement(this);
   else
@@ -869,14 +1300,18 @@ ECMAScriptParser::ExpressionStatementContext* ECMAScriptParser::expressionStatem
   ExpressionStatementContext *_localctx = _tracker.createInstance<ExpressionStatementContext>(_ctx, getState());
   enterRule(_localctx, 22, ECMAScriptParser::RuleExpressionStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
     setState(179);
 
-    if (!((_input->LA(1) != OpenBrace) && (_input->LA(1) != Function))) throw FailedPredicateException(this, "(_input->LA(1) != OpenBrace) && (_input->LA(1) != Function)");
+    if (!((_input.La(1) != OpenBrace) && (_input.La(1) != Function))) throw FailedPredicateException(this, "(_input.La(1) != OpenBrace) && (_input.La(1) != Function)");
     setState(180);
     expressionSequence();
     setState(181);
@@ -902,8 +1337,16 @@ tree::TerminalNode* ECMAScriptParser::IfStatementContext::If() {
   return getToken(ECMAScriptParser::If, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::IfStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::IfStatementContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::IfStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 std::vector<ECMAScriptParser::StatementContext *> ECMAScriptParser::IfStatementContext::statement() {
@@ -923,7 +1366,8 @@ size_t ECMAScriptParser::IfStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleIfStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::IfStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::IfStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitIfStatement(this);
   else
@@ -934,7 +1378,11 @@ ECMAScriptParser::IfStatementContext* ECMAScriptParser::ifStatement() {
   IfStatementContext *_localctx = _tracker.createInstance<IfStatementContext>(_ctx, getState());
   enterRule(_localctx, 24, ECMAScriptParser::RuleIfStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -961,6 +1409,8 @@ ECMAScriptParser::IfStatementContext* ECMAScriptParser::ifStatement() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -1002,8 +1452,16 @@ tree::TerminalNode* ECMAScriptParser::DoStatementContext::While() {
   return getToken(ECMAScriptParser::While, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::DoStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::DoStatementContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::DoStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::EosContext* ECMAScriptParser::DoStatementContext::eos() {
@@ -1012,7 +1470,8 @@ ECMAScriptParser::EosContext* ECMAScriptParser::DoStatementContext::eos() {
 
 ECMAScriptParser::DoStatementContext::DoStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::DoStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::DoStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitDoStatement(this);
   else
@@ -1024,12 +1483,28 @@ tree::TerminalNode* ECMAScriptParser::ForVarStatementContext::For() {
   return getToken(ECMAScriptParser::For, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::ForVarStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 tree::TerminalNode* ECMAScriptParser::ForVarStatementContext::Var() {
   return getToken(ECMAScriptParser::Var, 0);
 }
 
 ECMAScriptParser::VariableDeclarationListContext* ECMAScriptParser::ForVarStatementContext::variableDeclarationList() {
   return getRuleContext<ECMAScriptParser::VariableDeclarationListContext>(0);
+}
+
+std::vector<tree::TerminalNode *> ECMAScriptParser::ForVarStatementContext::SemiColon() {
+  return getTokens(ECMAScriptParser::SemiColon);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForVarStatementContext::SemiColon(size_t i) {
+  return getToken(ECMAScriptParser::SemiColon, i);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForVarStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::StatementContext* ECMAScriptParser::ForVarStatementContext::statement() {
@@ -1046,7 +1521,8 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ForVarStatementCo
 
 ECMAScriptParser::ForVarStatementContext::ForVarStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ForVarStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ForVarStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitForVarStatement(this);
   else
@@ -1056,6 +1532,10 @@ antlrcpp::Any ECMAScriptParser::ForVarStatementContext::accept(tree::ParseTreeVi
 
 tree::TerminalNode* ECMAScriptParser::ForVarInStatementContext::For() {
   return getToken(ECMAScriptParser::For, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForVarInStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
 }
 
 tree::TerminalNode* ECMAScriptParser::ForVarInStatementContext::Var() {
@@ -1074,13 +1554,18 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ForVarInStatement
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::ForVarInStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
 ECMAScriptParser::StatementContext* ECMAScriptParser::ForVarInStatementContext::statement() {
   return getRuleContext<ECMAScriptParser::StatementContext>(0);
 }
 
 ECMAScriptParser::ForVarInStatementContext::ForVarInStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ForVarInStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ForVarInStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitForVarInStatement(this);
   else
@@ -1090,6 +1575,10 @@ antlrcpp::Any ECMAScriptParser::ForVarInStatementContext::accept(tree::ParseTree
 
 tree::TerminalNode* ECMAScriptParser::ForLetInStatementContext::For() {
   return getToken(ECMAScriptParser::For, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForLetInStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
 }
 
 tree::TerminalNode* ECMAScriptParser::ForLetInStatementContext::Let() {
@@ -1108,13 +1597,18 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ForLetInStatement
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::ForLetInStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
 ECMAScriptParser::StatementContext* ECMAScriptParser::ForLetInStatementContext::statement() {
   return getRuleContext<ECMAScriptParser::StatementContext>(0);
 }
 
 ECMAScriptParser::ForLetInStatementContext::ForLetInStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ForLetInStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ForLetInStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitForLetInStatement(this);
   else
@@ -1126,12 +1620,28 @@ tree::TerminalNode* ECMAScriptParser::ForLetStatementContext::For() {
   return getToken(ECMAScriptParser::For, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::ForLetStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 tree::TerminalNode* ECMAScriptParser::ForLetStatementContext::Let() {
   return getToken(ECMAScriptParser::Let, 0);
 }
 
 ECMAScriptParser::VariableDeclarationListContext* ECMAScriptParser::ForLetStatementContext::variableDeclarationList() {
   return getRuleContext<ECMAScriptParser::VariableDeclarationListContext>(0);
+}
+
+std::vector<tree::TerminalNode *> ECMAScriptParser::ForLetStatementContext::SemiColon() {
+  return getTokens(ECMAScriptParser::SemiColon);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForLetStatementContext::SemiColon(size_t i) {
+  return getToken(ECMAScriptParser::SemiColon, i);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForLetStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::StatementContext* ECMAScriptParser::ForLetStatementContext::statement() {
@@ -1148,7 +1658,8 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ForLetStatementCo
 
 ECMAScriptParser::ForLetStatementContext::ForLetStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ForLetStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ForLetStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitForLetStatement(this);
   else
@@ -1160,8 +1671,16 @@ tree::TerminalNode* ECMAScriptParser::WhileStatementContext::While() {
   return getToken(ECMAScriptParser::While, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::WhileStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::WhileStatementContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::WhileStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::StatementContext* ECMAScriptParser::WhileStatementContext::statement() {
@@ -1170,7 +1689,8 @@ ECMAScriptParser::StatementContext* ECMAScriptParser::WhileStatementContext::sta
 
 ECMAScriptParser::WhileStatementContext::WhileStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::WhileStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::WhileStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitWhileStatement(this);
   else
@@ -1180,6 +1700,22 @@ antlrcpp::Any ECMAScriptParser::WhileStatementContext::accept(tree::ParseTreeVis
 
 tree::TerminalNode* ECMAScriptParser::ForStatementContext::For() {
   return getToken(ECMAScriptParser::For, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
+std::vector<tree::TerminalNode *> ECMAScriptParser::ForStatementContext::SemiColon() {
+  return getTokens(ECMAScriptParser::SemiColon);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForStatementContext::SemiColon(size_t i) {
+  return getToken(ECMAScriptParser::SemiColon, i);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::StatementContext* ECMAScriptParser::ForStatementContext::statement() {
@@ -1196,7 +1732,8 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ForStatementConte
 
 ECMAScriptParser::ForStatementContext::ForStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ForStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ForStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitForStatement(this);
   else
@@ -1206,6 +1743,10 @@ antlrcpp::Any ECMAScriptParser::ForStatementContext::accept(tree::ParseTreeVisit
 
 tree::TerminalNode* ECMAScriptParser::ForInStatementContext::For() {
   return getToken(ECMAScriptParser::For, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ForInStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
 }
 
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::ForInStatementContext::singleExpression() {
@@ -1220,13 +1761,18 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ForInStatementCon
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::ForInStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
 ECMAScriptParser::StatementContext* ECMAScriptParser::ForInStatementContext::statement() {
   return getRuleContext<ECMAScriptParser::StatementContext>(0);
 }
 
 ECMAScriptParser::ForInStatementContext::ForInStatementContext(IterationStatementContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ForInStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ForInStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitForInStatement(this);
   else
@@ -1237,7 +1783,11 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
   enterRule(_localctx, 26, ECMAScriptParser::RuleIterationStatement);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -1245,7 +1795,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 17, _ctx)) {
     case 1: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::DoStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::DoStatementContext>(_localctx);
       enterOuterAlt(_localctx, 1);
       setState(192);
       match(ECMAScriptParser::Do);
@@ -1265,7 +1815,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 2: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::WhileStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::WhileStatementContext>(_localctx);
       enterOuterAlt(_localctx, 2);
       setState(200);
       match(ECMAScriptParser::While);
@@ -1281,7 +1831,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 3: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::ForStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::ForStatementContext>(_localctx);
       enterOuterAlt(_localctx, 3);
       setState(206);
       match(ECMAScriptParser::For);
@@ -1292,29 +1842,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(208);
         expressionSequence();
       }
@@ -1325,29 +1854,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(212);
         expressionSequence();
       }
@@ -1358,29 +1866,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(216);
         expressionSequence();
       }
@@ -1392,7 +1879,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 4: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::ForVarStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::ForVarStatementContext>(_localctx);
       enterOuterAlt(_localctx, 4);
       setState(221);
       match(ECMAScriptParser::For);
@@ -1409,29 +1896,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(226);
         expressionSequence();
       }
@@ -1442,29 +1908,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(230);
         expressionSequence();
       }
@@ -1476,7 +1921,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 5: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::ForLetStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::ForLetStatementContext>(_localctx);
       enterOuterAlt(_localctx, 5);
       setState(236);
       match(ECMAScriptParser::For);
@@ -1493,29 +1938,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(241);
         expressionSequence();
       }
@@ -1526,29 +1950,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-        | (1ULL << ECMAScriptParser::OpenBracket)
-        | (1ULL << ECMAScriptParser::OpenParen)
-        | (1ULL << ECMAScriptParser::OpenBrace)
-        | (1ULL << ECMAScriptParser::PlusPlus)
-        | (1ULL << ECMAScriptParser::MinusMinus)
-        | (1ULL << ECMAScriptParser::Plus)
-        | (1ULL << ECMAScriptParser::Minus)
-        | (1ULL << ECMAScriptParser::BitNot)
-        | (1ULL << ECMAScriptParser::Not)
-        | (1ULL << ECMAScriptParser::NullLiteral)
-        | (1ULL << ECMAScriptParser::BooleanLiteral)
-        | (1ULL << ECMAScriptParser::DecimalLiteral)
-        | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-        | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-        | (1ULL << ECMAScriptParser::Typeof)
-        | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-        | (1ULL << (ECMAScriptParser::Function - 68))
-        | (1ULL << (ECMAScriptParser::This - 68))
-        | (1ULL << (ECMAScriptParser::Delete - 68))
-        | (1ULL << (ECMAScriptParser::Identifier - 68))
-        | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+        ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 68)) & 3221229761) != 0)) {
         setState(245);
         expressionSequence();
       }
@@ -1560,7 +1963,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 6: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::ForInStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::ForInStatementContext>(_localctx);
       enterOuterAlt(_localctx, 6);
       setState(251);
       match(ECMAScriptParser::For);
@@ -1580,7 +1983,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 7: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::ForVarInStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::ForVarInStatementContext>(_localctx);
       enterOuterAlt(_localctx, 7);
       setState(259);
       match(ECMAScriptParser::For);
@@ -1602,7 +2005,7 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
     }
 
     case 8: {
-      _localctx = dynamic_cast<IterationStatementContext *>(_tracker.createInstance<ECMAScriptParser::ForLetInStatementContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::ForLetInStatementContext>(_localctx);
       enterOuterAlt(_localctx, 8);
       setState(268);
       match(ECMAScriptParser::For);
@@ -1623,6 +2026,8 @@ ECMAScriptParser::IterationStatementContext* ECMAScriptParser::iterationStatemen
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -1658,7 +2063,8 @@ size_t ECMAScriptParser::ContinueStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleContinueStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::ContinueStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ContinueStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitContinueStatement(this);
   else
@@ -1669,7 +2075,11 @@ ECMAScriptParser::ContinueStatementContext* ECMAScriptParser::continueStatement(
   ContinueStatementContext *_localctx = _tracker.createInstance<ContinueStatementContext>(_ctx, getState());
   enterRule(_localctx, 28, ECMAScriptParser::RuleContinueStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -1689,6 +2099,8 @@ ECMAScriptParser::ContinueStatementContext* ECMAScriptParser::continueStatement(
       break;
     }
 
+    default:
+      break;
     }
     setState(284);
     eos();
@@ -1726,7 +2138,8 @@ size_t ECMAScriptParser::BreakStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleBreakStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::BreakStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BreakStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBreakStatement(this);
   else
@@ -1737,7 +2150,11 @@ ECMAScriptParser::BreakStatementContext* ECMAScriptParser::breakStatement() {
   BreakStatementContext *_localctx = _tracker.createInstance<BreakStatementContext>(_ctx, getState());
   enterRule(_localctx, 30, ECMAScriptParser::RuleBreakStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -1757,6 +2174,8 @@ ECMAScriptParser::BreakStatementContext* ECMAScriptParser::breakStatement() {
       break;
     }
 
+    default:
+      break;
     }
     setState(291);
     eos();
@@ -1794,7 +2213,8 @@ size_t ECMAScriptParser::ReturnStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleReturnStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::ReturnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ReturnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitReturnStatement(this);
   else
@@ -1805,7 +2225,11 @@ ECMAScriptParser::ReturnStatementContext* ECMAScriptParser::returnStatement() {
   ReturnStatementContext *_localctx = _tracker.createInstance<ReturnStatementContext>(_ctx, getState());
   enterRule(_localctx, 32, ECMAScriptParser::RuleReturnStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -1825,6 +2249,8 @@ ECMAScriptParser::ReturnStatementContext* ECMAScriptParser::returnStatement() {
       break;
     }
 
+    default:
+      break;
     }
     setState(298);
     eos();
@@ -1849,8 +2275,16 @@ tree::TerminalNode* ECMAScriptParser::WithStatementContext::With() {
   return getToken(ECMAScriptParser::With, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::WithStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::WithStatementContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::WithStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::StatementContext* ECMAScriptParser::WithStatementContext::statement() {
@@ -1862,7 +2296,8 @@ size_t ECMAScriptParser::WithStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleWithStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::WithStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::WithStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitWithStatement(this);
   else
@@ -1873,7 +2308,11 @@ ECMAScriptParser::WithStatementContext* ECMAScriptParser::withStatement() {
   WithStatementContext *_localctx = _tracker.createInstance<WithStatementContext>(_ctx, getState());
   enterRule(_localctx, 34, ECMAScriptParser::RuleWithStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -1909,8 +2348,16 @@ tree::TerminalNode* ECMAScriptParser::SwitchStatementContext::Switch() {
   return getToken(ECMAScriptParser::Switch, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::SwitchStatementContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::SwitchStatementContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::SwitchStatementContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::CaseBlockContext* ECMAScriptParser::SwitchStatementContext::caseBlock() {
@@ -1922,7 +2369,8 @@ size_t ECMAScriptParser::SwitchStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleSwitchStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::SwitchStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::SwitchStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitSwitchStatement(this);
   else
@@ -1933,7 +2381,11 @@ ECMAScriptParser::SwitchStatementContext* ECMAScriptParser::switchStatement() {
   SwitchStatementContext *_localctx = _tracker.createInstance<SwitchStatementContext>(_ctx, getState());
   enterRule(_localctx, 36, ECMAScriptParser::RuleSwitchStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -1965,6 +2417,14 @@ ECMAScriptParser::CaseBlockContext::CaseBlockContext(ParserRuleContext *parent, 
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::CaseBlockContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::CaseBlockContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
+}
+
 std::vector<ECMAScriptParser::CaseClausesContext *> ECMAScriptParser::CaseBlockContext::caseClauses() {
   return getRuleContexts<ECMAScriptParser::CaseClausesContext>();
 }
@@ -1982,7 +2442,8 @@ size_t ECMAScriptParser::CaseBlockContext::getRuleIndex() const {
   return ECMAScriptParser::RuleCaseBlock;
 }
 
-antlrcpp::Any ECMAScriptParser::CaseBlockContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::CaseBlockContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitCaseBlock(this);
   else
@@ -1994,7 +2455,11 @@ ECMAScriptParser::CaseBlockContext* ECMAScriptParser::caseBlock() {
   enterRule(_localctx, 38, ECMAScriptParser::RuleCaseBlock);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2057,7 +2522,8 @@ size_t ECMAScriptParser::CaseClausesContext::getRuleIndex() const {
   return ECMAScriptParser::RuleCaseClauses;
 }
 
-antlrcpp::Any ECMAScriptParser::CaseClausesContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::CaseClausesContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitCaseClauses(this);
   else
@@ -2069,7 +2535,11 @@ ECMAScriptParser::CaseClausesContext* ECMAScriptParser::caseClauses() {
   enterRule(_localctx, 40, ECMAScriptParser::RuleCaseClauses);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2109,6 +2579,10 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::CaseClauseContext
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::CaseClauseContext::Colon() {
+  return getToken(ECMAScriptParser::Colon, 0);
+}
+
 ECMAScriptParser::StatementListContext* ECMAScriptParser::CaseClauseContext::statementList() {
   return getRuleContext<ECMAScriptParser::StatementListContext>(0);
 }
@@ -2118,7 +2592,8 @@ size_t ECMAScriptParser::CaseClauseContext::getRuleIndex() const {
   return ECMAScriptParser::RuleCaseClause;
 }
 
-antlrcpp::Any ECMAScriptParser::CaseClauseContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::CaseClauseContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitCaseClause(this);
   else
@@ -2129,7 +2604,11 @@ ECMAScriptParser::CaseClauseContext* ECMAScriptParser::caseClause() {
   CaseClauseContext *_localctx = _tracker.createInstance<CaseClauseContext>(_ctx, getState());
   enterRule(_localctx, 42, ECMAScriptParser::RuleCaseClause);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2150,6 +2629,8 @@ ECMAScriptParser::CaseClauseContext* ECMAScriptParser::caseClause() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -2172,6 +2653,10 @@ tree::TerminalNode* ECMAScriptParser::DefaultClauseContext::Default() {
   return getToken(ECMAScriptParser::Default, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::DefaultClauseContext::Colon() {
+  return getToken(ECMAScriptParser::Colon, 0);
+}
+
 ECMAScriptParser::StatementListContext* ECMAScriptParser::DefaultClauseContext::statementList() {
   return getRuleContext<ECMAScriptParser::StatementListContext>(0);
 }
@@ -2181,7 +2666,8 @@ size_t ECMAScriptParser::DefaultClauseContext::getRuleIndex() const {
   return ECMAScriptParser::RuleDefaultClause;
 }
 
-antlrcpp::Any ECMAScriptParser::DefaultClauseContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::DefaultClauseContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitDefaultClause(this);
   else
@@ -2192,7 +2678,11 @@ ECMAScriptParser::DefaultClauseContext* ECMAScriptParser::defaultClause() {
   DefaultClauseContext *_localctx = _tracker.createInstance<DefaultClauseContext>(_ctx, getState());
   enterRule(_localctx, 44, ECMAScriptParser::RuleDefaultClause);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2211,6 +2701,8 @@ ECMAScriptParser::DefaultClauseContext* ECMAScriptParser::defaultClause() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -2233,6 +2725,10 @@ tree::TerminalNode* ECMAScriptParser::LabelledStatementContext::Identifier() {
   return getToken(ECMAScriptParser::Identifier, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::LabelledStatementContext::Colon() {
+  return getToken(ECMAScriptParser::Colon, 0);
+}
+
 ECMAScriptParser::StatementContext* ECMAScriptParser::LabelledStatementContext::statement() {
   return getRuleContext<ECMAScriptParser::StatementContext>(0);
 }
@@ -2242,7 +2738,8 @@ size_t ECMAScriptParser::LabelledStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleLabelledStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::LabelledStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::LabelledStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitLabelledStatement(this);
   else
@@ -2253,7 +2750,11 @@ ECMAScriptParser::LabelledStatementContext* ECMAScriptParser::labelledStatement(
   LabelledStatementContext *_localctx = _tracker.createInstance<LabelledStatementContext>(_ctx, getState());
   enterRule(_localctx, 46, ECMAScriptParser::RuleLabelledStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2298,7 +2799,8 @@ size_t ECMAScriptParser::ThrowStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleThrowStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::ThrowStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ThrowStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitThrowStatement(this);
   else
@@ -2309,7 +2811,11 @@ ECMAScriptParser::ThrowStatementContext* ECMAScriptParser::throwStatement() {
   ThrowStatementContext *_localctx = _tracker.createInstance<ThrowStatementContext>(_ctx, getState());
   enterRule(_localctx, 48, ECMAScriptParser::RuleThrowStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2361,7 +2867,8 @@ size_t ECMAScriptParser::TryStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleTryStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::TryStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::TryStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitTryStatement(this);
   else
@@ -2372,7 +2879,11 @@ ECMAScriptParser::TryStatementContext* ECMAScriptParser::tryStatement() {
   TryStatementContext *_localctx = _tracker.createInstance<TryStatementContext>(_ctx, getState());
   enterRule(_localctx, 50, ECMAScriptParser::RuleTryStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2414,6 +2925,8 @@ ECMAScriptParser::TryStatementContext* ECMAScriptParser::tryStatement() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -2436,8 +2949,16 @@ tree::TerminalNode* ECMAScriptParser::CatchProductionContext::Catch() {
   return getToken(ECMAScriptParser::Catch, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::CatchProductionContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 tree::TerminalNode* ECMAScriptParser::CatchProductionContext::Identifier() {
   return getToken(ECMAScriptParser::Identifier, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::CatchProductionContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
 }
 
 ECMAScriptParser::BlockContext* ECMAScriptParser::CatchProductionContext::block() {
@@ -2449,7 +2970,8 @@ size_t ECMAScriptParser::CatchProductionContext::getRuleIndex() const {
   return ECMAScriptParser::RuleCatchProduction;
 }
 
-antlrcpp::Any ECMAScriptParser::CatchProductionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::CatchProductionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitCatchProduction(this);
   else
@@ -2460,7 +2982,11 @@ ECMAScriptParser::CatchProductionContext* ECMAScriptParser::catchProduction() {
   CatchProductionContext *_localctx = _tracker.createInstance<CatchProductionContext>(_ctx, getState());
   enterRule(_localctx, 52, ECMAScriptParser::RuleCatchProduction);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2505,7 +3031,8 @@ size_t ECMAScriptParser::FinallyProductionContext::getRuleIndex() const {
   return ECMAScriptParser::RuleFinallyProduction;
 }
 
-antlrcpp::Any ECMAScriptParser::FinallyProductionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::FinallyProductionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitFinallyProduction(this);
   else
@@ -2516,7 +3043,11 @@ ECMAScriptParser::FinallyProductionContext* ECMAScriptParser::finallyProduction(
   FinallyProductionContext *_localctx = _tracker.createInstance<FinallyProductionContext>(_ctx, getState());
   enterRule(_localctx, 54, ECMAScriptParser::RuleFinallyProduction);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2555,7 +3086,8 @@ size_t ECMAScriptParser::DebuggerStatementContext::getRuleIndex() const {
   return ECMAScriptParser::RuleDebuggerStatement;
 }
 
-antlrcpp::Any ECMAScriptParser::DebuggerStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::DebuggerStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitDebuggerStatement(this);
   else
@@ -2566,7 +3098,11 @@ ECMAScriptParser::DebuggerStatementContext* ECMAScriptParser::debuggerStatement(
   DebuggerStatementContext *_localctx = _tracker.createInstance<DebuggerStatementContext>(_ctx, getState());
   enterRule(_localctx, 56, ECMAScriptParser::RuleDebuggerStatement);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2600,8 +3136,24 @@ tree::TerminalNode* ECMAScriptParser::FunctionDeclarationContext::Identifier() {
   return getToken(ECMAScriptParser::Identifier, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::FunctionDeclarationContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::FunctionDeclarationContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::FunctionDeclarationContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
+}
+
 ECMAScriptParser::FunctionBodyContext* ECMAScriptParser::FunctionDeclarationContext::functionBody() {
   return getRuleContext<ECMAScriptParser::FunctionBodyContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::FunctionDeclarationContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
 }
 
 ECMAScriptParser::FormalParameterListContext* ECMAScriptParser::FunctionDeclarationContext::formalParameterList() {
@@ -2613,7 +3165,8 @@ size_t ECMAScriptParser::FunctionDeclarationContext::getRuleIndex() const {
   return ECMAScriptParser::RuleFunctionDeclaration;
 }
 
-antlrcpp::Any ECMAScriptParser::FunctionDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::FunctionDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitFunctionDeclaration(this);
   else
@@ -2625,7 +3178,11 @@ ECMAScriptParser::FunctionDeclarationContext* ECMAScriptParser::functionDeclarat
   enterRule(_localctx, 58, ECMAScriptParser::RuleFunctionDeclaration);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2677,12 +3234,21 @@ tree::TerminalNode* ECMAScriptParser::FormalParameterListContext::Identifier(siz
   return getToken(ECMAScriptParser::Identifier, i);
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::FormalParameterListContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::FormalParameterListContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::FormalParameterListContext::getRuleIndex() const {
   return ECMAScriptParser::RuleFormalParameterList;
 }
 
-antlrcpp::Any ECMAScriptParser::FormalParameterListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::FormalParameterListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitFormalParameterList(this);
   else
@@ -2694,7 +3260,11 @@ ECMAScriptParser::FormalParameterListContext* ECMAScriptParser::formalParameterL
   enterRule(_localctx, 60, ECMAScriptParser::RuleFormalParameterList);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2739,7 +3309,8 @@ size_t ECMAScriptParser::FunctionBodyContext::getRuleIndex() const {
   return ECMAScriptParser::RuleFunctionBody;
 }
 
-antlrcpp::Any ECMAScriptParser::FunctionBodyContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::FunctionBodyContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitFunctionBody(this);
   else
@@ -2750,7 +3321,11 @@ ECMAScriptParser::FunctionBodyContext* ECMAScriptParser::functionBody() {
   FunctionBodyContext *_localctx = _tracker.createInstance<FunctionBodyContext>(_ctx, getState());
   enterRule(_localctx, 62, ECMAScriptParser::RuleFunctionBody);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2765,6 +3340,8 @@ ECMAScriptParser::FunctionBodyContext* ECMAScriptParser::functionBody() {
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -2783,8 +3360,20 @@ ECMAScriptParser::ArrayLiteralContext::ArrayLiteralContext(ParserRuleContext *pa
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::ArrayLiteralContext::OpenBracket() {
+  return getToken(ECMAScriptParser::OpenBracket, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ArrayLiteralContext::CloseBracket() {
+  return getToken(ECMAScriptParser::CloseBracket, 0);
+}
+
 ECMAScriptParser::ElementListContext* ECMAScriptParser::ArrayLiteralContext::elementList() {
   return getRuleContext<ECMAScriptParser::ElementListContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ArrayLiteralContext::Comma() {
+  return getToken(ECMAScriptParser::Comma, 0);
 }
 
 ECMAScriptParser::ElisionContext* ECMAScriptParser::ArrayLiteralContext::elision() {
@@ -2796,7 +3385,8 @@ size_t ECMAScriptParser::ArrayLiteralContext::getRuleIndex() const {
   return ECMAScriptParser::RuleArrayLiteral;
 }
 
-antlrcpp::Any ECMAScriptParser::ArrayLiteralContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ArrayLiteralContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitArrayLiteral(this);
   else
@@ -2808,7 +3398,11 @@ ECMAScriptParser::ArrayLiteralContext* ECMAScriptParser::arrayLiteral() {
   enterRule(_localctx, 64, ECMAScriptParser::RuleArrayLiteral);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2825,6 +3419,8 @@ ECMAScriptParser::ArrayLiteralContext* ECMAScriptParser::arrayLiteral() {
       break;
     }
 
+    default:
+      break;
     }
     setState(403);
     _errHandler->sync(this);
@@ -2836,6 +3432,8 @@ ECMAScriptParser::ArrayLiteralContext* ECMAScriptParser::arrayLiteral() {
       break;
     }
 
+    default:
+      break;
     }
     setState(406);
     _errHandler->sync(this);
@@ -2880,12 +3478,21 @@ ECMAScriptParser::ElisionContext* ECMAScriptParser::ElementListContext::elision(
   return getRuleContext<ECMAScriptParser::ElisionContext>(i);
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::ElementListContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::ElementListContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::ElementListContext::getRuleIndex() const {
   return ECMAScriptParser::RuleElementList;
 }
 
-antlrcpp::Any ECMAScriptParser::ElementListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ElementListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitElementList(this);
   else
@@ -2897,7 +3504,11 @@ ECMAScriptParser::ElementListContext* ECMAScriptParser::elementList() {
   enterRule(_localctx, 66, ECMAScriptParser::RuleElementList);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -2952,12 +3563,21 @@ ECMAScriptParser::ElisionContext::ElisionContext(ParserRuleContext *parent, size
   : ParserRuleContext(parent, invokingState) {
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::ElisionContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::ElisionContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::ElisionContext::getRuleIndex() const {
   return ECMAScriptParser::RuleElision;
 }
 
-antlrcpp::Any ECMAScriptParser::ElisionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ElisionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitElision(this);
   else
@@ -2969,7 +3589,11 @@ ECMAScriptParser::ElisionContext* ECMAScriptParser::elision() {
   enterRule(_localctx, 68, ECMAScriptParser::RuleElision);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3001,8 +3625,20 @@ ECMAScriptParser::ObjectLiteralContext::ObjectLiteralContext(ParserRuleContext *
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::ObjectLiteralContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ObjectLiteralContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
+}
+
 ECMAScriptParser::PropertyNameAndValueListContext* ECMAScriptParser::ObjectLiteralContext::propertyNameAndValueList() {
   return getRuleContext<ECMAScriptParser::PropertyNameAndValueListContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ObjectLiteralContext::Comma() {
+  return getToken(ECMAScriptParser::Comma, 0);
 }
 
 
@@ -3010,7 +3646,8 @@ size_t ECMAScriptParser::ObjectLiteralContext::getRuleIndex() const {
   return ECMAScriptParser::RuleObjectLiteral;
 }
 
-antlrcpp::Any ECMAScriptParser::ObjectLiteralContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ObjectLiteralContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitObjectLiteral(this);
   else
@@ -3022,7 +3659,11 @@ ECMAScriptParser::ObjectLiteralContext* ECMAScriptParser::objectLiteral() {
   enterRule(_localctx, 70, ECMAScriptParser::RuleObjectLiteral);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3039,6 +3680,8 @@ ECMAScriptParser::ObjectLiteralContext* ECMAScriptParser::objectLiteral() {
       break;
     }
 
+    default:
+      break;
     }
     setState(434);
     _errHandler->sync(this);
@@ -3075,12 +3718,21 @@ ECMAScriptParser::PropertyAssignmentContext* ECMAScriptParser::PropertyNameAndVa
   return getRuleContext<ECMAScriptParser::PropertyAssignmentContext>(i);
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::PropertyNameAndValueListContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::PropertyNameAndValueListContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::PropertyNameAndValueListContext::getRuleIndex() const {
   return ECMAScriptParser::RulePropertyNameAndValueList;
 }
 
-antlrcpp::Any ECMAScriptParser::PropertyNameAndValueListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PropertyNameAndValueListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPropertyNameAndValueList(this);
   else
@@ -3091,7 +3743,11 @@ ECMAScriptParser::PropertyNameAndValueListContext* ECMAScriptParser::propertyNam
   PropertyNameAndValueListContext *_localctx = _tracker.createInstance<PropertyNameAndValueListContext>(_ctx, getState());
   enterRule(_localctx, 72, ECMAScriptParser::RulePropertyNameAndValueList);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3145,13 +3801,18 @@ ECMAScriptParser::PropertyNameContext* ECMAScriptParser::PropertyExpressionAssig
   return getRuleContext<ECMAScriptParser::PropertyNameContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PropertyExpressionAssignmentContext::Colon() {
+  return getToken(ECMAScriptParser::Colon, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::PropertyExpressionAssignmentContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::PropertyExpressionAssignmentContext::PropertyExpressionAssignmentContext(PropertyAssignmentContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PropertyExpressionAssignmentContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PropertyExpressionAssignmentContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPropertyExpressionAssignment(this);
   else
@@ -3163,17 +3824,34 @@ ECMAScriptParser::SetterContext* ECMAScriptParser::PropertySetterContext::setter
   return getRuleContext<ECMAScriptParser::SetterContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PropertySetterContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::PropertySetParameterListContext* ECMAScriptParser::PropertySetterContext::propertySetParameterList() {
   return getRuleContext<ECMAScriptParser::PropertySetParameterListContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::PropertySetterContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::PropertySetterContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
 }
 
 ECMAScriptParser::FunctionBodyContext* ECMAScriptParser::PropertySetterContext::functionBody() {
   return getRuleContext<ECMAScriptParser::FunctionBodyContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PropertySetterContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
+}
+
 ECMAScriptParser::PropertySetterContext::PropertySetterContext(PropertyAssignmentContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PropertySetterContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PropertySetterContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPropertySetter(this);
   else
@@ -3185,13 +3863,30 @@ ECMAScriptParser::GetterContext* ECMAScriptParser::PropertyGetterContext::getter
   return getRuleContext<ECMAScriptParser::GetterContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PropertyGetterContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::PropertyGetterContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::PropertyGetterContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
+}
+
 ECMAScriptParser::FunctionBodyContext* ECMAScriptParser::PropertyGetterContext::functionBody() {
   return getRuleContext<ECMAScriptParser::FunctionBodyContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PropertyGetterContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
+}
+
 ECMAScriptParser::PropertyGetterContext::PropertyGetterContext(PropertyAssignmentContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PropertyGetterContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PropertyGetterContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPropertyGetter(this);
   else
@@ -3201,7 +3896,11 @@ ECMAScriptParser::PropertyAssignmentContext* ECMAScriptParser::propertyAssignmen
   PropertyAssignmentContext *_localctx = _tracker.createInstance<PropertyAssignmentContext>(_ctx, getState());
   enterRule(_localctx, 74, ECMAScriptParser::RulePropertyAssignment);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3209,7 +3908,7 @@ ECMAScriptParser::PropertyAssignmentContext* ECMAScriptParser::propertyAssignmen
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 41, _ctx)) {
     case 1: {
-      _localctx = dynamic_cast<PropertyAssignmentContext *>(_tracker.createInstance<ECMAScriptParser::PropertyExpressionAssignmentContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::PropertyExpressionAssignmentContext>(_localctx);
       enterOuterAlt(_localctx, 1);
       setState(446);
       propertyName();
@@ -3221,7 +3920,7 @@ ECMAScriptParser::PropertyAssignmentContext* ECMAScriptParser::propertyAssignmen
     }
 
     case 2: {
-      _localctx = dynamic_cast<PropertyAssignmentContext *>(_tracker.createInstance<ECMAScriptParser::PropertyGetterContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::PropertyGetterContext>(_localctx);
       enterOuterAlt(_localctx, 2);
       setState(450);
       getter();
@@ -3239,7 +3938,7 @@ ECMAScriptParser::PropertyAssignmentContext* ECMAScriptParser::propertyAssignmen
     }
 
     case 3: {
-      _localctx = dynamic_cast<PropertyAssignmentContext *>(_tracker.createInstance<ECMAScriptParser::PropertySetterContext>(_localctx));
+      _localctx = _tracker.createInstance<ECMAScriptParser::PropertySetterContext>(_localctx);
       enterOuterAlt(_localctx, 3);
       setState(457);
       setter();
@@ -3258,6 +3957,8 @@ ECMAScriptParser::PropertyAssignmentContext* ECMAScriptParser::propertyAssignmen
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -3293,7 +3994,8 @@ size_t ECMAScriptParser::PropertyNameContext::getRuleIndex() const {
   return ECMAScriptParser::RulePropertyName;
 }
 
-antlrcpp::Any ECMAScriptParser::PropertyNameContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PropertyNameContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPropertyName(this);
   else
@@ -3304,7 +4006,11 @@ ECMAScriptParser::PropertyNameContext* ECMAScriptParser::propertyName() {
   PropertyNameContext *_localctx = _tracker.createInstance<PropertyNameContext>(_ctx, getState());
   enterRule(_localctx, 76, ECMAScriptParser::RulePropertyName);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3407,7 +4113,8 @@ size_t ECMAScriptParser::PropertySetParameterListContext::getRuleIndex() const {
   return ECMAScriptParser::RulePropertySetParameterList;
 }
 
-antlrcpp::Any ECMAScriptParser::PropertySetParameterListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PropertySetParameterListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPropertySetParameterList(this);
   else
@@ -3418,7 +4125,11 @@ ECMAScriptParser::PropertySetParameterListContext* ECMAScriptParser::propertySet
   PropertySetParameterListContext *_localctx = _tracker.createInstance<PropertySetParameterListContext>(_ctx, getState());
   enterRule(_localctx, 78, ECMAScriptParser::RulePropertySetParameterList);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3442,6 +4153,14 @@ ECMAScriptParser::ArgumentsContext::ArgumentsContext(ParserRuleContext *parent, 
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::ArgumentsContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::ArgumentsContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
 ECMAScriptParser::ArgumentListContext* ECMAScriptParser::ArgumentsContext::argumentList() {
   return getRuleContext<ECMAScriptParser::ArgumentListContext>(0);
 }
@@ -3451,7 +4170,8 @@ size_t ECMAScriptParser::ArgumentsContext::getRuleIndex() const {
   return ECMAScriptParser::RuleArguments;
 }
 
-antlrcpp::Any ECMAScriptParser::ArgumentsContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ArgumentsContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitArguments(this);
   else
@@ -3463,7 +4183,11 @@ ECMAScriptParser::ArgumentsContext* ECMAScriptParser::arguments() {
   enterRule(_localctx, 80, ECMAScriptParser::RuleArguments);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3475,29 +4199,8 @@ ECMAScriptParser::ArgumentsContext* ECMAScriptParser::arguments() {
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-      | (1ULL << ECMAScriptParser::OpenBracket)
-      | (1ULL << ECMAScriptParser::OpenParen)
-      | (1ULL << ECMAScriptParser::OpenBrace)
-      | (1ULL << ECMAScriptParser::PlusPlus)
-      | (1ULL << ECMAScriptParser::MinusMinus)
-      | (1ULL << ECMAScriptParser::Plus)
-      | (1ULL << ECMAScriptParser::Minus)
-      | (1ULL << ECMAScriptParser::BitNot)
-      | (1ULL << ECMAScriptParser::Not)
-      | (1ULL << ECMAScriptParser::NullLiteral)
-      | (1ULL << ECMAScriptParser::BooleanLiteral)
-      | (1ULL << ECMAScriptParser::DecimalLiteral)
-      | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-      | (1ULL << ECMAScriptParser::OctalIntegerLiteral)
-      | (1ULL << ECMAScriptParser::Typeof)
-      | (1ULL << ECMAScriptParser::New))) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
-      ((1ULL << (_la - 68)) & ((1ULL << (ECMAScriptParser::Void - 68))
-      | (1ULL << (ECMAScriptParser::Function - 68))
-      | (1ULL << (ECMAScriptParser::This - 68))
-      | (1ULL << (ECMAScriptParser::Delete - 68))
-      | (1ULL << (ECMAScriptParser::Identifier - 68))
-      | (1ULL << (ECMAScriptParser::StringLiteral - 68)))) != 0)) {
+      ((1ULL << _la) & 5257952564957118634) != 0) || ((((_la - 68) & ~ 0x3fULL) == 0) &&
+      ((1ULL << (_la - 68)) & 3221229761) != 0)) {
       setState(475);
       argumentList();
     }
@@ -3528,12 +4231,21 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::ArgumentListContext
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::ArgumentListContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::ArgumentListContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::ArgumentListContext::getRuleIndex() const {
   return ECMAScriptParser::RuleArgumentList;
 }
 
-antlrcpp::Any ECMAScriptParser::ArgumentListContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ArgumentListContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitArgumentList(this);
   else
@@ -3545,7 +4257,11 @@ ECMAScriptParser::ArgumentListContext* ECMAScriptParser::argumentList() {
   enterRule(_localctx, 82, ECMAScriptParser::RuleArgumentList);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3589,12 +4305,21 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::ExpressionSequenceC
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+std::vector<tree::TerminalNode *> ECMAScriptParser::ExpressionSequenceContext::Comma() {
+  return getTokens(ECMAScriptParser::Comma);
+}
+
+tree::TerminalNode* ECMAScriptParser::ExpressionSequenceContext::Comma(size_t i) {
+  return getToken(ECMAScriptParser::Comma, i);
+}
+
 
 size_t ECMAScriptParser::ExpressionSequenceContext::getRuleIndex() const {
   return ECMAScriptParser::RuleExpressionSequence;
 }
 
-antlrcpp::Any ECMAScriptParser::ExpressionSequenceContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ExpressionSequenceContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitExpressionSequence(this);
   else
@@ -3605,7 +4330,11 @@ ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::expressionSequenc
   ExpressionSequenceContext *_localctx = _tracker.createInstance<ExpressionSequenceContext>(_ctx, getState());
   enterRule(_localctx, 84, ECMAScriptParser::RuleExpressionSequence);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -3663,9 +4392,18 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::TernaryExpressionCo
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::TernaryExpressionContext::QuestionMark() {
+  return getToken(ECMAScriptParser::QuestionMark, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::TernaryExpressionContext::Colon() {
+  return getToken(ECMAScriptParser::Colon, 0);
+}
+
 ECMAScriptParser::TernaryExpressionContext::TernaryExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::TernaryExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::TernaryExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitTernaryExpression(this);
   else
@@ -3681,9 +4419,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::LogicalAndExpressio
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::LogicalAndExpressionContext::And() {
+  return getToken(ECMAScriptParser::And, 0);
+}
+
 ECMAScriptParser::LogicalAndExpressionContext::LogicalAndExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::LogicalAndExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::LogicalAndExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitLogicalAndExpression(this);
   else
@@ -3691,13 +4434,18 @@ antlrcpp::Any ECMAScriptParser::LogicalAndExpressionContext::accept(tree::ParseT
 }
 //----------------- PreIncrementExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::PreIncrementExpressionContext::PlusPlus() {
+  return getToken(ECMAScriptParser::PlusPlus, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::PreIncrementExpressionContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::PreIncrementExpressionContext::PreIncrementExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PreIncrementExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PreIncrementExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPreIncrementExpression(this);
   else
@@ -3711,7 +4459,8 @@ ECMAScriptParser::ObjectLiteralContext* ECMAScriptParser::ObjectLiteralExpressio
 
 ECMAScriptParser::ObjectLiteralExpressionContext::ObjectLiteralExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ObjectLiteralExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ObjectLiteralExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitObjectLiteralExpression(this);
   else
@@ -3733,7 +4482,8 @@ tree::TerminalNode* ECMAScriptParser::InExpressionContext::In() {
 
 ECMAScriptParser::InExpressionContext::InExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::InExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::InExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitInExpression(this);
   else
@@ -3749,9 +4499,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::LogicalOrExpression
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::LogicalOrExpressionContext::Or() {
+  return getToken(ECMAScriptParser::Or, 0);
+}
+
 ECMAScriptParser::LogicalOrExpressionContext::LogicalOrExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::LogicalOrExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::LogicalOrExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitLogicalOrExpression(this);
   else
@@ -3759,13 +4514,18 @@ antlrcpp::Any ECMAScriptParser::LogicalOrExpressionContext::accept(tree::ParseTr
 }
 //----------------- NotExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::NotExpressionContext::Not() {
+  return getToken(ECMAScriptParser::Not, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::NotExpressionContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::NotExpressionContext::NotExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::NotExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::NotExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitNotExpression(this);
   else
@@ -3773,13 +4533,18 @@ antlrcpp::Any ECMAScriptParser::NotExpressionContext::accept(tree::ParseTreeVisi
 }
 //----------------- PreDecreaseExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::PreDecreaseExpressionContext::MinusMinus() {
+  return getToken(ECMAScriptParser::MinusMinus, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::PreDecreaseExpressionContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::PreDecreaseExpressionContext::PreDecreaseExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PreDecreaseExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PreDecreaseExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPreDecreaseExpression(this);
   else
@@ -3797,7 +4562,8 @@ ECMAScriptParser::ArgumentsContext* ECMAScriptParser::ArgumentsExpressionContext
 
 ECMAScriptParser::ArgumentsExpressionContext::ArgumentsExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ArgumentsExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ArgumentsExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitArgumentsExpression(this);
   else
@@ -3811,7 +4577,8 @@ tree::TerminalNode* ECMAScriptParser::ThisExpressionContext::This() {
 
 ECMAScriptParser::ThisExpressionContext::ThisExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ThisExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ThisExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitThisExpression(this);
   else
@@ -3823,8 +4590,24 @@ tree::TerminalNode* ECMAScriptParser::FunctionExpressionContext::Function() {
   return getToken(ECMAScriptParser::Function, 0);
 }
 
+tree::TerminalNode* ECMAScriptParser::FunctionExpressionContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::FunctionExpressionContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::FunctionExpressionContext::OpenBrace() {
+  return getToken(ECMAScriptParser::OpenBrace, 0);
+}
+
 ECMAScriptParser::FunctionBodyContext* ECMAScriptParser::FunctionExpressionContext::functionBody() {
   return getRuleContext<ECMAScriptParser::FunctionBodyContext>(0);
+}
+
+tree::TerminalNode* ECMAScriptParser::FunctionExpressionContext::CloseBrace() {
+  return getToken(ECMAScriptParser::CloseBrace, 0);
 }
 
 tree::TerminalNode* ECMAScriptParser::FunctionExpressionContext::Identifier() {
@@ -3837,7 +4620,8 @@ ECMAScriptParser::FormalParameterListContext* ECMAScriptParser::FunctionExpressi
 
 ECMAScriptParser::FunctionExpressionContext::FunctionExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::FunctionExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::FunctionExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitFunctionExpression(this);
   else
@@ -3845,13 +4629,18 @@ antlrcpp::Any ECMAScriptParser::FunctionExpressionContext::accept(tree::ParseTre
 }
 //----------------- UnaryMinusExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::UnaryMinusExpressionContext::Minus() {
+  return getToken(ECMAScriptParser::Minus, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::UnaryMinusExpressionContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::UnaryMinusExpressionContext::UnaryMinusExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::UnaryMinusExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::UnaryMinusExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitUnaryMinusExpression(this);
   else
@@ -3867,9 +4656,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::AssignmentExpressio
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::AssignmentExpressionContext::Assign() {
+  return getToken(ECMAScriptParser::Assign, 0);
+}
+
 ECMAScriptParser::AssignmentExpressionContext::AssignmentExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::AssignmentExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::AssignmentExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitAssignmentExpression(this);
   else
@@ -3881,9 +4675,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::PostDecreaseExpress
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PostDecreaseExpressionContext::MinusMinus() {
+  return getToken(ECMAScriptParser::MinusMinus, 0);
+}
+
 ECMAScriptParser::PostDecreaseExpressionContext::PostDecreaseExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PostDecreaseExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PostDecreaseExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPostDecreaseExpression(this);
   else
@@ -3901,7 +4700,8 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::TypeofExpressionCon
 
 ECMAScriptParser::TypeofExpressionContext::TypeofExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::TypeofExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::TypeofExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitTypeofExpression(this);
   else
@@ -3923,7 +4723,8 @@ tree::TerminalNode* ECMAScriptParser::InstanceofExpressionContext::Instanceof() 
 
 ECMAScriptParser::InstanceofExpressionContext::InstanceofExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::InstanceofExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::InstanceofExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitInstanceofExpression(this);
   else
@@ -3931,13 +4732,18 @@ antlrcpp::Any ECMAScriptParser::InstanceofExpressionContext::accept(tree::ParseT
 }
 //----------------- UnaryPlusExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::UnaryPlusExpressionContext::Plus() {
+  return getToken(ECMAScriptParser::Plus, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::UnaryPlusExpressionContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::UnaryPlusExpressionContext::UnaryPlusExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::UnaryPlusExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::UnaryPlusExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitUnaryPlusExpression(this);
   else
@@ -3955,7 +4761,8 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::DeleteExpressionCon
 
 ECMAScriptParser::DeleteExpressionContext::DeleteExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::DeleteExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::DeleteExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitDeleteExpression(this);
   else
@@ -3971,9 +4778,26 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::EqualityExpressionC
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::EqualityExpressionContext::Equals_() {
+  return getToken(ECMAScriptParser::Equals_, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::EqualityExpressionContext::NotEquals() {
+  return getToken(ECMAScriptParser::NotEquals, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::EqualityExpressionContext::IdentityEquals() {
+  return getToken(ECMAScriptParser::IdentityEquals, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::EqualityExpressionContext::IdentityNotEquals() {
+  return getToken(ECMAScriptParser::IdentityNotEquals, 0);
+}
+
 ECMAScriptParser::EqualityExpressionContext::EqualityExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::EqualityExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::EqualityExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitEqualityExpression(this);
   else
@@ -3989,9 +4813,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::BitXOrExpressionCon
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::BitXOrExpressionContext::BitXOr() {
+  return getToken(ECMAScriptParser::BitXOr, 0);
+}
+
 ECMAScriptParser::BitXOrExpressionContext::BitXOrExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::BitXOrExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BitXOrExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBitXOrExpression(this);
   else
@@ -4007,9 +4836,22 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::MultiplicativeExpre
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::MultiplicativeExpressionContext::Multiply() {
+  return getToken(ECMAScriptParser::Multiply, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::MultiplicativeExpressionContext::Divide() {
+  return getToken(ECMAScriptParser::Divide, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::MultiplicativeExpressionContext::Modulus() {
+  return getToken(ECMAScriptParser::Modulus, 0);
+}
+
 ECMAScriptParser::MultiplicativeExpressionContext::MultiplicativeExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::MultiplicativeExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::MultiplicativeExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitMultiplicativeExpression(this);
   else
@@ -4025,9 +4867,22 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::BitShiftExpressionC
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::BitShiftExpressionContext::LeftShiftArithmetic() {
+  return getToken(ECMAScriptParser::LeftShiftArithmetic, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::BitShiftExpressionContext::RightShiftArithmetic() {
+  return getToken(ECMAScriptParser::RightShiftArithmetic, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::BitShiftExpressionContext::RightShiftLogical() {
+  return getToken(ECMAScriptParser::RightShiftLogical, 0);
+}
+
 ECMAScriptParser::BitShiftExpressionContext::BitShiftExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::BitShiftExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BitShiftExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBitShiftExpression(this);
   else
@@ -4035,13 +4890,22 @@ antlrcpp::Any ECMAScriptParser::BitShiftExpressionContext::accept(tree::ParseTre
 }
 //----------------- ParenthesizedExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::ParenthesizedExpressionContext::OpenParen() {
+  return getToken(ECMAScriptParser::OpenParen, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::ParenthesizedExpressionContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::ParenthesizedExpressionContext::CloseParen() {
+  return getToken(ECMAScriptParser::CloseParen, 0);
+}
+
 ECMAScriptParser::ParenthesizedExpressionContext::ParenthesizedExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ParenthesizedExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ParenthesizedExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitParenthesizedExpression(this);
   else
@@ -4057,9 +4921,18 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::AdditiveExpressionC
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::AdditiveExpressionContext::Plus() {
+  return getToken(ECMAScriptParser::Plus, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AdditiveExpressionContext::Minus() {
+  return getToken(ECMAScriptParser::Minus, 0);
+}
+
 ECMAScriptParser::AdditiveExpressionContext::AdditiveExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::AdditiveExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::AdditiveExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitAdditiveExpression(this);
   else
@@ -4075,9 +4948,26 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::RelationalExpressio
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::RelationalExpressionContext::LessThan() {
+  return getToken(ECMAScriptParser::LessThan, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::RelationalExpressionContext::MoreThan() {
+  return getToken(ECMAScriptParser::MoreThan, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::RelationalExpressionContext::LessThanEquals() {
+  return getToken(ECMAScriptParser::LessThanEquals, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::RelationalExpressionContext::GreaterThanEquals() {
+  return getToken(ECMAScriptParser::GreaterThanEquals, 0);
+}
+
 ECMAScriptParser::RelationalExpressionContext::RelationalExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::RelationalExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::RelationalExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitRelationalExpression(this);
   else
@@ -4089,9 +4979,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::PostIncrementExpres
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::PostIncrementExpressionContext::PlusPlus() {
+  return getToken(ECMAScriptParser::PlusPlus, 0);
+}
+
 ECMAScriptParser::PostIncrementExpressionContext::PostIncrementExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::PostIncrementExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::PostIncrementExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitPostIncrementExpression(this);
   else
@@ -4099,13 +4994,18 @@ antlrcpp::Any ECMAScriptParser::PostIncrementExpressionContext::accept(tree::Par
 }
 //----------------- BitNotExpressionContext ------------------------------------------------------------------
 
+tree::TerminalNode* ECMAScriptParser::BitNotExpressionContext::BitNot() {
+  return getToken(ECMAScriptParser::BitNot, 0);
+}
+
 ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::BitNotExpressionContext::singleExpression() {
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
 ECMAScriptParser::BitNotExpressionContext::BitNotExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::BitNotExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BitNotExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBitNotExpression(this);
   else
@@ -4127,7 +5027,8 @@ ECMAScriptParser::ArgumentsContext* ECMAScriptParser::NewExpressionContext::argu
 
 ECMAScriptParser::NewExpressionContext::NewExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::NewExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::NewExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitNewExpression(this);
   else
@@ -4141,7 +5042,8 @@ ECMAScriptParser::LiteralContext* ECMAScriptParser::LiteralExpressionContext::li
 
 ECMAScriptParser::LiteralExpressionContext::LiteralExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::LiteralExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::LiteralExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitLiteralExpression(this);
   else
@@ -4155,7 +5057,8 @@ ECMAScriptParser::ArrayLiteralContext* ECMAScriptParser::ArrayLiteralExpressionC
 
 ECMAScriptParser::ArrayLiteralExpressionContext::ArrayLiteralExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::ArrayLiteralExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ArrayLiteralExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitArrayLiteralExpression(this);
   else
@@ -4167,13 +5070,18 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::MemberDotExpression
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::MemberDotExpressionContext::Dot() {
+  return getToken(ECMAScriptParser::Dot, 0);
+}
+
 ECMAScriptParser::IdentifierNameContext* ECMAScriptParser::MemberDotExpressionContext::identifierName() {
   return getRuleContext<ECMAScriptParser::IdentifierNameContext>(0);
 }
 
 ECMAScriptParser::MemberDotExpressionContext::MemberDotExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::MemberDotExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::MemberDotExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitMemberDotExpression(this);
   else
@@ -4185,13 +5093,22 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::MemberIndexExpressi
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::MemberIndexExpressionContext::OpenBracket() {
+  return getToken(ECMAScriptParser::OpenBracket, 0);
+}
+
 ECMAScriptParser::ExpressionSequenceContext* ECMAScriptParser::MemberIndexExpressionContext::expressionSequence() {
   return getRuleContext<ECMAScriptParser::ExpressionSequenceContext>(0);
 }
 
+tree::TerminalNode* ECMAScriptParser::MemberIndexExpressionContext::CloseBracket() {
+  return getToken(ECMAScriptParser::CloseBracket, 0);
+}
+
 ECMAScriptParser::MemberIndexExpressionContext::MemberIndexExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::MemberIndexExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::MemberIndexExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitMemberIndexExpression(this);
   else
@@ -4205,7 +5122,8 @@ tree::TerminalNode* ECMAScriptParser::IdentifierExpressionContext::Identifier() 
 
 ECMAScriptParser::IdentifierExpressionContext::IdentifierExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::IdentifierExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::IdentifierExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitIdentifierExpression(this);
   else
@@ -4221,9 +5139,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::BitAndExpressionCon
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::BitAndExpressionContext::BitAnd() {
+  return getToken(ECMAScriptParser::BitAnd, 0);
+}
+
 ECMAScriptParser::BitAndExpressionContext::BitAndExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::BitAndExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BitAndExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBitAndExpression(this);
   else
@@ -4239,9 +5162,14 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::BitOrExpressionCont
   return getRuleContext<ECMAScriptParser::SingleExpressionContext>(i);
 }
 
+tree::TerminalNode* ECMAScriptParser::BitOrExpressionContext::BitOr() {
+  return getToken(ECMAScriptParser::BitOr, 0);
+}
+
 ECMAScriptParser::BitOrExpressionContext::BitOrExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::BitOrExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::BitOrExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitBitOrExpression(this);
   else
@@ -4263,7 +5191,8 @@ ECMAScriptParser::AssignmentOperatorContext* ECMAScriptParser::AssignmentOperato
 
 ECMAScriptParser::AssignmentOperatorExpressionContext::AssignmentOperatorExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::AssignmentOperatorExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::AssignmentOperatorExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitAssignmentOperatorExpression(this);
   else
@@ -4281,7 +5210,8 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::VoidExpressionConte
 
 ECMAScriptParser::VoidExpressionContext::VoidExpressionContext(SingleExpressionContext *ctx) { copyFrom(ctx); }
 
-antlrcpp::Any ECMAScriptParser::VoidExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::VoidExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitVoidExpression(this);
   else
@@ -4297,12 +5227,17 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
   size_t parentState = getState();
   ECMAScriptParser::SingleExpressionContext *_localctx = _tracker.createInstance<SingleExpressionContext>(_ctx, parentState);
   ECMAScriptParser::SingleExpressionContext *previousContext = _localctx;
+  (void)previousContext; // Silence compiler, in case the context is not used by generated code.
   size_t startState = 86;
   enterRecursionRule(_localctx, 86, ECMAScriptParser::RuleSingleExpression, precedence);
 
     size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     unrollRecursionContexts(parentContext);
   });
   try {
@@ -4365,6 +5300,8 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
           break;
         }
 
+        default:
+          break;
         }
         break;
       }
@@ -4557,9 +5494,7 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
           setState(545);
           _la = _input->LA(1);
           if (!((((_la & ~ 0x3fULL) == 0) &&
-            ((1ULL << _la) & ((1ULL << ECMAScriptParser::Multiply)
-            | (1ULL << ECMAScriptParser::Divide)
-            | (1ULL << ECMAScriptParser::Modulus))) != 0))) {
+            ((1ULL << _la) & 14680064) != 0))) {
           _errHandler->recoverInline(this);
           }
           else {
@@ -4604,9 +5539,7 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
           setState(551);
           _la = _input->LA(1);
           if (!((((_la & ~ 0x3fULL) == 0) &&
-            ((1ULL << _la) & ((1ULL << ECMAScriptParser::RightShiftArithmetic)
-            | (1ULL << ECMAScriptParser::LeftShiftArithmetic)
-            | (1ULL << ECMAScriptParser::RightShiftLogical))) != 0))) {
+            ((1ULL << _la) & 117440512) != 0))) {
           _errHandler->recoverInline(this);
           }
           else {
@@ -4628,10 +5561,7 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
           setState(554);
           _la = _input->LA(1);
           if (!((((_la & ~ 0x3fULL) == 0) &&
-            ((1ULL << _la) & ((1ULL << ECMAScriptParser::LessThan)
-            | (1ULL << ECMAScriptParser::MoreThan)
-            | (1ULL << ECMAScriptParser::LessThanEquals)
-            | (1ULL << ECMAScriptParser::GreaterThanEquals))) != 0))) {
+            ((1ULL << _la) & 2013265920) != 0))) {
           _errHandler->recoverInline(this);
           }
           else {
@@ -4681,10 +5611,7 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
           setState(563);
           _la = _input->LA(1);
           if (!((((_la & ~ 0x3fULL) == 0) &&
-            ((1ULL << _la) & ((1ULL << ECMAScriptParser::Equals_)
-            | (1ULL << ECMAScriptParser::NotEquals)
-            | (1ULL << ECMAScriptParser::IdentityEquals)
-            | (1ULL << ECMAScriptParser::IdentityNotEquals))) != 0))) {
+            ((1ULL << _la) & 32212254720) != 0))) {
           _errHandler->recoverInline(this);
           }
           else {
@@ -4884,6 +5811,8 @@ ECMAScriptParser::SingleExpressionContext* ECMAScriptParser::singleExpression(in
           break;
         }
 
+        default:
+          break;
         } 
       }
       setState(613);
@@ -4905,12 +5834,57 @@ ECMAScriptParser::AssignmentOperatorContext::AssignmentOperatorContext(ParserRul
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::MultiplyAssign() {
+  return getToken(ECMAScriptParser::MultiplyAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::DivideAssign() {
+  return getToken(ECMAScriptParser::DivideAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::ModulusAssign() {
+  return getToken(ECMAScriptParser::ModulusAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::PlusAssign() {
+  return getToken(ECMAScriptParser::PlusAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::MinusAssign() {
+  return getToken(ECMAScriptParser::MinusAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::LeftShiftArithmeticAssign() {
+  return getToken(ECMAScriptParser::LeftShiftArithmeticAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::RightShiftArithmeticAssign() {
+  return getToken(ECMAScriptParser::RightShiftArithmeticAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::RightShiftLogicalAssign() {
+  return getToken(ECMAScriptParser::RightShiftLogicalAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::BitAndAssign() {
+  return getToken(ECMAScriptParser::BitAndAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::BitXorAssign() {
+  return getToken(ECMAScriptParser::BitXorAssign, 0);
+}
+
+tree::TerminalNode* ECMAScriptParser::AssignmentOperatorContext::BitOrAssign() {
+  return getToken(ECMAScriptParser::BitOrAssign, 0);
+}
+
 
 size_t ECMAScriptParser::AssignmentOperatorContext::getRuleIndex() const {
   return ECMAScriptParser::RuleAssignmentOperator;
 }
 
-antlrcpp::Any ECMAScriptParser::AssignmentOperatorContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::AssignmentOperatorContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitAssignmentOperator(this);
   else
@@ -4922,7 +5896,11 @@ ECMAScriptParser::AssignmentOperatorContext* ECMAScriptParser::assignmentOperato
   enterRule(_localctx, 88, ECMAScriptParser::RuleAssignmentOperator);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -4930,17 +5908,7 @@ ECMAScriptParser::AssignmentOperatorContext* ECMAScriptParser::assignmentOperato
     setState(614);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << ECMAScriptParser::MultiplyAssign)
-      | (1ULL << ECMAScriptParser::DivideAssign)
-      | (1ULL << ECMAScriptParser::ModulusAssign)
-      | (1ULL << ECMAScriptParser::PlusAssign)
-      | (1ULL << ECMAScriptParser::MinusAssign)
-      | (1ULL << ECMAScriptParser::LeftShiftArithmeticAssign)
-      | (1ULL << ECMAScriptParser::RightShiftArithmeticAssign)
-      | (1ULL << ECMAScriptParser::RightShiftLogicalAssign)
-      | (1ULL << ECMAScriptParser::BitAndAssign)
-      | (1ULL << ECMAScriptParser::BitXorAssign)
-      | (1ULL << ECMAScriptParser::BitOrAssign))) != 0))) {
+      ((1ULL << _la) & 2250700302057472) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -4989,7 +5957,8 @@ size_t ECMAScriptParser::LiteralContext::getRuleIndex() const {
   return ECMAScriptParser::RuleLiteral;
 }
 
-antlrcpp::Any ECMAScriptParser::LiteralContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::LiteralContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitLiteral(this);
   else
@@ -5001,7 +5970,11 @@ ECMAScriptParser::LiteralContext* ECMAScriptParser::literal() {
   enterRule(_localctx, 90, ECMAScriptParser::RuleLiteral);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5016,9 +5989,7 @@ ECMAScriptParser::LiteralContext* ECMAScriptParser::literal() {
         setState(616);
         _la = _input->LA(1);
         if (!((((_la & ~ 0x3fULL) == 0) &&
-          ((1ULL << _la) & ((1ULL << ECMAScriptParser::RegularExpressionLiteral)
-          | (1ULL << ECMAScriptParser::NullLiteral)
-          | (1ULL << ECMAScriptParser::BooleanLiteral))) != 0) || _la == ECMAScriptParser::StringLiteral)) {
+          ((1ULL << _la) & 6755399441055746) != 0) || _la == ECMAScriptParser::StringLiteral)) {
         _errHandler->recoverInline(this);
         }
         else {
@@ -5074,7 +6045,8 @@ size_t ECMAScriptParser::NumericLiteralContext::getRuleIndex() const {
   return ECMAScriptParser::RuleNumericLiteral;
 }
 
-antlrcpp::Any ECMAScriptParser::NumericLiteralContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::NumericLiteralContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitNumericLiteral(this);
   else
@@ -5086,7 +6058,11 @@ ECMAScriptParser::NumericLiteralContext* ECMAScriptParser::numericLiteral() {
   enterRule(_localctx, 92, ECMAScriptParser::RuleNumericLiteral);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5094,9 +6070,7 @@ ECMAScriptParser::NumericLiteralContext* ECMAScriptParser::numericLiteral() {
     setState(620);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << ECMAScriptParser::DecimalLiteral)
-      | (1ULL << ECMAScriptParser::HexIntegerLiteral)
-      | (1ULL << ECMAScriptParser::OctalIntegerLiteral))) != 0))) {
+      ((1ULL << _la) & 63050394783186944) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -5133,7 +6107,8 @@ size_t ECMAScriptParser::IdentifierNameContext::getRuleIndex() const {
   return ECMAScriptParser::RuleIdentifierName;
 }
 
-antlrcpp::Any ECMAScriptParser::IdentifierNameContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::IdentifierNameContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitIdentifierName(this);
   else
@@ -5144,7 +6119,11 @@ ECMAScriptParser::IdentifierNameContext* ECMAScriptParser::identifierName() {
   IdentifierNameContext *_localctx = _tracker.createInstance<IdentifierNameContext>(_ctx, getState());
   enterRule(_localctx, 94, ECMAScriptParser::RuleIdentifierName);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5249,7 +6228,8 @@ size_t ECMAScriptParser::ReservedWordContext::getRuleIndex() const {
   return ECMAScriptParser::RuleReservedWord;
 }
 
-antlrcpp::Any ECMAScriptParser::ReservedWordContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::ReservedWordContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitReservedWord(this);
   else
@@ -5261,7 +6241,11 @@ ECMAScriptParser::ReservedWordContext* ECMAScriptParser::reservedWord() {
   enterRule(_localctx, 96, ECMAScriptParser::RuleReservedWord);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5472,7 +6456,8 @@ size_t ECMAScriptParser::KeywordContext::getRuleIndex() const {
   return ECMAScriptParser::RuleKeyword;
 }
 
-antlrcpp::Any ECMAScriptParser::KeywordContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::KeywordContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitKeyword(this);
   else
@@ -5484,7 +6469,11 @@ ECMAScriptParser::KeywordContext* ECMAScriptParser::keyword() {
   enterRule(_localctx, 98, ECMAScriptParser::RuleKeyword);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5492,33 +6481,7 @@ ECMAScriptParser::KeywordContext* ECMAScriptParser::keyword() {
     setState(631);
     _la = _input->LA(1);
     if (!(((((_la - 56) & ~ 0x3fULL) == 0) &&
-      ((1ULL << (_la - 56)) & ((1ULL << (ECMAScriptParser::Break - 56))
-      | (1ULL << (ECMAScriptParser::Do - 56))
-      | (1ULL << (ECMAScriptParser::Instanceof - 56))
-      | (1ULL << (ECMAScriptParser::Typeof - 56))
-      | (1ULL << (ECMAScriptParser::Case - 56))
-      | (1ULL << (ECMAScriptParser::Else - 56))
-      | (1ULL << (ECMAScriptParser::New - 56))
-      | (1ULL << (ECMAScriptParser::Var - 56))
-      | (1ULL << (ECMAScriptParser::Let - 56))
-      | (1ULL << (ECMAScriptParser::Catch - 56))
-      | (1ULL << (ECMAScriptParser::Finally - 56))
-      | (1ULL << (ECMAScriptParser::Return - 56))
-      | (1ULL << (ECMAScriptParser::Void - 56))
-      | (1ULL << (ECMAScriptParser::Continue - 56))
-      | (1ULL << (ECMAScriptParser::For - 56))
-      | (1ULL << (ECMAScriptParser::Switch - 56))
-      | (1ULL << (ECMAScriptParser::While - 56))
-      | (1ULL << (ECMAScriptParser::Debugger - 56))
-      | (1ULL << (ECMAScriptParser::Function - 56))
-      | (1ULL << (ECMAScriptParser::This - 56))
-      | (1ULL << (ECMAScriptParser::With - 56))
-      | (1ULL << (ECMAScriptParser::Default - 56))
-      | (1ULL << (ECMAScriptParser::If - 56))
-      | (1ULL << (ECMAScriptParser::Throw - 56))
-      | (1ULL << (ECMAScriptParser::Delete - 56))
-      | (1ULL << (ECMAScriptParser::In - 56))
-      | (1ULL << (ECMAScriptParser::Try - 56)))) != 0))) {
+      ((1ULL << (_la - 56)) & 134217727) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -5607,7 +6570,8 @@ size_t ECMAScriptParser::FutureReservedWordContext::getRuleIndex() const {
   return ECMAScriptParser::RuleFutureReservedWord;
 }
 
-antlrcpp::Any ECMAScriptParser::FutureReservedWordContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::FutureReservedWordContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitFutureReservedWord(this);
   else
@@ -5619,7 +6583,11 @@ ECMAScriptParser::FutureReservedWordContext* ECMAScriptParser::futureReservedWor
   enterRule(_localctx, 100, ECMAScriptParser::RuleFutureReservedWord);
   size_t _la = 0;
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5627,21 +6595,7 @@ ECMAScriptParser::FutureReservedWordContext* ECMAScriptParser::futureReservedWor
     setState(633);
     _la = _input->LA(1);
     if (!(((((_la - 83) & ~ 0x3fULL) == 0) &&
-      ((1ULL << (_la - 83)) & ((1ULL << (ECMAScriptParser::Class - 83))
-      | (1ULL << (ECMAScriptParser::Enum - 83))
-      | (1ULL << (ECMAScriptParser::Extends - 83))
-      | (1ULL << (ECMAScriptParser::Super - 83))
-      | (1ULL << (ECMAScriptParser::Const - 83))
-      | (1ULL << (ECMAScriptParser::Export - 83))
-      | (1ULL << (ECMAScriptParser::Import - 83))
-      | (1ULL << (ECMAScriptParser::Implements - 83))
-      | (1ULL << (ECMAScriptParser::Private - 83))
-      | (1ULL << (ECMAScriptParser::Public - 83))
-      | (1ULL << (ECMAScriptParser::Interface - 83))
-      | (1ULL << (ECMAScriptParser::Package - 83))
-      | (1ULL << (ECMAScriptParser::Protected - 83))
-      | (1ULL << (ECMAScriptParser::Static - 83))
-      | (1ULL << (ECMAScriptParser::Yield - 83)))) != 0))) {
+      ((1ULL << (_la - 83)) & 32767) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -5678,7 +6632,8 @@ size_t ECMAScriptParser::GetterContext::getRuleIndex() const {
   return ECMAScriptParser::RuleGetter;
 }
 
-antlrcpp::Any ECMAScriptParser::GetterContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::GetterContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitGetter(this);
   else
@@ -5689,14 +6644,18 @@ ECMAScriptParser::GetterContext* ECMAScriptParser::getter() {
   GetterContext *_localctx = _tracker.createInstance<GetterContext>(_ctx, getState());
   enterRule(_localctx, 102, ECMAScriptParser::RuleGetter);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
     setState(635);
 
-    if (_input->LT(1)->getText().compare("get")) throw FailedPredicateException(this, "_input->LT(1).Text.Equals(\"get\")");
+    if (!(_input.Lt(1).Text.Equals("get"))) throw FailedPredicateException(this, "_input.Lt(1).Text.Equals(\"get\")");
     setState(636);
     match(ECMAScriptParser::Identifier);
     setState(637);
@@ -5731,7 +6690,8 @@ size_t ECMAScriptParser::SetterContext::getRuleIndex() const {
   return ECMAScriptParser::RuleSetter;
 }
 
-antlrcpp::Any ECMAScriptParser::SetterContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::SetterContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitSetter(this);
   else
@@ -5742,14 +6702,18 @@ ECMAScriptParser::SetterContext* ECMAScriptParser::setter() {
   SetterContext *_localctx = _tracker.createInstance<SetterContext>(_ctx, getState());
   enterRule(_localctx, 104, ECMAScriptParser::RuleSetter);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
     setState(639);
 
-    if (_input->LT(1)->getText().compare("set")) throw FailedPredicateException(this, "_input->LT(1)->getText().Equals(\"set\")");
+    if (!(_input.Lt(1).Text.Equals("set"))) throw FailedPredicateException(this, "_input.Lt(1).Text.Equals(\"set\")");
     setState(640);
     match(ECMAScriptParser::Identifier);
     setState(641);
@@ -5784,7 +6748,8 @@ size_t ECMAScriptParser::EosContext::getRuleIndex() const {
   return ECMAScriptParser::RuleEos;
 }
 
-antlrcpp::Any ECMAScriptParser::EosContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::EosContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitEos(this);
   else
@@ -5795,7 +6760,11 @@ ECMAScriptParser::EosContext* ECMAScriptParser::eos() {
   EosContext *_localctx = _tracker.createInstance<EosContext>(_ctx, getState());
   enterRule(_localctx, 106, ECMAScriptParser::RuleEos);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5828,10 +6797,12 @@ ECMAScriptParser::EosContext* ECMAScriptParser::eos() {
       enterOuterAlt(_localctx, 4);
       setState(646);
 
-      if (!(_input->LT(1)->getType() == CloseBrace)) throw FailedPredicateException(this, "_input->LT(1).Type == CloseBrace");
+      if (!(_input.Lt(1).Type == CloseBrace)) throw FailedPredicateException(this, "_input.Lt(1).Type == CloseBrace");
       break;
     }
 
+    default:
+      break;
     }
    
   }
@@ -5859,7 +6830,8 @@ size_t ECMAScriptParser::EofContext::getRuleIndex() const {
   return ECMAScriptParser::RuleEof;
 }
 
-antlrcpp::Any ECMAScriptParser::EofContext::accept(tree::ParseTreeVisitor *visitor) {
+
+std::any ECMAScriptParser::EofContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<ECMAScriptVisitor*>(visitor))
     return parserVisitor->visitEof(this);
   else
@@ -5870,7 +6842,11 @@ ECMAScriptParser::EofContext* ECMAScriptParser::eof() {
   EofContext *_localctx = _tracker.createInstance<EofContext>(_ctx, getState());
   enterRule(_localctx, 108, ECMAScriptParser::RuleEof);
 
+#if __cplusplus > 201703L
+  auto onExit = finally([=, this] {
+#else
   auto onExit = finally([=] {
+#endif
     exitRule();
   });
   try {
@@ -5890,15 +6866,15 @@ ECMAScriptParser::EofContext* ECMAScriptParser::eof() {
 
 bool ECMAScriptParser::sempred(RuleContext *context, size_t ruleIndex, size_t predicateIndex) {
   switch (ruleIndex) {
-    case 11: return expressionStatementSempred(dynamic_cast<ExpressionStatementContext *>(context), predicateIndex);
-    case 14: return continueStatementSempred(dynamic_cast<ContinueStatementContext *>(context), predicateIndex);
-    case 15: return breakStatementSempred(dynamic_cast<BreakStatementContext *>(context), predicateIndex);
-    case 16: return returnStatementSempred(dynamic_cast<ReturnStatementContext *>(context), predicateIndex);
-    case 24: return throwStatementSempred(dynamic_cast<ThrowStatementContext *>(context), predicateIndex);
-    case 43: return singleExpressionSempred(dynamic_cast<SingleExpressionContext *>(context), predicateIndex);
-    case 51: return getterSempred(dynamic_cast<GetterContext *>(context), predicateIndex);
-    case 52: return setterSempred(dynamic_cast<SetterContext *>(context), predicateIndex);
-    case 53: return eosSempred(dynamic_cast<EosContext *>(context), predicateIndex);
+    case 11: return expressionStatementSempred(antlrcpp::downCast<ExpressionStatementContext *>(context), predicateIndex);
+    case 14: return continueStatementSempred(antlrcpp::downCast<ContinueStatementContext *>(context), predicateIndex);
+    case 15: return breakStatementSempred(antlrcpp::downCast<BreakStatementContext *>(context), predicateIndex);
+    case 16: return returnStatementSempred(antlrcpp::downCast<ReturnStatementContext *>(context), predicateIndex);
+    case 24: return throwStatementSempred(antlrcpp::downCast<ThrowStatementContext *>(context), predicateIndex);
+    case 43: return singleExpressionSempred(antlrcpp::downCast<SingleExpressionContext *>(context), predicateIndex);
+    case 51: return getterSempred(antlrcpp::downCast<GetterContext *>(context), predicateIndex);
+    case 52: return setterSempred(antlrcpp::downCast<SetterContext *>(context), predicateIndex);
+    case 53: return eosSempred(antlrcpp::downCast<EosContext *>(context), predicateIndex);
 
   default:
     break;
@@ -5908,7 +6884,7 @@ bool ECMAScriptParser::sempred(RuleContext *context, size_t ruleIndex, size_t pr
 
 bool ECMAScriptParser::expressionStatementSempred(ExpressionStatementContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 0: return (_input->LA(1) != OpenBrace) && (_input->LA(1) != Function);
+    case 0: return (_input.La(1) != OpenBrace) && (_input.La(1) != Function);
 
   default:
     break;
@@ -5989,7 +6965,7 @@ bool ECMAScriptParser::singleExpressionSempred(SingleExpressionContext *_localct
 
 bool ECMAScriptParser::getterSempred(GetterContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 27: return !(_input->LT(1)->getText().compare("get"));
+    case 27: return _input.Lt(1).Text.Equals("get");
 
   default:
     break;
@@ -5999,7 +6975,7 @@ bool ECMAScriptParser::getterSempred(GetterContext *_localctx, size_t predicateI
 
 bool ECMAScriptParser::setterSempred(SetterContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
-    case 28: return !(_input->LT(1)->getText().compare("set"));
+    case 28: return _input.Lt(1).Text.Equals("set");
 
   default:
     break;
@@ -6010,7 +6986,7 @@ bool ECMAScriptParser::setterSempred(SetterContext *_localctx, size_t predicateI
 bool ECMAScriptParser::eosSempred(EosContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
     case 29: return lineTerminatorAhead();
-    case 30: return _input->LT(1)->getType() == CloseBrace;
+    case 30: return _input.Lt(1).Type == CloseBrace;
 
   default:
     break;
@@ -6018,559 +6994,10 @@ bool ECMAScriptParser::eosSempred(EosContext *_localctx, size_t predicateIndex) 
   return true;
 }
 
-// Static vars and initialization.
-std::vector<dfa::DFA> ECMAScriptParser::_decisionToDFA;
-atn::PredictionContextCache ECMAScriptParser::_sharedContextCache;
-
-// We own the ATN which in turn owns the ATN states.
-atn::ATN ECMAScriptParser::_atn;
-std::vector<uint16_t> ECMAScriptParser::_serializedATN;
-
-std::vector<std::string> ECMAScriptParser::_ruleNames = {
-  "program", "sourceElements", "sourceElement", "statement", "block", "statementList", 
-  "variableStatement", "variableDeclarationList", "variableDeclaration", 
-  "initialiser", "emptyStatement", "expressionStatement", "ifStatement", 
-  "iterationStatement", "continueStatement", "breakStatement", "returnStatement", 
-  "withStatement", "switchStatement", "caseBlock", "caseClauses", "caseClause", 
-  "defaultClause", "labelledStatement", "throwStatement", "tryStatement", 
-  "catchProduction", "finallyProduction", "debuggerStatement", "functionDeclaration", 
-  "formalParameterList", "functionBody", "arrayLiteral", "elementList", 
-  "elision", "objectLiteral", "propertyNameAndValueList", "propertyAssignment", 
-  "propertyName", "propertySetParameterList", "arguments", "argumentList", 
-  "expressionSequence", "singleExpression", "assignmentOperator", "literal", 
-  "numericLiteral", "identifierName", "reservedWord", "keyword", "futureReservedWord", 
-  "getter", "setter", "eos", "eof"
-};
-
-std::vector<std::string> ECMAScriptParser::_literalNames = {
-  "", "", "", "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", "','", "'='", 
-  "'?'", "':'", "'.'", "'++'", "'--'", "'+'", "'-'", "'~'", "'!'", "'*'", 
-  "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", "'<='", "'>='", "'=='", 
-  "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", "'&&'", "'||'", "'*='", 
-  "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", "'>>>='", "'&='", "'^='", 
-  "'|='", "'null'", "", "", "", "", "'break'", "'do'", "'instanceof'", "'typeof'", 
-  "'case'", "'else'", "'new'", "'var'", "'let'", "'catch'", "'finally'", 
-  "'return'", "'void'", "'continue'", "'for'", "'switch'", "'while'", "'debugger'", 
-  "'function'", "'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", 
-  "'in'", "'try'", "'class'", "'enum'", "'extends'", "'super'", "'const'", 
-  "'export'", "'import'", "'implements'", "'private'", "'public'", "'interface'", 
-  "'package'", "'protected'", "'static'", "'yield'"
-};
-
-std::vector<std::string> ECMAScriptParser::_symbolicNames = {
-  "", "RegularExpressionLiteral", "LineTerminator", "OpenBracket", "CloseBracket", 
-  "OpenParen", "CloseParen", "OpenBrace", "CloseBrace", "SemiColon", "Comma", 
-  "Assign", "QuestionMark", "Colon", "Dot", "PlusPlus", "MinusMinus", "Plus", 
-  "Minus", "BitNot", "Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", 
-  "LeftShiftArithmetic", "RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", 
-  "GreaterThanEquals", "Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", 
-  "BitAnd", "BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", 
-  "ModulusAssign", "PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", 
-  "RightShiftArithmeticAssign", "RightShiftLogicalAssign", "BitAndAssign", 
-  "BitXorAssign", "BitOrAssign", "NullLiteral", "BooleanLiteral", "DecimalLiteral", 
-  "HexIntegerLiteral", "OctalIntegerLiteral", "Break", "Do", "Instanceof", 
-  "Typeof", "Case", "Else", "New", "Var", "Let", "Catch", "Finally", "Return", 
-  "Void", "Continue", "For", "Switch", "While", "Debugger", "Function", 
-  "This", "With", "Default", "If", "Throw", "Delete", "In", "Try", "Class", 
-  "Enum", "Extends", "Super", "Const", "Export", "Import", "Implements", 
-  "Private", "Public", "Interface", "Package", "Protected", "Static", "Yield", 
-  "Identifier", "StringLiteral", "WhiteSpaces", "MultiLineComment", "SingleLineComment", 
-  "HtmlComment", "UnexpectedCharacter"
-};
-
-dfa::Vocabulary ECMAScriptParser::_vocabulary(_literalNames, _symbolicNames);
-
-std::vector<std::string> ECMAScriptParser::_tokenNames;
-
-ECMAScriptParser::Initializer::Initializer() {
-	for (size_t i = 0; i < _symbolicNames.size(); ++i) {
-		std::string name = _vocabulary.getLiteralName(i);
-		if (name.empty()) {
-			name = _vocabulary.getSymbolicName(i);
-		}
-
-		if (name.empty()) {
-			_tokenNames.push_back("<INVALID>");
-		} else {
-      _tokenNames.push_back(name);
-    }
-	}
-
-  _serializedATN = {
-    0x3, 0x608b, 0xa72a, 0x8133, 0xb9ed, 0x417c, 0x3be7, 0x7786, 0x5964, 
-    0x3, 0x6a, 0x28e, 0x4, 0x2, 0x9, 0x2, 0x4, 0x3, 0x9, 0x3, 0x4, 0x4, 
-    0x9, 0x4, 0x4, 0x5, 0x9, 0x5, 0x4, 0x6, 0x9, 0x6, 0x4, 0x7, 0x9, 0x7, 
-    0x4, 0x8, 0x9, 0x8, 0x4, 0x9, 0x9, 0x9, 0x4, 0xa, 0x9, 0xa, 0x4, 0xb, 
-    0x9, 0xb, 0x4, 0xc, 0x9, 0xc, 0x4, 0xd, 0x9, 0xd, 0x4, 0xe, 0x9, 0xe, 
-    0x4, 0xf, 0x9, 0xf, 0x4, 0x10, 0x9, 0x10, 0x4, 0x11, 0x9, 0x11, 0x4, 
-    0x12, 0x9, 0x12, 0x4, 0x13, 0x9, 0x13, 0x4, 0x14, 0x9, 0x14, 0x4, 0x15, 
-    0x9, 0x15, 0x4, 0x16, 0x9, 0x16, 0x4, 0x17, 0x9, 0x17, 0x4, 0x18, 0x9, 
-    0x18, 0x4, 0x19, 0x9, 0x19, 0x4, 0x1a, 0x9, 0x1a, 0x4, 0x1b, 0x9, 0x1b, 
-    0x4, 0x1c, 0x9, 0x1c, 0x4, 0x1d, 0x9, 0x1d, 0x4, 0x1e, 0x9, 0x1e, 0x4, 
-    0x1f, 0x9, 0x1f, 0x4, 0x20, 0x9, 0x20, 0x4, 0x21, 0x9, 0x21, 0x4, 0x22, 
-    0x9, 0x22, 0x4, 0x23, 0x9, 0x23, 0x4, 0x24, 0x9, 0x24, 0x4, 0x25, 0x9, 
-    0x25, 0x4, 0x26, 0x9, 0x26, 0x4, 0x27, 0x9, 0x27, 0x4, 0x28, 0x9, 0x28, 
-    0x4, 0x29, 0x9, 0x29, 0x4, 0x2a, 0x9, 0x2a, 0x4, 0x2b, 0x9, 0x2b, 0x4, 
-    0x2c, 0x9, 0x2c, 0x4, 0x2d, 0x9, 0x2d, 0x4, 0x2e, 0x9, 0x2e, 0x4, 0x2f, 
-    0x9, 0x2f, 0x4, 0x30, 0x9, 0x30, 0x4, 0x31, 0x9, 0x31, 0x4, 0x32, 0x9, 
-    0x32, 0x4, 0x33, 0x9, 0x33, 0x4, 0x34, 0x9, 0x34, 0x4, 0x35, 0x9, 0x35, 
-    0x4, 0x36, 0x9, 0x36, 0x4, 0x37, 0x9, 0x37, 0x4, 0x38, 0x9, 0x38, 0x3, 
-    0x2, 0x5, 0x2, 0x72, 0xa, 0x2, 0x3, 0x2, 0x3, 0x2, 0x3, 0x3, 0x6, 0x3, 
-    0x77, 0xa, 0x3, 0xd, 0x3, 0xe, 0x3, 0x78, 0x3, 0x4, 0x3, 0x4, 0x5, 0x4, 
-    0x7d, 0xa, 0x4, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 
-    0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 0x5, 0x3, 
-    0x5, 0x3, 0x5, 0x3, 0x5, 0x5, 0x5, 0x8e, 0xa, 0x5, 0x3, 0x6, 0x3, 0x6, 
-    0x5, 0x6, 0x92, 0xa, 0x6, 0x3, 0x6, 0x3, 0x6, 0x3, 0x7, 0x6, 0x7, 0x97, 
-    0xa, 0x7, 0xd, 0x7, 0xe, 0x7, 0x98, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 
-    0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x5, 0x8, 0xa3, 0xa, 0x8, 
-    0x3, 0x9, 0x3, 0x9, 0x3, 0x9, 0x7, 0x9, 0xa8, 0xa, 0x9, 0xc, 0x9, 0xe, 
-    0x9, 0xab, 0xb, 0x9, 0x3, 0xa, 0x3, 0xa, 0x5, 0xa, 0xaf, 0xa, 0xa, 0x3, 
-    0xb, 0x3, 0xb, 0x3, 0xb, 0x3, 0xc, 0x3, 0xc, 0x3, 0xd, 0x3, 0xd, 0x3, 
-    0xd, 0x3, 0xd, 0x3, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 
-    0xe, 0x3, 0xe, 0x5, 0xe, 0xc1, 0xa, 0xe, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 
-    0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 
-    0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 
-    0x5, 0xf, 0xd4, 0xa, 0xf, 0x3, 0xf, 0x3, 0xf, 0x5, 0xf, 0xd8, 0xa, 0xf, 
-    0x3, 0xf, 0x3, 0xf, 0x5, 0xf, 0xdc, 0xa, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x5, 0xf, 0xe6, 
-    0xa, 0xf, 0x3, 0xf, 0x3, 0xf, 0x5, 0xf, 0xea, 0xa, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x5, 0xf, 0xf5, 0xa, 0xf, 0x3, 0xf, 0x3, 0xf, 0x5, 0xf, 0xf9, 0xa, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x5, 0xf, 0x118, 0xa, 0xf, 0x3, 0x10, 0x3, 0x10, 0x3, 
-    0x10, 0x5, 0x10, 0x11d, 0xa, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x11, 
-    0x3, 0x11, 0x3, 0x11, 0x5, 0x11, 0x124, 0xa, 0x11, 0x3, 0x11, 0x3, 0x11, 
-    0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x5, 0x12, 0x12b, 0xa, 0x12, 0x3, 0x12, 
-    0x3, 0x12, 0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 0x3, 
-    0x13, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 
-    0x3, 0x15, 0x3, 0x15, 0x5, 0x15, 0x13d, 0xa, 0x15, 0x3, 0x15, 0x3, 0x15, 
-    0x5, 0x15, 0x141, 0xa, 0x15, 0x5, 0x15, 0x143, 0xa, 0x15, 0x3, 0x15, 
-    0x3, 0x15, 0x3, 0x16, 0x6, 0x16, 0x148, 0xa, 0x16, 0xd, 0x16, 0xe, 0x16, 
-    0x149, 0x3, 0x17, 0x3, 0x17, 0x3, 0x17, 0x3, 0x17, 0x5, 0x17, 0x150, 
-    0xa, 0x17, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x5, 0x18, 0x155, 0xa, 0x18, 
-    0x3, 0x19, 0x3, 0x19, 0x3, 0x19, 0x3, 0x19, 0x3, 0x1a, 0x3, 0x1a, 0x3, 
-    0x1a, 0x3, 0x1a, 0x3, 0x1a, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 
-    0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 
-    0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x5, 0x1b, 0x16d, 0xa, 0x1b, 0x3, 0x1c, 
-    0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1d, 0x3, 
-    0x1d, 0x3, 0x1d, 0x3, 0x1e, 0x3, 0x1e, 0x3, 0x1e, 0x3, 0x1f, 0x3, 0x1f, 
-    0x3, 0x1f, 0x3, 0x1f, 0x5, 0x1f, 0x17f, 0xa, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 
-    0x3, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x7, 
-    0x20, 0x189, 0xa, 0x20, 0xc, 0x20, 0xe, 0x20, 0x18c, 0xb, 0x20, 0x3, 
-    0x21, 0x5, 0x21, 0x18f, 0xa, 0x21, 0x3, 0x22, 0x3, 0x22, 0x5, 0x22, 
-    0x193, 0xa, 0x22, 0x3, 0x22, 0x5, 0x22, 0x196, 0xa, 0x22, 0x3, 0x22, 
-    0x5, 0x22, 0x199, 0xa, 0x22, 0x3, 0x22, 0x3, 0x22, 0x3, 0x23, 0x5, 0x23, 
-    0x19e, 0xa, 0x23, 0x3, 0x23, 0x3, 0x23, 0x3, 0x23, 0x5, 0x23, 0x1a3, 
-    0xa, 0x23, 0x3, 0x23, 0x7, 0x23, 0x1a6, 0xa, 0x23, 0xc, 0x23, 0xe, 0x23, 
-    0x1a9, 0xb, 0x23, 0x3, 0x24, 0x6, 0x24, 0x1ac, 0xa, 0x24, 0xd, 0x24, 
-    0xe, 0x24, 0x1ad, 0x3, 0x25, 0x3, 0x25, 0x5, 0x25, 0x1b2, 0xa, 0x25, 
-    0x3, 0x25, 0x5, 0x25, 0x1b5, 0xa, 0x25, 0x3, 0x25, 0x3, 0x25, 0x3, 0x26, 
-    0x3, 0x26, 0x3, 0x26, 0x7, 0x26, 0x1bc, 0xa, 0x26, 0xc, 0x26, 0xe, 0x26, 
-    0x1bf, 0xb, 0x26, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 
-    0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 
-    0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 
-    0x3, 0x27, 0x5, 0x27, 0x1d4, 0xa, 0x27, 0x3, 0x28, 0x3, 0x28, 0x3, 0x28, 
-    0x5, 0x28, 0x1d9, 0xa, 0x28, 0x3, 0x29, 0x3, 0x29, 0x3, 0x2a, 0x3, 0x2a, 
-    0x5, 0x2a, 0x1df, 0xa, 0x2a, 0x3, 0x2a, 0x3, 0x2a, 0x3, 0x2b, 0x3, 0x2b, 
-    0x3, 0x2b, 0x7, 0x2b, 0x1e6, 0xa, 0x2b, 0xc, 0x2b, 0xe, 0x2b, 0x1e9, 
-    0xb, 0x2b, 0x3, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x7, 0x2c, 0x1ee, 0xa, 0x2c, 
-    0xc, 0x2c, 0xe, 0x2c, 0x1f1, 0xb, 0x2c, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x5, 0x2d, 0x1f6, 0xa, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x5, 0x2d, 0x1fa, 
-    0xa, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x5, 0x2d, 0x204, 0xa, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x5, 0x2d, 0x221, 0xa, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
-    0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 
-    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x7, 0x2d, 0x264, 0xa, 0x2d, 0xc, 0x2d, 
-    0xe, 0x2d, 0x267, 0xb, 0x2d, 0x3, 0x2e, 0x3, 0x2e, 0x3, 0x2f, 0x3, 0x2f, 
-    0x5, 0x2f, 0x26d, 0xa, 0x2f, 0x3, 0x30, 0x3, 0x30, 0x3, 0x31, 0x3, 0x31, 
-    0x5, 0x31, 0x273, 0xa, 0x31, 0x3, 0x32, 0x3, 0x32, 0x3, 0x32, 0x5, 0x32, 
-    0x278, 0xa, 0x32, 0x3, 0x33, 0x3, 0x33, 0x3, 0x34, 0x3, 0x34, 0x3, 0x35, 
-    0x3, 0x35, 0x3, 0x35, 0x3, 0x35, 0x3, 0x36, 0x3, 0x36, 0x3, 0x36, 0x3, 
-    0x36, 0x3, 0x37, 0x3, 0x37, 0x3, 0x37, 0x3, 0x37, 0x5, 0x37, 0x28a, 
-    0xa, 0x37, 0x3, 0x38, 0x3, 0x38, 0x3, 0x38, 0x2, 0x3, 0x58, 0x39, 0x2, 
-    0x4, 0x6, 0x8, 0xa, 0xc, 0xe, 0x10, 0x12, 0x14, 0x16, 0x18, 0x1a, 0x1c, 
-    0x1e, 0x20, 0x22, 0x24, 0x26, 0x28, 0x2a, 0x2c, 0x2e, 0x30, 0x32, 0x34, 
-    0x36, 0x38, 0x3a, 0x3c, 0x3e, 0x40, 0x42, 0x44, 0x46, 0x48, 0x4a, 0x4c, 
-    0x4e, 0x50, 0x52, 0x54, 0x56, 0x58, 0x5a, 0x5c, 0x5e, 0x60, 0x62, 0x64, 
-    0x66, 0x68, 0x6a, 0x6c, 0x6e, 0x2, 0xd, 0x3, 0x2, 0x17, 0x19, 0x3, 0x2, 
-    0x13, 0x14, 0x3, 0x2, 0x1a, 0x1c, 0x3, 0x2, 0x1d, 0x20, 0x3, 0x2, 0x21, 
-    0x24, 0x3, 0x2, 0x2a, 0x34, 0x5, 0x2, 0x3, 0x3, 0x35, 0x36, 0x65, 0x65, 
-    0x3, 0x2, 0x37, 0x39, 0x3, 0x2, 0x35, 0x36, 0x3, 0x2, 0x3a, 0x54, 0x3, 
-    0x2, 0x55, 0x63, 0x2, 0x2c8, 0x2, 0x71, 0x3, 0x2, 0x2, 0x2, 0x4, 0x76, 
-    0x3, 0x2, 0x2, 0x2, 0x6, 0x7c, 0x3, 0x2, 0x2, 0x2, 0x8, 0x8d, 0x3, 0x2, 
-    0x2, 0x2, 0xa, 0x8f, 0x3, 0x2, 0x2, 0x2, 0xc, 0x96, 0x3, 0x2, 0x2, 0x2, 
-    0xe, 0xa2, 0x3, 0x2, 0x2, 0x2, 0x10, 0xa4, 0x3, 0x2, 0x2, 0x2, 0x12, 
-    0xac, 0x3, 0x2, 0x2, 0x2, 0x14, 0xb0, 0x3, 0x2, 0x2, 0x2, 0x16, 0xb3, 
-    0x3, 0x2, 0x2, 0x2, 0x18, 0xb5, 0x3, 0x2, 0x2, 0x2, 0x1a, 0xb9, 0x3, 
-    0x2, 0x2, 0x2, 0x1c, 0x117, 0x3, 0x2, 0x2, 0x2, 0x1e, 0x119, 0x3, 0x2, 
-    0x2, 0x2, 0x20, 0x120, 0x3, 0x2, 0x2, 0x2, 0x22, 0x127, 0x3, 0x2, 0x2, 
-    0x2, 0x24, 0x12e, 0x3, 0x2, 0x2, 0x2, 0x26, 0x134, 0x3, 0x2, 0x2, 0x2, 
-    0x28, 0x13a, 0x3, 0x2, 0x2, 0x2, 0x2a, 0x147, 0x3, 0x2, 0x2, 0x2, 0x2c, 
-    0x14b, 0x3, 0x2, 0x2, 0x2, 0x2e, 0x151, 0x3, 0x2, 0x2, 0x2, 0x30, 0x156, 
-    0x3, 0x2, 0x2, 0x2, 0x32, 0x15a, 0x3, 0x2, 0x2, 0x2, 0x34, 0x16c, 0x3, 
-    0x2, 0x2, 0x2, 0x36, 0x16e, 0x3, 0x2, 0x2, 0x2, 0x38, 0x174, 0x3, 0x2, 
-    0x2, 0x2, 0x3a, 0x177, 0x3, 0x2, 0x2, 0x2, 0x3c, 0x17a, 0x3, 0x2, 0x2, 
-    0x2, 0x3e, 0x185, 0x3, 0x2, 0x2, 0x2, 0x40, 0x18e, 0x3, 0x2, 0x2, 0x2, 
-    0x42, 0x190, 0x3, 0x2, 0x2, 0x2, 0x44, 0x19d, 0x3, 0x2, 0x2, 0x2, 0x46, 
-    0x1ab, 0x3, 0x2, 0x2, 0x2, 0x48, 0x1af, 0x3, 0x2, 0x2, 0x2, 0x4a, 0x1b8, 
-    0x3, 0x2, 0x2, 0x2, 0x4c, 0x1d3, 0x3, 0x2, 0x2, 0x2, 0x4e, 0x1d8, 0x3, 
-    0x2, 0x2, 0x2, 0x50, 0x1da, 0x3, 0x2, 0x2, 0x2, 0x52, 0x1dc, 0x3, 0x2, 
-    0x2, 0x2, 0x54, 0x1e2, 0x3, 0x2, 0x2, 0x2, 0x56, 0x1ea, 0x3, 0x2, 0x2, 
-    0x2, 0x58, 0x220, 0x3, 0x2, 0x2, 0x2, 0x5a, 0x268, 0x3, 0x2, 0x2, 0x2, 
-    0x5c, 0x26c, 0x3, 0x2, 0x2, 0x2, 0x5e, 0x26e, 0x3, 0x2, 0x2, 0x2, 0x60, 
-    0x272, 0x3, 0x2, 0x2, 0x2, 0x62, 0x277, 0x3, 0x2, 0x2, 0x2, 0x64, 0x279, 
-    0x3, 0x2, 0x2, 0x2, 0x66, 0x27b, 0x3, 0x2, 0x2, 0x2, 0x68, 0x27d, 0x3, 
-    0x2, 0x2, 0x2, 0x6a, 0x281, 0x3, 0x2, 0x2, 0x2, 0x6c, 0x289, 0x3, 0x2, 
-    0x2, 0x2, 0x6e, 0x28b, 0x3, 0x2, 0x2, 0x2, 0x70, 0x72, 0x5, 0x4, 0x3, 
-    0x2, 0x71, 0x70, 0x3, 0x2, 0x2, 0x2, 0x71, 0x72, 0x3, 0x2, 0x2, 0x2, 
-    0x72, 0x73, 0x3, 0x2, 0x2, 0x2, 0x73, 0x74, 0x7, 0x2, 0x2, 0x3, 0x74, 
-    0x3, 0x3, 0x2, 0x2, 0x2, 0x75, 0x77, 0x5, 0x6, 0x4, 0x2, 0x76, 0x75, 
-    0x3, 0x2, 0x2, 0x2, 0x77, 0x78, 0x3, 0x2, 0x2, 0x2, 0x78, 0x76, 0x3, 
-    0x2, 0x2, 0x2, 0x78, 0x79, 0x3, 0x2, 0x2, 0x2, 0x79, 0x5, 0x3, 0x2, 
-    0x2, 0x2, 0x7a, 0x7d, 0x5, 0x8, 0x5, 0x2, 0x7b, 0x7d, 0x5, 0x3c, 0x1f, 
-    0x2, 0x7c, 0x7a, 0x3, 0x2, 0x2, 0x2, 0x7c, 0x7b, 0x3, 0x2, 0x2, 0x2, 
-    0x7d, 0x7, 0x3, 0x2, 0x2, 0x2, 0x7e, 0x8e, 0x5, 0xa, 0x6, 0x2, 0x7f, 
-    0x8e, 0x5, 0xe, 0x8, 0x2, 0x80, 0x8e, 0x5, 0x16, 0xc, 0x2, 0x81, 0x8e, 
-    0x5, 0x18, 0xd, 0x2, 0x82, 0x8e, 0x5, 0x1a, 0xe, 0x2, 0x83, 0x8e, 0x5, 
-    0x1c, 0xf, 0x2, 0x84, 0x8e, 0x5, 0x1e, 0x10, 0x2, 0x85, 0x8e, 0x5, 0x20, 
-    0x11, 0x2, 0x86, 0x8e, 0x5, 0x22, 0x12, 0x2, 0x87, 0x8e, 0x5, 0x24, 
-    0x13, 0x2, 0x88, 0x8e, 0x5, 0x30, 0x19, 0x2, 0x89, 0x8e, 0x5, 0x26, 
-    0x14, 0x2, 0x8a, 0x8e, 0x5, 0x32, 0x1a, 0x2, 0x8b, 0x8e, 0x5, 0x34, 
-    0x1b, 0x2, 0x8c, 0x8e, 0x5, 0x3a, 0x1e, 0x2, 0x8d, 0x7e, 0x3, 0x2, 0x2, 
-    0x2, 0x8d, 0x7f, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x80, 0x3, 0x2, 0x2, 0x2, 
-    0x8d, 0x81, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x82, 0x3, 0x2, 0x2, 0x2, 0x8d, 
-    0x83, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x84, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x85, 
-    0x3, 0x2, 0x2, 0x2, 0x8d, 0x86, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x87, 0x3, 
-    0x2, 0x2, 0x2, 0x8d, 0x88, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x89, 0x3, 0x2, 
-    0x2, 0x2, 0x8d, 0x8a, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x8b, 0x3, 0x2, 0x2, 
-    0x2, 0x8d, 0x8c, 0x3, 0x2, 0x2, 0x2, 0x8e, 0x9, 0x3, 0x2, 0x2, 0x2, 
-    0x8f, 0x91, 0x7, 0x9, 0x2, 0x2, 0x90, 0x92, 0x5, 0xc, 0x7, 0x2, 0x91, 
-    0x90, 0x3, 0x2, 0x2, 0x2, 0x91, 0x92, 0x3, 0x2, 0x2, 0x2, 0x92, 0x93, 
-    0x3, 0x2, 0x2, 0x2, 0x93, 0x94, 0x7, 0xa, 0x2, 0x2, 0x94, 0xb, 0x3, 
-    0x2, 0x2, 0x2, 0x95, 0x97, 0x5, 0x8, 0x5, 0x2, 0x96, 0x95, 0x3, 0x2, 
-    0x2, 0x2, 0x97, 0x98, 0x3, 0x2, 0x2, 0x2, 0x98, 0x96, 0x3, 0x2, 0x2, 
-    0x2, 0x98, 0x99, 0x3, 0x2, 0x2, 0x2, 0x99, 0xd, 0x3, 0x2, 0x2, 0x2, 
-    0x9a, 0x9b, 0x7, 0x41, 0x2, 0x2, 0x9b, 0x9c, 0x5, 0x10, 0x9, 0x2, 0x9c, 
-    0x9d, 0x5, 0x6c, 0x37, 0x2, 0x9d, 0xa3, 0x3, 0x2, 0x2, 0x2, 0x9e, 0x9f, 
-    0x7, 0x42, 0x2, 0x2, 0x9f, 0xa0, 0x5, 0x10, 0x9, 0x2, 0xa0, 0xa1, 0x5, 
-    0x6c, 0x37, 0x2, 0xa1, 0xa3, 0x3, 0x2, 0x2, 0x2, 0xa2, 0x9a, 0x3, 0x2, 
-    0x2, 0x2, 0xa2, 0x9e, 0x3, 0x2, 0x2, 0x2, 0xa3, 0xf, 0x3, 0x2, 0x2, 
-    0x2, 0xa4, 0xa9, 0x5, 0x12, 0xa, 0x2, 0xa5, 0xa6, 0x7, 0xc, 0x2, 0x2, 
-    0xa6, 0xa8, 0x5, 0x12, 0xa, 0x2, 0xa7, 0xa5, 0x3, 0x2, 0x2, 0x2, 0xa8, 
-    0xab, 0x3, 0x2, 0x2, 0x2, 0xa9, 0xa7, 0x3, 0x2, 0x2, 0x2, 0xa9, 0xaa, 
-    0x3, 0x2, 0x2, 0x2, 0xaa, 0x11, 0x3, 0x2, 0x2, 0x2, 0xab, 0xa9, 0x3, 
-    0x2, 0x2, 0x2, 0xac, 0xae, 0x7, 0x64, 0x2, 0x2, 0xad, 0xaf, 0x5, 0x14, 
-    0xb, 0x2, 0xae, 0xad, 0x3, 0x2, 0x2, 0x2, 0xae, 0xaf, 0x3, 0x2, 0x2, 
-    0x2, 0xaf, 0x13, 0x3, 0x2, 0x2, 0x2, 0xb0, 0xb1, 0x7, 0xd, 0x2, 0x2, 
-    0xb1, 0xb2, 0x5, 0x58, 0x2d, 0x2, 0xb2, 0x15, 0x3, 0x2, 0x2, 0x2, 0xb3, 
-    0xb4, 0x7, 0xb, 0x2, 0x2, 0xb4, 0x17, 0x3, 0x2, 0x2, 0x2, 0xb5, 0xb6, 
-    0x6, 0xd, 0x2, 0x2, 0xb6, 0xb7, 0x5, 0x56, 0x2c, 0x2, 0xb7, 0xb8, 0x5, 
-    0x6c, 0x37, 0x2, 0xb8, 0x19, 0x3, 0x2, 0x2, 0x2, 0xb9, 0xba, 0x7, 0x50, 
-    0x2, 0x2, 0xba, 0xbb, 0x7, 0x7, 0x2, 0x2, 0xbb, 0xbc, 0x5, 0x56, 0x2c, 
-    0x2, 0xbc, 0xbd, 0x7, 0x8, 0x2, 0x2, 0xbd, 0xc0, 0x5, 0x8, 0x5, 0x2, 
-    0xbe, 0xbf, 0x7, 0x3f, 0x2, 0x2, 0xbf, 0xc1, 0x5, 0x8, 0x5, 0x2, 0xc0, 
-    0xbe, 0x3, 0x2, 0x2, 0x2, 0xc0, 0xc1, 0x3, 0x2, 0x2, 0x2, 0xc1, 0x1b, 
-    0x3, 0x2, 0x2, 0x2, 0xc2, 0xc3, 0x7, 0x3b, 0x2, 0x2, 0xc3, 0xc4, 0x5, 
-    0x8, 0x5, 0x2, 0xc4, 0xc5, 0x7, 0x4a, 0x2, 0x2, 0xc5, 0xc6, 0x7, 0x7, 
-    0x2, 0x2, 0xc6, 0xc7, 0x5, 0x56, 0x2c, 0x2, 0xc7, 0xc8, 0x7, 0x8, 0x2, 
-    0x2, 0xc8, 0xc9, 0x5, 0x6c, 0x37, 0x2, 0xc9, 0x118, 0x3, 0x2, 0x2, 0x2, 
-    0xca, 0xcb, 0x7, 0x4a, 0x2, 0x2, 0xcb, 0xcc, 0x7, 0x7, 0x2, 0x2, 0xcc, 
-    0xcd, 0x5, 0x56, 0x2c, 0x2, 0xcd, 0xce, 0x7, 0x8, 0x2, 0x2, 0xce, 0xcf, 
-    0x5, 0x8, 0x5, 0x2, 0xcf, 0x118, 0x3, 0x2, 0x2, 0x2, 0xd0, 0xd1, 0x7, 
-    0x48, 0x2, 0x2, 0xd1, 0xd3, 0x7, 0x7, 0x2, 0x2, 0xd2, 0xd4, 0x5, 0x56, 
-    0x2c, 0x2, 0xd3, 0xd2, 0x3, 0x2, 0x2, 0x2, 0xd3, 0xd4, 0x3, 0x2, 0x2, 
-    0x2, 0xd4, 0xd5, 0x3, 0x2, 0x2, 0x2, 0xd5, 0xd7, 0x7, 0xb, 0x2, 0x2, 
-    0xd6, 0xd8, 0x5, 0x56, 0x2c, 0x2, 0xd7, 0xd6, 0x3, 0x2, 0x2, 0x2, 0xd7, 
-    0xd8, 0x3, 0x2, 0x2, 0x2, 0xd8, 0xd9, 0x3, 0x2, 0x2, 0x2, 0xd9, 0xdb, 
-    0x7, 0xb, 0x2, 0x2, 0xda, 0xdc, 0x5, 0x56, 0x2c, 0x2, 0xdb, 0xda, 0x3, 
-    0x2, 0x2, 0x2, 0xdb, 0xdc, 0x3, 0x2, 0x2, 0x2, 0xdc, 0xdd, 0x3, 0x2, 
-    0x2, 0x2, 0xdd, 0xde, 0x7, 0x8, 0x2, 0x2, 0xde, 0x118, 0x5, 0x8, 0x5, 
-    0x2, 0xdf, 0xe0, 0x7, 0x48, 0x2, 0x2, 0xe0, 0xe1, 0x7, 0x7, 0x2, 0x2, 
-    0xe1, 0xe2, 0x7, 0x41, 0x2, 0x2, 0xe2, 0xe3, 0x5, 0x10, 0x9, 0x2, 0xe3, 
-    0xe5, 0x7, 0xb, 0x2, 0x2, 0xe4, 0xe6, 0x5, 0x56, 0x2c, 0x2, 0xe5, 0xe4, 
-    0x3, 0x2, 0x2, 0x2, 0xe5, 0xe6, 0x3, 0x2, 0x2, 0x2, 0xe6, 0xe7, 0x3, 
-    0x2, 0x2, 0x2, 0xe7, 0xe9, 0x7, 0xb, 0x2, 0x2, 0xe8, 0xea, 0x5, 0x56, 
-    0x2c, 0x2, 0xe9, 0xe8, 0x3, 0x2, 0x2, 0x2, 0xe9, 0xea, 0x3, 0x2, 0x2, 
-    0x2, 0xea, 0xeb, 0x3, 0x2, 0x2, 0x2, 0xeb, 0xec, 0x7, 0x8, 0x2, 0x2, 
-    0xec, 0xed, 0x5, 0x8, 0x5, 0x2, 0xed, 0x118, 0x3, 0x2, 0x2, 0x2, 0xee, 
-    0xef, 0x7, 0x48, 0x2, 0x2, 0xef, 0xf0, 0x7, 0x7, 0x2, 0x2, 0xf0, 0xf1, 
-    0x7, 0x42, 0x2, 0x2, 0xf1, 0xf2, 0x5, 0x10, 0x9, 0x2, 0xf2, 0xf4, 0x7, 
-    0xb, 0x2, 0x2, 0xf3, 0xf5, 0x5, 0x56, 0x2c, 0x2, 0xf4, 0xf3, 0x3, 0x2, 
-    0x2, 0x2, 0xf4, 0xf5, 0x3, 0x2, 0x2, 0x2, 0xf5, 0xf6, 0x3, 0x2, 0x2, 
-    0x2, 0xf6, 0xf8, 0x7, 0xb, 0x2, 0x2, 0xf7, 0xf9, 0x5, 0x56, 0x2c, 0x2, 
-    0xf8, 0xf7, 0x3, 0x2, 0x2, 0x2, 0xf8, 0xf9, 0x3, 0x2, 0x2, 0x2, 0xf9, 
-    0xfa, 0x3, 0x2, 0x2, 0x2, 0xfa, 0xfb, 0x7, 0x8, 0x2, 0x2, 0xfb, 0xfc, 
-    0x5, 0x8, 0x5, 0x2, 0xfc, 0x118, 0x3, 0x2, 0x2, 0x2, 0xfd, 0xfe, 0x7, 
-    0x48, 0x2, 0x2, 0xfe, 0xff, 0x7, 0x7, 0x2, 0x2, 0xff, 0x100, 0x5, 0x58, 
-    0x2d, 0x2, 0x100, 0x101, 0x7, 0x53, 0x2, 0x2, 0x101, 0x102, 0x5, 0x56, 
-    0x2c, 0x2, 0x102, 0x103, 0x7, 0x8, 0x2, 0x2, 0x103, 0x104, 0x5, 0x8, 
-    0x5, 0x2, 0x104, 0x118, 0x3, 0x2, 0x2, 0x2, 0x105, 0x106, 0x7, 0x48, 
-    0x2, 0x2, 0x106, 0x107, 0x7, 0x7, 0x2, 0x2, 0x107, 0x108, 0x7, 0x41, 
-    0x2, 0x2, 0x108, 0x109, 0x5, 0x12, 0xa, 0x2, 0x109, 0x10a, 0x7, 0x53, 
-    0x2, 0x2, 0x10a, 0x10b, 0x5, 0x56, 0x2c, 0x2, 0x10b, 0x10c, 0x7, 0x8, 
-    0x2, 0x2, 0x10c, 0x10d, 0x5, 0x8, 0x5, 0x2, 0x10d, 0x118, 0x3, 0x2, 
-    0x2, 0x2, 0x10e, 0x10f, 0x7, 0x48, 0x2, 0x2, 0x10f, 0x110, 0x7, 0x7, 
-    0x2, 0x2, 0x110, 0x111, 0x7, 0x42, 0x2, 0x2, 0x111, 0x112, 0x5, 0x12, 
-    0xa, 0x2, 0x112, 0x113, 0x7, 0x53, 0x2, 0x2, 0x113, 0x114, 0x5, 0x56, 
-    0x2c, 0x2, 0x114, 0x115, 0x7, 0x8, 0x2, 0x2, 0x115, 0x116, 0x5, 0x8, 
-    0x5, 0x2, 0x116, 0x118, 0x3, 0x2, 0x2, 0x2, 0x117, 0xc2, 0x3, 0x2, 0x2, 
-    0x2, 0x117, 0xca, 0x3, 0x2, 0x2, 0x2, 0x117, 0xd0, 0x3, 0x2, 0x2, 0x2, 
-    0x117, 0xdf, 0x3, 0x2, 0x2, 0x2, 0x117, 0xee, 0x3, 0x2, 0x2, 0x2, 0x117, 
-    0xfd, 0x3, 0x2, 0x2, 0x2, 0x117, 0x105, 0x3, 0x2, 0x2, 0x2, 0x117, 0x10e, 
-    0x3, 0x2, 0x2, 0x2, 0x118, 0x1d, 0x3, 0x2, 0x2, 0x2, 0x119, 0x11c, 0x7, 
-    0x47, 0x2, 0x2, 0x11a, 0x11b, 0x6, 0x10, 0x3, 0x2, 0x11b, 0x11d, 0x7, 
-    0x64, 0x2, 0x2, 0x11c, 0x11a, 0x3, 0x2, 0x2, 0x2, 0x11c, 0x11d, 0x3, 
-    0x2, 0x2, 0x2, 0x11d, 0x11e, 0x3, 0x2, 0x2, 0x2, 0x11e, 0x11f, 0x5, 
-    0x6c, 0x37, 0x2, 0x11f, 0x1f, 0x3, 0x2, 0x2, 0x2, 0x120, 0x123, 0x7, 
-    0x3a, 0x2, 0x2, 0x121, 0x122, 0x6, 0x11, 0x4, 0x2, 0x122, 0x124, 0x7, 
-    0x64, 0x2, 0x2, 0x123, 0x121, 0x3, 0x2, 0x2, 0x2, 0x123, 0x124, 0x3, 
-    0x2, 0x2, 0x2, 0x124, 0x125, 0x3, 0x2, 0x2, 0x2, 0x125, 0x126, 0x5, 
-    0x6c, 0x37, 0x2, 0x126, 0x21, 0x3, 0x2, 0x2, 0x2, 0x127, 0x12a, 0x7, 
-    0x45, 0x2, 0x2, 0x128, 0x129, 0x6, 0x12, 0x5, 0x2, 0x129, 0x12b, 0x5, 
-    0x56, 0x2c, 0x2, 0x12a, 0x128, 0x3, 0x2, 0x2, 0x2, 0x12a, 0x12b, 0x3, 
-    0x2, 0x2, 0x2, 0x12b, 0x12c, 0x3, 0x2, 0x2, 0x2, 0x12c, 0x12d, 0x5, 
-    0x6c, 0x37, 0x2, 0x12d, 0x23, 0x3, 0x2, 0x2, 0x2, 0x12e, 0x12f, 0x7, 
-    0x4e, 0x2, 0x2, 0x12f, 0x130, 0x7, 0x7, 0x2, 0x2, 0x130, 0x131, 0x5, 
-    0x56, 0x2c, 0x2, 0x131, 0x132, 0x7, 0x8, 0x2, 0x2, 0x132, 0x133, 0x5, 
-    0x8, 0x5, 0x2, 0x133, 0x25, 0x3, 0x2, 0x2, 0x2, 0x134, 0x135, 0x7, 0x49, 
-    0x2, 0x2, 0x135, 0x136, 0x7, 0x7, 0x2, 0x2, 0x136, 0x137, 0x5, 0x56, 
-    0x2c, 0x2, 0x137, 0x138, 0x7, 0x8, 0x2, 0x2, 0x138, 0x139, 0x5, 0x28, 
-    0x15, 0x2, 0x139, 0x27, 0x3, 0x2, 0x2, 0x2, 0x13a, 0x13c, 0x7, 0x9, 
-    0x2, 0x2, 0x13b, 0x13d, 0x5, 0x2a, 0x16, 0x2, 0x13c, 0x13b, 0x3, 0x2, 
-    0x2, 0x2, 0x13c, 0x13d, 0x3, 0x2, 0x2, 0x2, 0x13d, 0x142, 0x3, 0x2, 
-    0x2, 0x2, 0x13e, 0x140, 0x5, 0x2e, 0x18, 0x2, 0x13f, 0x141, 0x5, 0x2a, 
-    0x16, 0x2, 0x140, 0x13f, 0x3, 0x2, 0x2, 0x2, 0x140, 0x141, 0x3, 0x2, 
-    0x2, 0x2, 0x141, 0x143, 0x3, 0x2, 0x2, 0x2, 0x142, 0x13e, 0x3, 0x2, 
-    0x2, 0x2, 0x142, 0x143, 0x3, 0x2, 0x2, 0x2, 0x143, 0x144, 0x3, 0x2, 
-    0x2, 0x2, 0x144, 0x145, 0x7, 0xa, 0x2, 0x2, 0x145, 0x29, 0x3, 0x2, 0x2, 
-    0x2, 0x146, 0x148, 0x5, 0x2c, 0x17, 0x2, 0x147, 0x146, 0x3, 0x2, 0x2, 
-    0x2, 0x148, 0x149, 0x3, 0x2, 0x2, 0x2, 0x149, 0x147, 0x3, 0x2, 0x2, 
-    0x2, 0x149, 0x14a, 0x3, 0x2, 0x2, 0x2, 0x14a, 0x2b, 0x3, 0x2, 0x2, 0x2, 
-    0x14b, 0x14c, 0x7, 0x3e, 0x2, 0x2, 0x14c, 0x14d, 0x5, 0x56, 0x2c, 0x2, 
-    0x14d, 0x14f, 0x7, 0xf, 0x2, 0x2, 0x14e, 0x150, 0x5, 0xc, 0x7, 0x2, 
-    0x14f, 0x14e, 0x3, 0x2, 0x2, 0x2, 0x14f, 0x150, 0x3, 0x2, 0x2, 0x2, 
-    0x150, 0x2d, 0x3, 0x2, 0x2, 0x2, 0x151, 0x152, 0x7, 0x4f, 0x2, 0x2, 
-    0x152, 0x154, 0x7, 0xf, 0x2, 0x2, 0x153, 0x155, 0x5, 0xc, 0x7, 0x2, 
-    0x154, 0x153, 0x3, 0x2, 0x2, 0x2, 0x154, 0x155, 0x3, 0x2, 0x2, 0x2, 
-    0x155, 0x2f, 0x3, 0x2, 0x2, 0x2, 0x156, 0x157, 0x7, 0x64, 0x2, 0x2, 
-    0x157, 0x158, 0x7, 0xf, 0x2, 0x2, 0x158, 0x159, 0x5, 0x8, 0x5, 0x2, 
-    0x159, 0x31, 0x3, 0x2, 0x2, 0x2, 0x15a, 0x15b, 0x7, 0x51, 0x2, 0x2, 
-    0x15b, 0x15c, 0x6, 0x1a, 0x6, 0x2, 0x15c, 0x15d, 0x5, 0x56, 0x2c, 0x2, 
-    0x15d, 0x15e, 0x5, 0x6c, 0x37, 0x2, 0x15e, 0x33, 0x3, 0x2, 0x2, 0x2, 
-    0x15f, 0x160, 0x7, 0x54, 0x2, 0x2, 0x160, 0x161, 0x5, 0xa, 0x6, 0x2, 
-    0x161, 0x162, 0x5, 0x36, 0x1c, 0x2, 0x162, 0x16d, 0x3, 0x2, 0x2, 0x2, 
-    0x163, 0x164, 0x7, 0x54, 0x2, 0x2, 0x164, 0x165, 0x5, 0xa, 0x6, 0x2, 
-    0x165, 0x166, 0x5, 0x38, 0x1d, 0x2, 0x166, 0x16d, 0x3, 0x2, 0x2, 0x2, 
-    0x167, 0x168, 0x7, 0x54, 0x2, 0x2, 0x168, 0x169, 0x5, 0xa, 0x6, 0x2, 
-    0x169, 0x16a, 0x5, 0x36, 0x1c, 0x2, 0x16a, 0x16b, 0x5, 0x38, 0x1d, 0x2, 
-    0x16b, 0x16d, 0x3, 0x2, 0x2, 0x2, 0x16c, 0x15f, 0x3, 0x2, 0x2, 0x2, 
-    0x16c, 0x163, 0x3, 0x2, 0x2, 0x2, 0x16c, 0x167, 0x3, 0x2, 0x2, 0x2, 
-    0x16d, 0x35, 0x3, 0x2, 0x2, 0x2, 0x16e, 0x16f, 0x7, 0x43, 0x2, 0x2, 
-    0x16f, 0x170, 0x7, 0x7, 0x2, 0x2, 0x170, 0x171, 0x7, 0x64, 0x2, 0x2, 
-    0x171, 0x172, 0x7, 0x8, 0x2, 0x2, 0x172, 0x173, 0x5, 0xa, 0x6, 0x2, 
-    0x173, 0x37, 0x3, 0x2, 0x2, 0x2, 0x174, 0x175, 0x7, 0x44, 0x2, 0x2, 
-    0x175, 0x176, 0x5, 0xa, 0x6, 0x2, 0x176, 0x39, 0x3, 0x2, 0x2, 0x2, 0x177, 
-    0x178, 0x7, 0x4b, 0x2, 0x2, 0x178, 0x179, 0x5, 0x6c, 0x37, 0x2, 0x179, 
-    0x3b, 0x3, 0x2, 0x2, 0x2, 0x17a, 0x17b, 0x7, 0x4c, 0x2, 0x2, 0x17b, 
-    0x17c, 0x7, 0x64, 0x2, 0x2, 0x17c, 0x17e, 0x7, 0x7, 0x2, 0x2, 0x17d, 
-    0x17f, 0x5, 0x3e, 0x20, 0x2, 0x17e, 0x17d, 0x3, 0x2, 0x2, 0x2, 0x17e, 
-    0x17f, 0x3, 0x2, 0x2, 0x2, 0x17f, 0x180, 0x3, 0x2, 0x2, 0x2, 0x180, 
-    0x181, 0x7, 0x8, 0x2, 0x2, 0x181, 0x182, 0x7, 0x9, 0x2, 0x2, 0x182, 
-    0x183, 0x5, 0x40, 0x21, 0x2, 0x183, 0x184, 0x7, 0xa, 0x2, 0x2, 0x184, 
-    0x3d, 0x3, 0x2, 0x2, 0x2, 0x185, 0x18a, 0x7, 0x64, 0x2, 0x2, 0x186, 
-    0x187, 0x7, 0xc, 0x2, 0x2, 0x187, 0x189, 0x7, 0x64, 0x2, 0x2, 0x188, 
-    0x186, 0x3, 0x2, 0x2, 0x2, 0x189, 0x18c, 0x3, 0x2, 0x2, 0x2, 0x18a, 
-    0x188, 0x3, 0x2, 0x2, 0x2, 0x18a, 0x18b, 0x3, 0x2, 0x2, 0x2, 0x18b, 
-    0x3f, 0x3, 0x2, 0x2, 0x2, 0x18c, 0x18a, 0x3, 0x2, 0x2, 0x2, 0x18d, 0x18f, 
-    0x5, 0x4, 0x3, 0x2, 0x18e, 0x18d, 0x3, 0x2, 0x2, 0x2, 0x18e, 0x18f, 
-    0x3, 0x2, 0x2, 0x2, 0x18f, 0x41, 0x3, 0x2, 0x2, 0x2, 0x190, 0x192, 0x7, 
-    0x5, 0x2, 0x2, 0x191, 0x193, 0x5, 0x44, 0x23, 0x2, 0x192, 0x191, 0x3, 
-    0x2, 0x2, 0x2, 0x192, 0x193, 0x3, 0x2, 0x2, 0x2, 0x193, 0x195, 0x3, 
-    0x2, 0x2, 0x2, 0x194, 0x196, 0x7, 0xc, 0x2, 0x2, 0x195, 0x194, 0x3, 
-    0x2, 0x2, 0x2, 0x195, 0x196, 0x3, 0x2, 0x2, 0x2, 0x196, 0x198, 0x3, 
-    0x2, 0x2, 0x2, 0x197, 0x199, 0x5, 0x46, 0x24, 0x2, 0x198, 0x197, 0x3, 
-    0x2, 0x2, 0x2, 0x198, 0x199, 0x3, 0x2, 0x2, 0x2, 0x199, 0x19a, 0x3, 
-    0x2, 0x2, 0x2, 0x19a, 0x19b, 0x7, 0x6, 0x2, 0x2, 0x19b, 0x43, 0x3, 0x2, 
-    0x2, 0x2, 0x19c, 0x19e, 0x5, 0x46, 0x24, 0x2, 0x19d, 0x19c, 0x3, 0x2, 
-    0x2, 0x2, 0x19d, 0x19e, 0x3, 0x2, 0x2, 0x2, 0x19e, 0x19f, 0x3, 0x2, 
-    0x2, 0x2, 0x19f, 0x1a7, 0x5, 0x58, 0x2d, 0x2, 0x1a0, 0x1a2, 0x7, 0xc, 
-    0x2, 0x2, 0x1a1, 0x1a3, 0x5, 0x46, 0x24, 0x2, 0x1a2, 0x1a1, 0x3, 0x2, 
-    0x2, 0x2, 0x1a2, 0x1a3, 0x3, 0x2, 0x2, 0x2, 0x1a3, 0x1a4, 0x3, 0x2, 
-    0x2, 0x2, 0x1a4, 0x1a6, 0x5, 0x58, 0x2d, 0x2, 0x1a5, 0x1a0, 0x3, 0x2, 
-    0x2, 0x2, 0x1a6, 0x1a9, 0x3, 0x2, 0x2, 0x2, 0x1a7, 0x1a5, 0x3, 0x2, 
-    0x2, 0x2, 0x1a7, 0x1a8, 0x3, 0x2, 0x2, 0x2, 0x1a8, 0x45, 0x3, 0x2, 0x2, 
-    0x2, 0x1a9, 0x1a7, 0x3, 0x2, 0x2, 0x2, 0x1aa, 0x1ac, 0x7, 0xc, 0x2, 
-    0x2, 0x1ab, 0x1aa, 0x3, 0x2, 0x2, 0x2, 0x1ac, 0x1ad, 0x3, 0x2, 0x2, 
-    0x2, 0x1ad, 0x1ab, 0x3, 0x2, 0x2, 0x2, 0x1ad, 0x1ae, 0x3, 0x2, 0x2, 
-    0x2, 0x1ae, 0x47, 0x3, 0x2, 0x2, 0x2, 0x1af, 0x1b1, 0x7, 0x9, 0x2, 0x2, 
-    0x1b0, 0x1b2, 0x5, 0x4a, 0x26, 0x2, 0x1b1, 0x1b0, 0x3, 0x2, 0x2, 0x2, 
-    0x1b1, 0x1b2, 0x3, 0x2, 0x2, 0x2, 0x1b2, 0x1b4, 0x3, 0x2, 0x2, 0x2, 
-    0x1b3, 0x1b5, 0x7, 0xc, 0x2, 0x2, 0x1b4, 0x1b3, 0x3, 0x2, 0x2, 0x2, 
-    0x1b4, 0x1b5, 0x3, 0x2, 0x2, 0x2, 0x1b5, 0x1b6, 0x3, 0x2, 0x2, 0x2, 
-    0x1b6, 0x1b7, 0x7, 0xa, 0x2, 0x2, 0x1b7, 0x49, 0x3, 0x2, 0x2, 0x2, 0x1b8, 
-    0x1bd, 0x5, 0x4c, 0x27, 0x2, 0x1b9, 0x1ba, 0x7, 0xc, 0x2, 0x2, 0x1ba, 
-    0x1bc, 0x5, 0x4c, 0x27, 0x2, 0x1bb, 0x1b9, 0x3, 0x2, 0x2, 0x2, 0x1bc, 
-    0x1bf, 0x3, 0x2, 0x2, 0x2, 0x1bd, 0x1bb, 0x3, 0x2, 0x2, 0x2, 0x1bd, 
-    0x1be, 0x3, 0x2, 0x2, 0x2, 0x1be, 0x4b, 0x3, 0x2, 0x2, 0x2, 0x1bf, 0x1bd, 
-    0x3, 0x2, 0x2, 0x2, 0x1c0, 0x1c1, 0x5, 0x4e, 0x28, 0x2, 0x1c1, 0x1c2, 
-    0x7, 0xf, 0x2, 0x2, 0x1c2, 0x1c3, 0x5, 0x58, 0x2d, 0x2, 0x1c3, 0x1d4, 
-    0x3, 0x2, 0x2, 0x2, 0x1c4, 0x1c5, 0x5, 0x68, 0x35, 0x2, 0x1c5, 0x1c6, 
-    0x7, 0x7, 0x2, 0x2, 0x1c6, 0x1c7, 0x7, 0x8, 0x2, 0x2, 0x1c7, 0x1c8, 
-    0x7, 0x9, 0x2, 0x2, 0x1c8, 0x1c9, 0x5, 0x40, 0x21, 0x2, 0x1c9, 0x1ca, 
-    0x7, 0xa, 0x2, 0x2, 0x1ca, 0x1d4, 0x3, 0x2, 0x2, 0x2, 0x1cb, 0x1cc, 
-    0x5, 0x6a, 0x36, 0x2, 0x1cc, 0x1cd, 0x7, 0x7, 0x2, 0x2, 0x1cd, 0x1ce, 
-    0x5, 0x50, 0x29, 0x2, 0x1ce, 0x1cf, 0x7, 0x8, 0x2, 0x2, 0x1cf, 0x1d0, 
-    0x7, 0x9, 0x2, 0x2, 0x1d0, 0x1d1, 0x5, 0x40, 0x21, 0x2, 0x1d1, 0x1d2, 
-    0x7, 0xa, 0x2, 0x2, 0x1d2, 0x1d4, 0x3, 0x2, 0x2, 0x2, 0x1d3, 0x1c0, 
-    0x3, 0x2, 0x2, 0x2, 0x1d3, 0x1c4, 0x3, 0x2, 0x2, 0x2, 0x1d3, 0x1cb, 
-    0x3, 0x2, 0x2, 0x2, 0x1d4, 0x4d, 0x3, 0x2, 0x2, 0x2, 0x1d5, 0x1d9, 0x5, 
-    0x60, 0x31, 0x2, 0x1d6, 0x1d9, 0x7, 0x65, 0x2, 0x2, 0x1d7, 0x1d9, 0x5, 
-    0x5e, 0x30, 0x2, 0x1d8, 0x1d5, 0x3, 0x2, 0x2, 0x2, 0x1d8, 0x1d6, 0x3, 
-    0x2, 0x2, 0x2, 0x1d8, 0x1d7, 0x3, 0x2, 0x2, 0x2, 0x1d9, 0x4f, 0x3, 0x2, 
-    0x2, 0x2, 0x1da, 0x1db, 0x7, 0x64, 0x2, 0x2, 0x1db, 0x51, 0x3, 0x2, 
-    0x2, 0x2, 0x1dc, 0x1de, 0x7, 0x7, 0x2, 0x2, 0x1dd, 0x1df, 0x5, 0x54, 
-    0x2b, 0x2, 0x1de, 0x1dd, 0x3, 0x2, 0x2, 0x2, 0x1de, 0x1df, 0x3, 0x2, 
-    0x2, 0x2, 0x1df, 0x1e0, 0x3, 0x2, 0x2, 0x2, 0x1e0, 0x1e1, 0x7, 0x8, 
-    0x2, 0x2, 0x1e1, 0x53, 0x3, 0x2, 0x2, 0x2, 0x1e2, 0x1e7, 0x5, 0x58, 
-    0x2d, 0x2, 0x1e3, 0x1e4, 0x7, 0xc, 0x2, 0x2, 0x1e4, 0x1e6, 0x5, 0x58, 
-    0x2d, 0x2, 0x1e5, 0x1e3, 0x3, 0x2, 0x2, 0x2, 0x1e6, 0x1e9, 0x3, 0x2, 
-    0x2, 0x2, 0x1e7, 0x1e5, 0x3, 0x2, 0x2, 0x2, 0x1e7, 0x1e8, 0x3, 0x2, 
-    0x2, 0x2, 0x1e8, 0x55, 0x3, 0x2, 0x2, 0x2, 0x1e9, 0x1e7, 0x3, 0x2, 0x2, 
-    0x2, 0x1ea, 0x1ef, 0x5, 0x58, 0x2d, 0x2, 0x1eb, 0x1ec, 0x7, 0xc, 0x2, 
-    0x2, 0x1ec, 0x1ee, 0x5, 0x58, 0x2d, 0x2, 0x1ed, 0x1eb, 0x3, 0x2, 0x2, 
-    0x2, 0x1ee, 0x1f1, 0x3, 0x2, 0x2, 0x2, 0x1ef, 0x1ed, 0x3, 0x2, 0x2, 
-    0x2, 0x1ef, 0x1f0, 0x3, 0x2, 0x2, 0x2, 0x1f0, 0x57, 0x3, 0x2, 0x2, 0x2, 
-    0x1f1, 0x1ef, 0x3, 0x2, 0x2, 0x2, 0x1f2, 0x1f3, 0x8, 0x2d, 0x1, 0x2, 
-    0x1f3, 0x1f5, 0x7, 0x4c, 0x2, 0x2, 0x1f4, 0x1f6, 0x7, 0x64, 0x2, 0x2, 
-    0x1f5, 0x1f4, 0x3, 0x2, 0x2, 0x2, 0x1f5, 0x1f6, 0x3, 0x2, 0x2, 0x2, 
-    0x1f6, 0x1f7, 0x3, 0x2, 0x2, 0x2, 0x1f7, 0x1f9, 0x7, 0x7, 0x2, 0x2, 
-    0x1f8, 0x1fa, 0x5, 0x3e, 0x20, 0x2, 0x1f9, 0x1f8, 0x3, 0x2, 0x2, 0x2, 
-    0x1f9, 0x1fa, 0x3, 0x2, 0x2, 0x2, 0x1fa, 0x1fb, 0x3, 0x2, 0x2, 0x2, 
-    0x1fb, 0x1fc, 0x7, 0x8, 0x2, 0x2, 0x1fc, 0x1fd, 0x7, 0x9, 0x2, 0x2, 
-    0x1fd, 0x1fe, 0x5, 0x40, 0x21, 0x2, 0x1fe, 0x1ff, 0x7, 0xa, 0x2, 0x2, 
-    0x1ff, 0x221, 0x3, 0x2, 0x2, 0x2, 0x200, 0x201, 0x7, 0x40, 0x2, 0x2, 
-    0x201, 0x203, 0x5, 0x58, 0x2d, 0x2, 0x202, 0x204, 0x5, 0x52, 0x2a, 0x2, 
-    0x203, 0x202, 0x3, 0x2, 0x2, 0x2, 0x203, 0x204, 0x3, 0x2, 0x2, 0x2, 
-    0x204, 0x221, 0x3, 0x2, 0x2, 0x2, 0x205, 0x206, 0x7, 0x52, 0x2, 0x2, 
-    0x206, 0x221, 0x5, 0x58, 0x2d, 0x20, 0x207, 0x208, 0x7, 0x46, 0x2, 0x2, 
-    0x208, 0x221, 0x5, 0x58, 0x2d, 0x1f, 0x209, 0x20a, 0x7, 0x3d, 0x2, 0x2, 
-    0x20a, 0x221, 0x5, 0x58, 0x2d, 0x1e, 0x20b, 0x20c, 0x7, 0x11, 0x2, 0x2, 
-    0x20c, 0x221, 0x5, 0x58, 0x2d, 0x1d, 0x20d, 0x20e, 0x7, 0x12, 0x2, 0x2, 
-    0x20e, 0x221, 0x5, 0x58, 0x2d, 0x1c, 0x20f, 0x210, 0x7, 0x13, 0x2, 0x2, 
-    0x210, 0x221, 0x5, 0x58, 0x2d, 0x1b, 0x211, 0x212, 0x7, 0x14, 0x2, 0x2, 
-    0x212, 0x221, 0x5, 0x58, 0x2d, 0x1a, 0x213, 0x214, 0x7, 0x15, 0x2, 0x2, 
-    0x214, 0x221, 0x5, 0x58, 0x2d, 0x19, 0x215, 0x216, 0x7, 0x16, 0x2, 0x2, 
-    0x216, 0x221, 0x5, 0x58, 0x2d, 0x18, 0x217, 0x221, 0x7, 0x4d, 0x2, 0x2, 
-    0x218, 0x221, 0x7, 0x64, 0x2, 0x2, 0x219, 0x221, 0x5, 0x5c, 0x2f, 0x2, 
-    0x21a, 0x221, 0x5, 0x42, 0x22, 0x2, 0x21b, 0x221, 0x5, 0x48, 0x25, 0x2, 
-    0x21c, 0x21d, 0x7, 0x7, 0x2, 0x2, 0x21d, 0x21e, 0x5, 0x56, 0x2c, 0x2, 
-    0x21e, 0x21f, 0x7, 0x8, 0x2, 0x2, 0x21f, 0x221, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x1f2, 0x3, 0x2, 0x2, 0x2, 0x220, 0x200, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x205, 0x3, 0x2, 0x2, 0x2, 0x220, 0x207, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x209, 0x3, 0x2, 0x2, 0x2, 0x220, 0x20b, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x20d, 0x3, 0x2, 0x2, 0x2, 0x220, 0x20f, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x211, 0x3, 0x2, 0x2, 0x2, 0x220, 0x213, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x215, 0x3, 0x2, 0x2, 0x2, 0x220, 0x217, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x218, 0x3, 0x2, 0x2, 0x2, 0x220, 0x219, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x21a, 0x3, 0x2, 0x2, 0x2, 0x220, 0x21b, 0x3, 0x2, 0x2, 0x2, 
-    0x220, 0x21c, 0x3, 0x2, 0x2, 0x2, 0x221, 0x265, 0x3, 0x2, 0x2, 0x2, 
-    0x222, 0x223, 0xc, 0x17, 0x2, 0x2, 0x223, 0x224, 0x9, 0x2, 0x2, 0x2, 
-    0x224, 0x264, 0x5, 0x58, 0x2d, 0x18, 0x225, 0x226, 0xc, 0x16, 0x2, 0x2, 
-    0x226, 0x227, 0x9, 0x3, 0x2, 0x2, 0x227, 0x264, 0x5, 0x58, 0x2d, 0x17, 
-    0x228, 0x229, 0xc, 0x15, 0x2, 0x2, 0x229, 0x22a, 0x9, 0x4, 0x2, 0x2, 
-    0x22a, 0x264, 0x5, 0x58, 0x2d, 0x16, 0x22b, 0x22c, 0xc, 0x14, 0x2, 0x2, 
-    0x22c, 0x22d, 0x9, 0x5, 0x2, 0x2, 0x22d, 0x264, 0x5, 0x58, 0x2d, 0x15, 
-    0x22e, 0x22f, 0xc, 0x13, 0x2, 0x2, 0x22f, 0x230, 0x7, 0x3c, 0x2, 0x2, 
-    0x230, 0x264, 0x5, 0x58, 0x2d, 0x14, 0x231, 0x232, 0xc, 0x12, 0x2, 0x2, 
-    0x232, 0x233, 0x7, 0x53, 0x2, 0x2, 0x233, 0x264, 0x5, 0x58, 0x2d, 0x13, 
-    0x234, 0x235, 0xc, 0x11, 0x2, 0x2, 0x235, 0x236, 0x9, 0x6, 0x2, 0x2, 
-    0x236, 0x264, 0x5, 0x58, 0x2d, 0x12, 0x237, 0x238, 0xc, 0x10, 0x2, 0x2, 
-    0x238, 0x239, 0x7, 0x25, 0x2, 0x2, 0x239, 0x264, 0x5, 0x58, 0x2d, 0x11, 
-    0x23a, 0x23b, 0xc, 0xf, 0x2, 0x2, 0x23b, 0x23c, 0x7, 0x26, 0x2, 0x2, 
-    0x23c, 0x264, 0x5, 0x58, 0x2d, 0x10, 0x23d, 0x23e, 0xc, 0xe, 0x2, 0x2, 
-    0x23e, 0x23f, 0x7, 0x27, 0x2, 0x2, 0x23f, 0x264, 0x5, 0x58, 0x2d, 0xf, 
-    0x240, 0x241, 0xc, 0xd, 0x2, 0x2, 0x241, 0x242, 0x7, 0x28, 0x2, 0x2, 
-    0x242, 0x264, 0x5, 0x58, 0x2d, 0xe, 0x243, 0x244, 0xc, 0xc, 0x2, 0x2, 
-    0x244, 0x245, 0x7, 0x29, 0x2, 0x2, 0x245, 0x264, 0x5, 0x58, 0x2d, 0xd, 
-    0x246, 0x247, 0xc, 0xb, 0x2, 0x2, 0x247, 0x248, 0x7, 0xe, 0x2, 0x2, 
-    0x248, 0x249, 0x5, 0x58, 0x2d, 0x2, 0x249, 0x24a, 0x7, 0xf, 0x2, 0x2, 
-    0x24a, 0x24b, 0x5, 0x58, 0x2d, 0xc, 0x24b, 0x264, 0x3, 0x2, 0x2, 0x2, 
-    0x24c, 0x24d, 0xc, 0xa, 0x2, 0x2, 0x24d, 0x24e, 0x7, 0xd, 0x2, 0x2, 
-    0x24e, 0x264, 0x5, 0x58, 0x2d, 0xb, 0x24f, 0x250, 0xc, 0x9, 0x2, 0x2, 
-    0x250, 0x251, 0x5, 0x5a, 0x2e, 0x2, 0x251, 0x252, 0x5, 0x58, 0x2d, 0xa, 
-    0x252, 0x264, 0x3, 0x2, 0x2, 0x2, 0x253, 0x254, 0xc, 0x26, 0x2, 0x2, 
-    0x254, 0x255, 0x7, 0x5, 0x2, 0x2, 0x255, 0x256, 0x5, 0x56, 0x2c, 0x2, 
-    0x256, 0x257, 0x7, 0x6, 0x2, 0x2, 0x257, 0x264, 0x3, 0x2, 0x2, 0x2, 
-    0x258, 0x259, 0xc, 0x25, 0x2, 0x2, 0x259, 0x25a, 0x7, 0x10, 0x2, 0x2, 
-    0x25a, 0x264, 0x5, 0x60, 0x31, 0x2, 0x25b, 0x25c, 0xc, 0x24, 0x2, 0x2, 
-    0x25c, 0x264, 0x5, 0x52, 0x2a, 0x2, 0x25d, 0x25e, 0xc, 0x22, 0x2, 0x2, 
-    0x25e, 0x25f, 0x6, 0x2d, 0x1a, 0x2, 0x25f, 0x264, 0x7, 0x11, 0x2, 0x2, 
-    0x260, 0x261, 0xc, 0x21, 0x2, 0x2, 0x261, 0x262, 0x6, 0x2d, 0x1c, 0x2, 
-    0x262, 0x264, 0x7, 0x12, 0x2, 0x2, 0x263, 0x222, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x225, 0x3, 0x2, 0x2, 0x2, 0x263, 0x228, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x22b, 0x3, 0x2, 0x2, 0x2, 0x263, 0x22e, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x231, 0x3, 0x2, 0x2, 0x2, 0x263, 0x234, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x237, 0x3, 0x2, 0x2, 0x2, 0x263, 0x23a, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x23d, 0x3, 0x2, 0x2, 0x2, 0x263, 0x240, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x243, 0x3, 0x2, 0x2, 0x2, 0x263, 0x246, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x24c, 0x3, 0x2, 0x2, 0x2, 0x263, 0x24f, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x253, 0x3, 0x2, 0x2, 0x2, 0x263, 0x258, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x25b, 0x3, 0x2, 0x2, 0x2, 0x263, 0x25d, 0x3, 0x2, 0x2, 0x2, 
-    0x263, 0x260, 0x3, 0x2, 0x2, 0x2, 0x264, 0x267, 0x3, 0x2, 0x2, 0x2, 
-    0x265, 0x263, 0x3, 0x2, 0x2, 0x2, 0x265, 0x266, 0x3, 0x2, 0x2, 0x2, 
-    0x266, 0x59, 0x3, 0x2, 0x2, 0x2, 0x267, 0x265, 0x3, 0x2, 0x2, 0x2, 0x268, 
-    0x269, 0x9, 0x7, 0x2, 0x2, 0x269, 0x5b, 0x3, 0x2, 0x2, 0x2, 0x26a, 0x26d, 
-    0x9, 0x8, 0x2, 0x2, 0x26b, 0x26d, 0x5, 0x5e, 0x30, 0x2, 0x26c, 0x26a, 
-    0x3, 0x2, 0x2, 0x2, 0x26c, 0x26b, 0x3, 0x2, 0x2, 0x2, 0x26d, 0x5d, 0x3, 
-    0x2, 0x2, 0x2, 0x26e, 0x26f, 0x9, 0x9, 0x2, 0x2, 0x26f, 0x5f, 0x3, 0x2, 
-    0x2, 0x2, 0x270, 0x273, 0x7, 0x64, 0x2, 0x2, 0x271, 0x273, 0x5, 0x62, 
-    0x32, 0x2, 0x272, 0x270, 0x3, 0x2, 0x2, 0x2, 0x272, 0x271, 0x3, 0x2, 
-    0x2, 0x2, 0x273, 0x61, 0x3, 0x2, 0x2, 0x2, 0x274, 0x278, 0x5, 0x64, 
-    0x33, 0x2, 0x275, 0x278, 0x5, 0x66, 0x34, 0x2, 0x276, 0x278, 0x9, 0xa, 
-    0x2, 0x2, 0x277, 0x274, 0x3, 0x2, 0x2, 0x2, 0x277, 0x275, 0x3, 0x2, 
-    0x2, 0x2, 0x277, 0x276, 0x3, 0x2, 0x2, 0x2, 0x278, 0x63, 0x3, 0x2, 0x2, 
-    0x2, 0x279, 0x27a, 0x9, 0xb, 0x2, 0x2, 0x27a, 0x65, 0x3, 0x2, 0x2, 0x2, 
-    0x27b, 0x27c, 0x9, 0xc, 0x2, 0x2, 0x27c, 0x67, 0x3, 0x2, 0x2, 0x2, 0x27d, 
-    0x27e, 0x6, 0x35, 0x1d, 0x2, 0x27e, 0x27f, 0x7, 0x64, 0x2, 0x2, 0x27f, 
-    0x280, 0x5, 0x4e, 0x28, 0x2, 0x280, 0x69, 0x3, 0x2, 0x2, 0x2, 0x281, 
-    0x282, 0x6, 0x36, 0x1e, 0x2, 0x282, 0x283, 0x7, 0x64, 0x2, 0x2, 0x283, 
-    0x284, 0x5, 0x4e, 0x28, 0x2, 0x284, 0x6b, 0x3, 0x2, 0x2, 0x2, 0x285, 
-    0x28a, 0x7, 0xb, 0x2, 0x2, 0x286, 0x28a, 0x7, 0x2, 0x2, 0x3, 0x287, 
-    0x28a, 0x6, 0x37, 0x1f, 0x2, 0x288, 0x28a, 0x6, 0x37, 0x20, 0x2, 0x289, 
-    0x285, 0x3, 0x2, 0x2, 0x2, 0x289, 0x286, 0x3, 0x2, 0x2, 0x2, 0x289, 
-    0x287, 0x3, 0x2, 0x2, 0x2, 0x289, 0x288, 0x3, 0x2, 0x2, 0x2, 0x28a, 
-    0x6d, 0x3, 0x2, 0x2, 0x2, 0x28b, 0x28c, 0x7, 0x2, 0x2, 0x3, 0x28c, 0x6f, 
-    0x3, 0x2, 0x2, 0x2, 0x3a, 0x71, 0x78, 0x7c, 0x8d, 0x91, 0x98, 0xa2, 
-    0xa9, 0xae, 0xc0, 0xd3, 0xd7, 0xdb, 0xe5, 0xe9, 0xf4, 0xf8, 0x117, 0x11c, 
-    0x123, 0x12a, 0x13c, 0x140, 0x142, 0x149, 0x14f, 0x154, 0x16c, 0x17e, 
-    0x18a, 0x18e, 0x192, 0x195, 0x198, 0x19d, 0x1a2, 0x1a7, 0x1ad, 0x1b1, 
-    0x1b4, 0x1bd, 0x1d3, 0x1d8, 0x1de, 0x1e7, 0x1ef, 0x1f5, 0x1f9, 0x203, 
-    0x220, 0x263, 0x265, 0x26c, 0x272, 0x277, 0x289, 
-  };
-
-  atn::ATNDeserializer deserializer;
-  _atn = deserializer.deserialize(_serializedATN);
-
-  size_t count = _atn.getNumberOfDecisions();
-  _decisionToDFA.reserve(count);
-  for (size_t i = 0; i < count; i++) { 
-    _decisionToDFA.emplace_back(_atn.getDecisionState(i), i);
-  }
+void ECMAScriptParser::initialize() {
+#if ANTLR4_USE_THREAD_LOCAL_CACHE
+  ecmascriptParserInitialize();
+#else
+  ::antlr4::internal::call_once(ecmascriptParserOnceFlag, ecmascriptParserInitialize);
+#endif
 }
-
-ECMAScriptParser::Initializer ECMAScriptParser::_init;

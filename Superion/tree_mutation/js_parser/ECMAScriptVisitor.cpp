@@ -1,5 +1,5 @@
 
-// Generated from C:\Users\xiang\Documents\GitHub\js_parser\ECMAScript.g4 by ANTLR 4.7
+// Generated from ECMAScript.g4 by ANTLR 4.13.1
 
 
 #include "ECMAScriptVisitor.h"

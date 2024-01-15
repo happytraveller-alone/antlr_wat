@@ -100,6 +100,7 @@ plain_instr
     | MEMORY_SIZE
     | MEMORY_GROW
     | CONST literal
+    | TEST
     | COMPARE
     | UNARY
     | BINARY
@@ -111,7 +112,7 @@ call_instr
     ;
 
 call_instr_params
-    : (LPAR PARAM num_type* RPAR)* (LPAR RESULT num_type* RPAR)*
+    : (LPAR (PARAM | RESULT) num_type* RPAR)*
     ;
 
 call_instr_instr
@@ -131,12 +132,17 @@ block_instr
     | IF bind_var? block (ELSE bind_var? instr_list)? END bind_var?
     ;
 
-block_type
-    : LPAR RESULT num_type RPAR
+// block_type
+//    : LPAR RESULT num_type RPAR
+//    ;
+
+//    : block_type? instr_list
+block
+    : type_use? block_param_body
     ;
 
-block
-    : block_type? instr_list
+block_param_body 
+    : (LPAR PARAM num_type* RPAR)* (LPAR RESULT num_type* RPAR)* instr_list
     ;
 
 expr
@@ -163,9 +169,15 @@ call_expr_results
     : (LPAR RESULT num_type* RPAR)* expr*
     ;
 
+
+//    : block_type if_block
+//    | expr* LPAR THEN instr_list RPAR (LPAR ELSE instr_list RPAR)?
 if_block
-    : block_type if_block
-    | expr* LPAR THEN instr_list RPAR (LPAR ELSE instr_list RPAR)?
+    : type_use (LPAR PARAM num_type* RPAR)* if_block_result_body
+    ;
+
+if_block_result_body
+    : (LPAR RESULT num_type* RPAR)* expr* LPAR THEN instr_list RPAR (LPAR ELSE instr_list RPAR)?
     ;
 
 instr_list
@@ -189,7 +201,7 @@ func_fields
     ;
 
 func_fields_import
-    : (LPAR PARAM num_type* RPAR | LPAR PARAM bind_var num_type RPAR) func_fields_import_result
+    : (LPAR PARAM num_type* RPAR | LPAR PARAM bind_var num_type RPAR)* func_fields_import_result
     ;
 
 func_fields_import_result
@@ -205,7 +217,8 @@ func_result_body
     ;
 
 func_body
-    : (LPAR LOCAL num_type* RPAR | LPAR LOCAL bind_var num_type RPAR)* instr_list
+//    : (LPAR LOCAL num_type* RPAR | LPAR LOCAL bind_var num_type RPAR)* instr_list
+    : (LPAR LOCAL  (bind_var num_type| num_type*)  RPAR)* instr_list
     ;
 
 /* Tables, Memories & Globals */
@@ -258,8 +271,8 @@ global_fields
 /* Imports & Exports */
 
 import_desc
-    : LPAR FUNC bind_var? type_use RPAR
-    | LPAR FUNC bind_var? func_type RPAR
+    : LPAR FUNC bind_var? (type_use|func_type) RPAR
+//    | LPAR FUNC bind_var? func_type RPAR
     | LPAR TABLE bind_var? table_type RPAR
     | LPAR MEMORY bind_var? memory_type RPAR
     | LPAR GLOBAL bind_var? global_type RPAR
@@ -274,10 +287,10 @@ inline_import
     ;
 
 export_desc
-    : LPAR FUNC var_ RPAR
-    | LPAR TABLE var_ RPAR
-    | LPAR MEMORY var_ RPAR
-    | LPAR GLOBAL var_ RPAR
+    : LPAR (FUNC | TABLE | MEMORY | GLOBAL) var_ RPAR
+//    | LPAR TABLE var_ RPAR
+//    | LPAR MEMORY var_ RPAR
+//    | LPAR GLOBAL var_ RPAR
     ;
 
 export_

@@ -1,11 +1,11 @@
 
-// Generated from C:\Users\xiang\Documents\GitHub\js_parser\ECMAScript.g4 by ANTLR 4.7
+// Generated from ECMAScript.g4 by ANTLR 4.13.1
 
 #pragma once
 
 
 #include "antlr4-runtime.h"
-using namespace antlr4;
+
 
 
 
@@ -36,29 +36,30 @@ public:
     SingleLineComment = 102, HtmlComment = 103, UnexpectedCharacter = 104
   };
 
-  ECMAScriptLexer(antlr4::CharStream *input);
-  ~ECMAScriptLexer();
+  explicit ECMAScriptLexer(antlr4::CharStream *input);
+
+  ~ECMAScriptLexer() override;
 
 
                    
-// A flag indicating if the lexer should operate in strict mode.
+      // A flag indicating if the lexer should operate in strict mode.
       // When set to true, FutureReservedWords are tokenized, when false,
       // an octal literal can be tokenized.
-      bool strictMode = true;
+      private bool strictMode = true;
 
       // The most recently produced token.
-      Token *lastToken = NULL;
+      private IToken lastToken = null;
 
       ///<summary>Returns <c>true</c> iff the lexer operates in strict mode</summary>
       /// <returns><c>true</c> iff the lexer operates in strict mode.</returns>
-      bool getStrictMode() {
-          return this->strictMode;
+      public bool GetStrictMode() {
+          return this.strictMode;
       }
 
   	///<summary>Sets whether the lexer operates in strict mode or not.</summary>
   	///<param name="strictMode">the flag indicating the lexer operates in strict mode or not.</param>
-      void setStrictMode(bool strictMode) {
-          this->strictMode = strictMode;
+      public void SetStrictMode(bool strictMode) {
+          this.strictMode = strictMode;
       }
 
       ///<summary>Return the next token from the character stream and records this last
@@ -66,38 +67,30 @@ public:
       ///is used to determine when the lexer could possibly match a regex
       ///literal.</summary>
       ///<returns>the next token from the character stream.</returns>
-      /// Token* nextToken() {
-      ///     
-      ///     // Get the next token.
-      ///     Token* next = Lexer::nextToken();
-      ///     
-      ///     if (next->getChannel() == Lexer::DEFAULT_TOKEN_CHANNEL) {
-      ///         // Keep track of the last token on the default channel.                                              
-      ///         this->lastToken = next;
-      ///     }
-      ///     
-      ///     return next;
-      /// }
-
-      std::unique_ptr<Token> nextToken() override {
-	      std::unique_ptr<Token> next = Lexer::nextToken();
-	      if (next.get()->getChannel()== Lexer::DEFAULT_TOKEN_CHANNEL) {
-		      this->lastToken = next.get();
-	      }
-	      return next;
+      public override IToken NextToken() {
+          
+          // Get the next token.
+          IToken next = base.NextToken();
+          
+          if (next.Channel == Lexer.DefaultTokenChannel) {
+              // Keep track of the last token on the default channel.                                              
+              this.lastToken = next;
+          }
+          
+          return next;
       }
 
       ///<summary>Returns <c>true</c> iff the lexer can match a regex literal.</summary>
       ///<returns><c>true</c> iff the lexer can match a regex literal.</returns>
-      bool isRegexPossible() {
+      private bool isRegexPossible() {
                                          
-          if (this->lastToken == NULL) {
+          if (this.lastToken == null) {
               // No token has been produced yet: at the start of the input,
               // no division is possible, so a regex literal _is_ possible.
               return true;
           }
           
-          switch (this->lastToken->getType()) {
+          switch (this.lastToken.Type) {
               case Identifier:
               case NullLiteral:
               case BooleanLiteral:
@@ -118,33 +111,29 @@ public:
           }
       }
 
-  virtual std::string getGrammarFileName() const override;
-  virtual const std::vector<std::string>& getRuleNames() const override;
 
-  virtual const std::vector<std::string>& getChannelNames() const override;
-  virtual const std::vector<std::string>& getModeNames() const override;
-  virtual const std::vector<std::string>& getTokenNames() const override; // deprecated, use vocabulary instead
-  virtual antlr4::dfa::Vocabulary& getVocabulary() const override;
+  std::string getGrammarFileName() const override;
 
-  virtual const std::vector<uint16_t> getSerializedATN() const override;
-  virtual const antlr4::atn::ATN& getATN() const override;
+  const std::vector<std::string>& getRuleNames() const override;
 
-  virtual bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
+  const std::vector<std::string>& getChannelNames() const override;
+
+  const std::vector<std::string>& getModeNames() const override;
+
+  const antlr4::dfa::Vocabulary& getVocabulary() const override;
+
+  antlr4::atn::SerializedATNView getSerializedATN() const override;
+
+  const antlr4::atn::ATN& getATN() const override;
+
+  bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
+
+  // By default the static state used to implement the lexer is lazily initialized during the first
+  // call to the constructor. You can call this function if you wish to initialize the static state
+  // ahead of time.
+  static void initialize();
 
 private:
-  static std::vector<antlr4::dfa::DFA> _decisionToDFA;
-  static antlr4::atn::PredictionContextCache _sharedContextCache;
-  static std::vector<std::string> _ruleNames;
-  static std::vector<std::string> _tokenNames;
-  static std::vector<std::string> _channelNames;
-  static std::vector<std::string> _modeNames;
-
-  static std::vector<std::string> _literalNames;
-  static std::vector<std::string> _symbolicNames;
-  static antlr4::dfa::Vocabulary _vocabulary;
-  static antlr4::atn::ATN _atn;
-  static std::vector<uint16_t> _serializedATN;
-
 
   // Individual action functions triggered by action() above.
 
@@ -152,9 +141,5 @@ private:
   bool RegularExpressionLiteralSempred(antlr4::RuleContext *_localctx, size_t predicateIndex);
   bool OctalIntegerLiteralSempred(antlr4::RuleContext *_localctx, size_t predicateIndex);
 
-  struct Initializer {
-    Initializer();
-  };
-  static Initializer _init;
 };
 
