@@ -292,6 +292,8 @@ elem_kind
 
 elem_expr
     : LPAR ITEM const_expr RPAR
+    | LPAR REF_NULL elem_kind RPAR  // bulk memory
+    | LPAR REF_FUNC var_ RPAR   // bulk memory
     | expr
     ;
 
