@@ -47,7 +47,7 @@ fragment MIXX     : 'i' ('8' | '16' | '32' | '64');
 fragment MFXX     : 'f' ('32' | '64');
 fragment SIGN     : 's' | 'u';
 fragment MEM_SIZE : '8' | '16' | '32';
-
+fragment RMW      : 'add' | 'sub' | 'and' | 'or' | 'xor' | 'xchg';
 // fragment Newline : Ascii_Newline | []
 
 fragment VXXX                     : 'v128';
@@ -127,6 +127,7 @@ NOFUNC    : 'nofunc';
 
 FUNCREF : 'funcref';
 MUT     : 'mut';
+SHARED  : 'shared';
 
 NULLFUNCREF   : 'nullfuncref';
 EXTERN        : 'extern';
@@ -179,6 +180,30 @@ ARRAY_FILL : 'array.fill';
 ARRAY_INIT_DATA : 'array.init_data';
 ARRAY_INIT_ELEM : 'array.init_elem';
 EXTERN_CONVERT : 'extern.convert_any' | 'any.convert_extern';
+
+MEMORY_ATOMIC_NOTIFY : 'memory.atomic_notify';
+MEMORY_ATOMIC_WAIT  : 'memory.atomic_wait' ('32' | '64');
+ATOMIC_FENCE        : 'atomic.fence';
+ATOMIC_LOAD         : 
+    IXX '.atomic.load'
+    | 'i64.atomic.load' MEM_SIZE '_u'
+    | 'i32.atomic.load' ('8' | '16' )'_u'
+    ;
+ATOMIC_STORE :
+    IXX '.atomic.store'
+    | 'i64.atomic.store' MEM_SIZE
+    | 'i32.atomic.store' ('8' | '16' )
+    ;
+ATOMIC_RMW :
+    IXX '.atomic.rmw.' RMW
+    | 'i64.atomic.rmw' MEM_SIZE '.' RMW '_u'
+    | 'i32.atomic.rmw' ('8' | '16' ) '.' RMW'_u'
+    ;
+ATOMIC_RMW_CMPXCHG :
+    IXX '.atomic.rmw.cmpxchg'
+    | 'i64.atomic.rmw' MEM_SIZE '.cmpxchg_u'
+    | 'i32.atomic.rmw' ('8' | '16' )'.cmpxchg_u'
+    ;
 
 
 NOP                  : 'nop';
@@ -324,6 +349,9 @@ VEC_UNARY:
         | 'i64x2.extend_high_i32x4_'
     ) SIGN
     | 'i32x4.trunc_sat_f64x2_' SIGN '_zero'
+    | 'i32x4.relaxed_trunc_f32x4_' SIGN
+    | 'i32x4.relaxed_trunc_f64x2_' SIGN '_zero'
+    | V128_FLOAT_SHAPE ('.relaxed_madd' | '.relaxed_nmadd' | '.relaxed_min' | '.relaxed_max')
 ;
 VEC_BINARY:
     V128_SHAPE ('.eq' | '.ne' | 'add' | '.sub')
@@ -368,8 +396,15 @@ VEC_BINARY:
     | 'i16x8.q15mulr_sat_s'
     | 'i32x4.dot_i16x8_s'
     | 'i8x16.swizzle'
+    | 'i8x16.relaxed_swizzle'
+    | 'i16x8.relaxed_q15mulr_s'
+    | 'i16x8.relaxed_dot_i8x16_i7x16_s'
+    | 'i32x4.relaxed_dot_i8x16_i7x16_add_s'
 ;
-VEC_TERNARY : VXXX '.bitselect';
+VEC_TERNARY : 
+    VXXX '.bitselect'
+    | V128_INT_SHAPE '.relaxed_laneselect'   
+;
 VEC_TEST    : VXXX '.any_true' | V128_INT_SHAPE '.all_true';
 VEC_BITMASK : V128_INT_SHAPE '.bitmask';
 
@@ -409,6 +444,9 @@ ITEM    : 'item';
 MODULE : 'module';
 BIN    : 'binary';
 QUOTE  : 'quote';
+EITHER : 'either';
+THREAD : 'thread';
+WAIT   : 'wait';
 
 SCRIPT                       : 'script';
 REGISTER                     : 'register';

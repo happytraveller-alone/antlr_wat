@@ -116,7 +116,7 @@ table_type
     ;
 
 memory_type
-    : NAT NAT?
+    : NAT NAT? SHARED?
     ;
 
 type_use
@@ -247,6 +247,13 @@ plain_instr
     | VEC_SPLAT
     | VEC_EXTRACT NAT
     | VEC_REPLACE NAT
+    | MEMORY_ATOMIC_WAIT OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | MEMORY_ATOMIC_NOTIFY OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | ATOMIC_FENCE
+    | ATOMIC_LOAD OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | ATOMIC_STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | ATOMIC_RMW OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | ATOMIC_RMW_CMPXCHG OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     ;
 
 
@@ -535,7 +542,13 @@ cmd
     | assertion
     | script_module
     | LPAR REGISTER name VAR? RPAR
+    | LPAR THREAD VAR? shared_cmd_list RPAR
+    | LPAR WAIT VAR? RPAR
     | meta
+    ;
+
+shared_cmd_list
+    : (LPAR SHARED LPAR MODULE VAR RPAR RPAR)* cmd*
     ;
 
 meta
@@ -578,9 +591,9 @@ numpat
     : num
     | NAN_
     ;
-numpat_list
-    : numpat*
-    ;
+// numpat_list
+//     : numpat*
+//     ;
 result
     : literal_num
     | literal_ref
@@ -592,8 +605,9 @@ result
             | REF_STRUCT
             | REF_ARRAY
             | REF_NULL
-            | REF_EXTERN 
-            | VEC_CONST VEC_SHAPE numpat_list) RPAR
+            | REF_EXTERN) RPAR
+    | LPAR VEC_CONST VEC_SHAPE numpat* RPAR
+    | LPAR EITHER result* RPAR
     ;
 
 
