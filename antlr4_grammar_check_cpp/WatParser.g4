@@ -1,32 +1,3 @@
-/*
-Copyright (c) 2019 Renata Hodovan.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
-3. Neither the name of the copyright holder nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
 
 // $antlr-format alignTrailingComments true, columnLimit 150, minEmptyLines 1, maxEmptyLinesToKeep 1, reflowComments false, useTab false
 // $antlr-format allowShortRulesOnASingleLine false, allowShortBlocksOnASingleLine true, alignSemicolons hanging, alignColons hanging
@@ -50,29 +21,98 @@ name
 
 /* Types */
 
-value_type
-    : VALUE_TYPE
+null_opt
+    : NULL? 
     ;
 
-elem_type
-    : FUNCREF
+heap_type
+    : ANY
+    | NONE
+    | EQ
+    | I31
+    | STRUCT
+    | ARRAY
+    | FUNC
+    | NOFUNC
+    | EXTERN
+    | NOEXTERN
+    | var_
     ;
+
+// // GC 没有保存
+// ref_kind 
+//     : FUNC
+//     | EXTERN
+//     ;
+
+ref_type 
+    : FUNCREF
+    | EXTERNREF
+    | LPAR REF null_opt heap_type RPAR
+    | ANYREF
+    | NULLREF
+    | EQREF
+    | I31REF
+    | STRUCTREF
+    | ARRAYREF
+    | NULLFUNCREF
+    | NULLEXTERNREF
+    ;
+
+val_type
+    : NUM_TYPE
+    | VEC_TYPE
+    | ref_type
+    ;
+
+// elem_type
+//     // : FUNCREF
+//     : val_type val_type*
+//     ;
 
 global_type
-    : value_type
-    | LPAR MUT value_type RPAR
+    : val_type
+    | LPAR MUT val_type RPAR
     ;
 
-def_type
-    : LPAR FUNC func_type RPAR
+storage_type
+    : val_type
+    | PACK_TYPE
     ;
+
+field_type
+    : storage_type
+    | LPAR MUT storage_type RPAR
+    ;
+
+struct_type
+    : (LPAR FIELD (field_type* | bind_var field_type) RPAR)*
+    ;
+
+array_type
+    : field_type
+    ;
+
+// GC 没有保存
+// def_type
+//     : LPAR FUNC func_type RPAR
+//     ;
 
 func_type
-    : (LPAR (RESULT value_type* | PARAM value_type* | PARAM bind_var value_type) RPAR)*
+    : (LPAR (RESULT val_type* | PARAM val_type* | PARAM bind_var val_type) RPAR)*
+    ;
+
+str_type
+    : LPAR (STRUCT struct_type | ARRAY array_type | FUNC func_type) RPAR
+    ;
+
+sub_type
+    : str_type
+    | LPAR SUB FINAL? var_* str_type RPAR
     ;
 
 table_type
-    : NAT NAT? elem_type
+    : NAT NAT? ref_type 
     ;
 
 memory_type
@@ -84,8 +124,12 @@ type_use
     ;
 
 /* Immediates */
+nat32
+    : NAT
+    ;
 
-literal
+
+num
     : NAT
     | INT
     | FLOAT
@@ -101,11 +145,24 @@ bind_var
     ;
 
 /* Instructions & Expressions */
+// instr_list :
+//   | /* empty */ { fun c -> [] }
+//   | instr1 instr_list { fun c -> $1 c @ $2 c }
+//   | select_instr_instr_list { $1 }
+//   | call_instr_instr_list { $1 }
+
+// instr1 :
+//   | plain_instr { let at = at () in fun c -> [$1 c @@ at] }
+//   | block_instr { let at = at () in fun c -> [$1 c @@ at] }
+//   | expr { $1 }  /* Sugar */
+instr_list
+    : instr* (call_instr_instr_list? | select_instr_instr_list?)
+    // | instr* 
+    ;
 
 instr
-    : plain_instr
-    | call_instr_instr
-    | block_instr
+    : plain_instr 
+    | block_instr 
     | expr
     ;
 
@@ -117,43 +174,94 @@ plain_instr
     | BR var_
     | BR_IF var_
     | BR_TABLE var_+
+    | BR_ON_NULL var_
+    | BR_ON_CAST var_ ref_type ref_type
     | RETURN
     | CALL var_
+    | CALL_REF var_
+    | RETURN_CALL var_
+    | RETURN_CALL_REF var_
     | LOCAL_GET var_
     | LOCAL_SET var_
     | LOCAL_TEE var_
     | GLOBAL_GET var_
     | GLOBAL_SET var_
+    | TABLE_GET var_?
+    | TABLE_SET var_?
+    | TABLE_SIZE var_?
+    | TABLE_GROW var_?
+    | TABLE_FILL var_?
+    | TABLE_COPY (var_ var_)?
+    | TABLE_INIT var_ var_?
+    | ELEM_DROP var_
     | LOAD OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     | STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | VEC_LOAD OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | VEC_STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | VEC_LOAD_LANE OFFSET_EQ_NAT? ALIGN_EQ_NAT? NAT
+    | VEC_STORE_LANE OFFSET_EQ_NAT? ALIGN_EQ_NAT? NAT
     | MEMORY_SIZE
     | MEMORY_GROW
-    | CONST literal
+    | CONST num
+    | MEMORY_FILL
+    | MEMORY_COPY
+    | MEMORY_INIT var_
+    | DATA_DROP var_
+    | REF_NULL heap_type
+    | REF_IS_NULL
+    | REF_FUNC var_
+    | REF_AS_NON_NULL
+    | REF_TEST
+    | REF_CAST
+    | REF_EQ
+    | REF_I31
+    | I31_GET
+    | STRUCT_NEW var_
+    | STRUCT_GET var_ var_
+    | STRUCT_SET var_ var_
+    | ARRAY_NEW var_
+    | ARRAY_NEW_FIXED var_ nat32
+    | ARRAY_NEW_ELEM var_ var_
+    | ARRAY_NEW_DATA var_ var_
+    | ARRAY_GET var_
+    | ARRAY_SET var_
+    | ARRAY_LEN
+    | ARRAY_COPY var_ var_
+    | ARRAY_FILL var_
+    | ARRAY_INIT_DATA var_ var_
+    | ARRAY_INIT_ELEM var_ var_
+    | EXTERN_CONVERT 
     | TEST
     | COMPARE
     | UNARY
     | BINARY
     | CONVERT
+    | VEC_CONST VEC_SHAPE num*
+    | VEC_UNARY
+    | VEC_BINARY
+    | VEC_TERNARY
+    | VEC_TEST
+    | VEC_SHIFT
+    | VEC_BITMASK
+    | VEC_SHUFFLE num*
+    | VEC_SPLAT
+    | VEC_EXTRACT NAT
+    | VEC_REPLACE NAT
     ;
 
-call_instr
-    : CALL_INDIRECT type_use? call_instr_params
+
+
+select_instr_instr_list
+    : SELECT (LPAR RESULT val_type* RPAR)* instr_list
     ;
 
-call_instr_params
-    : (LPAR PARAM value_type* RPAR)* (LPAR RESULT value_type* RPAR)*
+call_instr_instr_list
+    : CALL_INDIRECT var_? call_instr_type_instr_list
+    | RETURN_CALL_INDIRECT var_? call_instr_type_instr_list
     ;
 
-call_instr_instr
-    : CALL_INDIRECT type_use? call_instr_params_instr
-    ;
-
-call_instr_params_instr
-    : (LPAR PARAM value_type* RPAR)* call_instr_results_instr
-    ;
-
-call_instr_results_instr
-    : (LPAR RESULT value_type* RPAR)* instr
+call_instr_type_instr_list
+    : type_use? (LPAR PARAM val_type* RPAR)* (LPAR RESULT val_type* RPAR)* instr_list
     ;
 
 block_instr
@@ -161,12 +269,12 @@ block_instr
     | IF bind_var? block (ELSE bind_var? instr_list)? END bind_var?
     ;
 
-block_type
-    : LPAR RESULT value_type RPAR
+block
+    : type_use? block_param_body
     ;
 
-block
-    : block_type? instr_list
+block_param_body 
+    : (LPAR PARAM val_type* RPAR)* (LPAR RESULT val_type* RPAR)* instr_list
     ;
 
 expr
@@ -175,10 +283,17 @@ expr
 
 expr1
     : plain_instr expr*
-    | CALL_INDIRECT call_expr_type
+    // | CALL_INDIRECT call_expr_type
+    | SELECT select_expr_results
+    | CALL_INDIRECT var_? call_expr_type
+    | RETURN_CALL_INDIRECT var_? call_expr_type
     | BLOCK bind_var? block
     | LOOP bind_var? block
     | IF bind_var? if_block
+    ;
+
+select_expr_results
+    : (LPAR RESULT val_type* RPAR)* expr*
     ;
 
 call_expr_type
@@ -186,21 +301,22 @@ call_expr_type
     ;
 
 call_expr_params
-    : (LPAR PARAM value_type* RPAR)* call_expr_results
+    : (LPAR PARAM val_type* RPAR)* call_expr_results
     ;
 
 call_expr_results
-    : (LPAR RESULT value_type* RPAR)* expr*
+    : (LPAR RESULT val_type* RPAR)* expr*
     ;
 
 if_block
-    : block_type if_block
-    | expr* LPAR THEN instr_list RPAR (LPAR ELSE instr_list RPAR)?
+    : type_use? (LPAR PARAM val_type* RPAR)* if_block_result_body
     ;
 
-instr_list
-    : instr* call_instr?
+if_block_result_body
+    : (LPAR RESULT val_type* RPAR)* expr* LPAR THEN instr_list RPAR (LPAR ELSE instr_list RPAR)?
     ;
+
+
 
 const_expr
     : instr_list
@@ -219,34 +335,72 @@ func_fields
     ;
 
 func_fields_import
-    : (LPAR PARAM value_type* RPAR | LPAR PARAM bind_var value_type RPAR) func_fields_import_result
+    : (LPAR PARAM val_type* RPAR | LPAR PARAM bind_var val_type RPAR)* func_fields_import_result
     ;
 
 func_fields_import_result
-    : (LPAR RESULT value_type* RPAR)*
+    : (LPAR RESULT val_type* RPAR)*
     ;
 
 func_fields_body
-    : (LPAR PARAM value_type* RPAR | LPAR PARAM bind_var value_type RPAR)* func_result_body
+    : (LPAR PARAM val_type* RPAR | LPAR PARAM bind_var val_type RPAR)* func_result_body
     ;
 
 func_result_body
-    : (LPAR RESULT value_type* RPAR)* func_body
+    : (LPAR RESULT val_type* RPAR)* func_body
     ;
 
 func_body
-    : (LPAR LOCAL value_type* RPAR | LPAR LOCAL bind_var value_type RPAR)* instr_list
+//    : (LPAR LOCAL val_type* RPAR | LPAR LOCAL bind_var val_type RPAR)* instr_list
+    : (LPAR LOCAL  (bind_var val_type| val_type*)  RPAR)* instr_list
     ;
 
 /* Tables, Memories & Globals */
+table_use
+    : LPAR TABLE var_ RPAR
+    ;
+
+memory_use
+    : LPAR MEMORY var_ RPAR
+    ;
+
 
 offset
     : LPAR OFFSET const_expr RPAR
     | expr
     ;
 
+elem_kind
+    : FUNC
+    ;
+
+elem_expr
+    : LPAR ITEM const_expr RPAR
+    // | LPAR REF_NULL elem_kind RPAR  // bulk memory
+    // | LPAR REF_FUNC var_ RPAR   // bulk memory
+    | expr
+    ;
+
+// elem_expr_list
+//     : elem_expr*
+//     ;
+
+// elem_var_list
+//     : var_*
+//     ;
+
+elem_list
+    : elem_kind var_*
+    | ref_type elem_expr*
+    ;
+
 elem
-    : LPAR ELEM var_? offset var_* RPAR
+    // : LPAR ELEM var_? offset var_* RPAR
+    // : LPAR ELEM bind_var? elem_list RPAR
+    // : LPAR ELEM bind_var?  elem_list RPAR
+    // | LPAR ELEM bind_var?  elem_list RPAR
+    : LPAR ELEM bind_var? (table_use offset | offset? | DECLARE) elem_list RPAR
+    | LPAR ELEM bind_var? offset var_* RPAR
     ;
 
 table
@@ -254,14 +408,16 @@ table
     ;
 
 table_fields
-    : table_type
+    : table_type (instr instr_list)?
     | inline_import table_type
     | inline_export table_fields
-    | elem_type LPAR ELEM var_* RPAR
+    | ref_type LPAR ELEM (var_* | elem_expr*) RPAR
     ;
 
 data
-    : LPAR DATA var_? offset STRING_* RPAR
+    // : LPAR DATA var_? offset STRING_* RPAR
+    : LPAR DATA bind_var? memory_use offset STRING_* RPAR
+    | LPAR DATA bind_var? offset? STRING_* RPAR
     ;
 
 memory
@@ -288,8 +444,8 @@ global_fields
 /* Imports & Exports */
 
 import_desc
-    : LPAR FUNC bind_var? type_use RPAR
-    | LPAR FUNC bind_var? func_type RPAR
+    : LPAR FUNC bind_var? (type_use|func_type) RPAR
+//    | LPAR FUNC bind_var? func_type RPAR
     | LPAR TABLE bind_var? table_type RPAR
     | LPAR MEMORY bind_var? memory_type RPAR
     | LPAR GLOBAL bind_var? global_type RPAR
@@ -304,10 +460,10 @@ inline_import
     ;
 
 export_desc
-    : LPAR FUNC var_ RPAR
-    | LPAR TABLE var_ RPAR
-    | LPAR MEMORY var_ RPAR
-    | LPAR GLOBAL var_ RPAR
+    : LPAR (FUNC | TABLE | MEMORY | GLOBAL) var_ RPAR
+//    | LPAR TABLE var_ RPAR
+//    | LPAR MEMORY var_ RPAR
+//    | LPAR GLOBAL var_ RPAR
     ;
 
 export_
@@ -319,36 +475,37 @@ inline_export
     ;
 
 /* Modules */
-
-type_
-    : def_type
-    ;
-
 type_def
-    : LPAR TYPE bind_var? type_ RPAR
+    : LPAR TYPE bind_var? sub_type RPAR
     ;
+
+rec_type
+    : type_def
+    | LPAR REC type_def* RPAR
+    ;
+type_
+    : rec_type
+    ;
+
+// type_def
+//     : LPAR TYPE bind_var? type_ RPAR
+//     ;
 
 start_
     : LPAR START_ var_ RPAR
     ;
 
 module_field
-    : type_def
-    | sglobal
-    | table
-    | memory
-    | func_
-    | elem
-    | data
-    | start_
-    | simport
-    | export_
+    : (type_ | sglobal | table | memory | func_ | elem | data | start_ | simport | export_)+
     ;
 
 module_
     : LPAR MODULE VAR? module_field* RPAR
     ;
 
+inline_module
+    : module_field?
+    ;
 /* Scripts */
 
 script_module
@@ -357,7 +514,7 @@ script_module
     ;
 
 action_
-    : LPAR INVOKE VAR? name const_list RPAR
+    : LPAR INVOKE VAR? name literal_list RPAR
     | LPAR GET VAR? name RPAR
     ;
 
@@ -366,9 +523,9 @@ assertion
     | LPAR ASSERT_INVALID script_module STRING_ RPAR
     | LPAR ASSERT_UNLINKABLE script_module STRING_ RPAR
     | LPAR ASSERT_TRAP script_module STRING_ RPAR
-    | LPAR ASSERT_RETURN action_ const_list RPAR
-    | LPAR ASSERT_RETURN_CANONICAL_NAN action_ RPAR
-    | LPAR ASSERT_RETURN_ARITHMETIC_NAN action_ RPAR
+    | LPAR ASSERT_RETURN action_ result* RPAR
+    // | LPAR ASSERT_RETURN_CANONICAL_NAN action_ RPAR
+    // | LPAR ASSERT_RETURN_ARITHMETIC_NAN action_ RPAR
     | LPAR ASSERT_TRAP action_ STRING_ RPAR
     | LPAR ASSERT_EXHAUSTION action_ STRING_ RPAR
     ;
@@ -388,13 +545,57 @@ meta
     | LPAR OUTPUT VAR? RPAR
     ;
 
-wconst
-    : LPAR CONST literal RPAR
+// wconst
+//     : LPAR CONST num RPAR
+//     | LPAR REF_NULL ref_kind RPAR
+//     | LPAR REF_EXTERN NAT RPAR
+//     ;
+literal_num
+    : LPAR CONST num RPAR
     ;
 
-const_list
-    : wconst*
+literal_vec
+    : LPAR VEC_CONST VEC_SHAPE num* RPAR
     ;
+
+literal_ref
+    : LPAR REF_NULL heap_type RPAR
+    | LPAR REF_HOST NAT RPAR
+    | LPAR REF_EXTERN NAT RPAR
+    ;
+
+literal
+    : literal_num
+    | literal_vec
+    | literal_ref
+    ;
+
+literal_list
+    : literal*
+    ;
+
+numpat 
+    : num
+    | NAN_
+    ;
+numpat_list
+    : numpat*
+    ;
+result
+    : literal_num
+    | literal_ref
+    | LPAR CONST NAN_ RPAR
+    | LPAR (REF_FUNC 
+            | REF
+            | REF_EQ
+            | REF_I31
+            | REF_STRUCT
+            | REF_ARRAY
+            | REF_NULL
+            | REF_EXTERN 
+            | VEC_CONST VEC_SHAPE numpat_list) RPAR
+    ;
+
 
 script
     : cmd* EOF

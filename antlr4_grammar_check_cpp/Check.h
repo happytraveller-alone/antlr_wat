@@ -10,14 +10,16 @@
 #include <random>
 #include <sstream>
 #include <string>
+#include <chrono>
+#include <thread>
 #include <unordered_map>
 #include <utility>
 
 #include "TokenStreamRewriter.h"
-#include "WatLexer.h"
-#include "WatParser.h"
-#include "WatParserBaseVisitor.h"
-#include "WatParserVisitor.h"
+#include "src/WatLexer.h"
+#include "src/WatParser.h"
+#include "src/WatParserBaseVisitor.h"
+#include "src/WatParserVisitor.h"
 #include "antlr4-runtime.h"
 
 using namespace antlr4;
@@ -29,6 +31,7 @@ private:
   std::ofstream OUTPUTFILE;
   std::string FILENAME;
   std::string FILEPATH;
+  // std::string FILEPARENTPATHNAME;
   // std::string BUFFERSTORE;
 
 public:
@@ -83,7 +86,13 @@ public:
       fprintf(stdout, "%s open file successfully.\n", FILENAME.c_str());
     }
   }
+  void fileRename(const std::string &new_name){
+    std::filesystem::rename(FILENAME, new_name);
+  }
 
+  void fileCopy(const std::string &new_path){
+    std::filesystem::copy(FILENAME, new_path);
+  }
   // void recreate(const std::string &filenamepath) {
   //   if (exists(filenamepath)) {
   //     remove(filenamepath);
@@ -219,6 +228,7 @@ public:
         format_outputfile(format_filename),
         LexerErrorListener(lexer_error_filename),
         ParserErrorListener(parser_error_filename) {
+    std::cout << "first constructor" << std::endl;
     // file check
     original_outputfile.checkFileOpen();
     rewriter_outputfile.checkFileOpen();
@@ -263,6 +273,65 @@ public:
         {WatLexer::COMPARE, [this](Token *token, const std::string &text) {
            rewriter_changed.replace(token, getRandomCompare(text));
          }}};
+  }
+
+  CustomWatVisitor(std::string input_filename, std::string parent_path)
+      : input_filename(input_filename), input_file(input_filename),
+        stream(input_file), lexer(&stream), tokens(&lexer), parser(&tokens),
+        rewriter_original(&tokens), rewriter_changed(&tokens),
+        original_outputfile(parent_path + "/"  + "original_output.txt"),
+        rewriter_outputfile(parent_path + "/" + "rewrite_output.txt"),
+        format_outputfile(parent_path + "/" + "format_output.txt"),
+        LexerErrorListener(parent_path + "/"  + "lexer_error_output.txt"),
+        ParserErrorListener(parent_path + "/"+ "parser_error_output.txt") {
+    
+    std::cout << "second constructor" << std::endl;
+    // file check
+    original_outputfile.checkFileOpen();
+    rewriter_outputfile.checkFileOpen();
+    format_outputfile.checkFileOpen();
+
+    // 随机数生成器
+    std::random_device rd;
+    gen = std::mt19937(rd());
+
+    // Create lexer error listener
+    // CustomErrorListener LexerListener(lexer_error_filename);
+    lexer.removeErrorListeners();
+    lexer.addErrorListener(&LexerErrorListener);
+    // Create parser error listener
+    // CustomErrorListener ParserListener(parser_error_filename);
+    parser.removeErrorListeners();
+    parser.addErrorListener(&ParserErrorListener);
+    tree = parser.module();
+    funcMap = {
+        // {WatLexer::EOF,      [this](Token *token,const std::string& text) {
+        // rewriter_changed.replace(token, text); }},
+        {WatLexer::BINARY,
+         [this](Token *token, const std::string &text) {
+           rewriter_changed.replace(token, getRandomBinary(text));
+         }},
+        {WatLexer::CONVERT,
+         [this](Token *token, const std::string &text) {
+           rewriter_changed.replace(token, getRandomConvert(text));
+         }},
+        {WatLexer::CONST,
+         [this](Token *token, const std::string &text) {
+           rewriter_changed.replace(token, getRandomConst(text));
+         }},
+        {WatLexer::LOAD,
+         [this](Token *token, const std::string &text) {
+           rewriter_changed.replace(token, getRandomLoad(text));
+         }},
+        {WatLexer::STORE,
+         [this](Token *token, const std::string &text) {
+           rewriter_changed.replace(token, getRandomStore(text));
+         }},
+        {WatLexer::COMPARE, [this](Token *token, const std::string &text) {
+           rewriter_changed.replace(token, getRandomCompare(text));
+         }}};
+
+      std::cout << "init CustomWatVisitor success" << std::endl;
   }
 
   ~CustomWatVisitor() {

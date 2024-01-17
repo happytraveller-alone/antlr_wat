@@ -23,11 +23,19 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitValue_type(WatParser::Value_typeContext *ctx) override {
+  virtual std::any visitNull_opt(WatParser::Null_optContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitElem_type(WatParser::Elem_typeContext *ctx) override {
+  virtual std::any visitHeap_type(WatParser::Heap_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitRef_type(WatParser::Ref_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitVal_type(WatParser::Val_typeContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -35,11 +43,31 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitDef_type(WatParser::Def_typeContext *ctx) override {
+  virtual std::any visitStorage_type(WatParser::Storage_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitField_type(WatParser::Field_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitStruct_type(WatParser::Struct_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitArray_type(WatParser::Array_typeContext *ctx) override {
     return visitChildren(ctx);
   }
 
   virtual std::any visitFunc_type(WatParser::Func_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitStr_type(WatParser::Str_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitSub_type(WatParser::Sub_typeContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -55,7 +83,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitLiteral(WatParser::LiteralContext *ctx) override {
+  virtual std::any visitNat32(WatParser::Nat32Context *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitNum(WatParser::NumContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -67,6 +99,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitInstr_list(WatParser::Instr_listContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitInstr(WatParser::InstrContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -75,23 +111,15 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitCall_instr(WatParser::Call_instrContext *ctx) override {
+  virtual std::any visitSelect_instr_instr_list(WatParser::Select_instr_instr_listContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitCall_instr_params(WatParser::Call_instr_paramsContext *ctx) override {
+  virtual std::any visitCall_instr_instr_list(WatParser::Call_instr_instr_listContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitCall_instr_instr(WatParser::Call_instr_instrContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitCall_instr_params_instr(WatParser::Call_instr_params_instrContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitCall_instr_results_instr(WatParser::Call_instr_results_instrContext *ctx) override {
+  virtual std::any visitCall_instr_type_instr_list(WatParser::Call_instr_type_instr_listContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -99,11 +127,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitBlock_type(WatParser::Block_typeContext *ctx) override {
+  virtual std::any visitBlock(WatParser::BlockContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitBlock(WatParser::BlockContext *ctx) override {
+  virtual std::any visitBlock_param_body(WatParser::Block_param_bodyContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -112,6 +140,10 @@ public:
   }
 
   virtual std::any visitExpr1(WatParser::Expr1Context *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitSelect_expr_results(WatParser::Select_expr_resultsContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -131,7 +163,7 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitInstr_list(WatParser::Instr_listContext *ctx) override {
+  virtual std::any visitIf_block_result_body(WatParser::If_block_result_bodyContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -167,7 +199,27 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitTable_use(WatParser::Table_useContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitMemory_use(WatParser::Memory_useContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitOffset(WatParser::OffsetContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitElem_kind(WatParser::Elem_kindContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitElem_expr(WatParser::Elem_exprContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitElem_list(WatParser::Elem_listContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -227,11 +279,15 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitType_(WatParser::Type_Context *ctx) override {
+  virtual std::any visitType_def(WatParser::Type_defContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitType_def(WatParser::Type_defContext *ctx) override {
+  virtual std::any visitRec_type(WatParser::Rec_typeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitType_(WatParser::Type_Context *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -244,6 +300,10 @@ public:
   }
 
   virtual std::any visitModule_(WatParser::Module_Context *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitInline_module(WatParser::Inline_moduleContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -267,11 +327,35 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitWconst(WatParser::WconstContext *ctx) override {
+  virtual std::any visitLiteral_num(WatParser::Literal_numContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual std::any visitConst_list(WatParser::Const_listContext *ctx) override {
+  virtual std::any visitLiteral_vec(WatParser::Literal_vecContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLiteral_ref(WatParser::Literal_refContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLiteral(WatParser::LiteralContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLiteral_list(WatParser::Literal_listContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitNumpat(WatParser::NumpatContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitNumpat_list(WatParser::Numpat_listContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitResult(WatParser::ResultContext *ctx) override {
     return visitChildren(ctx);
   }
 

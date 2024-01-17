@@ -12,12 +12,15 @@ set(CMAKE_CXX_COMPILER /usr/bin/clang++-14)
 # Include the ANTLR4 runtime library from your project directory
 set(ANTLR4_ROOT ${CMAKE_SOURCE_DIR}/runtime)
 include_directories(${ANTLR4_ROOT}/runtime/src)
+# include_directories(${CMAKE_SOURCE_DIR}/src)
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")
+# add_executable(your_executable ${SOURCES})
+
 
 # Add the generated lexer and parser files to your project
 add_executable(Grammar_check
     Check.cpp
-    WatLexer.cpp
-    WatParser.cpp
+    ${SOURCES}
 )
 
 # Link against the ANTLR4 runtime library
