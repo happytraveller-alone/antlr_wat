@@ -48,6 +48,8 @@ fragment MFXX     : 'f' ('32' | '64');
 fragment SIGN     : 's' | 'u';
 fragment MEM_SIZE : '8' | '16' | '32';
 
+// fragment Newline : Ascii_Newline | []
+
 fragment VXXX                     : 'v128';
 fragment V128_INT_SHAPE           : 'i8x16' | 'i16x8' | 'i32x4' | 'i64x2';
 fragment V128_INT_SHAPE_EXCEPT_64 : 'i8x16' | 'i16x8' | 'i32x4';
@@ -132,6 +134,7 @@ EXTERNREF     : 'externref';
 NULLEXTERNREF : 'nullexternref';
 REF           : 'ref';
 NULL          : 'null';
+
 ARRAY         : 'array';
 STRUCT        : 'struct';
 FIELD         : 'field';
@@ -141,8 +144,41 @@ REC           : 'rec';
 
 REF_NULL    : 'ref.null';
 REF_FUNC    : 'ref.func';
+REF_STRUCT  : 'ref.struct';
+REF_ARRAY   : 'ref.array';
+REF_HOST    : 'ref.host';
 REF_EXTERN  : 'ref.extern';
 REF_IS_NULL : 'ref.is_null';
+REF_AS_NON_NULL : 'ref.as_non_null';
+REF_TEST    : 'ref.test';
+REF_CAST    : 'ref.cast';
+REF_EQ      : 'ref.eq';
+REF_I31 : 'ref.i31';
+
+I31_GET : 'i31.get_' SIGN;
+STRUCT_NEW :
+    'struct.new'
+    | 'struct.new_default'
+    ;
+STRUCT_GET:
+    'struct.get'
+    | 'struct.get_' SIGN
+    ;
+STRUCT_SET: 'struct.set';
+
+ARRAY_NEW : 'array.new' | 'array.new_default';
+ARRAY_NEW_FIXED : 'array.new_fixed';
+ARRAY_NEW_ELEM : 'array.new_elem';
+ARRAY_NEW_DATA : 'array.new_data';
+ARRAY_GET : 'array.get' | 'array.get_' SIGN;
+ARRAY_SET : 'array.set';
+ARRAY_LEN : 'array.len';
+ARRAY_COPY : 'array.copy';
+ARRAY_FILL : 'array.fill';
+ARRAY_INIT_DATA : 'array.init_data';
+ARRAY_INIT_ELEM : 'array.init_elem';
+EXTERN_CONVERT : 'extern.convert_any' | 'any.convert_extern';
+
 
 NOP                  : 'nop';
 UNREACHABLE          : 'unreachable';
@@ -185,7 +221,11 @@ TABLE_INIT : 'table_init';
 DATA_DROP : 'data.drop';
 ELEM_DROP : 'elem.drop';
 
-LOAD  : NXX '.load' (MEM_SIZE '_' SIGN)?;
+LOAD  : 
+    NXX '.load' (MEM_SIZE '_' SIGN)? 
+    | IXX '.store' ('8' | '16')
+    | 'i64.store32'
+    ;
 STORE : NXX '.store' (MEM_SIZE)?;
 
 OFFSET_EQ_NAT : 'offset=' Nat;
@@ -252,20 +292,14 @@ CONVERT:
 ;
 
 VEC_LOAD:
-    VXXX (
-        '.load'
-        | '.load8_splat'
-        | '.load16_splat'
-        | '.load32_splat'
-        | '.load64_splat'
-        | '.load32_zero'
-        | '.load64_zero'
-    )
+    VXXX '.load' ('32'|'64') '_zero'
     | VXXX '.load' ('8x8' | '16x4' | '32x2') '_' SIGN
+    | VXXX '.load' ('8' | '16' | '32' | '64') '_splat'
+    | VXXX '.load'
 ;
 VEC_STORE: 'v128.store';
-VEC_LOAD_LANE  : VXXX ('.load8_lane' | '.load16_lane' | '.load32_lane' | '.load64_lane');
-VEC_STORE_LANE : VXXX ('.store8_lane' | '.store16_lane' | '.store32_lane' | '.store64_lane');
+VEC_LOAD_LANE  : VXXX '.load' ('8' | '16' | '32' | '64') '_lane';
+VEC_STORE_LANE : VXXX '.store' ('8' | '16' | '32' | '64') '_lane';
 VEC_UNARY:
     VXXX ('.not' | '.and' | '.andnot' | '.or' | '.xor')
     | V128_SHAPE ('.neg' | '.abs')
