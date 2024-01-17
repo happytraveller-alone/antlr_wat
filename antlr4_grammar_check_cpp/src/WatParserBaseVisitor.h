@@ -323,6 +323,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitShared_cmd_list(WatParser::Shared_cmd_listContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitMeta(WatParser::MetaContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -348,10 +352,6 @@ public:
   }
 
   virtual std::any visitNumpat(WatParser::NumpatContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual std::any visitNumpat_list(WatParser::Numpat_listContext *ctx) override {
     return visitChildren(ctx);
   }
 

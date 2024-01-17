@@ -245,6 +245,9 @@ public:
   virtual void enterCmd(WatParser::CmdContext *ctx) = 0;
   virtual void exitCmd(WatParser::CmdContext *ctx) = 0;
 
+  virtual void enterShared_cmd_list(WatParser::Shared_cmd_listContext *ctx) = 0;
+  virtual void exitShared_cmd_list(WatParser::Shared_cmd_listContext *ctx) = 0;
+
   virtual void enterMeta(WatParser::MetaContext *ctx) = 0;
   virtual void exitMeta(WatParser::MetaContext *ctx) = 0;
 
@@ -265,9 +268,6 @@ public:
 
   virtual void enterNumpat(WatParser::NumpatContext *ctx) = 0;
   virtual void exitNumpat(WatParser::NumpatContext *ctx) = 0;
-
-  virtual void enterNumpat_list(WatParser::Numpat_listContext *ctx) = 0;
-  virtual void exitNumpat_list(WatParser::Numpat_listContext *ctx) = 0;
 
   virtual void enterResult(WatParser::ResultContext *ctx) = 0;
   virtual void exitResult(WatParser::ResultContext *ctx) = 0;

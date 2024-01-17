@@ -16,35 +16,39 @@ public:
     PACK_TYPE = 8, VEC_TYPE = 9, VEC_SHAPE = 10, CONST = 11, VEC_CONST = 12, 
     ANY = 13, ANYREF = 14, NONE = 15, NULLREF = 16, EQ = 17, EQREF = 18, 
     I31 = 19, I31REF = 20, STRUCTREF = 21, ARRAYREF = 22, NOFUNC = 23, FUNCREF = 24, 
-    MUT = 25, NULLFUNCREF = 26, EXTERN = 27, NOEXTERN = 28, EXTERNREF = 29, 
-    NULLEXTERNREF = 30, REF = 31, NULL_ = 32, ARRAY = 33, STRUCT = 34, FIELD = 35, 
-    SUB = 36, FINAL = 37, REC = 38, REF_NULL = 39, REF_FUNC = 40, REF_STRUCT = 41, 
-    REF_ARRAY = 42, REF_HOST = 43, REF_EXTERN = 44, REF_IS_NULL = 45, REF_AS_NON_NULL = 46, 
-    REF_TEST = 47, REF_CAST = 48, REF_EQ = 49, REF_I31 = 50, I31_GET = 51, 
-    STRUCT_NEW = 52, STRUCT_GET = 53, STRUCT_SET = 54, ARRAY_NEW = 55, ARRAY_NEW_FIXED = 56, 
-    ARRAY_NEW_ELEM = 57, ARRAY_NEW_DATA = 58, ARRAY_GET = 59, ARRAY_SET = 60, 
-    ARRAY_LEN = 61, ARRAY_COPY = 62, ARRAY_FILL = 63, ARRAY_INIT_DATA = 64, 
-    ARRAY_INIT_ELEM = 65, EXTERN_CONVERT = 66, NOP = 67, UNREACHABLE = 68, 
-    DROP = 69, BLOCK = 70, LOOP = 71, END = 72, BR = 73, BR_IF = 74, BR_TABLE = 75, 
-    RETURN = 76, IF = 77, THEN = 78, ELSE = 79, SELECT = 80, CALL = 81, 
-    CALL_INDIRECT = 82, CALL_REF = 83, RETURN_CALL = 84, RETURN_CALL_REF = 85, 
-    RETURN_CALL_INDIRECT = 86, BR_ON_NULL = 87, BR_ON_CAST = 88, LOCAL_GET = 89, 
-    LOCAL_SET = 90, LOCAL_TEE = 91, GLOBAL_GET = 92, GLOBAL_SET = 93, TABLE_GET = 94, 
-    TABLE_SET = 95, TABLE_SIZE = 96, TABLE_GROW = 97, TABLE_FILL = 98, TABLE_COPY = 99, 
-    TABLE_INIT = 100, DATA_DROP = 101, ELEM_DROP = 102, LOAD = 103, STORE = 104, 
-    OFFSET_EQ_NAT = 105, ALIGN_EQ_NAT = 106, UNARY = 107, BINARY = 108, 
-    TEST = 109, COMPARE = 110, CONVERT = 111, VEC_LOAD = 112, VEC_STORE = 113, 
-    VEC_LOAD_LANE = 114, VEC_STORE_LANE = 115, VEC_UNARY = 116, VEC_BINARY = 117, 
-    VEC_TERNARY = 118, VEC_TEST = 119, VEC_BITMASK = 120, VEC_SHIFT = 121, 
-    VEC_SHUFFLE = 122, VEC_SPLAT = 123, VEC_EXTRACT = 124, VEC_REPLACE = 125, 
-    MEMORY_SIZE = 126, MEMORY_GROW = 127, MEMORY_FILL = 128, MEMORY_COPY = 129, 
-    MEMORY_INIT = 130, TYPE = 131, FUNC = 132, START_ = 133, PARAM = 134, 
-    RESULT = 135, LOCAL = 136, GLOBAL = 137, TABLE = 138, MEMORY = 139, 
-    ELEM = 140, DATA = 141, OFFSET = 142, IMPORT = 143, EXPORT = 144, DECLARE = 145, 
-    ITEM = 146, MODULE = 147, BIN = 148, QUOTE = 149, SCRIPT = 150, REGISTER = 151, 
-    INVOKE = 152, GET = 153, ASSERT_MALFORMED = 154, ASSERT_INVALID = 155, 
-    ASSERT_UNLINKABLE = 156, ASSERT_RETURN = 157, ASSERT_TRAP = 158, ASSERT_EXHAUSTION = 159, 
-    INPUT = 160, OUTPUT = 161, NAN_ = 162, VAR = 163, SPACE = 164, COMMENT = 165
+    MUT = 25, SHARED = 26, NULLFUNCREF = 27, EXTERN = 28, NOEXTERN = 29, 
+    EXTERNREF = 30, NULLEXTERNREF = 31, REF = 32, NULL_ = 33, ARRAY = 34, 
+    STRUCT = 35, FIELD = 36, SUB = 37, FINAL = 38, REC = 39, REF_NULL = 40, 
+    REF_FUNC = 41, REF_STRUCT = 42, REF_ARRAY = 43, REF_HOST = 44, REF_EXTERN = 45, 
+    REF_IS_NULL = 46, REF_AS_NON_NULL = 47, REF_TEST = 48, REF_CAST = 49, 
+    REF_EQ = 50, REF_I31 = 51, I31_GET = 52, STRUCT_NEW = 53, STRUCT_GET = 54, 
+    STRUCT_SET = 55, ARRAY_NEW = 56, ARRAY_NEW_FIXED = 57, ARRAY_NEW_ELEM = 58, 
+    ARRAY_NEW_DATA = 59, ARRAY_GET = 60, ARRAY_SET = 61, ARRAY_LEN = 62, 
+    ARRAY_COPY = 63, ARRAY_FILL = 64, ARRAY_INIT_DATA = 65, ARRAY_INIT_ELEM = 66, 
+    EXTERN_CONVERT = 67, MEMORY_ATOMIC_NOTIFY = 68, MEMORY_ATOMIC_WAIT = 69, 
+    ATOMIC_FENCE = 70, ATOMIC_LOAD = 71, ATOMIC_STORE = 72, ATOMIC_RMW = 73, 
+    ATOMIC_RMW_CMPXCHG = 74, NOP = 75, UNREACHABLE = 76, DROP = 77, BLOCK = 78, 
+    LOOP = 79, END = 80, BR = 81, BR_IF = 82, BR_TABLE = 83, RETURN = 84, 
+    IF = 85, THEN = 86, ELSE = 87, SELECT = 88, CALL = 89, CALL_INDIRECT = 90, 
+    CALL_REF = 91, RETURN_CALL = 92, RETURN_CALL_REF = 93, RETURN_CALL_INDIRECT = 94, 
+    BR_ON_NULL = 95, BR_ON_CAST = 96, LOCAL_GET = 97, LOCAL_SET = 98, LOCAL_TEE = 99, 
+    GLOBAL_GET = 100, GLOBAL_SET = 101, TABLE_GET = 102, TABLE_SET = 103, 
+    TABLE_SIZE = 104, TABLE_GROW = 105, TABLE_FILL = 106, TABLE_COPY = 107, 
+    TABLE_INIT = 108, DATA_DROP = 109, ELEM_DROP = 110, LOAD = 111, STORE = 112, 
+    OFFSET_EQ_NAT = 113, ALIGN_EQ_NAT = 114, UNARY = 115, BINARY = 116, 
+    TEST = 117, COMPARE = 118, CONVERT = 119, VEC_LOAD = 120, VEC_STORE = 121, 
+    VEC_LOAD_LANE = 122, VEC_STORE_LANE = 123, VEC_UNARY = 124, VEC_BINARY = 125, 
+    VEC_TERNARY = 126, VEC_TEST = 127, VEC_BITMASK = 128, VEC_SHIFT = 129, 
+    VEC_SHUFFLE = 130, VEC_SPLAT = 131, VEC_EXTRACT = 132, VEC_REPLACE = 133, 
+    MEMORY_SIZE = 134, MEMORY_GROW = 135, MEMORY_FILL = 136, MEMORY_COPY = 137, 
+    MEMORY_INIT = 138, TYPE = 139, FUNC = 140, START_ = 141, PARAM = 142, 
+    RESULT = 143, LOCAL = 144, GLOBAL = 145, TABLE = 146, MEMORY = 147, 
+    ELEM = 148, DATA = 149, OFFSET = 150, IMPORT = 151, EXPORT = 152, DECLARE = 153, 
+    ITEM = 154, MODULE = 155, BIN = 156, QUOTE = 157, EITHER = 158, THREAD = 159, 
+    WAIT = 160, SCRIPT = 161, REGISTER = 162, INVOKE = 163, GET = 164, ASSERT_MALFORMED = 165, 
+    ASSERT_INVALID = 166, ASSERT_UNLINKABLE = 167, ASSERT_RETURN = 168, 
+    ASSERT_TRAP = 169, ASSERT_EXHAUSTION = 170, INPUT = 171, OUTPUT = 172, 
+    NAN_ = 173, VAR = 174, SPACE = 175, COMMENT = 176
   };
 
   enum {
@@ -68,10 +72,10 @@ public:
     RuleInline_import = 62, RuleExport_desc = 63, RuleExport_ = 64, RuleInline_export = 65, 
     RuleType_def = 66, RuleRec_type = 67, RuleType_ = 68, RuleStart_ = 69, 
     RuleModule_field = 70, RuleModule_ = 71, RuleInline_module = 72, RuleScript_module = 73, 
-    RuleAction_ = 74, RuleAssertion = 75, RuleCmd = 76, RuleMeta = 77, RuleLiteral_num = 78, 
-    RuleLiteral_vec = 79, RuleLiteral_ref = 80, RuleLiteral = 81, RuleLiteral_list = 82, 
-    RuleNumpat = 83, RuleNumpat_list = 84, RuleResult = 85, RuleScript = 86, 
-    RuleModule = 87
+    RuleAction_ = 74, RuleAssertion = 75, RuleCmd = 76, RuleShared_cmd_list = 77, 
+    RuleMeta = 78, RuleLiteral_num = 79, RuleLiteral_vec = 80, RuleLiteral_ref = 81, 
+    RuleLiteral = 82, RuleLiteral_list = 83, RuleNumpat = 84, RuleResult = 85, 
+    RuleScript = 86, RuleModule = 87
   };
 
   explicit WatParser(antlr4::TokenStream *input);
@@ -168,6 +172,7 @@ public:
   class Action_Context;
   class AssertionContext;
   class CmdContext;
+  class Shared_cmd_listContext;
   class MetaContext;
   class Literal_numContext;
   class Literal_vecContext;
@@ -175,7 +180,6 @@ public:
   class LiteralContext;
   class Literal_listContext;
   class NumpatContext;
-  class Numpat_listContext;
   class ResultContext;
   class ScriptContext;
   class ModuleContext; 
@@ -480,6 +484,7 @@ public:
     virtual size_t getRuleIndex() const override;
     std::vector<antlr4::tree::TerminalNode *> NAT();
     antlr4::tree::TerminalNode* NAT(size_t i);
+    antlr4::tree::TerminalNode *SHARED();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -702,6 +707,13 @@ public:
     antlr4::tree::TerminalNode *VEC_SPLAT();
     antlr4::tree::TerminalNode *VEC_EXTRACT();
     antlr4::tree::TerminalNode *VEC_REPLACE();
+    antlr4::tree::TerminalNode *MEMORY_ATOMIC_WAIT();
+    antlr4::tree::TerminalNode *MEMORY_ATOMIC_NOTIFY();
+    antlr4::tree::TerminalNode *ATOMIC_FENCE();
+    antlr4::tree::TerminalNode *ATOMIC_LOAD();
+    antlr4::tree::TerminalNode *ATOMIC_STORE();
+    antlr4::tree::TerminalNode *ATOMIC_RMW();
+    antlr4::tree::TerminalNode *ATOMIC_RMW_CMPXCHG();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -1831,6 +1843,9 @@ public:
     NameContext *name();
     antlr4::tree::TerminalNode *RPAR();
     antlr4::tree::TerminalNode *VAR();
+    antlr4::tree::TerminalNode *THREAD();
+    Shared_cmd_listContext *shared_cmd_list();
+    antlr4::tree::TerminalNode *WAIT();
     MetaContext *meta();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -1841,6 +1856,32 @@ public:
   };
 
   CmdContext* cmd();
+
+  class  Shared_cmd_listContext : public antlr4::ParserRuleContext {
+  public:
+    Shared_cmd_listContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> SHARED();
+    antlr4::tree::TerminalNode* SHARED(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> MODULE();
+    antlr4::tree::TerminalNode* MODULE(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> VAR();
+    antlr4::tree::TerminalNode* VAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<CmdContext *> cmd();
+    CmdContext* cmd(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Shared_cmd_listContext* shared_cmd_list();
 
   class  MetaContext : public antlr4::ParserRuleContext {
   public:
@@ -1973,22 +2014,6 @@ public:
 
   NumpatContext* numpat();
 
-  class  Numpat_listContext : public antlr4::ParserRuleContext {
-  public:
-    Numpat_listContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<NumpatContext *> numpat();
-    NumpatContext* numpat(size_t i);
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  Numpat_listContext* numpat_list();
-
   class  ResultContext : public antlr4::ParserRuleContext {
   public:
     ResultContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -2009,7 +2034,11 @@ public:
     antlr4::tree::TerminalNode *REF_EXTERN();
     antlr4::tree::TerminalNode *VEC_CONST();
     antlr4::tree::TerminalNode *VEC_SHAPE();
-    Numpat_listContext *numpat_list();
+    std::vector<NumpatContext *> numpat();
+    NumpatContext* numpat(size_t i);
+    antlr4::tree::TerminalNode *EITHER();
+    std::vector<ResultContext *> result();
+    ResultContext* result(size_t i);
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;

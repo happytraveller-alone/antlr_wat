@@ -247,6 +247,9 @@ public:
   virtual void enterCmd(WatParser::CmdContext * /*ctx*/) override { }
   virtual void exitCmd(WatParser::CmdContext * /*ctx*/) override { }
 
+  virtual void enterShared_cmd_list(WatParser::Shared_cmd_listContext * /*ctx*/) override { }
+  virtual void exitShared_cmd_list(WatParser::Shared_cmd_listContext * /*ctx*/) override { }
+
   virtual void enterMeta(WatParser::MetaContext * /*ctx*/) override { }
   virtual void exitMeta(WatParser::MetaContext * /*ctx*/) override { }
 
@@ -267,9 +270,6 @@ public:
 
   virtual void enterNumpat(WatParser::NumpatContext * /*ctx*/) override { }
   virtual void exitNumpat(WatParser::NumpatContext * /*ctx*/) override { }
-
-  virtual void enterNumpat_list(WatParser::Numpat_listContext * /*ctx*/) override { }
-  virtual void exitNumpat_list(WatParser::Numpat_listContext * /*ctx*/) override { }
 
   virtual void enterResult(WatParser::ResultContext * /*ctx*/) override { }
   virtual void exitResult(WatParser::ResultContext * /*ctx*/) override { }

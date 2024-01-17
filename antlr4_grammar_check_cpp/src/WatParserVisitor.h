@@ -173,6 +173,8 @@ public:
 
     virtual std::any visitCmd(WatParser::CmdContext *context) = 0;
 
+    virtual std::any visitShared_cmd_list(WatParser::Shared_cmd_listContext *context) = 0;
+
     virtual std::any visitMeta(WatParser::MetaContext *context) = 0;
 
     virtual std::any visitLiteral_num(WatParser::Literal_numContext *context) = 0;
@@ -186,8 +188,6 @@ public:
     virtual std::any visitLiteral_list(WatParser::Literal_listContext *context) = 0;
 
     virtual std::any visitNumpat(WatParser::NumpatContext *context) = 0;
-
-    virtual std::any visitNumpat_list(WatParser::Numpat_listContext *context) = 0;
 
     virtual std::any visitResult(WatParser::ResultContext *context) = 0;
 
