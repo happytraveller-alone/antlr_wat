@@ -32,7 +32,8 @@ fragment Float:
 ;
 
 fragment String_:
-    '"' (Char | '\n' | '\t' | '\\' | '\'' | '\\' HexDigit HexDigit | '\\u{' HexDigit+ '}')* '"'
+    '"' (Char | '\n' | '\t' | '\r' | '\\' | '\'' | '\\' HexDigit HexDigit | '\\u{' HexDigit+ '}')* '"'
+    | Utf8Enc
 ;
 
 fragment Name: '$' (Letter | Digit | '_' | Symbol)+;
@@ -192,7 +193,7 @@ ALIGN_EQ_NAT  : 'align=' Nat;
 
 UNARY:
     IXX ('.clz' | '.ctz' | '.popcnt' | '.extend8_s' | '.extend16_s')
-    | 'i64_extend32_s'
+    | 'i64.extend32_s'
     | FXX ('.neg' | '.abs' | '.sqrt' | '.ceil' | '.floor' | '.trunc' | '.nearest')
 ;
 
@@ -260,9 +261,9 @@ VEC_LOAD:
         | '.load32_zero'
         | '.load64_zero'
     )
-    | VXXX '.load' ('8x8' | '16x4' | '32x2') SIGN
+    | VXXX '.load' ('8x8' | '16x4' | '32x2') '_' SIGN
 ;
-
+VEC_STORE: 'v128.store';
 VEC_LOAD_LANE  : VXXX ('.load8_lane' | '.load16_lane' | '.load32_lane' | '.load64_lane');
 VEC_STORE_LANE : VXXX ('.store8_lane' | '.store16_lane' | '.store32_lane' | '.store64_lane');
 VEC_UNARY:
@@ -276,7 +277,6 @@ VEC_UNARY:
     | V128_FLOAT_SHAPE ('.sqrt' | '.ceil' | '.floor' | '.trunc' | '.nearest')
     | (
         'i32x4.trunc_sat_f32x4_'
-        | 'i32x4.trunc_sat_f64x2_'
         | 'f32x4.convert_i32x4_'
         | 'f64x2.convert_low_i32x4_'
         | 'i16x8.extadd_pairwise_i8x16_'
@@ -288,6 +288,7 @@ VEC_UNARY:
         | 'i64x2.extend_low_i32x4_'
         | 'i64x2.extend_high_i32x4_'
     ) SIGN
+    | 'i32x4.trunc_sat_f64x2_' SIGN '_zero'
 ;
 VEC_BINARY:
     V128_SHAPE ('.eq' | '.ne' | 'add' | '.sub')

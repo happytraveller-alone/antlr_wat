@@ -33,6 +33,7 @@ ref_type
 
 num_type
     : NUM_TYPE
+    | VEC_TYPE
     | ref_type
     ;
 
@@ -118,6 +119,10 @@ plain_instr
     | ELEM_DROP var_
     | LOAD OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     | STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | VEC_LOAD OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | VEC_STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | VEC_LOAD_LANE OFFSET_EQ_NAT? ALIGN_EQ_NAT? NAT
+    | VEC_STORE_LANE OFFSET_EQ_NAT? ALIGN_EQ_NAT? NAT
     | MEMORY_SIZE
     | MEMORY_GROW
     | CONST num
@@ -133,23 +138,36 @@ plain_instr
     | UNARY
     | BINARY
     | CONVERT
+    | VEC_CONST VEC_SHAPE num*
+    | VEC_UNARY
+    | VEC_BINARY
+    | VEC_TERNARY
+    | VEC_TEST
+    | VEC_SHIFT
+    | VEC_BITMASK
+    | VEC_SHUFFLE num*
+    | VEC_SPLAT
+    | VEC_EXTRACT NAT
+    | VEC_REPLACE NAT
     ;
 
-select_instr 
-    : SELECT select_instr_results
-    ;
+// select_instr 
+//     : SELECT select_instr_results
+//     ;
 
-select_instr_results 
-    : (LPAR RESULT num_type* RPAR)*
+// select_instr_results 
+//     : (LPAR RESULT num_type* RPAR)*
+//     ;
+select_instr
+    : SELECT (LPAR RESULT num_type* RPAR)*
     ;
-
 select_instr_instr 
     : SELECT (LPAR RESULT num_type* RPAR)* instr
     ;
 
 call_instr
-    : CALL_INDIRECT var_ type_use? call_instr_params
-    | CALL_INDIRECT type_use? call_instr_params
+    : CALL_INDIRECT var_? type_use? call_instr_params
+    // | CALL_INDIRECT type_use? call_instr_params
     
     ;
 
@@ -158,8 +176,8 @@ call_instr_params
     ;
 
 call_instr_instr
-    : CALL_INDIRECT var_ type_use? call_instr_params_instr
-    | CALL_INDIRECT type_use? call_instr_params_instr
+    : CALL_INDIRECT var_? type_use? call_instr_params_instr
+    // | CALL_INDIRECT type_use? call_instr_params_instr
     ;
 
 call_instr_params_instr
@@ -230,8 +248,8 @@ if_block_result_body
     ;
 
 instr_list
-    : instr* call_instr?
-    | select_instr
+    : instr* (call_instr? | select_instr?)
+    // | instr* 
     ;
 
 const_expr
@@ -297,26 +315,26 @@ elem_expr
     | expr
     ;
 
-elem_expr_list
-    : elem_expr*
-    ;
+// elem_expr_list
+//     : elem_expr*
+//     ;
 
-elem_var_list
-    : var_*
-    ;
+// elem_var_list
+//     : var_*
+//     ;
 
 elem_list
-    : elem_kind elem_var_list
-    | ref_type elem_expr_list
+    : elem_kind var_*
+    | ref_type elem_expr*
     ;
 
 elem
     // : LPAR ELEM var_? offset var_* RPAR
     // : LPAR ELEM bind_var? elem_list RPAR
-    : LPAR ELEM bind_var? table_use offset elem_list RPAR
+    // : LPAR ELEM bind_var?  elem_list RPAR
     // | LPAR ELEM bind_var?  elem_list RPAR
-    | LPAR ELEM bind_var? (offset? | DECLARE) elem_list RPAR
-    | LPAR ELEM bind_var? offset elem_var_list RPAR
+    : LPAR ELEM bind_var? (table_use offset | offset? | DECLARE) elem_list RPAR
+    | LPAR ELEM bind_var? offset var_* RPAR
     ;
 
 table
@@ -327,7 +345,7 @@ table_fields
     : table_type
     | inline_import table_type
     | inline_export table_fields
-    | ref_type LPAR ELEM (var_* | elem_expr elem_expr*) RPAR
+    | ref_type LPAR ELEM (var_* | elem_expr*) RPAR
     ;
 
 data
@@ -429,7 +447,7 @@ script_module
     ;
 
 action_
-    : LPAR INVOKE VAR? name const_list RPAR
+    : LPAR INVOKE VAR? name literal_list RPAR
     | LPAR GET VAR? name RPAR
     ;
 
@@ -460,20 +478,46 @@ meta
     | LPAR OUTPUT VAR? RPAR
     ;
 
-wconst
+// wconst
+//     : LPAR CONST num RPAR
+//     | LPAR REF_NULL ref_kind RPAR
+//     | LPAR REF_EXTERN NAT RPAR
+//     ;
+literal_num
     : LPAR CONST num RPAR
-    | LPAR REF_NULL ref_kind RPAR
+    ;
+
+literal_vec
+    : LPAR VEC_CONST VEC_SHAPE num* RPAR
+    ;
+
+literal_ref
+    : LPAR REF_NULL ref_kind RPAR
     | LPAR REF_EXTERN NAT RPAR
     ;
 
-const_list
-    : wconst*
+literal
+    : literal_num
+    | literal_vec
+    | literal_ref
     ;
 
+literal_list
+    : literal*
+    ;
+
+numpat 
+    : num
+    | NAN
+    ;
+numpat_list
+    : numpat*
+    ;
 result
-    : wconst
-    | LPAR CONST NAN RPAR
-    | LPAR (REF_FUNC | REF_EXTERN) RPAR
+    : literal_num
+    | literal_ref
+    // | LPAR CONST NAN RPAR
+    | LPAR (REF_FUNC | REF_EXTERN | VEC_CONST VEC_SHAPE numpat_list) RPAR
     ;
 
 
