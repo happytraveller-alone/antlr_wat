@@ -105,6 +105,7 @@ INT      : Int;
 FLOAT    : Float;
 STRING_  : String_;
 NUM_TYPE : NXX;
+PACK_TYPE: 'i8' | 'i16';
 
 VEC_TYPE  : VXXX;
 VEC_SHAPE : V128_SHAPE;
