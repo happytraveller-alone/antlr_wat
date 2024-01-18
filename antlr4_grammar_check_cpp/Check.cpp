@@ -31,14 +31,11 @@ void FileCopyAndRename(const std::string_view document_check_path, const std::st
       std::string new_file_name = std::string(js_enginee_name) + "_" + file_name;
       std::string new_file_path = std::string(new_copy_path) + "/" + new_file_name;
       std::string old_file_path = std::string(document_check_path) + "/" + file_name;
-      // std::cout << "old_file_path: " << old_file_path << std::endl;
-      // std::cout << "new_file_path: " << new_file_path << std::endl;
       std::filesystem::copy_file(old_file_path, new_file_path);
       valid_file_count++;
     }
-    
   }
-  std::cout << js_enginee_name << " valid_file_count: " << valid_file_count << "\n";
+  fprintf(stdout, "%s valid_file_count: %d\n", js_enginee_name.data(), valid_file_count);
 }
 
 void DocumentClear(const std::string_view document_check_path) {
@@ -95,19 +92,19 @@ int main() {
   // 根据testwasm文件夹下的每个文件在output_file文件夹下生成对应的文件夹，文件夹名称为testwasm文件夹下的文件名称
   DocumentCreate(test_check_path_all,output_file_path);
   // 遍历output_file文件夹下的所有文件夹名称，调用输入文件构建类分析
+  CustomWatVisitor *custom_wat_visitor;
   for (auto &p : std::filesystem::directory_iterator(test_check_path_all)) {
     std::string file_name = p.path().filename().string();
     std::string dir_name = file_name.substr(0, file_name.length() - 4);
     std::string input_file_path = std::string(test_check_path_all) + "/" + file_name;
     std::string output_each_file_path = std::string(output_file_path) + "/" + dir_name;
-    std::cout << "input_file_path: " << input_file_path << std::endl;
-    std::cout << "output_file_path: " << output_each_file_path << std::endl;
-    CustomWatVisitor custom_wat_visitor(input_file_path,output_each_file_path);
-    // custom_wat_visitor.printParseTree();
-    custom_wat_visitor.visit(custom_wat_visitor.getParseTree());
-    // custom_wat_visitor.~CustomWatVisitor();
-    custom_wat_visitor.printRewriterOriginal();
-    // custom_wat_visitor.printRewriterChanged();
+    fprintf(stdout, "\n\ninput_file_path: %s\n", input_file_path.c_str());
+    fprintf(stdout, "output_file_path: %s\n", output_each_file_path.c_str());
+    custom_wat_visitor = new CustomWatVisitor(input_file_path,output_each_file_path);
+    custom_wat_visitor->printParseTree();
+    custom_wat_visitor->visit(custom_wat_visitor->getParseTree());
+    delete custom_wat_visitor;
+    custom_wat_visitor = nullptr;
   }
 
 

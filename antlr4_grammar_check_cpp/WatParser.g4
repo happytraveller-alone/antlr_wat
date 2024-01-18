@@ -38,7 +38,8 @@ heap_type
     | NOEXTERN
     | EXN
     | EXTERN
-    | var_
+    | NAT
+    | VAR
     ;
 
 // // GC 没有保存
@@ -48,9 +49,9 @@ heap_type
 //     ;
 
 ref_type 
-    : FUNCREF
+    : LPAR REF null_opt heap_type RPAR
     | EXTERNREF
-    | LPAR REF null_opt heap_type RPAR
+    | FUNCREF
     | ANYREF
     | NULLREF
     | EQREF
@@ -64,9 +65,9 @@ ref_type
     ;
 
 val_type
-    : NUM_TYPE
+    : ref_type
     | VEC_TYPE
-    | ref_type
+    | NUM_TYPE
     ;
 
 // elem_type
@@ -215,8 +216,8 @@ plain_instr
     | REF_IS_NULL
     | REF_FUNC var_
     | REF_AS_NON_NULL
-    | REF_TEST
-    | REF_CAST
+    | REF_TEST ref_type
+    | REF_CAST ref_type
     | REF_EQ
     | REF_I31
     | I31_GET

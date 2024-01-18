@@ -79,6 +79,12 @@ public:
 
     virtual std::any visitBlock_param_body(WatParser::Block_param_bodyContext *context) = 0;
 
+    virtual std::any visitHandler_block(WatParser::Handler_blockContext *context) = 0;
+
+    virtual std::any visitHandler_block_param_body(WatParser::Handler_block_param_bodyContext *context) = 0;
+
+    virtual std::any visitHandler_block_body(WatParser::Handler_block_bodyContext *context) = 0;
+
     virtual std::any visitExpr(WatParser::ExprContext *context) = 0;
 
     virtual std::any visitExpr1(WatParser::Expr1Context *context) = 0;
@@ -94,6 +100,12 @@ public:
     virtual std::any visitIf_block(WatParser::If_blockContext *context) = 0;
 
     virtual std::any visitIf_block_result_body(WatParser::If_block_result_bodyContext *context) = 0;
+
+    virtual std::any visitTry_block(WatParser::Try_blockContext *context) = 0;
+
+    virtual std::any visitTry_block_param_body(WatParser::Try_block_param_bodyContext *context) = 0;
+
+    virtual std::any visitTry_block_handler_body(WatParser::Try_block_handler_bodyContext *context) = 0;
 
     virtual std::any visitConst_expr(WatParser::Const_exprContext *context) = 0;
 
@@ -134,6 +146,14 @@ public:
     virtual std::any visitMemory(WatParser::MemoryContext *context) = 0;
 
     virtual std::any visitMemory_fields(WatParser::Memory_fieldsContext *context) = 0;
+
+    virtual std::any visitTag(WatParser::TagContext *context) = 0;
+
+    virtual std::any visitTag_fields(WatParser::Tag_fieldsContext *context) = 0;
+
+    virtual std::any visitTag_fields_import(WatParser::Tag_fields_importContext *context) = 0;
+
+    virtual std::any visitTag_fields_import_result(WatParser::Tag_fields_import_resultContext *context) = 0;
 
     virtual std::any visitSglobal(WatParser::SglobalContext *context) = 0;
 

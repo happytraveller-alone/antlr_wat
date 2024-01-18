@@ -104,6 +104,15 @@ public:
   virtual void enterBlock_param_body(WatParser::Block_param_bodyContext *ctx) = 0;
   virtual void exitBlock_param_body(WatParser::Block_param_bodyContext *ctx) = 0;
 
+  virtual void enterHandler_block(WatParser::Handler_blockContext *ctx) = 0;
+  virtual void exitHandler_block(WatParser::Handler_blockContext *ctx) = 0;
+
+  virtual void enterHandler_block_param_body(WatParser::Handler_block_param_bodyContext *ctx) = 0;
+  virtual void exitHandler_block_param_body(WatParser::Handler_block_param_bodyContext *ctx) = 0;
+
+  virtual void enterHandler_block_body(WatParser::Handler_block_bodyContext *ctx) = 0;
+  virtual void exitHandler_block_body(WatParser::Handler_block_bodyContext *ctx) = 0;
+
   virtual void enterExpr(WatParser::ExprContext *ctx) = 0;
   virtual void exitExpr(WatParser::ExprContext *ctx) = 0;
 
@@ -127,6 +136,15 @@ public:
 
   virtual void enterIf_block_result_body(WatParser::If_block_result_bodyContext *ctx) = 0;
   virtual void exitIf_block_result_body(WatParser::If_block_result_bodyContext *ctx) = 0;
+
+  virtual void enterTry_block(WatParser::Try_blockContext *ctx) = 0;
+  virtual void exitTry_block(WatParser::Try_blockContext *ctx) = 0;
+
+  virtual void enterTry_block_param_body(WatParser::Try_block_param_bodyContext *ctx) = 0;
+  virtual void exitTry_block_param_body(WatParser::Try_block_param_bodyContext *ctx) = 0;
+
+  virtual void enterTry_block_handler_body(WatParser::Try_block_handler_bodyContext *ctx) = 0;
+  virtual void exitTry_block_handler_body(WatParser::Try_block_handler_bodyContext *ctx) = 0;
 
   virtual void enterConst_expr(WatParser::Const_exprContext *ctx) = 0;
   virtual void exitConst_expr(WatParser::Const_exprContext *ctx) = 0;
@@ -187,6 +205,18 @@ public:
 
   virtual void enterMemory_fields(WatParser::Memory_fieldsContext *ctx) = 0;
   virtual void exitMemory_fields(WatParser::Memory_fieldsContext *ctx) = 0;
+
+  virtual void enterTag(WatParser::TagContext *ctx) = 0;
+  virtual void exitTag(WatParser::TagContext *ctx) = 0;
+
+  virtual void enterTag_fields(WatParser::Tag_fieldsContext *ctx) = 0;
+  virtual void exitTag_fields(WatParser::Tag_fieldsContext *ctx) = 0;
+
+  virtual void enterTag_fields_import(WatParser::Tag_fields_importContext *ctx) = 0;
+  virtual void exitTag_fields_import(WatParser::Tag_fields_importContext *ctx) = 0;
+
+  virtual void enterTag_fields_import_result(WatParser::Tag_fields_import_resultContext *ctx) = 0;
+  virtual void exitTag_fields_import_result(WatParser::Tag_fields_import_resultContext *ctx) = 0;
 
   virtual void enterSglobal(WatParser::SglobalContext *ctx) = 0;
   virtual void exitSglobal(WatParser::SglobalContext *ctx) = 0;

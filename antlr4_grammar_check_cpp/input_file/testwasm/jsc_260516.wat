@@ -1,6 +1,5 @@
-;;//@ runWebAssemblySuite("--useWebAssemblyTypedFunctionReferences=true", "--useWebAssemblyGC=true")
+(;//@ runWebAssemblySuite("--useWebAssemblyTypedFunctionReferences=true", "--useWebAssemblyGC=true");)
 
-;;// This disassembly is not complete as some unused types were elided by wasm-dis.
 (module
  (type $0 (sub (func (param i32 i32 i32) (result i32))))
  (type $1 (func))
@@ -22,21 +21,6 @@
     (i32.const 769991768)
     (i32.const 631785841)
     (i32.const 1294656724)
-   )
-  )
-  (drop
-   (loop $label$1 (result (ref null $0))
-    (ref.cast (ref null $0)
-     (table.get $0
-      (block $label$2 (result i32)
-       (select
-        (i32.const 487924244)
-        (i32.const -306468332)
-        (i32.const -69)
-       )
-      )
-     )
-    )
    )
   )
   (drop

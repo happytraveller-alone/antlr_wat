@@ -17,38 +17,40 @@ public:
     ANY = 13, ANYREF = 14, NONE = 15, NULLREF = 16, EQ = 17, EQREF = 18, 
     I31 = 19, I31REF = 20, STRUCTREF = 21, ARRAYREF = 22, NOFUNC = 23, FUNCREF = 24, 
     MUT = 25, SHARED = 26, NULLFUNCREF = 27, EXTERN = 28, NOEXTERN = 29, 
-    EXTERNREF = 30, NULLEXTERNREF = 31, REF = 32, NULL_ = 33, ARRAY = 34, 
-    STRUCT = 35, FIELD = 36, SUB = 37, FINAL = 38, REC = 39, REF_NULL = 40, 
-    REF_FUNC = 41, REF_STRUCT = 42, REF_ARRAY = 43, REF_HOST = 44, REF_EXTERN = 45, 
-    REF_IS_NULL = 46, REF_AS_NON_NULL = 47, REF_TEST = 48, REF_CAST = 49, 
-    REF_EQ = 50, REF_I31 = 51, I31_GET = 52, STRUCT_NEW = 53, STRUCT_GET = 54, 
-    STRUCT_SET = 55, ARRAY_NEW = 56, ARRAY_NEW_FIXED = 57, ARRAY_NEW_ELEM = 58, 
-    ARRAY_NEW_DATA = 59, ARRAY_GET = 60, ARRAY_SET = 61, ARRAY_LEN = 62, 
-    ARRAY_COPY = 63, ARRAY_FILL = 64, ARRAY_INIT_DATA = 65, ARRAY_INIT_ELEM = 66, 
-    EXTERN_CONVERT = 67, MEMORY_ATOMIC_NOTIFY = 68, MEMORY_ATOMIC_WAIT = 69, 
-    ATOMIC_FENCE = 70, ATOMIC_LOAD = 71, ATOMIC_STORE = 72, ATOMIC_RMW = 73, 
-    ATOMIC_RMW_CMPXCHG = 74, NOP = 75, UNREACHABLE = 76, DROP = 77, BLOCK = 78, 
-    LOOP = 79, END = 80, BR = 81, BR_IF = 82, BR_TABLE = 83, RETURN = 84, 
-    IF = 85, THEN = 86, ELSE = 87, SELECT = 88, CALL = 89, CALL_INDIRECT = 90, 
-    CALL_REF = 91, RETURN_CALL = 92, RETURN_CALL_REF = 93, RETURN_CALL_INDIRECT = 94, 
-    BR_ON_NULL = 95, BR_ON_CAST = 96, LOCAL_GET = 97, LOCAL_SET = 98, LOCAL_TEE = 99, 
-    GLOBAL_GET = 100, GLOBAL_SET = 101, TABLE_GET = 102, TABLE_SET = 103, 
-    TABLE_SIZE = 104, TABLE_GROW = 105, TABLE_FILL = 106, TABLE_COPY = 107, 
-    TABLE_INIT = 108, DATA_DROP = 109, ELEM_DROP = 110, LOAD = 111, STORE = 112, 
-    OFFSET_EQ_NAT = 113, ALIGN_EQ_NAT = 114, UNARY = 115, BINARY = 116, 
-    TEST = 117, COMPARE = 118, CONVERT = 119, VEC_LOAD = 120, VEC_STORE = 121, 
-    VEC_LOAD_LANE = 122, VEC_STORE_LANE = 123, VEC_UNARY = 124, VEC_BINARY = 125, 
-    VEC_TERNARY = 126, VEC_TEST = 127, VEC_BITMASK = 128, VEC_SHIFT = 129, 
-    VEC_SHUFFLE = 130, VEC_SPLAT = 131, VEC_EXTRACT = 132, VEC_REPLACE = 133, 
-    MEMORY_SIZE = 134, MEMORY_GROW = 135, MEMORY_FILL = 136, MEMORY_COPY = 137, 
-    MEMORY_INIT = 138, TYPE = 139, FUNC = 140, START_ = 141, PARAM = 142, 
-    RESULT = 143, LOCAL = 144, GLOBAL = 145, TABLE = 146, MEMORY = 147, 
-    ELEM = 148, DATA = 149, OFFSET = 150, IMPORT = 151, EXPORT = 152, DECLARE = 153, 
-    ITEM = 154, MODULE = 155, BIN = 156, QUOTE = 157, EITHER = 158, THREAD = 159, 
-    WAIT = 160, SCRIPT = 161, REGISTER = 162, INVOKE = 163, GET = 164, ASSERT_MALFORMED = 165, 
-    ASSERT_INVALID = 166, ASSERT_UNLINKABLE = 167, ASSERT_RETURN = 168, 
-    ASSERT_TRAP = 169, ASSERT_EXHAUSTION = 170, INPUT = 171, OUTPUT = 172, 
-    NAN_ = 173, VAR = 174, SPACE = 175, COMMENT = 176
+    EXTERNREF = 30, NULLEXTERNREF = 31, REF = 32, NULL_ = 33, EXN = 34, 
+    EXNREF = 35, ARRAY = 36, STRUCT = 37, FIELD = 38, SUB = 39, FINAL = 40, 
+    REC = 41, REF_NULL = 42, REF_FUNC = 43, REF_STRUCT = 44, REF_ARRAY = 45, 
+    REF_HOST = 46, REF_EXTERN = 47, REF_IS_NULL = 48, REF_AS_NON_NULL = 49, 
+    REF_TEST = 50, REF_CAST = 51, REF_EQ = 52, REF_I31 = 53, REF_EXN = 54, 
+    TRY_TABLE = 55, CATCH = 56, CATCH_REF = 57, CATCH_ALL = 58, CATCH_ALL_REF = 59, 
+    THROW = 60, THROW_REF = 61, I31_GET = 62, STRUCT_NEW = 63, STRUCT_GET = 64, 
+    STRUCT_SET = 65, ARRAY_NEW = 66, ARRAY_NEW_FIXED = 67, ARRAY_NEW_ELEM = 68, 
+    ARRAY_NEW_DATA = 69, ARRAY_GET = 70, ARRAY_SET = 71, ARRAY_LEN = 72, 
+    ARRAY_COPY = 73, ARRAY_FILL = 74, ARRAY_INIT_DATA = 75, ARRAY_INIT_ELEM = 76, 
+    EXTERN_CONVERT = 77, MEMORY_ATOMIC_NOTIFY = 78, MEMORY_ATOMIC_WAIT = 79, 
+    ATOMIC_FENCE = 80, ATOMIC_LOAD = 81, ATOMIC_STORE = 82, ATOMIC_RMW = 83, 
+    ATOMIC_RMW_CMPXCHG = 84, NOP = 85, UNREACHABLE = 86, DROP = 87, BLOCK = 88, 
+    LOOP = 89, END = 90, BR = 91, BR_IF = 92, BR_TABLE = 93, RETURN = 94, 
+    IF = 95, THEN = 96, ELSE = 97, SELECT = 98, CALL = 99, CALL_INDIRECT = 100, 
+    CALL_REF = 101, RETURN_CALL = 102, RETURN_CALL_REF = 103, RETURN_CALL_INDIRECT = 104, 
+    BR_ON_NULL = 105, BR_ON_CAST = 106, LOCAL_GET = 107, LOCAL_SET = 108, 
+    LOCAL_TEE = 109, GLOBAL_GET = 110, GLOBAL_SET = 111, TABLE_GET = 112, 
+    TABLE_SET = 113, TABLE_SIZE = 114, TABLE_GROW = 115, TABLE_FILL = 116, 
+    TABLE_COPY = 117, TABLE_INIT = 118, DATA_DROP = 119, ELEM_DROP = 120, 
+    LOAD = 121, STORE = 122, OFFSET_EQ_NAT = 123, ALIGN_EQ_NAT = 124, UNARY = 125, 
+    BINARY = 126, TEST = 127, COMPARE = 128, CONVERT = 129, VEC_LOAD = 130, 
+    VEC_STORE = 131, VEC_LOAD_LANE = 132, VEC_STORE_LANE = 133, VEC_UNARY = 134, 
+    VEC_BINARY = 135, VEC_TERNARY = 136, VEC_TEST = 137, VEC_BITMASK = 138, 
+    VEC_SHIFT = 139, VEC_SHUFFLE = 140, VEC_SPLAT = 141, VEC_EXTRACT = 142, 
+    VEC_REPLACE = 143, MEMORY_SIZE = 144, MEMORY_GROW = 145, MEMORY_FILL = 146, 
+    MEMORY_COPY = 147, MEMORY_INIT = 148, TYPE = 149, FUNC = 150, START_ = 151, 
+    PARAM = 152, RESULT = 153, LOCAL = 154, GLOBAL = 155, TABLE = 156, MEMORY = 157, 
+    ELEM = 158, DATA = 159, OFFSET = 160, IMPORT = 161, EXPORT = 162, DECLARE = 163, 
+    ITEM = 164, TAG = 165, MODULE = 166, BIN = 167, QUOTE = 168, EITHER = 169, 
+    THREAD = 170, WAIT = 171, SCRIPT = 172, REGISTER = 173, INVOKE = 174, 
+    GET = 175, ASSERT_MALFORMED = 176, ASSERT_INVALID = 177, ASSERT_UNLINKABLE = 178, 
+    ASSERT_RETURN = 179, ASSERT_EXCEPTION = 180, ASSERT_TRAP = 181, ASSERT_EXHAUSTION = 182, 
+    INPUT = 183, OUTPUT = 184, NAN_ = 185, VAR = 186, SPACE = 187, COMMENT = 188
   };
 
   enum {
@@ -59,23 +61,26 @@ public:
     RuleNat32 = 17, RuleNum = 18, RuleVar_ = 19, RuleBind_var = 20, RuleInstr_list = 21, 
     RuleInstr = 22, RulePlain_instr = 23, RuleSelect_instr_instr_list = 24, 
     RuleCall_instr_instr_list = 25, RuleCall_instr_type_instr_list = 26, 
-    RuleBlock_instr = 27, RuleBlock = 28, RuleBlock_param_body = 29, RuleExpr = 30, 
-    RuleExpr1 = 31, RuleSelect_expr_results = 32, RuleCall_expr_type = 33, 
-    RuleCall_expr_params = 34, RuleCall_expr_results = 35, RuleIf_block = 36, 
-    RuleIf_block_result_body = 37, RuleConst_expr = 38, RuleFunc_ = 39, 
-    RuleFunc_fields = 40, RuleFunc_fields_import = 41, RuleFunc_fields_import_result = 42, 
-    RuleFunc_fields_body = 43, RuleFunc_result_body = 44, RuleFunc_body = 45, 
-    RuleTable_use = 46, RuleMemory_use = 47, RuleOffset = 48, RuleElem_kind = 49, 
-    RuleElem_expr = 50, RuleElem_list = 51, RuleElem = 52, RuleTable = 53, 
-    RuleTable_fields = 54, RuleData = 55, RuleMemory = 56, RuleMemory_fields = 57, 
-    RuleSglobal = 58, RuleGlobal_fields = 59, RuleImport_desc = 60, RuleSimport = 61, 
-    RuleInline_import = 62, RuleExport_desc = 63, RuleExport_ = 64, RuleInline_export = 65, 
-    RuleType_def = 66, RuleRec_type = 67, RuleType_ = 68, RuleStart_ = 69, 
-    RuleModule_field = 70, RuleModule_ = 71, RuleInline_module = 72, RuleScript_module = 73, 
-    RuleAction_ = 74, RuleAssertion = 75, RuleCmd = 76, RuleShared_cmd_list = 77, 
-    RuleMeta = 78, RuleLiteral_num = 79, RuleLiteral_vec = 80, RuleLiteral_ref = 81, 
-    RuleLiteral = 82, RuleLiteral_list = 83, RuleNumpat = 84, RuleResult = 85, 
-    RuleScript = 86, RuleModule = 87
+    RuleBlock_instr = 27, RuleBlock = 28, RuleBlock_param_body = 29, RuleHandler_block = 30, 
+    RuleHandler_block_param_body = 31, RuleHandler_block_body = 32, RuleExpr = 33, 
+    RuleExpr1 = 34, RuleSelect_expr_results = 35, RuleCall_expr_type = 36, 
+    RuleCall_expr_params = 37, RuleCall_expr_results = 38, RuleIf_block = 39, 
+    RuleIf_block_result_body = 40, RuleTry_block = 41, RuleTry_block_param_body = 42, 
+    RuleTry_block_handler_body = 43, RuleConst_expr = 44, RuleFunc_ = 45, 
+    RuleFunc_fields = 46, RuleFunc_fields_import = 47, RuleFunc_fields_import_result = 48, 
+    RuleFunc_fields_body = 49, RuleFunc_result_body = 50, RuleFunc_body = 51, 
+    RuleTable_use = 52, RuleMemory_use = 53, RuleOffset = 54, RuleElem_kind = 55, 
+    RuleElem_expr = 56, RuleElem_list = 57, RuleElem = 58, RuleTable = 59, 
+    RuleTable_fields = 60, RuleData = 61, RuleMemory = 62, RuleMemory_fields = 63, 
+    RuleTag = 64, RuleTag_fields = 65, RuleTag_fields_import = 66, RuleTag_fields_import_result = 67, 
+    RuleSglobal = 68, RuleGlobal_fields = 69, RuleImport_desc = 70, RuleSimport = 71, 
+    RuleInline_import = 72, RuleExport_desc = 73, RuleExport_ = 74, RuleInline_export = 75, 
+    RuleType_def = 76, RuleRec_type = 77, RuleType_ = 78, RuleStart_ = 79, 
+    RuleModule_field = 80, RuleModule_ = 81, RuleInline_module = 82, RuleScript_module = 83, 
+    RuleAction_ = 84, RuleAssertion = 85, RuleCmd = 86, RuleShared_cmd_list = 87, 
+    RuleMeta = 88, RuleLiteral_num = 89, RuleLiteral_vec = 90, RuleLiteral_ref = 91, 
+    RuleLiteral = 92, RuleLiteral_list = 93, RuleNumpat = 94, RuleResult = 95, 
+    RuleScript = 96, RuleModule = 97
   };
 
   explicit WatParser(antlr4::TokenStream *input);
@@ -125,6 +130,9 @@ public:
   class Block_instrContext;
   class BlockContext;
   class Block_param_bodyContext;
+  class Handler_blockContext;
+  class Handler_block_param_bodyContext;
+  class Handler_block_bodyContext;
   class ExprContext;
   class Expr1Context;
   class Select_expr_resultsContext;
@@ -133,6 +141,9 @@ public:
   class Call_expr_resultsContext;
   class If_blockContext;
   class If_block_result_bodyContext;
+  class Try_blockContext;
+  class Try_block_param_bodyContext;
+  class Try_block_handler_bodyContext;
   class Const_exprContext;
   class Func_Context;
   class Func_fieldsContext;
@@ -153,6 +164,10 @@ public:
   class DataContext;
   class MemoryContext;
   class Memory_fieldsContext;
+  class TagContext;
+  class Tag_fieldsContext;
+  class Tag_fields_importContext;
+  class Tag_fields_import_resultContext;
   class SglobalContext;
   class Global_fieldsContext;
   class Import_descContext;
@@ -244,6 +259,7 @@ public:
     antlr4::tree::TerminalNode *NOFUNC();
     antlr4::tree::TerminalNode *EXTERN();
     antlr4::tree::TerminalNode *NOEXTERN();
+    antlr4::tree::TerminalNode *EXN();
     Var_Context *var_();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -274,6 +290,7 @@ public:
     antlr4::tree::TerminalNode *ARRAYREF();
     antlr4::tree::TerminalNode *NULLFUNCREF();
     antlr4::tree::TerminalNode *NULLEXTERNREF();
+    antlr4::tree::TerminalNode *EXNREF();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -714,6 +731,8 @@ public:
     antlr4::tree::TerminalNode *ATOMIC_STORE();
     antlr4::tree::TerminalNode *ATOMIC_RMW();
     antlr4::tree::TerminalNode *ATOMIC_RMW_CMPXCHG();
+    antlr4::tree::TerminalNode *THROW();
+    antlr4::tree::TerminalNode *THROW_REF();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -805,6 +824,8 @@ public:
     antlr4::tree::TerminalNode *IF();
     antlr4::tree::TerminalNode *ELSE();
     Instr_listContext *instr_list();
+    antlr4::tree::TerminalNode *TRY_TABLE();
+    Handler_blockContext *handler_block();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -856,6 +877,76 @@ public:
 
   Block_param_bodyContext* block_param_body();
 
+  class  Handler_blockContext : public antlr4::ParserRuleContext {
+  public:
+    Handler_blockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Handler_block_param_bodyContext *handler_block_param_body();
+    Type_useContext *type_use();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Handler_blockContext* handler_block();
+
+  class  Handler_block_param_bodyContext : public antlr4::ParserRuleContext {
+  public:
+    Handler_block_param_bodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Handler_block_bodyContext *handler_block_body();
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> PARAM();
+    antlr4::tree::TerminalNode* PARAM(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RESULT();
+    antlr4::tree::TerminalNode* RESULT(size_t i);
+    std::vector<Val_typeContext *> val_type();
+    Val_typeContext* val_type(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Handler_block_param_bodyContext* handler_block_param_body();
+
+  class  Handler_block_bodyContext : public antlr4::ParserRuleContext {
+  public:
+    Handler_block_bodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Instr_listContext *instr_list();
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<Var_Context *> var_();
+    Var_Context* var_(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH();
+    antlr4::tree::TerminalNode* CATCH(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH_REF();
+    antlr4::tree::TerminalNode* CATCH_REF(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH_ALL();
+    antlr4::tree::TerminalNode* CATCH_ALL(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH_ALL_REF();
+    antlr4::tree::TerminalNode* CATCH_ALL_REF(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Handler_block_bodyContext* handler_block_body();
+
   class  ExprContext : public antlr4::ParserRuleContext {
   public:
     ExprContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -892,6 +983,8 @@ public:
     antlr4::tree::TerminalNode *LOOP();
     antlr4::tree::TerminalNode *IF();
     If_blockContext *if_block();
+    antlr4::tree::TerminalNode *TRY_TABLE();
+    Try_blockContext *try_block();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -1040,6 +1133,76 @@ public:
   };
 
   If_block_result_bodyContext* if_block_result_body();
+
+  class  Try_blockContext : public antlr4::ParserRuleContext {
+  public:
+    Try_blockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Try_block_param_bodyContext *try_block_param_body();
+    Type_useContext *type_use();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Try_blockContext* try_block();
+
+  class  Try_block_param_bodyContext : public antlr4::ParserRuleContext {
+  public:
+    Try_block_param_bodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Try_block_handler_bodyContext *try_block_handler_body();
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> PARAM();
+    antlr4::tree::TerminalNode* PARAM(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RESULT();
+    antlr4::tree::TerminalNode* RESULT(size_t i);
+    std::vector<Val_typeContext *> val_type();
+    Val_typeContext* val_type(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Try_block_param_bodyContext* try_block_param_body();
+
+  class  Try_block_handler_bodyContext : public antlr4::ParserRuleContext {
+  public:
+    Try_block_handler_bodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Instr_listContext *instr_list();
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<Var_Context *> var_();
+    Var_Context* var_(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH();
+    antlr4::tree::TerminalNode* CATCH(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH_REF();
+    antlr4::tree::TerminalNode* CATCH_REF(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH_ALL();
+    antlr4::tree::TerminalNode* CATCH_ALL(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> CATCH_ALL_REF();
+    antlr4::tree::TerminalNode* CATCH_ALL_REF(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Try_block_handler_bodyContext* try_block_handler_body();
 
   class  Const_exprContext : public antlr4::ParserRuleContext {
   public:
@@ -1459,6 +1622,92 @@ public:
 
   Memory_fieldsContext* memory_fields();
 
+  class  TagContext : public antlr4::ParserRuleContext {
+  public:
+    TagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LPAR();
+    antlr4::tree::TerminalNode *TAG();
+    Tag_fieldsContext *tag_fields();
+    antlr4::tree::TerminalNode *RPAR();
+    Bind_varContext *bind_var();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  TagContext* tag();
+
+  class  Tag_fieldsContext : public antlr4::ParserRuleContext {
+  public:
+    Tag_fieldsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Func_typeContext *func_type();
+    std::vector<Inline_exportContext *> inline_export();
+    Inline_exportContext* inline_export(size_t i);
+    Type_useContext *type_use();
+    Inline_importContext *inline_import();
+    Tag_fields_importContext *tag_fields_import();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Tag_fieldsContext* tag_fields();
+
+  class  Tag_fields_importContext : public antlr4::ParserRuleContext {
+  public:
+    Tag_fields_importContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    Tag_fields_import_resultContext *tag_fields_import_result();
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> PARAM();
+    antlr4::tree::TerminalNode* PARAM(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<Bind_varContext *> bind_var();
+    Bind_varContext* bind_var(size_t i);
+    std::vector<Val_typeContext *> val_type();
+    Val_typeContext* val_type(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Tag_fields_importContext* tag_fields_import();
+
+  class  Tag_fields_import_resultContext : public antlr4::ParserRuleContext {
+  public:
+    Tag_fields_import_resultContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    std::vector<antlr4::tree::TerminalNode *> LPAR();
+    antlr4::tree::TerminalNode* LPAR(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RESULT();
+    antlr4::tree::TerminalNode* RESULT(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> RPAR();
+    antlr4::tree::TerminalNode* RPAR(size_t i);
+    std::vector<Val_typeContext *> val_type();
+    Val_typeContext* val_type(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  Tag_fields_import_resultContext* tag_fields_import_result();
+
   class  SglobalContext : public antlr4::ParserRuleContext {
   public:
     SglobalContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -1513,6 +1762,7 @@ public:
     Memory_typeContext *memory_type();
     antlr4::tree::TerminalNode *GLOBAL();
     Global_typeContext *global_type();
+    antlr4::tree::TerminalNode *TAG();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -1573,6 +1823,7 @@ public:
     antlr4::tree::TerminalNode *TABLE();
     antlr4::tree::TerminalNode *MEMORY();
     antlr4::tree::TerminalNode *GLOBAL();
+    antlr4::tree::TerminalNode *TAG();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -1715,6 +1966,8 @@ public:
     SimportContext* simport(size_t i);
     std::vector<Export_Context *> export_();
     Export_Context* export_(size_t i);
+    std::vector<TagContext *> tag();
+    TagContext* tag(size_t i);
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -1820,6 +2073,7 @@ public:
     Action_Context *action_();
     std::vector<ResultContext *> result();
     ResultContext* result(size_t i);
+    antlr4::tree::TerminalNode *ASSERT_EXCEPTION();
     antlr4::tree::TerminalNode *ASSERT_EXHAUSTION();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;

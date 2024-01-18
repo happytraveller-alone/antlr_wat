@@ -1,4 +1,4 @@
-;;//@ runWebAssemblySuite("--useWebAssemblyTypedFunctionReferences=true", "--useWebAssemblyGC=true")
+(;//@ runWebAssemblySuite("--useWebAssemblyTypedFunctionReferences=true", "--useWebAssemblyGC=true");)
 
  (module
   (type $0 (func (param i32)))
@@ -8,7 +8,7 @@
   (table $0 1 2 funcref)
   (table $1 31 (ref $1))
   (elem $0 (table $0) (i32.const 0) func $0)
-  ;;(tag $tag$0 (param i32))
+  (tag $tag$0 (param i32))
   (export "main" (func $0))
   (func $0 (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
    (local.get $0)

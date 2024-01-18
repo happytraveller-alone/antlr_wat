@@ -106,6 +106,15 @@ public:
   virtual void enterBlock_param_body(WatParser::Block_param_bodyContext * /*ctx*/) override { }
   virtual void exitBlock_param_body(WatParser::Block_param_bodyContext * /*ctx*/) override { }
 
+  virtual void enterHandler_block(WatParser::Handler_blockContext * /*ctx*/) override { }
+  virtual void exitHandler_block(WatParser::Handler_blockContext * /*ctx*/) override { }
+
+  virtual void enterHandler_block_param_body(WatParser::Handler_block_param_bodyContext * /*ctx*/) override { }
+  virtual void exitHandler_block_param_body(WatParser::Handler_block_param_bodyContext * /*ctx*/) override { }
+
+  virtual void enterHandler_block_body(WatParser::Handler_block_bodyContext * /*ctx*/) override { }
+  virtual void exitHandler_block_body(WatParser::Handler_block_bodyContext * /*ctx*/) override { }
+
   virtual void enterExpr(WatParser::ExprContext * /*ctx*/) override { }
   virtual void exitExpr(WatParser::ExprContext * /*ctx*/) override { }
 
@@ -129,6 +138,15 @@ public:
 
   virtual void enterIf_block_result_body(WatParser::If_block_result_bodyContext * /*ctx*/) override { }
   virtual void exitIf_block_result_body(WatParser::If_block_result_bodyContext * /*ctx*/) override { }
+
+  virtual void enterTry_block(WatParser::Try_blockContext * /*ctx*/) override { }
+  virtual void exitTry_block(WatParser::Try_blockContext * /*ctx*/) override { }
+
+  virtual void enterTry_block_param_body(WatParser::Try_block_param_bodyContext * /*ctx*/) override { }
+  virtual void exitTry_block_param_body(WatParser::Try_block_param_bodyContext * /*ctx*/) override { }
+
+  virtual void enterTry_block_handler_body(WatParser::Try_block_handler_bodyContext * /*ctx*/) override { }
+  virtual void exitTry_block_handler_body(WatParser::Try_block_handler_bodyContext * /*ctx*/) override { }
 
   virtual void enterConst_expr(WatParser::Const_exprContext * /*ctx*/) override { }
   virtual void exitConst_expr(WatParser::Const_exprContext * /*ctx*/) override { }
@@ -189,6 +207,18 @@ public:
 
   virtual void enterMemory_fields(WatParser::Memory_fieldsContext * /*ctx*/) override { }
   virtual void exitMemory_fields(WatParser::Memory_fieldsContext * /*ctx*/) override { }
+
+  virtual void enterTag(WatParser::TagContext * /*ctx*/) override { }
+  virtual void exitTag(WatParser::TagContext * /*ctx*/) override { }
+
+  virtual void enterTag_fields(WatParser::Tag_fieldsContext * /*ctx*/) override { }
+  virtual void exitTag_fields(WatParser::Tag_fieldsContext * /*ctx*/) override { }
+
+  virtual void enterTag_fields_import(WatParser::Tag_fields_importContext * /*ctx*/) override { }
+  virtual void exitTag_fields_import(WatParser::Tag_fields_importContext * /*ctx*/) override { }
+
+  virtual void enterTag_fields_import_result(WatParser::Tag_fields_import_resultContext * /*ctx*/) override { }
+  virtual void exitTag_fields_import_result(WatParser::Tag_fields_import_resultContext * /*ctx*/) override { }
 
   virtual void enterSglobal(WatParser::SglobalContext * /*ctx*/) override { }
   virtual void exitSglobal(WatParser::SglobalContext * /*ctx*/) override { }
