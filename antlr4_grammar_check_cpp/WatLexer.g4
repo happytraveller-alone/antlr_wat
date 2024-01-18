@@ -136,6 +136,8 @@ EXTERNREF     : 'externref';
 NULLEXTERNREF : 'nullexternref';
 REF           : 'ref';
 NULL          : 'null';
+EXN           : 'exn';
+EXNREF        : 'exnref';
 
 ARRAY         : 'array';
 STRUCT        : 'struct';
@@ -156,6 +158,15 @@ REF_TEST    : 'ref.test';
 REF_CAST    : 'ref.cast';
 REF_EQ      : 'ref.eq';
 REF_I31 : 'ref.i31';
+REF_EXN : 'ref.exn';
+
+TRY_TABLE : 'try_table';
+CATCH     : 'catch';
+CATCH_REF : 'catch_ref';
+CATCH_ALL : 'catch_all';
+CATCH_ALL_REF : 'catch_all_ref';
+THROW     : 'throw';
+THROW_REF : 'throw_ref';
 
 I31_GET : 'i31.get_' SIGN;
 STRUCT_NEW :
@@ -440,6 +451,7 @@ IMPORT  : 'import';
 EXPORT  : 'export';
 DECLARE : 'declare';
 ITEM    : 'item';
+TAG     : 'tag';
 
 MODULE : 'module';
 BIN    : 'binary';
@@ -458,6 +470,7 @@ ASSERT_UNLINKABLE            : 'assert_unlinkable';
 ASSERT_RETURN                : 'assert_return';
 // ASSERT_RETURN_CANONICAL_NAN  : 'assert_return_canonical_nan';
 // ASSERT_RETURN_ARITHMETIC_NAN : 'assert_return_arithmetic_nan';
+ASSERT_EXCEPTION             : 'assert_exception';
 ASSERT_TRAP                  : 'assert_trap';
 ASSERT_EXHAUSTION            : 'assert_exhaustion';
 INPUT                        : 'input';

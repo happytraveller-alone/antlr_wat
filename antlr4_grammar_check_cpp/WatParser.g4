@@ -36,6 +36,8 @@ heap_type
     | NOFUNC
     | EXTERN
     | NOEXTERN
+    | EXN
+    | EXTERN
     | var_
     ;
 
@@ -57,6 +59,8 @@ ref_type
     | ARRAYREF
     | NULLFUNCREF
     | NULLEXTERNREF
+    | EXNREF
+    | EXTERNREF
     ;
 
 val_type
@@ -254,6 +258,8 @@ plain_instr
     | ATOMIC_STORE OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     | ATOMIC_RMW OFFSET_EQ_NAT? ALIGN_EQ_NAT?
     | ATOMIC_RMW_CMPXCHG OFFSET_EQ_NAT? ALIGN_EQ_NAT?
+    | THROW var_
+    | THROW_REF
     ;
 
 
@@ -274,6 +280,7 @@ call_instr_type_instr_list
 block_instr
     : (BLOCK | LOOP) bind_var? block END bind_var?
     | IF bind_var? block (ELSE bind_var? instr_list)? END bind_var?
+    | TRY_TABLE bind_var? handler_block END bind_var?
     ;
 
 block
@@ -284,6 +291,17 @@ block_param_body
     : (LPAR PARAM val_type* RPAR)* (LPAR RESULT val_type* RPAR)* instr_list
     ;
 
+handler_block
+    : type_use? handler_block_param_body
+    ;
+
+handler_block_param_body
+    : (LPAR PARAM val_type* RPAR)* (LPAR RESULT val_type* RPAR)* handler_block_body
+    ;
+
+handler_block_body
+    : (LPAR (CATCH var_ | CATCH_REF var_ | CATCH_ALL | CATCH_ALL_REF) var_ RPAR)* instr_list
+    ;
 expr
     : LPAR expr1 RPAR
     ;
@@ -297,6 +315,7 @@ expr1
     | BLOCK bind_var? block
     | LOOP bind_var? block
     | IF bind_var? if_block
+    | TRY_TABLE bind_var? try_block
     ;
 
 select_expr_results
@@ -323,7 +342,17 @@ if_block_result_body
     : (LPAR RESULT val_type* RPAR)* expr* LPAR THEN instr_list RPAR (LPAR ELSE instr_list RPAR)?
     ;
 
+try_block
+    : type_use? try_block_param_body
+    ;
 
+try_block_param_body
+    : (LPAR PARAM val_type* RPAR)* (LPAR RESULT val_type* RPAR)* try_block_handler_body
+    ;
+
+try_block_handler_body
+    : (LPAR (CATCH var_ | CATCH_REF var_ | CATCH_ALL | CATCH_ALL_REF) var_ RPAR)* instr_list
+    ;
 
 const_expr
     : instr_list
@@ -438,6 +467,23 @@ memory_fields
     | LPAR DATA STRING_* RPAR
     ;
 
+tag
+    : LPAR TAG bind_var? tag_fields RPAR
+    ;
+
+tag_fields
+    : inline_export* type_use? func_type
+    | inline_export* inline_import type_use? tag_fields_import
+    ;
+
+tag_fields_import
+    : (LPAR PARAM (val_type* | bind_var val_type) RPAR)* tag_fields_import_result
+    ;
+
+tag_fields_import_result
+    : (LPAR RESULT val_type* RPAR)*
+    ;
+    
 sglobal
     : LPAR GLOBAL bind_var? global_fields RPAR
     ;
@@ -456,6 +502,7 @@ import_desc
     | LPAR TABLE bind_var? table_type RPAR
     | LPAR MEMORY bind_var? memory_type RPAR
     | LPAR GLOBAL bind_var? global_type RPAR
+    | LPAR TAG bind_var? ( type_use | func_type ) RPAR
     ;
 
 simport
@@ -467,7 +514,7 @@ inline_import
     ;
 
 export_desc
-    : LPAR (FUNC | TABLE | MEMORY | GLOBAL) var_ RPAR
+    : LPAR (FUNC | TABLE | MEMORY | GLOBAL | TAG) var_ RPAR
 //    | LPAR TABLE var_ RPAR
 //    | LPAR MEMORY var_ RPAR
 //    | LPAR GLOBAL var_ RPAR
@@ -503,7 +550,7 @@ start_
     ;
 
 module_field
-    : (type_ | sglobal | table | memory | func_ | elem | data | start_ | simport | export_)+
+    : (type_ | sglobal | table | memory | func_ | elem | data | start_ | simport | export_ | tag)+
     ;
 
 module_
@@ -531,6 +578,7 @@ assertion
     | LPAR ASSERT_UNLINKABLE script_module STRING_ RPAR
     | LPAR ASSERT_TRAP script_module STRING_ RPAR
     | LPAR ASSERT_RETURN action_ result* RPAR
+    | LPAR ASSERT_EXCEPTION action_ RPAR
     // | LPAR ASSERT_RETURN_CANONICAL_NAN action_ RPAR
     // | LPAR ASSERT_RETURN_ARITHMETIC_NAN action_ RPAR
     | LPAR ASSERT_TRAP action_ STRING_ RPAR
