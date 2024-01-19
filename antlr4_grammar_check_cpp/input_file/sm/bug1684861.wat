@@ -4,9 +4,11 @@
     i32.const -64
     i32.const -63
     memory.atomic.notify offset=1
-    unreachable)
+    unreachable
+  )
   (memory (;0;) 4 4)
-  (export "main" (func $main)))
+  (export "main" (func $main))
+)
 
 (module
   (type (;0;) (func))
@@ -16,7 +18,8 @@
     memory.atomic.notify offset=65536
     unreachable)
   (memory (;0;) 4 4)
-  (export "main" (func $main)))
+  (export "main" (func $main))
+)
 
 (module
   (type (;0;) (func))

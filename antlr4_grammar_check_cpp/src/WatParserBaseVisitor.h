@@ -151,10 +151,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitExpr1(WatParser::Expr1Context *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitSelect_expr_results(WatParser::Select_expr_resultsContext *ctx) override {
     return visitChildren(ctx);
   }

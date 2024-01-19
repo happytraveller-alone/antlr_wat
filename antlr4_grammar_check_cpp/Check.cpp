@@ -138,9 +138,9 @@ int main() {
     FileCopyAndRename(document_check_path_jsc, test_check_path_all, "jsc");
   }
   else{
-    std::string document_check_path_parse_error = "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/input_file/debug_file/parse_bug";
-    CheckDirectory(document_check_path_parse_error, "parse_error");
-    FileCopyAndRename(document_check_path_parse_error, test_check_path_all, "parse_error");
+    std::string document_check_path_parse_error = "/home/xyf/antlr_wat/antlr4_grammar_check_cpp/input_file/debug_file/segmentation_bug";
+    CheckDirectory(document_check_path_parse_error, "segmentation_error");
+    FileCopyAndRename(document_check_path_parse_error, test_check_path_all, "segmentation_error");
   }
 
 

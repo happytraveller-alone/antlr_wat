@@ -116,9 +116,6 @@ public:
   virtual void enterExpr(WatParser::ExprContext *ctx) = 0;
   virtual void exitExpr(WatParser::ExprContext *ctx) = 0;
 
-  virtual void enterExpr1(WatParser::Expr1Context *ctx) = 0;
-  virtual void exitExpr1(WatParser::Expr1Context *ctx) = 0;
-
   virtual void enterSelect_expr_results(WatParser::Select_expr_resultsContext *ctx) = 0;
   virtual void exitSelect_expr_results(WatParser::Select_expr_resultsContext *ctx) = 0;
 

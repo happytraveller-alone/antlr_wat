@@ -87,8 +87,6 @@ public:
 
     virtual std::any visitExpr(WatParser::ExprContext *context) = 0;
 
-    virtual std::any visitExpr1(WatParser::Expr1Context *context) = 0;
-
     virtual std::any visitSelect_expr_results(WatParser::Select_expr_resultsContext *context) = 0;
 
     virtual std::any visitCall_expr_type(WatParser::Call_expr_typeContext *context) = 0;

@@ -63,24 +63,23 @@ public:
     RuleCall_instr_instr_list = 25, RuleCall_instr_type_instr_list = 26, 
     RuleBlock_instr = 27, RuleBlock = 28, RuleBlock_param_body = 29, RuleHandler_block = 30, 
     RuleHandler_block_param_body = 31, RuleHandler_block_body = 32, RuleExpr = 33, 
-    RuleExpr1 = 34, RuleSelect_expr_results = 35, RuleCall_expr_type = 36, 
-    RuleCall_expr_params = 37, RuleCall_expr_results = 38, RuleIf_block = 39, 
-    RuleIf_block_result_body = 40, RuleTry_block = 41, RuleTry_block_param_body = 42, 
-    RuleTry_block_handler_body = 43, RuleConst_expr = 44, RuleFunc_ = 45, 
-    RuleFunc_fields = 46, RuleFunc_fields_import = 47, RuleFunc_fields_import_result = 48, 
-    RuleFunc_fields_body = 49, RuleFunc_result_body = 50, RuleFunc_body = 51, 
-    RuleTable_use = 52, RuleMemory_use = 53, RuleOffset = 54, RuleElem_kind = 55, 
-    RuleElem_expr = 56, RuleElem_list = 57, RuleElem = 58, RuleTable = 59, 
-    RuleTable_fields = 60, RuleData = 61, RuleMemory = 62, RuleMemory_fields = 63, 
-    RuleTag = 64, RuleTag_fields = 65, RuleTag_fields_import = 66, RuleTag_fields_import_result = 67, 
-    RuleSglobal = 68, RuleGlobal_fields = 69, RuleImport_desc = 70, RuleSimport = 71, 
-    RuleInline_import = 72, RuleExport_desc = 73, RuleExport_ = 74, RuleInline_export = 75, 
-    RuleType_def = 76, RuleRec_type = 77, RuleType_ = 78, RuleStart_ = 79, 
-    RuleModule_field = 80, RuleModule_ = 81, RuleInline_module = 82, RuleScript_module = 83, 
-    RuleAction_ = 84, RuleAssertion = 85, RuleCmd = 86, RuleShared_cmd_list = 87, 
-    RuleMeta = 88, RuleLiteral_num = 89, RuleLiteral_vec = 90, RuleLiteral_ref = 91, 
-    RuleLiteral = 92, RuleLiteral_list = 93, RuleNumpat = 94, RuleResult = 95, 
-    RuleScript = 96, RuleModule = 97
+    RuleSelect_expr_results = 34, RuleCall_expr_type = 35, RuleCall_expr_params = 36, 
+    RuleCall_expr_results = 37, RuleIf_block = 38, RuleIf_block_result_body = 39, 
+    RuleTry_block = 40, RuleTry_block_param_body = 41, RuleTry_block_handler_body = 42, 
+    RuleConst_expr = 43, RuleFunc_ = 44, RuleFunc_fields = 45, RuleFunc_fields_import = 46, 
+    RuleFunc_fields_import_result = 47, RuleFunc_fields_body = 48, RuleFunc_result_body = 49, 
+    RuleFunc_body = 50, RuleTable_use = 51, RuleMemory_use = 52, RuleOffset = 53, 
+    RuleElem_kind = 54, RuleElem_expr = 55, RuleElem_list = 56, RuleElem = 57, 
+    RuleTable = 58, RuleTable_fields = 59, RuleData = 60, RuleMemory = 61, 
+    RuleMemory_fields = 62, RuleTag = 63, RuleTag_fields = 64, RuleTag_fields_import = 65, 
+    RuleTag_fields_import_result = 66, RuleSglobal = 67, RuleGlobal_fields = 68, 
+    RuleImport_desc = 69, RuleSimport = 70, RuleInline_import = 71, RuleExport_desc = 72, 
+    RuleExport_ = 73, RuleInline_export = 74, RuleType_def = 75, RuleRec_type = 76, 
+    RuleType_ = 77, RuleStart_ = 78, RuleModule_field = 79, RuleModule_ = 80, 
+    RuleInline_module = 81, RuleScript_module = 82, RuleAction_ = 83, RuleAssertion = 84, 
+    RuleCmd = 85, RuleShared_cmd_list = 86, RuleMeta = 87, RuleLiteral_num = 88, 
+    RuleLiteral_vec = 89, RuleLiteral_ref = 90, RuleLiteral = 91, RuleLiteral_list = 92, 
+    RuleNumpat = 93, RuleResult = 94, RuleScript = 95, RuleModule = 96
   };
 
   explicit WatParser(antlr4::TokenStream *input);
@@ -134,7 +133,6 @@ public:
   class Handler_block_param_bodyContext;
   class Handler_block_bodyContext;
   class ExprContext;
-  class Expr1Context;
   class Select_expr_resultsContext;
   class Call_expr_typeContext;
   class Call_expr_paramsContext;
@@ -260,7 +258,8 @@ public:
     antlr4::tree::TerminalNode *EXTERN();
     antlr4::tree::TerminalNode *NOEXTERN();
     antlr4::tree::TerminalNode *EXN();
-    Var_Context *var_();
+    antlr4::tree::TerminalNode *NAT();
+    antlr4::tree::TerminalNode *VAR();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -275,13 +274,13 @@ public:
   public:
     Ref_typeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *FUNCREF();
-    antlr4::tree::TerminalNode *EXTERNREF();
     antlr4::tree::TerminalNode *LPAR();
     antlr4::tree::TerminalNode *REF();
     Null_optContext *null_opt();
     Heap_typeContext *heap_type();
     antlr4::tree::TerminalNode *RPAR();
+    antlr4::tree::TerminalNode *EXTERNREF();
+    antlr4::tree::TerminalNode *FUNCREF();
     antlr4::tree::TerminalNode *ANYREF();
     antlr4::tree::TerminalNode *NULLREF();
     antlr4::tree::TerminalNode *EQREF();
@@ -305,9 +304,9 @@ public:
   public:
     Val_typeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NUM_TYPE();
-    antlr4::tree::TerminalNode *VEC_TYPE();
     Ref_typeContext *ref_type();
+    antlr4::tree::TerminalNode *VEC_TYPE();
+    antlr4::tree::TerminalNode *NUM_TYPE();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -952,8 +951,24 @@ public:
     ExprContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *LPAR();
-    Expr1Context *expr1();
     antlr4::tree::TerminalNode *RPAR();
+    Plain_instrContext *plain_instr();
+    antlr4::tree::TerminalNode *SELECT();
+    Select_expr_resultsContext *select_expr_results();
+    antlr4::tree::TerminalNode *CALL_INDIRECT();
+    Call_expr_typeContext *call_expr_type();
+    antlr4::tree::TerminalNode *RETURN_CALL_INDIRECT();
+    antlr4::tree::TerminalNode *BLOCK();
+    BlockContext *block();
+    antlr4::tree::TerminalNode *LOOP();
+    antlr4::tree::TerminalNode *IF();
+    If_blockContext *if_block();
+    antlr4::tree::TerminalNode *TRY_TABLE();
+    Try_blockContext *try_block();
+    std::vector<ExprContext *> expr();
+    ExprContext* expr(size_t i);
+    Var_Context *var_();
+    Bind_varContext *bind_var();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -963,37 +978,6 @@ public:
   };
 
   ExprContext* expr();
-
-  class  Expr1Context : public antlr4::ParserRuleContext {
-  public:
-    Expr1Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    Plain_instrContext *plain_instr();
-    std::vector<ExprContext *> expr();
-    ExprContext* expr(size_t i);
-    antlr4::tree::TerminalNode *SELECT();
-    Select_expr_resultsContext *select_expr_results();
-    antlr4::tree::TerminalNode *CALL_INDIRECT();
-    Call_expr_typeContext *call_expr_type();
-    Var_Context *var_();
-    antlr4::tree::TerminalNode *RETURN_CALL_INDIRECT();
-    antlr4::tree::TerminalNode *BLOCK();
-    BlockContext *block();
-    Bind_varContext *bind_var();
-    antlr4::tree::TerminalNode *LOOP();
-    antlr4::tree::TerminalNode *IF();
-    If_blockContext *if_block();
-    antlr4::tree::TerminalNode *TRY_TABLE();
-    Try_blockContext *try_block();
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  Expr1Context* expr1();
 
   class  Select_expr_resultsContext : public antlr4::ParserRuleContext {
   public:

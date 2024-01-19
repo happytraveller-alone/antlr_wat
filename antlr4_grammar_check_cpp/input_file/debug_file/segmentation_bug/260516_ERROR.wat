@@ -12,7 +12,8 @@
         (drop
             (loop $label$1 (result (ref null $0))
                 (ref.cast (ref null $0)
-                    (table.get $0
+                    ;;table.get $0
+                    ;;(table.get $0
                         (block $label$2 (result i32)
                             (select
                                 (i32.const 487924244)
@@ -20,7 +21,7 @@
                                 (i32.const -69)
                             )
                         )
-                    )
+                    ;;)
                 )
             )
         )

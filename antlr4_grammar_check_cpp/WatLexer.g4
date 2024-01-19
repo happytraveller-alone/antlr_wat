@@ -192,8 +192,8 @@ ARRAY_INIT_DATA : 'array.init_data';
 ARRAY_INIT_ELEM : 'array.init_elem';
 EXTERN_CONVERT : 'extern.convert_any' | 'any.convert_extern';
 
-MEMORY_ATOMIC_NOTIFY : 'memory.atomic_notify';
-MEMORY_ATOMIC_WAIT  : 'memory.atomic_wait' ('32' | '64');
+MEMORY_ATOMIC_NOTIFY : 'memory.atomic.notify';
+MEMORY_ATOMIC_WAIT  : 'memory.atomic.wait' ('32' | '64');
 ATOMIC_FENCE        : 'atomic.fence';
 ATOMIC_LOAD         : 
     IXX '.atomic.load'

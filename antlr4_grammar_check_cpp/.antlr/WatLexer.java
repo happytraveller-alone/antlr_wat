@@ -113,7 +113,7 @@ public class WatLexer extends Lexer {
 			"'catch_all_ref'", "'throw'", "'throw_ref'", null, null, null, "'struct.set'", 
 			null, "'array.new_fixed'", "'array.new_elem'", "'array.new_data'", null, 
 			"'array.set'", "'array.len'", "'array.copy'", "'array.fill'", "'array.init_data'", 
-			"'array.init_elem'", null, "'memory.atomic_notify'", null, "'atomic.fence'", 
+			"'array.init_elem'", null, "'memory.atomic.notify'", null, "'atomic.fence'", 
 			null, null, null, null, "'nop'", "'unreachable'", "'drop'", "'block'", 
 			"'loop'", "'end'", "'br'", "'br_if'", "'br_table'", "'return'", "'if'", 
 			"'then'", "'else'", "'select'", "'call'", "'call_indirect'", "'call_ref'", 
@@ -1656,7 +1656,7 @@ public class WatLexer extends Lexer {
 		"\u0000\u0000\u05da\u05db\u0005y\u0000\u0000\u05db\u05dc\u0005.\u0000\u0000"+
 		"\u05dc\u05dd\u0005a\u0000\u0000\u05dd\u05de\u0005t\u0000\u0000\u05de\u05df"+
 		"\u0005o\u0000\u0000\u05df\u05e0\u0005m\u0000\u0000\u05e0\u05e1\u0005i"+
-		"\u0000\u0000\u05e1\u05e2\u0005c\u0000\u0000\u05e2\u05e3\u0005_\u0000\u0000"+
+		"\u0000\u0000\u05e1\u05e2\u0005c\u0000\u0000\u05e2\u05e3\u0005.\u0000\u0000"+
 		"\u05e3\u05e4\u0005n\u0000\u0000\u05e4\u05e5\u0005o\u0000\u0000\u05e5\u05e6"+
 		"\u0005t\u0000\u0000\u05e6\u05e7\u0005i\u0000\u0000\u05e7\u05e8\u0005f"+
 		"\u0000\u0000\u05e8\u05e9\u0005y\u0000\u0000\u05e9\u00e2\u0001\u0000\u0000"+
@@ -1665,7 +1665,7 @@ public class WatLexer extends Lexer {
 		"r\u0000\u0000\u05ef\u05f0\u0005y\u0000\u0000\u05f0\u05f1\u0005.\u0000"+
 		"\u0000\u05f1\u05f2\u0005a\u0000\u0000\u05f2\u05f3\u0005t\u0000\u0000\u05f3"+
 		"\u05f4\u0005o\u0000\u0000\u05f4\u05f5\u0005m\u0000\u0000\u05f5\u05f6\u0005"+
-		"i\u0000\u0000\u05f6\u05f7\u0005c\u0000\u0000\u05f7\u05f8\u0005_\u0000"+
+		"i\u0000\u0000\u05f6\u05f7\u0005c\u0000\u0000\u05f7\u05f8\u0005.\u0000"+
 		"\u0000\u05f8\u05f9\u0005w\u0000\u0000\u05f9\u05fa\u0005a\u0000\u0000\u05fa"+
 		"\u05fb\u0005i\u0000\u0000\u05fb\u05fc\u0005t\u0000\u0000\u05fc\u0601\u0001"+
 		"\u0000\u0000\u0000\u05fd\u05fe\u00053\u0000\u0000\u05fe\u0602\u00052\u0000"+

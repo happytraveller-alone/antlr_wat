@@ -23,7 +23,7 @@
 #include "src/WatParserVisitor.h"
 #include "antlr4-runtime.h"
 
-#define ENABLE_DEBUG 1
+#define ENABLE_DEBUG 0
 
 using namespace antlr4;
 using namespace std;

@@ -118,9 +118,6 @@ public:
   virtual void enterExpr(WatParser::ExprContext * /*ctx*/) override { }
   virtual void exitExpr(WatParser::ExprContext * /*ctx*/) override { }
 
-  virtual void enterExpr1(WatParser::Expr1Context * /*ctx*/) override { }
-  virtual void exitExpr1(WatParser::Expr1Context * /*ctx*/) override { }
-
   virtual void enterSelect_expr_results(WatParser::Select_expr_resultsContext * /*ctx*/) override { }
   virtual void exitSelect_expr_results(WatParser::Select_expr_resultsContext * /*ctx*/) override { }
 
