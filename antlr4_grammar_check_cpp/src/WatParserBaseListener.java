@@ -424,18 +424,6 @@ public class WatParserBaseListener implements WatParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr1(WatParser.Expr1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr1(WatParser.Expr1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSelect_expr_results(WatParser.Select_expr_resultsContext ctx) { }
 	/**
 	 * {@inheritDoc}

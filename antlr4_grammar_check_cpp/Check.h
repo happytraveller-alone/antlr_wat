@@ -22,7 +22,8 @@
 #include "src/WatParserBaseVisitor.h"
 #include "src/WatParserVisitor.h"
 #include "antlr4-runtime.h"
-// #include "Exceptions.h"
+
+#define ENABLE_DEBUG 1
 
 using namespace antlr4;
 using namespace std;
@@ -238,7 +239,7 @@ public:
       // 解析
       tree = parser.script();
       // std::cout << "parse success" << std::endl;
-      fprintf(stdout, "parse success\n");
+      // fprintf(stdout, "parse success\n");
     } catch (const std::exception &e) {
       // log, use e
       std::string exception_message = std::string(" Exception: ") + e.what() + "\n";

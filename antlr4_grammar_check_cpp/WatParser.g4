@@ -304,20 +304,16 @@ handler_block_body
     : (LPAR (CATCH var_ | CATCH_REF var_ | CATCH_ALL | CATCH_ALL_REF) var_ RPAR)* instr_list
     ;
 expr
-    : LPAR expr1 RPAR
+    : LPAR (plain_instr expr*
+            | SELECT select_expr_results
+            | CALL_INDIRECT var_? call_expr_type
+            | RETURN_CALL_INDIRECT var_? call_expr_type
+            | BLOCK bind_var? block
+            | LOOP bind_var? block
+            | IF bind_var? if_block
+            | TRY_TABLE bind_var? try_block) RPAR
     ;
 
-expr1
-    : plain_instr expr*
-    // | CALL_INDIRECT call_expr_type
-    | SELECT select_expr_results
-    | CALL_INDIRECT var_? call_expr_type
-    | RETURN_CALL_INDIRECT var_? call_expr_type
-    | BLOCK bind_var? block
-    | LOOP bind_var? block
-    | IF bind_var? if_block
-    | TRY_TABLE bind_var? try_block
-    ;
 
 select_expr_results
     : (LPAR RESULT val_type* RPAR)* expr*

@@ -347,16 +347,6 @@ public interface WatParserListener extends ParseTreeListener {
 	 */
 	void exitExpr(WatParser.ExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link WatParser#expr1}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr1(WatParser.Expr1Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link WatParser#expr1}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr1(WatParser.Expr1Context ctx);
-	/**
 	 * Enter a parse tree produced by {@link WatParser#select_expr_results}.
 	 * @param ctx the parse tree
 	 */

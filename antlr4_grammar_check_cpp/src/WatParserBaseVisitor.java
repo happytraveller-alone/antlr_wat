@@ -255,13 +255,6 @@ public class WatParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpr1(WatParser.Expr1Context ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitSelect_expr_results(WatParser.Select_expr_resultsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
