@@ -42,7 +42,6 @@ add_library(Grammar_check_shared SHARED ${SOURCES} ${ANTLR4_ROOT}/dist/libantlr4
 # # Link against the ANTLR4 runtime library
 # target_link_libraries(Grammar_check_shared )
 # Set output shared library name
-set_target_properties(Grammar_check_shared PROPERTIES OUTPUT_NAME "Grammar_check_shared_library")
 # Add executable compile flags
 target_compile_options(Grammar_check_shared PRIVATE
     -Wall            # Enable all warnings
