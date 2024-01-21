@@ -77,7 +77,7 @@ null
 'array.init_data'
 'array.init_elem'
 null
-'memory.atomic_notify'
+'memory.atomic.notify'
 null
 'atomic.fence'
 null

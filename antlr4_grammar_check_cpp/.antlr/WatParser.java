@@ -115,7 +115,7 @@ public class WatParser extends Parser {
 			"'catch_all_ref'", "'throw'", "'throw_ref'", null, null, null, "'struct.set'", 
 			null, "'array.new_fixed'", "'array.new_elem'", "'array.new_data'", null, 
 			"'array.set'", "'array.len'", "'array.copy'", "'array.fill'", "'array.init_data'", 
-			"'array.init_elem'", null, "'memory.atomic_notify'", null, "'atomic.fence'", 
+			"'array.init_elem'", null, "'memory.atomic.notify'", null, "'atomic.fence'", 
 			null, null, null, null, "'nop'", "'unreachable'", "'drop'", "'block'", 
 			"'loop'", "'end'", "'br'", "'br_if'", "'br_table'", "'return'", "'if'", 
 			"'then'", "'else'", "'select'", "'call'", "'call_indirect'", "'call_ref'", 

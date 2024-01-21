@@ -1,0 +1,5 @@
+if(EXISTS "/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/runtime/build/runtime/antlr4_tests[1]_tests.cmake")
+  include("/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/runtime/build/runtime/antlr4_tests[1]_tests.cmake")
+else()
+  add_test(antlr4_tests_NOT_BUILT antlr4_tests_NOT_BUILT)
+endif()
