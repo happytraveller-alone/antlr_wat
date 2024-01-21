@@ -1,1 +1,3 @@
 AFL_CUSTOM_MUTATOR_LIBRARY="/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/libGrammar_check_shared.so" AFL_CUSTOM_MUTATOR_ONLY=1 /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-fuzz -i /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/input -o /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun_clang_fuzz -f
+
+cmake .. -DANTLR_JAR_LOCATION=/home/xyf/antlr_wat/antlr4_grammar_check_cpp/tool/antlr-4.13.1-complete.jar -DWITH_DEMO=False -DWITH_LIBCXX=On -DCMAKE_CXX_STANDARD=17 -DCMAKE_POSITION_INDEPENDENT_CODE=On
