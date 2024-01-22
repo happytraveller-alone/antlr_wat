@@ -91,11 +91,11 @@ public class StrParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class LeftContext extends ParserRuleContext {
 		public TerminalNode LPAR() { return getToken(StrParser.LPAR, 0); }
-		public TerminalNode RPAR() { return getToken(StrParser.RPAR, 0); }
 		public List<TerminalNode> DIGIT() { return getTokens(StrParser.DIGIT); }
 		public TerminalNode DIGIT(int i) {
 			return getToken(StrParser.DIGIT, i);
 		}
+		public TerminalNode RPAR() { return getToken(StrParser.RPAR, 0); }
 		public LeftContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -105,26 +105,21 @@ public class StrParser extends Parser {
 	public final LeftContext left() throws RecognitionException {
 		LeftContext _localctx = new LeftContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_left);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(8);
 			match(LPAR);
-			setState(10); 
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				{
-				setState(9);
-				match(DIGIT);
-				}
-				}
-				setState(12); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( _la==DIGIT );
+			setState(9);
+			match(DIGIT);
+			setState(10);
+			match(DIGIT);
+			setState(11);
+			match(DIGIT);
+			setState(12);
+			match(DIGIT);
+			setState(13);
+			match(DIGIT);
 			setState(14);
 			match(RPAR);
 			}
@@ -173,11 +168,11 @@ public class StrParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class RightContext extends ParserRuleContext {
 		public TerminalNode LBRACE() { return getToken(StrParser.LBRACE, 0); }
-		public TerminalNode RBRACE() { return getToken(StrParser.RBRACE, 0); }
 		public List<TerminalNode> LETTER() { return getTokens(StrParser.LETTER); }
 		public TerminalNode LETTER(int i) {
 			return getToken(StrParser.LETTER, i);
 		}
+		public TerminalNode RBRACE() { return getToken(StrParser.RBRACE, 0); }
 		public RightContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -187,26 +182,21 @@ public class StrParser extends Parser {
 	public final RightContext right() throws RecognitionException {
 		RightContext _localctx = new RightContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_right);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(18);
 			match(LBRACE);
-			setState(20); 
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				{
-				setState(19);
-				match(LETTER);
-				}
-				}
-				setState(22); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( _la==LETTER );
+			setState(19);
+			match(LETTER);
+			setState(20);
+			match(LETTER);
+			setState(21);
+			match(LETTER);
+			setState(22);
+			match(LETTER);
+			setState(23);
+			match(LETTER);
 			setState(24);
 			match(RBRACE);
 			}
@@ -269,26 +259,25 @@ public class StrParser extends Parser {
 
 	public static final String _serializedATN =
 		"\u0004\u0001\u0007 \u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
-		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0001\u0000\u0004"+
-		"\u0000\u000b\b\u0000\u000b\u0000\f\u0000\f\u0001\u0000\u0001\u0000\u0001"+
-		"\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0004\u0002\u0015\b\u0002\u000b"+
-		"\u0002\f\u0002\u0016\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0001\u0000\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001"+
+		"\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001"+
+		"\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001"+
 		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0000\u0000\u0004\u0000\u0002"+
-		"\u0004\u0006\u0000\u0000\u001d\u0000\b\u0001\u0000\u0000\u0000\u0002\u0010"+
+		"\u0004\u0006\u0000\u0000\u001b\u0000\b\u0001\u0000\u0000\u0000\u0002\u0010"+
 		"\u0001\u0000\u0000\u0000\u0004\u0012\u0001\u0000\u0000\u0000\u0006\u001a"+
-		"\u0001\u0000\u0000\u0000\b\n\u0005\u0004\u0000\u0000\t\u000b\u0005\u0002"+
-		"\u0000\u0000\n\t\u0001\u0000\u0000\u0000\u000b\f\u0001\u0000\u0000\u0000"+
-		"\f\n\u0001\u0000\u0000\u0000\f\r\u0001\u0000\u0000\u0000\r\u000e\u0001"+
-		"\u0000\u0000\u0000\u000e\u000f\u0005\u0005\u0000\u0000\u000f\u0001\u0001"+
-		"\u0000\u0000\u0000\u0010\u0011\u0005\u0001\u0000\u0000\u0011\u0003\u0001"+
-		"\u0000\u0000\u0000\u0012\u0014\u0005\u0006\u0000\u0000\u0013\u0015\u0005"+
-		"\u0003\u0000\u0000\u0014\u0013\u0001\u0000\u0000\u0000\u0015\u0016\u0001"+
-		"\u0000\u0000\u0000\u0016\u0014\u0001\u0000\u0000\u0000\u0016\u0017\u0001"+
-		"\u0000\u0000\u0000\u0017\u0018\u0001\u0000\u0000\u0000\u0018\u0019\u0005"+
-		"\u0007\u0000\u0000\u0019\u0005\u0001\u0000\u0000\u0000\u001a\u001b\u0003"+
-		"\u0000\u0000\u0000\u001b\u001c\u0003\u0002\u0001\u0000\u001c\u001d\u0003"+
-		"\u0004\u0002\u0000\u001d\u001e\u0005\u0000\u0000\u0001\u001e\u0007\u0001"+
-		"\u0000\u0000\u0000\u0002\f\u0016";
+		"\u0001\u0000\u0000\u0000\b\t\u0005\u0004\u0000\u0000\t\n\u0005\u0002\u0000"+
+		"\u0000\n\u000b\u0005\u0002\u0000\u0000\u000b\f\u0005\u0002\u0000\u0000"+
+		"\f\r\u0005\u0002\u0000\u0000\r\u000e\u0005\u0002\u0000\u0000\u000e\u000f"+
+		"\u0005\u0005\u0000\u0000\u000f\u0001\u0001\u0000\u0000\u0000\u0010\u0011"+
+		"\u0005\u0001\u0000\u0000\u0011\u0003\u0001\u0000\u0000\u0000\u0012\u0013"+
+		"\u0005\u0006\u0000\u0000\u0013\u0014\u0005\u0003\u0000\u0000\u0014\u0015"+
+		"\u0005\u0003\u0000\u0000\u0015\u0016\u0005\u0003\u0000\u0000\u0016\u0017"+
+		"\u0005\u0003\u0000\u0000\u0017\u0018\u0005\u0003\u0000\u0000\u0018\u0019"+
+		"\u0005\u0007\u0000\u0000\u0019\u0005\u0001\u0000\u0000\u0000\u001a\u001b"+
+		"\u0003\u0000\u0000\u0000\u001b\u001c\u0003\u0002\u0001\u0000\u001c\u001d"+
+		"\u0003\u0004\u0002\u0000\u001d\u001e\u0005\u0000\u0000\u0001\u001e\u0007"+
+		"\u0001\u0000\u0000\u0000\u0000";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

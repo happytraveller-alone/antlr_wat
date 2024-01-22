@@ -75,48 +75,57 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
   // Make sure that the packet size does not exceed the maximum size expected by
   // the fuzzer
   size_t mutated_size = DATA_SIZE <= max_size ? DATA_SIZE : max_size;
-  fprintf(stdout, "buffer size: %zu \t buffer size: %zu \t add buffer size: %zu \t buffer: %s \t add_buffer: %s \n", \
-            buf_size, buf_size, add_buf_size, buf, add_buf);
-  // fprintf(stdout, "buffer: %s\n", buf);
-  // fprintf(stdout, "buffer format:");
-  // for(int i = 0; i < buf_size; i++) {
-  //   fprintf(stdout, "%c", buf[i]);
-  // }
-  // fprintf(stdout, "\n");
-  memcpy(data->mutated_out, buf, buf_size);
-  u8 * buf_ptr = data->mutated_out;
-  while(*buf_ptr != '\0') {
-    buf_ptr++;
+  int mutated_out_size = buf_size <= add_buf_size ? buf_size : add_buf_size;
+  memset(data->mutated_out, 0, mutated_out_size);
+  // memcpy(data->mutated_out, buf, mutated_out_size);
+  // fprintf(stdout, "buffer size: %zu \t buffer size: %zu \t add buffer size: %zu \t buffer: %s \t add_buffer: %s \t mutated_size: %d\n", \
+  //           buf_size, buf_size, add_buf_size, buf, add_buf, mutated_out_size);
+  // fprintf(stdout, "data->mutated_out: %s\n", reinterpret_cast<const char*>(buf));
+  // count buf size
+  int buf_count = 0;
+  for (int i = 0; i < buf_size; i++) {
+    if (buf[i] == '\n' || buf[i] == '\0') {
+      break;
+    }
+    buf_count++;
   }
-  int mutated_out_size = buf_ptr - data->mutated_out;
-  // fprintf(stdout, "mutated_out_size: %d\n", mutated_out_size);
-  // Perform the mutation
-  // int data_mutated_out_buf_size = 0;
-  // fprintf(stdout, "mutate: %s\n", data->mutated_out);
-  CustomStrVisitor *visitor =
-      new CustomStrVisitor(buf, mutated_out_size);
-  try{
-    visitor->visit(visitor->get_module());
-    // fprintf(stdout, "rewriter direct mutate: %s\n", visitor->get_rewriter()->getText().c_str());
-    u8 uchr[visitor->get_rewriter()->getText().size()+1];
-    std::strcpy((char*)uchr, visitor->get_rewriter()->getText().c_str());
-    uchr[visitor->get_rewriter()->getText().size()] = '\0';
-    // fprintf(stdout, "rewriter mutate: %s\n", uchr);
-    data->mutated_out = uchr;
-    // fprintf(stdout, "rewriter mutate: %s\n\n", data->mutated_out);
+  try {
+    if(buf_count != 19) {
+      return 0;
+    }
+    fprintf(stdout, "\n buf %s\n", buf);
+    CustomStrVisitor *visitor = new CustomStrVisitor(buf, mutated_out_size);
+    if (visitor->get_parser()->getNumberOfSyntaxErrors() > 0) {
+      // delete visitor;
+      visitor = nullptr;
+      return 0;
+    } else {
+      try {
+        visitor->visit(visitor->get_module());
+        u8 uchr[visitor->get_rewriter()->getText().size() + 1];
+        std::strcpy((char *)uchr, visitor->get_rewriter()->getText().c_str());
+        uchr[visitor->get_rewriter()->getText().size()] = '\0';
+        fprintf(stdout, "rewriter mutate: %s length: %d\n", uchr,
+                strlen((char *)uchr));
+        data->mutated_out = uchr;
+        // delete visitor;
+        visitor = nullptr;
+
+        if (mutated_size > max_size) { mutated_size = max_size; }
+        *out_buf = data->mutated_out;
+      } catch (std::exception &e) {
+        fprintf(stdout, "exception: %s\n", e.what());
+        return 0;
+      }
+      // visitor->visit(visitor->get_module());
+      
+    }
   } catch (std::exception &e) {
-    return mutated_out_size;
+    fprintf(stdout, "exception: %s\n", e.what());
+    return 0;
   }
 
-
-  delete visitor;
-  visitor = nullptr;
-
-  if (mutated_size > max_size) {
-    mutated_size = max_size;
-  }
-
-  *out_buf = data->mutated_out;
+  // memset(data->mutated_out, 0, buf_size);
   return mutated_size;
 }
 
@@ -142,8 +151,9 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 //   if (buf_size > MAX_FILE) {
 //     buf_size = MAX_FILE;
 //   }
-
+//   // fprintf
 //   memcpy(data->post_process_buf, buf, buf_size);
+
 //   // data->post_process_buf[0] = 'A';
 //   // data->post_process_buf[1] = 'F';
 //   // data->post_process_buf[2] = 'L';

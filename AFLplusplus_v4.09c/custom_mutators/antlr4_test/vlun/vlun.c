@@ -10,7 +10,7 @@ int main() {
   fgets(buffer, 50, stdin);
 
   // Remove newline character
-  buffer[strcspn(buffer, "\n")] = 0;
+  // buffer[strcspn(buffer, "\n")] = 0;
 
   // Check string length
   if (strlen(buffer) != 19) {

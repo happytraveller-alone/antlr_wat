@@ -73,6 +73,7 @@ public:
   }
   CustomStrVisitor(u8* buf, size_t buf_size)
       : stream(reinterpret_cast<const char*>(buf), buf_size), lexer(&stream), tokens(&lexer), parser(&tokens), rewriter(&tokens) {
+    // fprintf(stdout, "buf: %s\n", buf);
     module = parser.module();
   }
   // tree::ParseTree *get_tree() { return tree; }

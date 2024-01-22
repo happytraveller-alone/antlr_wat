@@ -46,9 +46,9 @@ public:
     LeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *LPAR();
-    antlr4::tree::TerminalNode *RPAR();
     std::vector<antlr4::tree::TerminalNode *> DIGIT();
     antlr4::tree::TerminalNode* DIGIT(size_t i);
+    antlr4::tree::TerminalNode *RPAR();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -79,9 +79,9 @@ public:
     RightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *LBRACE();
-    antlr4::tree::TerminalNode *RBRACE();
     std::vector<antlr4::tree::TerminalNode *> LETTER();
     antlr4::tree::TerminalNode* LETTER(size_t i);
+    antlr4::tree::TerminalNode *RBRACE();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;

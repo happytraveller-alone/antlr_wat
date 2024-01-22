@@ -20,93 +20,126 @@ string ret[MAXSAMPLES+2];
 
 bool cmp(const string &x, const string &y){return x<y;}
 
-int parse(char* target,size_t len,char* second,size_t lenS) {
+int parse(char *target, size_t len, char *second, size_t lenS)
+{
 	vector<misc::Interval> intervals;
-    intervals.clear();
+	intervals.clear();
 	vector<string> texts;
-    texts.clear();
-	int num_of_smaples=0;
-	//parse the target
+	texts.clear();
+	int num_of_smaples = 0;
+	// parse the target
 	string targetString;
-	try{
-		targetString=string(target,len);
+	try
+	{
+		targetString = string(target, len);
 		ANTLRInputStream input(targetString);
-		//ANTLRInputStream input(target);
+		// ANTLRInputStream input(target);
 		ECMAScriptLexer lexer(&input);
 		CommonTokenStream tokens(&lexer);
 		ECMAScriptParser parser(&tokens);
 		TokenStreamRewriter rewriter(&tokens);
-		tree::ParseTree* tree = parser.program();
-		if(parser.getNumberOfSyntaxErrors()>0){
-			//std::cerr<<"NumberOfSyntaxErrors:"<<parser.getNumberOfSyntaxErrors()<<endl;
+		tree::ParseTree *tree = parser.program();
+		if (parser.getNumberOfSyntaxErrors() > 0)
+		{
+			// std::cerr<<"NumberOfSyntaxErrors:"<<parser.getNumberOfSyntaxErrors()<<endl;
 			return 0;
-		}else{
- 			ECMAScriptBaseVisitor *visitor=new ECMAScriptBaseVisitor();
+		}
+		else
+		{
+			ECMAScriptBaseVisitor *visitor = new ECMAScriptBaseVisitor();
 			visitor->visit(tree);
 
 			int interval_size = visitor->intervals.size();
-			for(int i=0;i<interval_size;i++){
-				if(find(intervals.begin(),intervals.end(),visitor->intervals[i])!=intervals.end()){
-				}else if(visitor->intervals[i].a<=visitor->intervals[i].b){
-					intervals.push_back(visitor->intervals[i]);	
+			for (int i = 0; i < interval_size; i++)
+			{
+				if (find(intervals.begin(), intervals.end(), visitor->intervals[i]) != intervals.end())
+				{
+				}
+				else if (visitor->intervals[i].a <= visitor->intervals[i].b)
+				{
+					intervals.push_back(visitor->intervals[i]);
 				}
 			}
 			int texts_size = visitor->texts.size();
-			for(int i=0;i<texts_size;i++){
-				if(find(texts.begin(),texts.end(),visitor->texts[i])!=texts.end()){
-				}else if(visitor->texts[i].length()>MAXTEXT){
-				}else{
+			for (int i = 0; i < texts_size; i++)
+			{
+				if (find(texts.begin(), texts.end(), visitor->texts[i]) != texts.end())
+				{
+				}
+				else if (visitor->texts[i].length() > MAXTEXT)
+				{
+				}
+				else
+				{
 					texts.push_back(visitor->texts[i]);
-            			}
+				}
 			}
-            		delete visitor;
-			//parse sencond
+			delete visitor;
+			// parse sencond
 			string secondString;
-			try{
-				secondString=string(second,lenS);
-				//cout<<targetString<<endl;
-				//cout<<secondString<<endl;
+			try
+			{
+				secondString = string(second, lenS);
+				// cout<<targetString<<endl;
+				// cout<<secondString<<endl;
 
 				ANTLRInputStream inputS(secondString);
 				ECMAScriptLexer lexerS(&inputS);
 				CommonTokenStream tokensS(&lexerS);
 				ECMAScriptParser parserS(&tokensS);
-				tree::ParseTree* treeS = parserS.program();
+				tree::ParseTree *treeS = parserS.program();
 
-				if(parserS.getNumberOfSyntaxErrors()>0){
-		 			//std::cerr<<"NumberOfSyntaxErrors S:"<<parserS.getNumberOfSyntaxErrors()<<endl;
-				}else{
-					ECMAScriptSecondVisitor *visitorS=new ECMAScriptSecondVisitor();
+				if (parserS.getNumberOfSyntaxErrors() > 0)
+				{
+					// std::cerr<<"NumberOfSyntaxErrors S:"<<parserS.getNumberOfSyntaxErrors()<<endl;
+				}
+				else
+				{
+					ECMAScriptSecondVisitor *visitorS = new ECMAScriptSecondVisitor();
 					visitorS->visit(treeS);
 					texts_size = visitorS->texts.size();
-					for(int i=0;i<texts_size;i++){
-						if(find(texts.begin(),texts.end(),visitorS->texts[i])!=texts.end()){
-                        			}else if(visitorS->texts[i].length()>MAXTEXT){
-						}else{
+					for (int i = 0; i < texts_size; i++)
+					{
+						if (find(texts.begin(), texts.end(), visitorS->texts[i]) != texts.end())
+						{
+						}
+						else if (visitorS->texts[i].length() > MAXTEXT)
+						{
+						}
+						else
+						{
 							texts.push_back(visitorS->texts[i]);
 						}
 					}
-                    		delete visitorS;
+					delete visitorS;
 				}
 
 				interval_size = intervals.size();
-				sort(texts.begin(),texts.end());
+				sort(texts.begin(), texts.end());
 				texts_size = texts.size();
 
-				for(int i=0;i<interval_size;i++){
-					for(int j=0;j<texts_size;j++){
-						rewriter.replace(intervals[i].a,intervals[i].b,texts[j]);
-						ret[num_of_smaples++]=rewriter.getText();
-						if(num_of_smaples>=MAXSAMPLES)break;
+				for (int i = 0; i < interval_size; i++)
+				{
+					for (int j = 0; j < texts_size; j++)
+					{
+						rewriter.replace(intervals[i].a, intervals[i].b, texts[j]);
+						ret[num_of_smaples++] = rewriter.getText();
+						if (num_of_smaples >= MAXSAMPLES)
+							break;
 					}
-					if(num_of_smaples>=MAXSAMPLES)break;
+					if (num_of_smaples >= MAXSAMPLES)
+						break;
 				}
-			}catch(range_error e){
-				//std::cerr<<"range_error"<<second<<endl;
+			}
+			catch (range_error e)
+			{
+				// std::cerr<<"range_error"<<second<<endl;
 			}
 		}
-	}catch(range_error e){
-		//std::cerr<<"range_error:"<<target<<endl;
+	}
+	catch (range_error e)
+	{
+		// std::cerr<<"range_error:"<<target<<endl;
 	}
 
 	return num_of_smaples;

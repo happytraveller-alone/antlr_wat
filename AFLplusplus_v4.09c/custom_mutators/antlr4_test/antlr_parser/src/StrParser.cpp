@@ -63,15 +63,14 @@ void strparserParserInitialize() {
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,7,32,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,4,0,11,8,0,11,0,12,0,
-  	12,1,0,1,0,1,1,1,1,1,2,1,2,4,2,21,8,2,11,2,12,2,22,1,2,1,2,1,3,1,3,1,
-  	3,1,3,1,3,1,3,0,0,4,0,2,4,6,0,0,29,0,8,1,0,0,0,2,16,1,0,0,0,4,18,1,0,
-  	0,0,6,26,1,0,0,0,8,10,5,4,0,0,9,11,5,2,0,0,10,9,1,0,0,0,11,12,1,0,0,0,
-  	12,10,1,0,0,0,12,13,1,0,0,0,13,14,1,0,0,0,14,15,5,5,0,0,15,1,1,0,0,0,
-  	16,17,5,1,0,0,17,3,1,0,0,0,18,20,5,6,0,0,19,21,5,3,0,0,20,19,1,0,0,0,
-  	21,22,1,0,0,0,22,20,1,0,0,0,22,23,1,0,0,0,23,24,1,0,0,0,24,25,5,7,0,0,
-  	25,5,1,0,0,0,26,27,3,0,0,0,27,28,3,2,1,0,28,29,3,4,2,0,29,30,5,0,0,1,
-  	30,7,1,0,0,0,2,12,22
+  	4,1,7,32,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,1,0,1,0,1,0,
+  	1,0,1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,1,3,0,
+  	0,4,0,2,4,6,0,0,27,0,8,1,0,0,0,2,16,1,0,0,0,4,18,1,0,0,0,6,26,1,0,0,0,
+  	8,9,5,4,0,0,9,10,5,2,0,0,10,11,5,2,0,0,11,12,5,2,0,0,12,13,5,2,0,0,13,
+  	14,5,2,0,0,14,15,5,5,0,0,15,1,1,0,0,0,16,17,5,1,0,0,17,3,1,0,0,0,18,19,
+  	5,6,0,0,19,20,5,3,0,0,20,21,5,3,0,0,21,22,5,3,0,0,22,23,5,3,0,0,23,24,
+  	5,3,0,0,24,25,5,7,0,0,25,5,1,0,0,0,26,27,3,0,0,0,27,28,3,2,1,0,28,29,
+  	3,4,2,0,29,30,5,0,0,1,30,7,1,0,0,0,0
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -130,16 +129,16 @@ tree::TerminalNode* StrParser::LeftContext::LPAR() {
   return getToken(StrParser::LPAR, 0);
 }
 
-tree::TerminalNode* StrParser::LeftContext::RPAR() {
-  return getToken(StrParser::RPAR, 0);
-}
-
 std::vector<tree::TerminalNode *> StrParser::LeftContext::DIGIT() {
   return getTokens(StrParser::DIGIT);
 }
 
 tree::TerminalNode* StrParser::LeftContext::DIGIT(size_t i) {
   return getToken(StrParser::DIGIT, i);
+}
+
+tree::TerminalNode* StrParser::LeftContext::RPAR() {
+  return getToken(StrParser::RPAR, 0);
 }
 
 
@@ -170,7 +169,6 @@ std::any StrParser::LeftContext::accept(tree::ParseTreeVisitor *visitor) {
 StrParser::LeftContext* StrParser::left() {
   LeftContext *_localctx = _tracker.createInstance<LeftContext>(_ctx, getState());
   enterRule(_localctx, 0, StrParser::RuleLeft);
-  size_t _la = 0;
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -183,16 +181,16 @@ StrParser::LeftContext* StrParser::left() {
     enterOuterAlt(_localctx, 1);
     setState(8);
     match(StrParser::LPAR);
-    setState(10); 
-    _errHandler->sync(this);
-    _la = _input->LA(1);
-    do {
-      setState(9);
-      match(StrParser::DIGIT);
-      setState(12); 
-      _errHandler->sync(this);
-      _la = _input->LA(1);
-    } while (_la == StrParser::DIGIT);
+    setState(9);
+    match(StrParser::DIGIT);
+    setState(10);
+    match(StrParser::DIGIT);
+    setState(11);
+    match(StrParser::DIGIT);
+    setState(12);
+    match(StrParser::DIGIT);
+    setState(13);
+    match(StrParser::DIGIT);
     setState(14);
     match(StrParser::RPAR);
    
@@ -277,16 +275,16 @@ tree::TerminalNode* StrParser::RightContext::LBRACE() {
   return getToken(StrParser::LBRACE, 0);
 }
 
-tree::TerminalNode* StrParser::RightContext::RBRACE() {
-  return getToken(StrParser::RBRACE, 0);
-}
-
 std::vector<tree::TerminalNode *> StrParser::RightContext::LETTER() {
   return getTokens(StrParser::LETTER);
 }
 
 tree::TerminalNode* StrParser::RightContext::LETTER(size_t i) {
   return getToken(StrParser::LETTER, i);
+}
+
+tree::TerminalNode* StrParser::RightContext::RBRACE() {
+  return getToken(StrParser::RBRACE, 0);
 }
 
 
@@ -317,7 +315,6 @@ std::any StrParser::RightContext::accept(tree::ParseTreeVisitor *visitor) {
 StrParser::RightContext* StrParser::right() {
   RightContext *_localctx = _tracker.createInstance<RightContext>(_ctx, getState());
   enterRule(_localctx, 4, StrParser::RuleRight);
-  size_t _la = 0;
 
 #if __cplusplus > 201703L
   auto onExit = finally([=, this] {
@@ -330,16 +327,16 @@ StrParser::RightContext* StrParser::right() {
     enterOuterAlt(_localctx, 1);
     setState(18);
     match(StrParser::LBRACE);
-    setState(20); 
-    _errHandler->sync(this);
-    _la = _input->LA(1);
-    do {
-      setState(19);
-      match(StrParser::LETTER);
-      setState(22); 
-      _errHandler->sync(this);
-      _la = _input->LA(1);
-    } while (_la == StrParser::LETTER);
+    setState(19);
+    match(StrParser::LETTER);
+    setState(20);
+    match(StrParser::LETTER);
+    setState(21);
+    match(StrParser::LETTER);
+    setState(22);
+    match(StrParser::LETTER);
+    setState(23);
+    match(StrParser::LETTER);
     setState(24);
     match(StrParser::RBRACE);
    
