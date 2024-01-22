@@ -188,6 +188,7 @@ antlr_parser/libGrammar_check_shared.so: antlr_parser/CMakeFiles/Grammar_check_s
 antlr_parser/libGrammar_check_shared.so: antlr_parser/CMakeFiles/Grammar_check_shared.dir/src/StrParserVisitor.cpp.o
 antlr_parser/libGrammar_check_shared.so: antlr_parser/CMakeFiles/Grammar_check_shared.dir/src/WatFuzz.cpp.o
 antlr_parser/libGrammar_check_shared.so: antlr_parser/CMakeFiles/Grammar_check_shared.dir/build.make
+antlr_parser/libGrammar_check_shared.so: antlr_parser/runtime/libantlr4-runtime.a
 antlr_parser/libGrammar_check_shared.so: antlr_parser/CMakeFiles/Grammar_check_shared.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libGrammar_check_shared.so"
 	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Grammar_check_shared.dir/link.txt --verbose=$(VERBOSE)

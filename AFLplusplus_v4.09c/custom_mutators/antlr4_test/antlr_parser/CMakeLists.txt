@@ -15,15 +15,16 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_FORTIFY_SOURCE=2 -g -O3")
 # generate the libantlr4-runtime.a
 add_subdirectory(runtime)
 
+set(ANTLR_JAR_LOCATION /usr/local/lib/antlr-4.13.1-complete.jar)
+set(ANTLR_GENERATED_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/)
 # generate antlr4 files
 # Execute the shell script
 execute_process(
-    COMMAND java -jar /usr/local/lib/antlr-4.13.1-complete.jar -listener -visitor -Dlanguage=Cpp -o /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser/src/ StrLexer.g4 StrParser.g4
+    COMMAND java -jar ${ANTLR_JAR_LOCATION} -listener -visitor -Dlanguage=Cpp -o ${ANTLR_GENERATED_SRC_DIR} StrLexer.g4 StrParser.g4
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     RESULT_VARIABLE result
     OUTPUT_VARIABLE output
 )
-message(${result})
 if(result EQUAL 0)
     message(STATUS "Shell script executed successfully. ANTLR4 files generated.")
 else()
@@ -58,10 +59,13 @@ target_compile_options(Grammar_check PRIVATE
 
 
 # Add the shared library
-add_library(Grammar_check_shared SHARED ${SOURCES} ${ANTLR4_RUNTIME})
+add_library(Grammar_check_shared SHARED ${SOURCES})
+
+target_link_libraries(Grammar_check_shared ${ANTLR4_RUNTIME})
 # Add executable compile flags
 target_compile_options(Grammar_check_shared PUBLIC
     -c
+    # -shared
     # -Wall            # Enable all warnings
     # -Werror          # Treat warnings as errors
     # -Wextra          # Enable extra warnings
