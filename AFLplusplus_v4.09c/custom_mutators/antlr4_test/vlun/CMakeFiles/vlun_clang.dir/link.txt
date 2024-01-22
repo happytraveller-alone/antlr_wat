@@ -1,0 +1,1 @@
+/home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang  -D_FORTIFY_SOURCE=2 -g -O3 -O3 -DNDEBUG CMakeFiles/vlun_clang.dir/vlun.c.o -o vlun_clang 
