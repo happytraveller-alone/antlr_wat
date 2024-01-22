@@ -30,7 +30,7 @@
 using namespace antlr4;
 using namespace std;
 
-#define DATA_SIZE (100)
+#define DATA_SIZE (10000)
 
 typedef struct my_mutator {
 
@@ -72,7 +72,7 @@ public:
     module = parser.module();
   }
   CustomStrVisitor(u8* buf, size_t buf_size)
-      : stream((const char*)buf, buf_size), lexer(&stream), tokens(&lexer), parser(&tokens), rewriter(&tokens) {
+      : stream(reinterpret_cast<const char*>(buf), buf_size), lexer(&stream), tokens(&lexer), parser(&tokens), rewriter(&tokens) {
     module = parser.module();
   }
   // tree::ParseTree *get_tree() { return tree; }

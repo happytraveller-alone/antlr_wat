@@ -158,7 +158,8 @@ vlun/CMakeFiles/vlun_clang.dir/clean:
 # Target rules for target antlr_parser/CMakeFiles/Grammar_check.dir
 
 # All Build rule for target.
-antlr_parser/CMakeFiles/Grammar_check.dir/all:
+antlr_parser/CMakeFiles/Grammar_check.dir/all: antlr_parser/runtime/CMakeFiles/antlr4_shared.dir/all
+antlr_parser/CMakeFiles/Grammar_check.dir/all: antlr_parser/runtime/CMakeFiles/antlr4_static.dir/all
 	$(MAKE) $(MAKESILENT) -f antlr_parser/CMakeFiles/Grammar_check.dir/build.make antlr_parser/CMakeFiles/Grammar_check.dir/depend
 	$(MAKE) $(MAKESILENT) -f antlr_parser/CMakeFiles/Grammar_check.dir/build.make antlr_parser/CMakeFiles/Grammar_check.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles --progress-num=1,2 "Built target Grammar_check"
@@ -166,7 +167,7 @@ antlr_parser/CMakeFiles/Grammar_check.dir/all:
 
 # Build rule for subdir invocation for target.
 antlr_parser/CMakeFiles/Grammar_check.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles 96
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 antlr_parser/CMakeFiles/Grammar_check.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles 0
 .PHONY : antlr_parser/CMakeFiles/Grammar_check.dir/rule
@@ -184,7 +185,8 @@ antlr_parser/CMakeFiles/Grammar_check.dir/clean:
 # Target rules for target antlr_parser/CMakeFiles/Grammar_check_shared.dir
 
 # All Build rule for target.
-antlr_parser/CMakeFiles/Grammar_check_shared.dir/all:
+antlr_parser/CMakeFiles/Grammar_check_shared.dir/all: antlr_parser/runtime/CMakeFiles/antlr4_shared.dir/all
+antlr_parser/CMakeFiles/Grammar_check_shared.dir/all: antlr_parser/runtime/CMakeFiles/antlr4_static.dir/all
 	$(MAKE) $(MAKESILENT) -f antlr_parser/CMakeFiles/Grammar_check_shared.dir/build.make antlr_parser/CMakeFiles/Grammar_check_shared.dir/depend
 	$(MAKE) $(MAKESILENT) -f antlr_parser/CMakeFiles/Grammar_check_shared.dir/build.make antlr_parser/CMakeFiles/Grammar_check_shared.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles --progress-num=3,4,5 "Built target Grammar_check_shared"
@@ -192,7 +194,7 @@ antlr_parser/CMakeFiles/Grammar_check_shared.dir/all:
 
 # Build rule for subdir invocation for target.
 antlr_parser/CMakeFiles/Grammar_check_shared.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles 97
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 antlr_parser/CMakeFiles/Grammar_check_shared.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles 0
 .PHONY : antlr_parser/CMakeFiles/Grammar_check_shared.dir/rule

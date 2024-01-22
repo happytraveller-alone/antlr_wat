@@ -5,4 +5,4 @@ AFL_CUSTOM_INFO_PROGRAM=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/a
 AFL_CUSTOM_INFO_PROGRAM_ARGV=-f
 AFL_CUSTOM_INFO_OUT=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output/default
 # command line:
-'/home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-fuzz' '-i' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/input' '-o' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun_clang' '-f'
+'/home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-fuzz' '-m' '1024' '-i' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/input' '-o' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun_clang' '-f'

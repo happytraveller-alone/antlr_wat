@@ -56,7 +56,7 @@ target_compile_options(Grammar_check PRIVATE
     -std=c++17       # cplusplus 17 standard
     # Add any additional flags here
 )
-
+add_dependencies(Grammar_check antlr4_static antlr4_shared)
 
 # Add the shared library
 add_library(Grammar_check_shared SHARED ${SOURCES})
@@ -73,4 +73,6 @@ target_compile_options(Grammar_check_shared PUBLIC
     -fPIC           # Position independent code
     # Add any additional flags here
 )
+
+add_dependencies(Grammar_check_shared antlr4_static antlr4_shared)
 # Specify any additional dependencies or flags here

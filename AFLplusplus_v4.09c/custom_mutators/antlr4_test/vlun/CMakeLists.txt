@@ -12,8 +12,6 @@ set(CMAKE_CXX_COMPILER /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang++)
 # Specify the C and C++ compile args
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_FORTIFY_SOURCE=2 -g -O3")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_FORTIFY_SOURCE=2 -g -O3")
-message("The cmake source path is: ${CMAKE_SOURCE_DIR}")
-message("The cmake list path is: ${CMAKE_CURRENT_LIST_DIR}")
 # ADD -fsanitize=address -fno-omit-frame-pointer -g -O1
 # message("The path of the parent CMakeLists.txt is: ${CMAKE_CURRENT_LIST_DIR}")
 # set(CMAKE_PARENT_DIR ${CMAKE_CURRENT_LIST_DIR}/../)

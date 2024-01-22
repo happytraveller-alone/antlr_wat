@@ -75,7 +75,12 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
   // Make sure that the packet size does not exceed the maximum size expected by
   // the fuzzer
   size_t mutated_size = DATA_SIZE <= max_size ? DATA_SIZE : max_size;
-  fprintf(stdout, "buffer size: %zu\t max size: %zu \t buf: %s \n", buf_size, max_size, buf);
+  fprintf(stdout, "buffer size: %zu\t max size: %zu\n", buf_size, max_size);
+  fprintf(stdout, "add buffer size: %zu\n", add_buf_size);
+  for(int i = 0; i < buf_size; i++) {
+    fprintf(stdout, "%c", buf[i]);
+  }
+  fprintf(stdout, "\n");
   memcpy(data->mutated_out, buf, buf_size);
   u8 * buf_ptr = data->mutated_out;
   while(*buf_ptr != '\0') {
