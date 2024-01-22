@@ -1,19 +1,6 @@
 #include "WatFuzz.h"
 
-typedef struct my_mutator {
 
-  afl_state_t *afl;
-
-  // any additional data here!
-  //   size_t trim_size_current;
-  //   int trimmming_steps;
-  //   int cur_step;
-
-  u8 *mutated_out;
-  u8 *post_process_buf;
-  // u8 *trim_buf;
-
-} my_mutator_t;
 
 extern "C" {my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed);}
 extern "C" {size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf,
@@ -88,16 +75,32 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
   // Make sure that the packet size does not exceed the maximum size expected by
   // the fuzzer
   size_t mutated_size = DATA_SIZE <= max_size ? DATA_SIZE : max_size;
-
+  fprintf(stdout, "buffer size: %zu\t max size: %zu \t buf: %s \n", buf_size, max_size, buf);
   memcpy(data->mutated_out, buf, buf_size);
-
+  u8 * buf_ptr = data->mutated_out;
+  while(*buf_ptr != '\0') {
+    buf_ptr++;
+  }
+  int mutated_out_size = buf_ptr - data->mutated_out;
   // Perform the mutation
-  ANTLRInputStream stream((char *)data->mutated_out);
-  StrLexer lexer(&stream);
-  CommonTokenStream tokens(&lexer);
-  StrParser parser(&tokens);
-  StrParser::ModuleContext *tree;
+  // int data_mutated_out_buf_size = 0;
+  // fprintf(stdout, "mutate: %s\n", data->mutated_out);
+  CustomStrVisitor *visitor =
+      new CustomStrVisitor(data->mutated_out, mutated_out_size);
+  visitor->visit(visitor->get_module());
+  fprintf(stdout, "rewriter direct mutate: %s\n", visitor->get_rewriter()->getText().c_str());
+  u8 uchr[visitor->get_rewriter()->getText().size()+1];
+  std::strcpy((char*)uchr, visitor->get_rewriter()->getText().c_str());
+  uchr[visitor->get_rewriter()->getText().size()] = '\0';
+  // fprintf(stdout, "rewriter mutate: %s\n", uchr);
+  data->mutated_out = uchr;
+  fprintf(stdout, "rewriter mutate: %s\n", data->mutated_out);
+  // data->mutated_out = static_cast<unsigned char *>(visitor->get_rewriter()->getText());
+  // data->mutated_out = reinterpret_cast<u8 *>(const_cast<char*>(visitor->get_rewriter()->getText().c_str()));
+  // fprintf(stdout, "mutate: %s\n", visitor->get_rewriter()->getText().c_str());
   // tree = parser.module();
+  delete visitor;
+  visitor = nullptr;
 
   if (mutated_size > max_size) {
     mutated_size = max_size;
@@ -126,20 +129,20 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 size_t afl_custom_post_process(my_mutator_t *data, uint8_t *buf,
                                size_t buf_size, uint8_t **out_buf) {
 
-  if (buf_size + 5 > MAX_FILE) {
-    buf_size = MAX_FILE - 5;
+  if (buf_size > MAX_FILE) {
+    buf_size = MAX_FILE;
   }
 
-  memcpy(data->post_process_buf + 5, buf, buf_size);
-  data->post_process_buf[0] = 'A';
-  data->post_process_buf[1] = 'F';
-  data->post_process_buf[2] = 'L';
-  data->post_process_buf[3] = '+';
-  data->post_process_buf[4] = '+';
+  memcpy(data->post_process_buf, buf, buf_size);
+  // data->post_process_buf[0] = 'A';
+  // data->post_process_buf[1] = 'F';
+  // data->post_process_buf[2] = 'L';
+  // data->post_process_buf[3] = '+';
+  // data->post_process_buf[4] = '+';
 
   *out_buf = data->post_process_buf;
 
-  return buf_size + 5;
+  return buf_size;
 }
 
 /**
@@ -159,15 +162,17 @@ void afl_custom_deinit(my_mutator_t *data) {
 int main() {
   // visit
   // StrOverrideVisitor visitor;
-  CustomStrVisitor *visitor =
-      new CustomStrVisitor("/home/xyf/antlr_wat/AFLplusplus_v4.09c/"
-                           "custom_mutators/antlr4_test/input/seed1.txt");
+  // CustomStrVisitor *visitor =
+  //     new CustomStrVisitor("/home/xyf/antlr_wat/AFLplusplus_v4.09c/"
+  //                          "custom_mutators/antlr4_test/input/seed1.txt");
   // visitor->visit(visitor->get_module());
-
+  unsigned char *buf = (unsigned char *)malloc(20);
+  memcpy(buf, "(1)visit{e}", 11);
+  CustomStrVisitor *visitor2 = new CustomStrVisitor(buf, 11);
   // output tree
-  std::cout << visitor->get_module()->toStringTree(visitor->get_parser())
+  std::cout << visitor2->get_module()->toStringTree(visitor2->get_parser())
             << std::endl;
-  visitor->visit(visitor->get_module());
-  std::cout << visitor->get_rewriter()->getText() << std::endl;
+  visitor2->visit(visitor2->get_module());
+  std::cout << visitor2->get_rewriter()->getText() << std::endl;
   return 0;
 }

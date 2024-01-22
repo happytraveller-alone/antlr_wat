@@ -32,6 +32,21 @@ using namespace std;
 
 #define DATA_SIZE (100)
 
+typedef struct my_mutator {
+
+  afl_state_t *afl;
+
+  // any additional data here!
+  //   size_t trim_size_current;
+  //   int trimmming_steps;
+  //   int cur_step;
+
+  u8 *mutated_out;
+  u8 *post_process_buf;
+  // u8 *trim_buf;
+
+} my_mutator_t;
+
 class CustomStrVisitor : public StrParserVisitor {
 private:
   /* data */
@@ -56,7 +71,10 @@ public:
     // tree = parser.module();
     module = parser.module();
   }
-
+  CustomStrVisitor(u8* buf, size_t buf_size)
+      : stream((const char*)buf, buf_size), lexer(&stream), tokens(&lexer), parser(&tokens), rewriter(&tokens) {
+    module = parser.module();
+  }
   // tree::ParseTree *get_tree() { return tree; }
   StrParser::ModuleContext *get_module() { return module; }
   StrParser *get_parser() { return &parser; }
@@ -65,7 +83,7 @@ public:
    * Visit parse trees produced by StrParser.
    */
   virtual antlrcpp::Any visitLeft(StrParser::LeftContext *ctx) {
-    int random_num = rand() % 90000 + 10000;
+    long random_num = rand() % 90000 + 10000;
     std::string new_str = "(" + std::to_string(random_num) + ")";
     rewriter.replace(ctx->start, ctx->stop, new_str);
     return visitChildren(ctx);
