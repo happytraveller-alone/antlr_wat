@@ -25,6 +25,7 @@
 #include "StrParserVisitor.h"
 #include "TokenStreamRewriter.h"
 #include "afl-fuzz.h"
+#include "alloc-inl.h"
 #include "antlr4-runtime.h"
 
 using namespace antlr4;
@@ -84,9 +85,13 @@ public:
    * Visit parse trees produced by StrParser.
    */
   virtual antlrcpp::Any visitLeft(StrParser::LeftContext *ctx) {
-    long random_num = rand() % 90000 + 10000;
-    std::string new_str = "(" + std::to_string(random_num) + ")";
-    rewriter.replace(ctx->start, ctx->stop, new_str);
+    for(int i = ctx->start->getTokenIndex(); i <= ctx->stop->getTokenIndex(); i++) {
+      // rewriter.replace(i, new_str);
+      if(tokens.get(i)->getType() == StrLexer::DIGIT) {
+        rewriter.replace(i, to_string(rand() % 10));
+      }
+    }
+    // rewriter.replace(ctx->start, ctx->stop, new_str);
     return visitChildren(ctx);
   }
 
@@ -95,13 +100,17 @@ public:
   }
 
   virtual antlrcpp::Any visitRight(StrParser::RightContext *ctx) {
-    std::string new_str = "";
-    new_str += "{";
-    for (int i = 0; i < 5; i++) {
-      new_str += 'a' + rand() % 26;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, 25);
+    std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    for(int i = ctx->start->getTokenIndex(); i <= ctx->stop->getTokenIndex(); i++) {
+      if(tokens.get(i)->getType() == StrLexer::LETTER) {
+        rewriter.replace(i,std::string(1,alphabet[dis(gen)]));
+      }
     }
-    new_str += "}";
-    rewriter.replace(ctx->start, ctx->stop, new_str);
+    // rewriter.replace(ctx->start, ctx->stop, random_string);
+    
     return visitChildren(ctx);
   }
 

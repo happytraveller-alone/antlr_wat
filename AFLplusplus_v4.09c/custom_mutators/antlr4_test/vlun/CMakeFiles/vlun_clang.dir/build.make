@@ -73,15 +73,15 @@ vlun/CMakeFiles/vlun_clang.dir/vlun.c.o: vlun/CMakeFiles/vlun_clang.dir/flags.ma
 vlun/CMakeFiles/vlun_clang.dir/vlun.c.o: vlun/vlun.c
 vlun/CMakeFiles/vlun_clang.dir/vlun.c.o: vlun/CMakeFiles/vlun_clang.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object vlun/CMakeFiles/vlun_clang.dir/vlun.c.o"
-	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun && /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vlun/CMakeFiles/vlun_clang.dir/vlun.c.o -MF CMakeFiles/vlun_clang.dir/vlun.c.o.d -o CMakeFiles/vlun_clang.dir/vlun.c.o -c /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun.c
+	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun && /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang-fast $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT vlun/CMakeFiles/vlun_clang.dir/vlun.c.o -MF CMakeFiles/vlun_clang.dir/vlun.c.o.d -o CMakeFiles/vlun_clang.dir/vlun.c.o -c /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun.c
 
 vlun/CMakeFiles/vlun_clang.dir/vlun.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vlun_clang.dir/vlun.c.i"
-	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun && /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun.c > CMakeFiles/vlun_clang.dir/vlun.c.i
+	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun && /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang-fast $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun.c > CMakeFiles/vlun_clang.dir/vlun.c.i
 
 vlun/CMakeFiles/vlun_clang.dir/vlun.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vlun_clang.dir/vlun.c.s"
-	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun && /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun.c -o CMakeFiles/vlun_clang.dir/vlun.c.s
+	cd /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun && /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-clang-fast $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun.c -o CMakeFiles/vlun_clang.dir/vlun.c.s
 
 # Object files for target vlun_clang
 vlun_clang_OBJECTS = \

@@ -69,34 +69,32 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
  */
 size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
                        u8 **out_buf, uint8_t *add_buf,
-                       size_t add_buf_size, // add_buf can be NULL
+                       size_t add_buf_size,  // add_buf can be NULL
                        size_t max_size) {
-
   // Make sure that the packet size does not exceed the maximum size expected by
   // the fuzzer
   size_t mutated_size = DATA_SIZE <= max_size ? DATA_SIZE : max_size;
-  int mutated_out_size = buf_size <= add_buf_size ? buf_size : add_buf_size;
+  int    mutated_out_size = buf_size <= add_buf_size ? buf_size : add_buf_size;
   memset(data->mutated_out, 0, mutated_out_size);
   // memcpy(data->mutated_out, buf, mutated_out_size);
-  // fprintf(stdout, "buffer size: %zu \t buffer size: %zu \t add buffer size: %zu \t buffer: %s \t add_buffer: %s \t mutated_size: %d\n", \
-  //           buf_size, buf_size, add_buf_size, buf, add_buf, mutated_out_size);
-  // fprintf(stdout, "data->mutated_out: %s\n", reinterpret_cast<const char*>(buf));
-  // count buf size
+  // fprintf(stdout, "buffer size: %zu \t buffer size: %zu \t add buffer size:
+  // %zu \t buffer: %s \t add_buffer: %s \t mutated_size: %d\n", \
+  //           buf_size, buf_size, add_buf_size, buf, add_buf,
+  //           mutated_out_size);
+  // fprintf(stdout, "data->mutated_out: %s\n", reinterpret_cast<const
+  // char*>(buf)); count buf size
   int buf_count = 0;
   for (int i = 0; i < buf_size; i++) {
-    if (buf[i] == '\n' || buf[i] == '\0') {
-      break;
-    }
+    if (buf[i] == '\n' || buf[i] == '\0') { break; }
     buf_count++;
   }
   try {
-    if(buf_count != 19) {
-      return 0;
-    }
-    fprintf(stdout, "\n buf %s\n", buf);
+    if (buf_count != 19) { return 0; }
+    // fprintf(stdout, "\n buf %s\n", buf);
+    // std::this_thread::sleep_for(std::chrono::milliseconds(50));
     CustomStrVisitor *visitor = new CustomStrVisitor(buf, mutated_out_size);
     if (visitor->get_parser()->getNumberOfSyntaxErrors() > 0) {
-      // delete visitor;
+      delete visitor;
       visitor = nullptr;
       return 0;
     } else {
@@ -105,27 +103,25 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
         u8 uchr[visitor->get_rewriter()->getText().size() + 1];
         std::strcpy((char *)uchr, visitor->get_rewriter()->getText().c_str());
         uchr[visitor->get_rewriter()->getText().size()] = '\0';
-        fprintf(stdout, "rewriter mutate: %s length: %d\n", uchr,
-                strlen((char *)uchr));
-        data->mutated_out = uchr;
-        // delete visitor;
-        visitor = nullptr;
 
+        data->mutated_out = uchr;
+
+        delete visitor;
+        visitor = nullptr;
+        fprintf(stdout, "rewriter mutate: %s length: %zu\n", uchr,strlen((char *)uchr));
         if (mutated_size > max_size) { mutated_size = max_size; }
+        afl_realloc((void **)out_buf, mutated_size + 1);
         *out_buf = data->mutated_out;
       } catch (std::exception &e) {
         fprintf(stdout, "exception: %s\n", e.what());
         return 0;
       }
       // visitor->visit(visitor->get_module());
-      
     }
   } catch (std::exception &e) {
     fprintf(stdout, "exception: %s\n", e.what());
     return 0;
   }
-
-  // memset(data->mutated_out, 0, buf_size);
   return mutated_size;
 }
 
@@ -187,12 +183,18 @@ int main() {
   //                          "custom_mutators/antlr4_test/input/seed1.txt");
   // visitor->visit(visitor->get_module());
   unsigned char *buf = (unsigned char *)malloc(20);
-  memcpy(buf, "(1)visit{e}", 11);
-  CustomStrVisitor *visitor2 = new CustomStrVisitor(buf, 11);
+  memcpy(buf, "(12345)visit{efdgg}", 19);
+  CustomStrVisitor *visitor2 = new CustomStrVisitor(buf, 19);
   // output tree
-  std::cout << visitor2->get_module()->toStringTree(visitor2->get_parser())
-            << std::endl;
+  // std::cout << visitor2->get_module()->toStringTree(visitor2->get_parser())
+  //           << std::endl;
   visitor2->visit(visitor2->get_module());
   std::cout << visitor2->get_rewriter()->getText() << std::endl;
+  std::random_device              rd;
+  std::mt19937                    gen(rd());
+  std::uniform_int_distribution<> dis(0, 25);
+  std::string                     alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const std::string               new_str = std::string(1, alphabet[dis(gen)]);
+  fprintf(stdout, "random: %s\n", new_str.c_str());
   return 0;
 }

@@ -10,7 +10,7 @@ int main() {
   fgets(buffer, 50, stdin);
 
   // Remove newline character
-  // buffer[strcspn(buffer, "\n")] = 0;
+  buffer[strcspn(buffer, "\n")] = 0;
 
   // Check string length
   if (strlen(buffer) != 19) {
@@ -18,7 +18,7 @@ int main() {
     return 0;
   }
 
-  if (strcmp(buffer, "(13574)visit{fafav}") == 0) {
+  if (strcmp(buffer, "(97305)visit{crtbt}") == 0) {
     printf("Triggering crash...\n");
     raise(SIGSEGV); // Trigger crash
   } else {
