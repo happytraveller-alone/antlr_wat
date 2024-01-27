@@ -1,13 +1,13 @@
-start_time        : 1706163697
-last_update       : 1706163817
-run_time          : 120
-fuzzer_pid        : 2023405
-cycles_done       : 831
-cycles_wo_finds   : 830
-time_wo_finds     : 120
-execs_done        : 997157
-execs_per_sec     : 8296.99
-execs_ps_last_min : 8311.22
+start_time        : 1706347872
+last_update       : 1706347932
+run_time          : 60
+fuzzer_pid        : 4104251
+cycles_done       : 664
+cycles_wo_finds   : 663
+time_wo_finds     : 60
+execs_done        : 796416
+execs_per_sec     : 13243.36
+execs_ps_last_min : 13026.74
 corpus_count      : 3
 corpus_favored    : 1
 corpus_found      : 1
@@ -21,10 +21,10 @@ stability         : 100.00%
 bitmap_cvg        : 18.18%
 saved_crashes     : 0
 saved_hangs       : 0
-last_find         : 1706163697
+last_find         : 1706347872
 last_crash        : 0
 last_hang         : 0
-execs_since_crash : 997157
+execs_since_crash : 796416
 exec_timeout      : 1000
 slowest_exec_ms   : 0
 peak_rss_mb       : 0
@@ -40,4 +40,4 @@ testcache_evict   : 0
 afl_banner        : ...c/custom_mutators/antlr4_test/vlun/vlun_clang
 afl_version       : ++4.09c
 target_mode       : shmem_testcase default
-command_line      : /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-fuzz -a text -P 100000 -M main -m 2048 -t 1000 -i /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/input -o /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun_clang -f
+command_line      : /home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-fuzz -a text -P 100000 -M main -m 2048 -t 1000 -i /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/input -o /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output /home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun_clang

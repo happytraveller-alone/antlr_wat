@@ -1,18 +1,20 @@
 #include "WatFuzz.h"
 
-
-
-extern "C" {my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed);}
-extern "C" {size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf,
-                                  size_t buf_size, u8 **out_buf,
-                                  uint8_t *add_buf, size_t add_buf_size,
-                                  size_t max_size);}
-extern "C" {size_t afl_custom_post_process(my_mutator_t *data, uint8_t *buf,
-                                          size_t buf_size, uint8_t **out_buf);}
-extern "C" {void afl_custom_deinit(my_mutator_t *data);}
-
-
-
+// extern "C" {
+// my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed);
+// }
+// extern "C" {
+// size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
+//                        u8 **out_buf, uint8_t *add_buf, size_t add_buf_size,
+//                        size_t max_size);
+// }
+// extern "C" {
+// size_t afl_custom_post_process(my_mutator_t *data, uint8_t *buf,
+//                                size_t buf_size, uint8_t **out_buf);
+// }
+// extern "C" {
+// void afl_custom_deinit(my_mutator_t *data);
+// }
 
 /**
  * Initialize this custom mutator
@@ -25,7 +27,7 @@ extern "C" {void afl_custom_deinit(my_mutator_t *data);}
  *         There may be multiple instances of this mutator in one afl-fuzz run!
  *         Return NULL on error.
  */
-my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
+extern "C" my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
   srand(seed); // needed also by surgical_havoc_mutate()
 
@@ -67,56 +69,61 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
  *     produce data larger than max_size.
  * @return Size of the mutated output.
  */
-size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
-                       u8 **out_buf, uint8_t *add_buf,
-                       size_t add_buf_size,  // add_buf can be NULL
-                       size_t max_size) {
+extern "C" size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf,
+                                  size_t buf_size, u8 **out_buf,
+                                  uint8_t *add_buf,
+                                  size_t add_buf_size, // add_buf can be NULL
+                                  size_t max_size) {
   // Make sure that the packet size does not exceed the maximum size expected by
   // the fuzzer
   size_t mutated_size = DATA_SIZE <= max_size ? DATA_SIZE : max_size;
-  int    mutated_out_size = buf_size <= add_buf_size ? buf_size : add_buf_size;
-  memset(data->mutated_out, 0, mutated_out_size);
-  // memcpy(data->mutated_out, buf, mutated_out_size);
-  // fprintf(stdout, "buffer size: %zu \t buffer size: %zu \t add buffer size:
-  // %zu \t buffer: %s \t add_buffer: %s \t mutated_size: %d\n", \
-  //           buf_size, buf_size, add_buf_size, buf, add_buf,
-  //           mutated_out_size);
-  // fprintf(stdout, "data->mutated_out: %s\n", reinterpret_cast<const
-  // char*>(buf)); count buf size
-  int buf_count = 0;
-  for (int i = 0; i < buf_size; i++) {
-    if (buf[i] == '\n' || buf[i] == '\0') { break; }
-    buf_count++;
+  if (buf_size != 19) {
+    return 0;
+  }
+
+  // fprintf(stdout, "\n buf %s | buf_size: %zu \n", buf, buf_size);
+  u8 *temp_store = (u8 *)malloc((buf_size + 1) * sizeof(u8));
+  memset(temp_store, 0, buf_size + 1);
+  for (int i = 0; i < buf_size; ++i) {
+    temp_store[i] = buf[i];
   }
   try {
-    if (buf_count != 19) { return 0; }
-    // fprintf(stdout, "\n buf %s\n", buf);
+
     // std::this_thread::sleep_for(std::chrono::milliseconds(50));
-    CustomStrVisitor *visitor = new CustomStrVisitor(buf, mutated_out_size);
+    CustomStrVisitor *visitor = new CustomStrVisitor(temp_store, buf_size);
     if (visitor->get_parser()->getNumberOfSyntaxErrors() > 0) {
+      free(temp_store);
+      temp_store = nullptr;
       delete visitor;
       visitor = nullptr;
+      *out_buf = nullptr;
       return 0;
     } else {
       try {
         visitor->visit(visitor->get_module());
-        u8 uchr[visitor->get_rewriter()->getText().size() + 1];
-        std::strcpy((char *)uchr, visitor->get_rewriter()->getText().c_str());
-        uchr[visitor->get_rewriter()->getText().size()] = '\0';
-
-        data->mutated_out = uchr;
-
+        int rewriter_size = visitor->get_rewriter()->getText().size() + 1;
+        memset(data->mutated_out, 0, rewriter_size);
+        u8 uchr[rewriter_size];
+        strncpy((char *)uchr, visitor->get_rewriter()->getText().c_str(),
+                rewriter_size);
+        uchr[rewriter_size - 1] = '\0';
+        for (int i = 0; i < rewriter_size; ++i) {
+          data->mutated_out[i] = uchr[i];
+        }
+        // data->mutated_out = uchr;
+        if (mutated_size > max_size) {
+          mutated_size = max_size;
+        }
+        // afl_realloc((void **)out_buf, mutated_size + 1);
+        *out_buf = data->mutated_out;
         delete visitor;
         visitor = nullptr;
-        fprintf(stdout, "rewriter mutate: %s length: %zu\n", uchr,strlen((char *)uchr));
-        if (mutated_size > max_size) { mutated_size = max_size; }
-        afl_realloc((void **)out_buf, mutated_size + 1);
-        *out_buf = data->mutated_out;
+        // fprintf(stdout, "data->mutated_out : %s | rewriter_size : %d\n",
+        //         data->mutated_out, rewriter_size);
       } catch (std::exception &e) {
         fprintf(stdout, "exception: %s\n", e.what());
         return 0;
       }
-      // visitor->visit(visitor->get_module());
     }
   } catch (std::exception &e) {
     fprintf(stdout, "exception: %s\n", e.what());
@@ -141,38 +148,53 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
  * @return Size of the output buffer after processing or the needed amount.
  *     A return of 0 indicates an error.
  */
-// size_t afl_custom_post_process(my_mutator_t *data, uint8_t *buf,
-//                                size_t buf_size, uint8_t **out_buf) {
+extern "C" size_t afl_custom_post_process(my_mutator_t *data, uint8_t *buf,
+                                          size_t buf_size, uint8_t **out_buf) {
 
-//   if (buf_size > MAX_FILE) {
-//     buf_size = MAX_FILE;
-//   }
-//   // fprintf
-//   memcpy(data->post_process_buf, buf, buf_size);
+  if (buf_size > MAX_FILE) {
+    buf_size = MAX_FILE;
+  }
+  // fprintf
+  memcpy(data->post_process_buf, buf, buf_size);
 
-//   // data->post_process_buf[0] = 'A';
-//   // data->post_process_buf[1] = 'F';
-//   // data->post_process_buf[2] = 'L';
-//   // data->post_process_buf[3] = '+';
-//   // data->post_process_buf[4] = '+';
+  // data->post_process_buf[0] = 'A';
+  // data->post_process_buf[1] = 'F';
+  // data->post_process_buf[2] = 'L';
+  // data->post_process_buf[3] = '+';
+  // data->post_process_buf[4] = '+';
+  afl_realloc((void **)out_buf, buf_size + 1);
+  *out_buf = data->post_process_buf;
 
-//   *out_buf = data->post_process_buf;
-
-//   return buf_size;
-// }
+  return buf_size;
+}
 
 /**
  * Deinitialize everything
  *
  * @param data The data ptr from afl_custom_init
  */
-void afl_custom_deinit(my_mutator_t *data) {
+extern "C" void afl_custom_deinit(my_mutator_t *data) {
 
   free(data->post_process_buf);
   free(data->mutated_out);
   // free(data->trim_buf);
   free(data);
+}
 
+/**
+ * Determine whether the fuzzer should fuzz the queue entry or not.
+ *
+ * (Optional)
+ *
+ * @param[in] data pointer returned in afl_custom_init for this fuzz case
+ * @param filename File name of the test case in the queue entry
+ * @return Return True(1) if the fuzzer will fuzz the queue entry, and
+ *     False(0) otherwise.
+ */
+extern "C" uint8_t afl_custom_queue_get(my_mutator_t *data,
+                                        const uint8_t *filename) {
+
+  return 1;
 }
 
 int main() {
@@ -190,11 +212,11 @@ int main() {
   //           << std::endl;
   visitor2->visit(visitor2->get_module());
   std::cout << visitor2->get_rewriter()->getText() << std::endl;
-  std::random_device              rd;
-  std::mt19937                    gen(rd());
+  std::random_device rd;
+  std::mt19937 gen(rd());
   std::uniform_int_distribution<> dis(0, 25);
-  std::string                     alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const std::string               new_str = std::string(1, alphabet[dis(gen)]);
+  std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const std::string new_str = std::string(1, alphabet[dis(gen)]);
   fprintf(stdout, "random: %s\n", new_str.c_str());
   return 0;
 }
