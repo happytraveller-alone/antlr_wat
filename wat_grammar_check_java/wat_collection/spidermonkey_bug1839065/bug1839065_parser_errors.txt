@@ -1,0 +1,21 @@
+Failed to parse at line 1 due to mismatched input 'funcref' expecting 'func'
+org.antlr.v4.runtime.InputMismatchException
+	at org.antlr.v4.runtime.DefaultErrorStrategy.recoverInline(DefaultErrorStrategy.java:483)
+	at org.antlr.v4.runtime.Parser.match(Parser.java:208)
+	at WatParser.def_type(WatParser.java:441)
+	at WatParser.type_(WatParser.java:4831)
+	at WatParser.type_def(WatParser.java:4897)
+	at WatParser.module_field(WatParser.java:5029)
+	at WatParser.module(WatParser.java:6128)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)
+Failed to parse at line 1 due to extraneous input ')' expecting {<EOF>, '('}
+java.lang.NullPointerException: Cannot invoke "org.antlr.v4.runtime.RecognitionException.printStackTrace(java.io.PrintWriter)" because "<parameter6>" is null
+	at Check$2.syntaxError(Check.java:305)
+	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)
+	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.reportUnwantedToken(DefaultErrorStrategy.java:377)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.sync(DefaultErrorStrategy.java:275)
+	at WatParser.module(WatParser.java:6132)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)

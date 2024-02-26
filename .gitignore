@@ -6,3 +6,7 @@ antlr4_grammar_check_cpp/build/
 antlr4_grammar_check_cpp/output_file/
 .vscode/
 .build/
+antlr4_original_grammar_check_java/.antlr/
+AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser/.antlr/
+wat_original_grammar_check_java/.antlr/
+wat_grammar_check_java/.antlr/

@@ -1,0 +1,18 @@
+Failed to parse at line 3 due to extraneous input '128' expecting {')', VALUE_TYPE}
+java.lang.NullPointerException: Cannot invoke "org.antlr.v4.runtime.RecognitionException.printStackTrace(java.io.PrintWriter)" because "<parameter6>" is null
+	at Check$2.syntaxError(Check.java:305)
+	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)
+	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.reportUnwantedToken(DefaultErrorStrategy.java:377)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.singleTokenDeletion(DefaultErrorStrategy.java:548)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.sync(DefaultErrorStrategy.java:266)
+	at WatParser.func_result_body(WatParser.java:3362)
+	at WatParser.func_fields_body(WatParser.java:3286)
+	at WatParser.func_fields(WatParser.java:2940)
+	at WatParser.func_fields(WatParser.java:2968)
+	at WatParser.func_(WatParser.java:2864)
+	at WatParser.module_field(WatParser.java:5057)
+	at WatParser.module_(WatParser.java:5167)
+	at WatParser.module(WatParser.java:6113)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)

@@ -1,0 +1,19 @@
+Failed to parse at line 3 due to mismatched input '(' expecting {')', VALUE_TYPE}
+org.antlr.v4.runtime.InputMismatchException
+	at org.antlr.v4.runtime.DefaultErrorStrategy.sync(DefaultErrorStrategy.java:270)
+	at WatParser.func_type(WatParser.java:531)
+	at WatParser.def_type(WatParser.java:443)
+	at WatParser.type_(WatParser.java:4831)
+	at WatParser.type_def(WatParser.java:4897)
+	at WatParser.module_field(WatParser.java:5029)
+	at WatParser.module_(WatParser.java:5167)
+	at WatParser.module(WatParser.java:6113)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)
+Failed to parse at line 3 due to mismatched input ')' expecting <EOF>
+org.antlr.v4.runtime.InputMismatchException
+	at org.antlr.v4.runtime.DefaultErrorStrategy.recoverInline(DefaultErrorStrategy.java:483)
+	at org.antlr.v4.runtime.Parser.match(Parser.java:208)
+	at WatParser.module(WatParser.java:6115)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)

@@ -1,0 +1,7 @@
+Failed to parse at line 11 due to mismatched input '(' expecting <EOF>
+org.antlr.v4.runtime.InputMismatchException
+	at org.antlr.v4.runtime.DefaultErrorStrategy.recoverInline(DefaultErrorStrategy.java:483)
+	at org.antlr.v4.runtime.Parser.match(Parser.java:208)
+	at WatParser.module(WatParser.java:6115)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)

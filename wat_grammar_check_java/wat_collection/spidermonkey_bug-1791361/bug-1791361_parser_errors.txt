@@ -1,0 +1,8 @@
+Failed to parse at line 1 due to no viable alternative at input '($d'
+org.antlr.v4.runtime.NoViableAltException
+	at org.antlr.v4.runtime.atn.ParserATNSimulator.noViableAlt(ParserATNSimulator.java:2014)
+	at org.antlr.v4.runtime.atn.ParserATNSimulator.execATN(ParserATNSimulator.java:445)
+	at org.antlr.v4.runtime.atn.ParserATNSimulator.adaptivePredict(ParserATNSimulator.java:371)
+	at WatParser.module(WatParser.java:6108)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)

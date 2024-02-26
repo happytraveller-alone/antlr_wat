@@ -1,3 +1,0 @@
-/home/xyf/antlr_wat/build/CMakeFiles/Grammar_check.dir
-/home/xyf/antlr_wat/build/CMakeFiles/edit_cache.dir
-/home/xyf/antlr_wat/build/CMakeFiles/rebuild_cache.dir
