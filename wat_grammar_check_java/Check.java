@@ -180,7 +180,7 @@ public class Check{
             // 创建文件输入流
             InputStream is = new FileInputStream(file.getPath());
             // 创建ANTLR输入流
-            ANTLRInputStream input = new ANTLRInputStream(is);
+            CharStream input = CharStreams.fromStream(is);
             
             // 创建词法分析器
             WatLexer lexer = new WatLexer(input);
@@ -210,7 +210,7 @@ public class Check{
             // 创建PrintWriter，输出到同名文件加.txt后缀的文本文件中
             String treeFilePath = common_file + ".txt";
             try{
-                ParseTree tree = parser.module();
+                ParseTree tree = parser.script();
                 try (PrintWriter out = new PrintWriter(treeFilePath)) {
                     // 将语法树输出到文件
                     out.println(tree.toStringTree());
@@ -314,7 +314,7 @@ public class Check{
      */
     public static List<FileInfo> get_files_info() {
         // 定义目录路径
-        File dir = new File("/home/xyf/wat_poc");
+        File dir = new File("/home/xyf/antlr_wat/wat_poc_analyze");
         // 定义文件后缀
         String suffix = ".wat";
         // 获取文件列表

@@ -26,6 +26,6 @@
 
     (func (export "get_field1_len1") (result i32)
         (call $new)
-        (array.len (struct.get $inner 1 (struct.get $outer 1))
+        (array.len (struct.get $inner 1 (struct.get $outer 1)))
     )
 )

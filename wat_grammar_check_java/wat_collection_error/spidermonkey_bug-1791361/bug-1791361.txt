@@ -1,1 +1,0 @@
-([] ( $d ) ( func $anotherLocalFuncThrowsExn ) ( func $d ) ( func ( ( call $anotherLocalFuncThrowsExn ) ) ))

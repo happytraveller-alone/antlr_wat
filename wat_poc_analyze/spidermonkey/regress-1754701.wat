@@ -3,7 +3,7 @@
   (type $structInline (struct))
   (type $structOutline
     (struct
-      ${`(field i32)`.repeat(100)}
+      (field i32)
     )
   )
   (func (export "testArray")

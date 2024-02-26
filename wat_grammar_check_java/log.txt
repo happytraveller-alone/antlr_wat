@@ -1,22 +1,5 @@
-struct.set/struct.get/struct
-externref
-
-array
-ref.func
-ref
-field
-sub
-
-gc garbage collection
-
-v128*
-
-SIMD特性
-
-tag
 try
 do
-throw
 rethrow
 delegate
 
