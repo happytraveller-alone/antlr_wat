@@ -3,6 +3,7 @@
 antlr4_grammar_check_cpp/antlr4-cpp-runtime/
 antlr4_grammar_check_cpp/runtime/
 antlr4_grammar_check_cpp/build/
+AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles/
 antlr4_grammar_check_cpp/output_file/
 .vscode/
 .build/
