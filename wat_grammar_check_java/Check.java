@@ -314,7 +314,7 @@ public class Check{
      */
     public static List<FileInfo> get_files_info() {
         // 定义目录路径
-        File dir = new File("/home/xyf/antlr_wat/wat_poc_analyze");
+        File dir = new File("/home/xyf/antlr_wat/wat_grammar_check_java/test_file");
         // 定义文件后缀
         String suffix = ".wat";
         // 获取文件列表

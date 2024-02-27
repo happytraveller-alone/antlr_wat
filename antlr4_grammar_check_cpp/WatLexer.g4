@@ -247,13 +247,13 @@ LOCAL_TEE  : 'local.tee';
 GLOBAL_GET : 'global.get';
 GLOBAL_SET : 'global.set';
 
-TABLE_GET  : 'table_get';
-TABLE_SET  : 'table_set';
-TABLE_SIZE : 'table_size';
-TABLE_GROW : 'table_grow';
-TABLE_FILL : 'table_fill';
-TABLE_COPY : 'table_copy';
-TABLE_INIT : 'table_init';
+TABLE_GET  : 'table.get';
+TABLE_SET  : 'table.set';
+TABLE_SIZE : 'table.size';
+TABLE_GROW : 'table.grow';
+TABLE_FILL : 'table.fill';
+TABLE_COPY : 'table.copy';
+TABLE_INIT : 'table.init';
 
 DATA_DROP : 'data.drop';
 ELEM_DROP : 'elem.drop';
@@ -365,7 +365,7 @@ VEC_UNARY:
     | V128_FLOAT_SHAPE ('.relaxed_madd' | '.relaxed_nmadd' | '.relaxed_min' | '.relaxed_max')
 ;
 VEC_BINARY:
-    V128_SHAPE ('.eq' | '.ne' | 'add' | '.sub')
+    V128_SHAPE ('.eq' | '.ne' | '.add' | '.sub')
     | V128_INT_SHAPE_EXCEPT_64 (
         '.lt_u'
         | '.le_u'

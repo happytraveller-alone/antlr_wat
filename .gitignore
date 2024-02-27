@@ -11,3 +11,5 @@ antlr4_original_grammar_check_java/.antlr/
 AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser/.antlr/
 wat_original_grammar_check_java/.antlr/
 wat_grammar_check_java/.antlr/
+antlr4_grammar_check_cpp/rewrite_g4_file/.antlr/
+antlr4_grammar_check_cpp/.antlr/
