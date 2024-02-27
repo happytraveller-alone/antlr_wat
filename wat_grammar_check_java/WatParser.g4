@@ -636,6 +636,7 @@ numpat
     : num
     | NAN_
     ;
+
 // numpat_list
 //     : numpat*
 //     ;

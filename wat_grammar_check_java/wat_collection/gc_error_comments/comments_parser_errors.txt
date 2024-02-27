@@ -1,0 +1,10 @@
+Failed to parse at line 65 due to extraneous input ';)' expecting {<EOF>, '('}
+java.lang.NullPointerException: Cannot invoke "org.antlr.v4.runtime.RecognitionException.printStackTrace(java.io.PrintWriter)" because "<parameter6>" is null
+	at Check$2.syntaxError(Check.java:305)
+	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)
+	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.reportUnwantedToken(DefaultErrorStrategy.java:377)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.sync(DefaultErrorStrategy.java:275)
+	at WatParser.script(WatParser.java:10564)
+	at Check.process_files(Check.java:213)
+	at Check.main(Check.java:44)

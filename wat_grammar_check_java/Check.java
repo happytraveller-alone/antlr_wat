@@ -314,9 +314,9 @@ public class Check{
      */
     public static List<FileInfo> get_files_info() {
         // 定义目录路径
-        File dir = new File("/home/xyf/antlr_wat/wat_grammar_check_java/test_file");
+        File dir = new File("/home/xyf/antlr_wat/wat_grammar_check_java/gc_test_file/gc_error");
         // 定义文件后缀
-        String suffix = ".wat";
+        String suffix = ".wast";
         // 获取文件列表
         List<FileInfo> files = listFiles(dir, suffix);
         return files;
