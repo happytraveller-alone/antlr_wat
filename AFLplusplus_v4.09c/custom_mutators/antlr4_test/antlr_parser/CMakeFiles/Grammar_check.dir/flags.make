@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser/runtime/src -I/home/xyf/antlr_wat/AFLplusplus_v4.09c/include
 
-CXX_FLAGS =  -D_FORTIFY_SOURCE=2 -g -O3 -O3 -DNDEBUG -O3 -DNDEBUG  -std=c++17 -std=gnu++17
+CXX_FLAGS =  -D_FORTIFY_SOURCE=2 -g -O0 -O3 -DNDEBUG -O3 -DNDEBUG  -std=c++17 -std=gnu++17
 

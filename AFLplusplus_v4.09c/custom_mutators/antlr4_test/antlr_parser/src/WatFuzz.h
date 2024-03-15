@@ -85,14 +85,25 @@ public:
    * Visit parse trees produced by StrParser.
    */
   virtual antlrcpp::Any visitLeft(StrParser::LeftContext *ctx) {
-    for(int i = ctx->start->getTokenIndex(); i <= ctx->stop->getTokenIndex(); i++) {
-      // rewriter.replace(i, new_str);
-      if(tokens.get(i)->getType() == StrLexer::DIGIT) {
-        rewriter.replace(i, to_string(rand() % 10));
-      }
+    std::string random_str = "(";
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> random_num(0, 10);
+    int random_length = random_num(gen);
+    for(int i = 0; i < random_length; i++) {
+      random_str += std::to_string(random_num(gen));
     }
-    // rewriter.replace(ctx->start, ctx->stop, new_str);
+    random_str += ")";
+    // std::cout << "visiting left:" <<random_str << std::endl;
+   
+    rewriter.replace(ctx->start, ctx->stop, random_str);
     return visitChildren(ctx);
+    // for(int i = ctx->start->getTokenIndex(); i <= ctx->stop->getTokenIndex(); i++) {
+    //   // rewriter.replace(i, new_str);
+    //   if(tokens.get(i)->getType() == StrLexer::DIGIT) {
+    //     rewriter.replace(i, to_string(rand() % 10));
+    //   }
+    // }
   }
 
   virtual antlrcpp::Any visitMiddle(StrParser::MiddleContext *ctx) {
@@ -104,14 +115,24 @@ public:
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 25);
     std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
-    for(int i = ctx->start->getTokenIndex(); i <= ctx->stop->getTokenIndex(); i++) {
-      if(tokens.get(i)->getType() == StrLexer::LETTER) {
-        rewriter.replace(i,std::string(1,alphabet[dis(gen)]));
-      }
+    // random generate number within 0-9
+    std::uniform_int_distribution<> random_dis(0, 10);
+    int random_num = random_dis(gen);
+    std::string random_str = "{";
+    for(int i = 0; i < random_num; i++) {
+      random_str += alphabet[dis(gen)];
     }
-    // rewriter.replace(ctx->start, ctx->stop, random_string);
+    
+    random_str += "}";
+    // std::cout << "visiting right:" << random_str << std::endl;
+    rewriter.replace(ctx->start, ctx->stop, random_str);
     
     return visitChildren(ctx);
+    // for(int i = ctx->start->getTokenIndex(); i <= ctx->stop->getTokenIndex(); i++) {
+    //   if(tokens.get(i)->getType() == StrLexer::LETTER) {
+    //     rewriter.replace(i,std::string(1,alphabet[dis(gen)]));
+    //   }
+    // }
   }
 
   virtual antlrcpp::Any visitModule(StrParser::ModuleContext *ctx) {

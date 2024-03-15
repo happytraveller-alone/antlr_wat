@@ -8,8 +8,8 @@ set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_COMPILER /usr/bin/clang-14)
 set(CMAKE_CXX_COMPILER /usr/bin/clang++-14)
 # Specify the C and C++ compile args
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_FORTIFY_SOURCE=2 -g -O3")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_FORTIFY_SOURCE=2 -g -O3")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_FORTIFY_SOURCE=2 -g -O0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_FORTIFY_SOURCE=2 -g -O0")
 # ADD -fsanitize=address -fno-omit-frame-pointer -g -O1
 
 # generate the libantlr4-runtime.a

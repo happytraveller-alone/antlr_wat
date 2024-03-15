@@ -32,7 +32,7 @@ fragment Float:
 ;
 
 fragment String_:
-    '"' (Char | '\n' | '\t' | '\r' | '\\' | '\'' | '\\' HexDigit HexDigit | '\\u{' HexDigit+ '}')* '"'
+    '"' (Char | '\n' | '\t' | '\r' | '\\' | '\'' | '\\"' | '\\' HexDigit HexDigit | '\\u{' HexDigit+ '}')* '"'
     | Utf8Enc
 ;
 
@@ -49,6 +49,7 @@ fragment SIGN     : 's' | 'u';
 fragment MEM_SIZE : '8' | '16' | '32';
 fragment RMW      : 'add' | 'sub' | 'and' | 'or' | 'xor' | 'xchg';
 // fragment Newline : Ascii_Newline | []
+// fragment COMMENT_CONTENT: C
 
 fragment VXXX                     : 'v128';
 fragment V128_INT_SHAPE           : 'i8x16' | 'i16x8' | 'i32x4' | 'i64x2';
@@ -375,8 +376,8 @@ VEC_BINARY:
         | '.min_u'
         | '.max_s'
         | '.max_u'
-        | '.mul'
     )
+    | ('i16x8' | 'i32x4' | 'i64x2') '.mul'
     | V128_INT_SHAPE ('.lt_s' | '.le_s' | '.gt_s' | '.ge_s')
     | V128_FLOAT_SHAPE (
         '.lt'
@@ -480,4 +481,7 @@ VAR: Name;
 
 SPACE: [ \t\r\n] -> skip;
 
-COMMENT: ( '(;' .*? ';)' | ';;' .*? '\n') -> skip;
+LCOMMENT: '(;';
+RCOMMENT: ';)';
+// COMMENT: ( '(;' .*? ';)' | ';;' .*? '\n' ) -> skip;
+COMMENT: (';;' .*? '\n' | '(;' ( COMMENT | ~(')') | ')' | ';')* ';)') -> skip;

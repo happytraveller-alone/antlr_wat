@@ -212,11 +212,9 @@ int main() {
   //           << std::endl;
   visitor2->visit(visitor2->get_module());
   std::cout << visitor2->get_rewriter()->getText() << std::endl;
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::uniform_int_distribution<> dis(0, 25);
-  std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const std::string new_str = std::string(1, alphabet[dis(gen)]);
-  fprintf(stdout, "random: %s\n", new_str.c_str());
+  
+  while(1){
+
+  }
   return 0;
 }

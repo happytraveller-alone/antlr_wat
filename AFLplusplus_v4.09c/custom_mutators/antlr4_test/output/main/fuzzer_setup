@@ -6,6 +6,6 @@ AFL_CUSTOM_INFO_PROGRAM_ARGV=
 AFL_CUSTOM_INFO_OUT=/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output/main
 AFL_DISABLE_TRIM=1
 AFL_NO_STARTUP_CALIBRATION=1
-AFL_TESTCACHE_SIZE=50
+AFL_TESTCACHE_SIZE=100
 # command line:
 '/home/xyf/antlr_wat/AFLplusplus_v4.09c/afl-fuzz' '-a' 'text' '-P' '100000' '-M' 'main' '-m' '2048' '-t' '1000' '-i' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/input' '-o' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/output' '/home/xyf/antlr_wat/AFLplusplus_v4.09c/custom_mutators/antlr4_test/vlun/vlun_clang'

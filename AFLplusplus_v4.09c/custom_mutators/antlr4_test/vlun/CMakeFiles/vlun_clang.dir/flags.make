@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = 
 
-C_FLAGS =  -D_FORTIFY_SOURCE=2 -g -O0 -O3 -DNDEBUG -std=c17
+C_FLAGS =  -D_FORTIFY_SOURCE=2 -g  -O0 -O3 -DNDEBUG -lpthread -std=c17
 

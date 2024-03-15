@@ -483,6 +483,6 @@ SPACE: [ \t\r\n] -> skip;
 
 LCOMMENT: '(;';
 RCOMMENT: ';)';
-COMMENT: ( '(;' (COMMENT* | .*?) ';)' | ';;' .*? '\n') -> skip;
-// COMMENTS: (LCOMMENT (COMMENT | ~[;])* RCOMMENT) -> skip;
-// COMMENT: ( '(;' (COMMENT | ~[;])* ';)' | ';;' .*? '\n' ) -> skip;
+// COMMENT: ( '(;' .*? ';)' | ';;' .*? '\n' | '(;'  COMMENT* ';)' ) -> skip;
+COMMENT: (';;' .*? '\n' | '(;' ( COMMENT | ~(')') | ')' )* ';)') -> skip;
+// (;)))))))))));)

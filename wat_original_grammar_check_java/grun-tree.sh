@@ -1,2 +1,2 @@
 #!/bin/bash
-java org.antlr.v4.gui.TestRig Wat script -tree example.wat
+java org.antlr.v4.gui.TestRig Wat script -tree comments.wat
