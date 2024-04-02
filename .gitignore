@@ -13,3 +13,10 @@ wat_original_grammar_check_java/.antlr/
 wat_grammar_check_java/.antlr/
 antlr4_grammar_check_cpp/rewrite_g4_file/.antlr/
 antlr4_grammar_check_cpp/.antlr/
+./vscode/
+AFLplusplus_v4.09c/custom_mutators/wasm_grammar_mutator/.github/
+AFLplusplus_v4.09c/custom_mutators/wasm_grammar_mutator/wasm-grammar/.antlr/
+AFLplusplus_v4.09c/afl-gcc*
+AFLplusplus_v4.09c/afl-clang*
+AFLplusplus_v4.09c/afl-llvm*
+AFLplusplus_v4.09c/afl-persistent-config
