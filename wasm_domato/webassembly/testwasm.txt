@@ -1,10 +1,13 @@
-builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 4).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 3).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 3).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
+const builder = new WasmModuleBuilder();
+builder.addType(makeSig([], []));
 builder.addFunction(undefined, 2).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 4).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
+builder.addType(makeSig([], []));
+builder.addType(makeSig([], []));
+builder.addType(makeSig([], []));
+builder.addType(makeSig([], []));
+builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);builder.addExport('main', 0)
+const instance = builder.instantiate()
+instance.export.main()

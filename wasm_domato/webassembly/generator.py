@@ -21,7 +21,11 @@ def GenerateNewSample(wasmgrammar, num_lines):
       A string containing sample data.
     """
     result = ''
+    result += 'const builder = new WasmModuleBuilder();\n'
     result += wasmgrammar._generate_code(num_lines)
+    result += 'builder.addExport(\'main\', 0)\n'
+    result += 'const instance = builder.instantiate()\n'
+    result += 'instance.export.main()\n'
 
     return result
 

@@ -1,0 +1,58 @@
+!max_recursion 50
+<number p=0.2> = 1
+<number p=0.2> = 2
+<number p=0.2> = 3
+<number p=0.2> = 4
+<number p=0.2> = 5
+
+!max_recursion 50
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI64], [kWasmI64])
+<kSig p=0.1> = makeSig([kWasmI64], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI64])
+<kSig p=0.1> = makeSig([kWasmF32, kWasmF32], [kWasmF32])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [kWasmF64])
+<kSig p=0.1> = makeSig([kWasmI64, kWasmI64], [kWasmI64])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [kWasmI32])
+<kSig p=0.1> = makeSig([], [])
+<kSig p=0.1> = makeSig([], [kWasmI32])
+<kSig p=0.1> = makeSig([], [kWasmI64])
+<kSig p=0.1> = makeSig([], [kWasmF32])
+<kSig p=0.1> = makeSig([], [kWasmF64])
+<kSig p=0.1> = makeSig([kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI64], [])
+<kSig p=0.1> = makeSig([kWasmI64, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI64, kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmF64], [])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64, kWasmI32], [])
+<kSig p=0.1> = makeSig([], [kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([], [kWasmI32, kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32, kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32, kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmF32], [])
+<kSig p=0.1> = makeSig([kWasmF32], [kWasmF32])
+<kSig p=0.1> = makeSig([kWasmF64], [kWasmF32])
+<kSig p=0.1> = makeSig([kWasmF64], [kWasmF64])
+<kSig p=0.1> = makeSig([kWasmExternRef], [kWasmExternRef])
+<kSig p=0.1> = makeSig([kWasmAnyFunc], [kWasmAnyFunc])
+<kSig p=0.1> = makeSig([kWasmExternRef], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmExternRef], [])
+<kSig p=0.1> = makeSig([kWasmAnyFunc], [])
+<kSig p=0.1> = makeSig([kWasmExternRef, kWasmExternRef], [])
+<kSig p=0.1> = makeSig([kWasmAnyFunc, kWasmAnyFunc], [])
+<kSig p=0.1> = makeSig([], [kWasmExternRef])
+<kSig p=0.1> = makeSig([], [kWasmAnyFunc])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmAnyFunc])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmS128])
+<kSig p=0.1> = makeSig([kWasmS128], [kWasmI32])
+!begin lines
+builder.addFunction(undefined, <number>).addBodyWithEnd([kExprEnd,]);
+!end lines

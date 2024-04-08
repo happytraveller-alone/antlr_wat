@@ -1,9 +1,0 @@
-<number p=0.2> = 1
-<number p=0.2> = 2
-<number p=0.2> = 3
-<number p=0.2> = 4
-<number p=0.2> = 5
-
-!begin lines
-builder.addFunction(undefined, <number>).addBodyWithEnd([kExprEnd,]);
-!end lines
