@@ -1,13 +1,45 @@
 const builder = new WasmModuleBuilder();
-builder.addType(makeSig([], []));
-builder.addFunction(undefined, 2).addBodyWithEnd([kExprEnd,]);
+builder.startRecGroup();
+builder.addType(makeSig([wasmRefType(kWasmFuncRef), ,kWasmI8,kWasmF32,wasmRefNullType(0),],[kWasmI32,wasmRefType(8),wasmRefNullType(1),kWasmI64,wasmRefType(0),]));
+builder.endRecGroup();
+builder.addType(makeSig([wasmRefType(8),wasmRefNullType(0),kWasmF32,wasmRefType(2),],[wasmRefNullType(kWasmAnyFunc),wasmRefNullType(1),kWasmVoid,wasmRefNullType(kWasmEqRef),wasmRefNullType(0),]));
+
+builder.addType(makeSig([kWasmI32,wasmRefNullType(kWasmAnyRef),kWasmI32,wasmRefNullType(0),wasmRefType(0),],[kWasmI8,wasmRefType(kWasmExternRef),wasmRefNullType(0),kWasmS128,wasmRefType(8),]));
+builder.addType(makeSig([wasmRefType(1),],[wasmRefType(kWasmExnRef),]));
+builder.addType(makeSig([ ,wasmRefType(4),wasmRefNullType(0),],[wasmRefType(kWasmAnyRef),wasmRefNullType(1),]));
+builder.addType(makeSig([wasmRefNullType(0),kWasmI64,],[wasmRefType(kWasmI31Ref),wasmRefType(6),]));
+builder.addType(makeSig([],[wasmRefType(0),]));
+
+builder.startRecGroup();
+builder.addType(makeSig([wasmRefType(1),],[wasmRefType(4),wasmRefNullType(kWasmAnyRef),kWasmF64,wasmRefNullType(1),wasmRefType(8),]));
+builder.endRecGroup();
+
+builder.addType(makeSig([wasmRefNullType(0),],[kWasmI16,kWasmI16,]));
+
+builder.addType(makeSig([wasmRefType(kWasmFuncRef),],[wasmRefNullType(1),wasmRefType(kWasmExternRef),wasmRefNullType(kWasmArrayRef),wasmRefType(kWasmStringRef),wasmRefNullType(0),]));
+builder.addType(makeSig([kWasmVoid,kWasmF32,],[kWasmI64,wasmRefType(8),wasmRefNullType(0),kWasmF32,]));
+builder.addType(makeSig([kWasmVoid,wasmRefNullType(kWasmFuncRef),wasmRefNullType(0),],[wasmRefNullType(0),wasmRefNullType(kWasmStringRef),]));
+
+builder.addType(makeSig([wasmRefType(kWasmFuncRef),wasmRefType(6),],[kWasmS128,kWasmI8,kWasmVoid,wasmRefType(kWasmExternRef),wasmRefNullType(1),]));
+builder.addType(makeSig([wasmRefType(4),],[wasmRefType(kWasmArrayRef), ,]));
+builder.addType(makeSig([wasmRefNullType(1),wasmRefType(kWasmFuncRef),],[kWasmI8,]));
+builder.addType(makeSig([kWasmF64,wasmRefNullType(1),],[wasmRefNullType(0),]));
+builder.addType(makeSig([kWasmF32,],[wasmRefNullType(1),]));
+
+builder.startRecGroup();
+builder.endRecGroup();
+builder.startRecGroup();
+builder.endRecGroup();
+builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 3).addBodyWithEnd([kExprEnd,]);
 builder.addFunction(undefined, 4).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 2).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 2).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 2).addBodyWithEnd([kExprEnd,]);
 builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
-builder.addType(makeSig([], []));
-builder.addType(makeSig([], []));
-builder.addType(makeSig([], []));
-builder.addType(makeSig([], []));
+builder.addFunction(undefined, 4).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
 builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
-builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);builder.addExport('main', 0)
+builder.addExport('main', 0)
 const instance = builder.instantiate()
 instance.export.main()

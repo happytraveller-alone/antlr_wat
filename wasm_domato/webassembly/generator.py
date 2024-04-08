@@ -11,7 +11,9 @@ from grammar import Grammar
 _N_MAIN_LINES = 1000
 _N_EVENTHANDLER_LINES = 500
 
-def GenerateNewSample(wasmgrammar, num_lines):
+def GenerateNewSample(wasm_function_body_grammar, \
+                      wasm_type_grammar, \
+                      num_lines):
     """Parses grammar rules from string.
 
     Args:
@@ -22,8 +24,10 @@ def GenerateNewSample(wasmgrammar, num_lines):
     """
     result = ''
     result += 'const builder = new WasmModuleBuilder();\n'
-    result += wasmgrammar._generate_code(num_lines)
-    result += 'builder.addExport(\'main\', 0)\n'
+    result += wasm_type_grammar._generate_code(num_lines)
+    result += '\n'
+    result += wasm_function_body_grammar._generate_code(num_lines)
+    result += '\nbuilder.addExport(\'main\', 0)\n'
     result += 'const instance = builder.instantiate()\n'
     result += 'instance.export.main()\n'
 
@@ -39,14 +43,22 @@ def generate_samples(grammar_dir, outfiles):
       outfiles: A list of output filenames.
     """
 
-    wasmgrammar = Grammar()
-    err = wasmgrammar.parse_from_file(os.path.join(grammar_dir, 'wasm.txt'))
-    if err > 0:
-        print('There were errors parsing wasm grammar')
+    wasm_funtion_body_grammar = Grammar()
+    err_functionbody = wasm_funtion_body_grammar.parse_from_file(os.path.join(grammar_dir, 'wasmfunctionbody.txt'))
+    if err_functionbody > 0:
+        print('There were errors parsing wasm function body grammar')
+        return
+    
+    wasm_type_grammar = Grammar()
+    err_type = wasm_type_grammar.parse_from_file(os.path.join(grammar_dir, 'wasmtype.txt'))
+    if err_type > 0:
+        print('There were errors parsing wasm type grammar')
         return
 
     for outfile in outfiles:
-        result = GenerateNewSample(wasmgrammar, 10)
+        result = GenerateNewSample(wasm_funtion_body_grammar, \
+                                   wasm_type_grammar, \
+                                   10)
         if result is not None:
             print('Writing a sample to ' + outfile)
             try:

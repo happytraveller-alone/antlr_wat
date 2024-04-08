@@ -1,0 +1,87 @@
+!max_recursion 10
+<boolean_number p=0.5> = 0
+<boolean_number p=0.5> = 1 
+
+<newline> = <cr><lf>
+
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI64], [kWasmI64])
+<kSig p=0.1> = makeSig([kWasmI64], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI64])
+<kSig p=0.1> = makeSig([kWasmF32, kWasmF32], [kWasmF32])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [kWasmF64])
+<kSig p=0.1> = makeSig([kWasmI64, kWasmI64], [kWasmI64])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [kWasmI32])
+<kSig p=0.1> = makeSig([], [])
+<kSig p=0.1> = makeSig([], [kWasmI32])
+<kSig p=0.1> = makeSig([], [kWasmI64])
+<kSig p=0.1> = makeSig([], [kWasmF32])
+<kSig p=0.1> = makeSig([], [kWasmF64])
+<kSig p=0.1> = makeSig([kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI64], [])
+<kSig p=0.1> = makeSig([kWasmI64, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmI64, kWasmI32, kWasmI32], [])
+<kSig p=0.1> = makeSig([kWasmF64], [])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [])
+<kSig p=0.1> = makeSig([kWasmF64, kWasmF64, kWasmI32], [])
+<kSig p=0.1> = makeSig([], [kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([], [kWasmI32, kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32, kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32, kWasmI32, kWasmI32])
+<kSig p=0.1> = makeSig([kWasmF32], [])
+<kSig p=0.1> = makeSig([kWasmF32], [kWasmF32])
+<kSig p=0.1> = makeSig([kWasmF64], [kWasmF32])
+<kSig p=0.1> = makeSig([kWasmF64], [kWasmF64])
+<kSig p=0.1> = makeSig([kWasmExternRef], [kWasmExternRef])
+<kSig p=0.1> = makeSig([kWasmAnyFunc], [kWasmAnyFunc])
+<kSig p=0.1> = makeSig([kWasmExternRef], [kWasmI32])
+<kSig p=0.1> = makeSig([kWasmExternRef], [])
+<kSig p=0.1> = makeSig([kWasmAnyFunc], [])
+<kSig p=0.1> = makeSig([kWasmExternRef, kWasmExternRef], [])
+<kSig p=0.1> = makeSig([kWasmAnyFunc, kWasmAnyFunc], [])
+<kSig p=0.1> = makeSig([], [kWasmExternRef])
+<kSig p=0.1> = makeSig([], [kWasmAnyFunc])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmAnyFunc])
+<kSig p=0.1> = makeSig([kWasmI32], [kWasmS128])
+<kSig p=0.1> = makeSig([kWasmS128], [kWasmI32])
+
+<kValue_type p=0.2> = kWasmVoid
+<kValue_type p=0.2> = kWasmI32 
+<kValue_type p=0.2> = kWasmI64 
+<kValue_type p=0.2> = kWasmF32 
+<kValue_type p=0.2> = kWasmF64 
+<kValue_type p=0.2> = kWasmS128
+<kValue_type p=0.2> = kWasmI8
+<kValue_type p=0.2> = kWasmI16 
+<kValue_type p=0.2> = <space>
+
+<kRef_type p=0.2> = kWasmNullFuncRef
+<kRef_type p=0.2> = kWasmNullExternRef
+<kRef_type p=0.2> = kWasmNullRef
+<kRef_type p=0.2> = kWasmFuncRef
+<kRef_type p=0.2> = kWasmAnyFunc 
+<kRef_type p=0.2> = kWasmFuncRef
+<kRef_type p=0.2> = kWasmExternRef
+<kRef_type p=0.2> = kWasmAnyRef
+<kRef_type p=0.2> = kWasmEqRef
+<kRef_type p=0.2> = kWasmI31Ref
+<kRef_type p=0.2> = kWasmStructRef
+<kRef_type p=0.2> = kWasmArrayRef
+<kRef_type p=0.2> = kWasmExnRef
+<kRef_type p=0.2> = kWasmNullExnRef
+<kRef_type p=0.2> = kWasmStringRef
+#<kRef_type p=0.2> = kWasmStringViewWtf8
+#<kRef_type p=0.2> = kWasmStringViewWtf16
+#<kRef_type p=0.2> = kWasmStringViewIter
+
+<kwasmRef_Null_type p=0.5> = wasmRefNullType(<kRef_type>)
+<kwasmRef_Null_type p=0.5> = wasmRefNullType(<int min=0 max=1>)
+<kwasmRef_type p=0.5> = wasmRefType(<kRef_type>)
+<kwasmRef_type p=0.5> = wasmRefType(<int min=0 max=9>)

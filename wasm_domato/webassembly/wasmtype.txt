@@ -1,52 +1,21 @@
-!max_recursion 50
-<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI64], [kWasmI64])
-<kSig p=0.1> = makeSig([kWasmI64], [kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32], [kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32, kWasmI32], [])
-<kSig p=0.1> = makeSig([kWasmI32], [kWasmI64])
-<kSig p=0.1> = makeSig([kWasmF32, kWasmF32], [kWasmF32])
-<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [kWasmF64])
-<kSig p=0.1> = makeSig([kWasmI64, kWasmI64], [kWasmI64])
-<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [kWasmI32])
-<kSig p=0.1> = makeSig([], [])
-<kSig p=0.1> = makeSig([], [kWasmI32])
-<kSig p=0.1> = makeSig([], [kWasmI64])
-<kSig p=0.1> = makeSig([], [kWasmF32])
-<kSig p=0.1> = makeSig([], [kWasmF64])
-<kSig p=0.1> = makeSig([kWasmI32], [])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32, kWasmI32], [])
-<kSig p=0.1> = makeSig([kWasmI64], [])
-<kSig p=0.1> = makeSig([kWasmI64, kWasmI32], [])
-<kSig p=0.1> = makeSig([kWasmI64, kWasmI32, kWasmI32], [])
-<kSig p=0.1> = makeSig([kWasmF64], [])
-<kSig p=0.1> = makeSig([kWasmF64, kWasmF64], [])
-<kSig p=0.1> = makeSig([kWasmF64, kWasmF64, kWasmI32], [])
-<kSig p=0.1> = makeSig([], [kWasmI32, kWasmI32])
-<kSig p=0.1> = makeSig([], [kWasmI32, kWasmI32, kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32, kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32], [kWasmI32, kWasmI32, kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32, kWasmI32])
-<kSig p=0.1> = makeSig([kWasmI32, kWasmI32], [kWasmI32, kWasmI32, kWasmI32])
-<kSig p=0.1> = makeSig([kWasmF32], [])
-<kSig p=0.1> = makeSig([kWasmF32], [kWasmF32])
-<kSig p=0.1> = makeSig([kWasmF64], [kWasmF32])
-<kSig p=0.1> = makeSig([kWasmF64], [kWasmF64])
-<kSig p=0.1> = makeSig([kWasmExternRef], [kWasmExternRef])
-<kSig p=0.1> = makeSig([kWasmAnyFunc], [kWasmAnyFunc])
-<kSig p=0.1> = makeSig([kWasmExternRef], [kWasmI32])
-<kSig p=0.1> = makeSig([kWasmExternRef], [])
-<kSig p=0.1> = makeSig([kWasmAnyFunc], [])
-<kSig p=0.1> = makeSig([kWasmExternRef, kWasmExternRef], [])
-<kSig p=0.1> = makeSig([kWasmAnyFunc, kWasmAnyFunc], [])
-<kSig p=0.1> = makeSig([], [kWasmExternRef])
-<kSig p=0.1> = makeSig([], [kWasmAnyFunc])
-<kSig p=0.1> = makeSig([kWasmI32], [kWasmAnyFunc])
-<kSig p=0.1> = makeSig([kWasmI32], [kWasmS128])
-<kSig p=0.1> = makeSig([kWasmS128], [kWasmI32])
-
+!include common.txt
+<type_parms p=0.3> = <kValue_type>,<type_parms>
+<type_parms p=0.3> = <kwasmRef_Null_type>,<type_parms>
+<type_parms p=0.3> = <kwasmRef_type>,<type_parms>
+<type_parms nonrecursive> =
+<type_results p=0.3> = <kValue_type>,<type_results>
+<type_results p=0.3> = <kwasmRef_Null_type>,<type_results>
+<type_results p=0.3> = <kwasmRef_type>,<type_results>
+<type_results nonrecursive> =
+<type_start> = builder.startRecGroup();
+<type_end> = builder.endRecGroup();
+<type_single_body> = builder.addType(makeSig([<type_parms>],[<type_results>]));<newline>
+<type_body> = <type_single_body><type_body>
+<type_body nonrecursive> =
+<type_single_rec_group p=0.5> = <type_body>
+<type_single_rec_group p=0.5> = <type_start><newline><type_body><type_end>
 !begin lines
-builder.addType(<kSig>);
+#builder.addType(<kSig>);
+#builder.addType(makeSig([<type_parms>],[<type_results>]))
+<type_single_rec_group>
 !end lines
