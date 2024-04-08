@@ -1,0 +1,12 @@
+is_clang = true  
+is_debug = false 
+is_component_build = false 
+v8_enable_webassembly = true 
+v8_enable_i18n_support = false 
+symbol_level = 0 
+strip_debug_info = false
+target_cpu = "x64"
+v8_static_library = true
+is_component_build = false
+v8_monolithic = false
+v8_use_external_startup_data = false

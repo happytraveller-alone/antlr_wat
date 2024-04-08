@@ -21,3 +21,4 @@ AFLplusplus_v4.09c/afl-clang*
 AFLplusplus_v4.09c/afl-llvm*
 AFLplusplus_v4.09c/afl-persistent-config
 wasm_fuzz/static_library/libv8_monolith.a
+wasm_fuzz/V8/*.out
