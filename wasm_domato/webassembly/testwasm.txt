@@ -1,0 +1,10 @@
+builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 4).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 3).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 5).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 3).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 1).addBodyWithEnd([kExprEnd,]);
+builder.addFunction(undefined, 2).addBodyWithEnd([kExprEnd,]);
