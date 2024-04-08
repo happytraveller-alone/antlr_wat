@@ -151,30 +151,50 @@ v8_executable("v8_simple_wasm_compile_fuzzer") {
 
 
 构建自己的静态链接库，用于调用generate_random_module
-if (v8_enable_webassembly) {
-  v8_static_library("wee8") {
-    deps = [
-      ":v8_base",
-      ":v8_libbase",
-      ":v8_libplatform",
-      ":v8_shared_internal_headers",
-      ":v8_snapshot",
-      "//build/win:default_exe_manifest",
+  v8_source_set("wasm_generate_module"){
+    sources = [ 
+      "test/common/wasm/test-signatures.h",
+      "test/fuzzer/wasm_random_generator.cc", 
     ]
-    if (v8_enable_vtunejit) {
-      deps += [ "src/third_party/vtune:v8_vtune" ]
-    }
 
-    # TODO: v8dll-main.cc equivalent for shared library builds
+    deps = [
+      ":fuzzer_support",
+      ":generate_bytecode_builtins_list",
+      ":run_torque",
+      ":v8_internal_headers",
+      ":v8_tracing",
+      ":wasm_test_common",
+    ]
 
-    configs = [ ":internal_config" ]
+    public_deps = [
+      ":v8_abseil",
+      ":v8_maybe_icu",
+    ]
 
-    sources = [
-      ### gcmole(all) ###
-      "src/wasm/c-api.cc",
-      "src/wasm/c-api.h",
-      "third_party/wasm-api/wasm.h",
-      "third_party/wasm-api/wasm.hh",
+    configs = [
+      ":external_config",
+      ":internal_config_base",
     ]
   }
-}
+
+  v8_static_library("v8_wasm_generate_module"){
+    deps = [
+      ":wasm_fuzzer_common",
+      ":wasm_test_common",
+      ":fuzzer_support",
+      ":wasm_generate_module",
+      ":v8",
+      ":v8_libbase",
+      ":v8_libplatform",
+      "//build/win:default_exe_manifest",
+    ]
+
+    configs = [
+      ":internal_config_base",
+      ":internal_config",
+    ]
+
+    
+  }
+
+利用v8生成静态库WASM_GENERATOR,而后通过外部调用进行

@@ -13,21 +13,8 @@
 #include "include/v8-local-handle.h"
 #include "include/v8-primitive.h"
 #include "include/v8-script.h"
-#include "src/wasm/baseline/liftoff-compiler.h"
-#include "src/wasm/compilation-environment-inl.h"
-#include "src/wasm/function-body-decoder-impl.h"
-#include "src/wasm/module-compiler.h"
-#include "src/wasm/module-decoder-impl.h"
-#include "src/wasm/module-instantiate.h"
-#include "src/wasm/wasm-engine.h"
-#include "src/wasm/wasm-feature-flags.h"
-#include "src/wasm/wasm-module-builder.h"
-#include "src/wasm/wasm-module.h"
-#include "src/wasm/wasm-objects-inl.h"
-#include "src/wasm/wasm-opcodes-inl.h"
-#include "src/zone/accounting-allocator.h"
-#include "src/zone/zone.h"
-
+#include "include/v8-wasm.h"
+// #include "src/wasm/fuzzing/wasm-random-generator.h"
 int main(int argc, char* argv[]) {
   // Initialize V8.
   v8::V8::InitializeICUDefaultLocation(argv[0]);
@@ -89,21 +76,12 @@ int main(int argc, char* argv[]) {
       // Convert the result to a uint32 and print it.
       uint32_t number = result->Uint32Value(context).ToChecked();
       printf("3 + 4 = %u\n", number);
-    }
-    {
-      // v8_fuzzer::FuzzerSupport* support = v8_fuzzer::FuzzerSupport::Get();
-      v8::Isolate* i_isolate = reinterpret_cast<v8::Isolate*>(isolate);
-      v8::Isolate::Scope isolate_scope(isolate);
-      // GetTypeCanonicalizer()->EmptyStorageForTesting();
-      // i_isolate->heap()->ClearWasmCanonicalRttsForTesting();
-      // if(i_isolate->has_exception()){
-      //   i_isolate->clear_exception();
-      // }
-      v8::HandleScope handle_scope(isolate);
-      v8::Context::Scope context_scope(context);
+    }v8::Context::Scope context_scope(context);
     }
   }
 
+  // new WasmRandomGenerator
+  v8::internal::wasm::fuzzing::WasmRandomGenerator* random_generator = new v8::internal::wasm::fuzzing::WasmRandomGenerator();
   // Dispose the isolate and tear down V8.
   isolate->Dispose();
   v8::V8::Dispose();
