@@ -87,7 +87,7 @@ def GenerateSamples(grammar_dir, \
 
 
 def get_test_cases_v8_output(output_dir, enable_test):
-    if enable_test == 'True':
+    if enable_test == 'On':
         print('Test cases are enabled in v8')
         v8_executable = "/home/xyf/v8/v8/out/CVE_2024_2887_debug_tag_12.4.176/d8"
         wasm_file = os.path.join(output_dir, 'merged_wasm.js')
@@ -106,7 +106,7 @@ def get_test_cases_v8_output(output_dir, enable_test):
         print(f"Return code: {return_code}")
         print(f"Output: {output}")
         print(f"Error: {error}")
-    if enable_test == 'False':
+    if enable_test == 'Off':
         print('Test cases are disabled in v8')
 
 
@@ -152,37 +152,101 @@ def main():
     # /home/xyf/antlr_wat/wasm_domato/webassembly/input
     input_dir = os.path.join(fuzz_dir, 'input')
 
-    #
+    # Check if the number of arguments is correct, arguments missing
     if len(sys.argv) == 1:
         print('Arguments missing')
         print("Usage:")
         print("\tpython generator.py <output file>")
         print("\tpython generator.py <output file> <enable_test>")
         sys.exit(1)
-
+    # python3 generator.py testwasm.js
     if len(sys.argv) == 2:
+        print('Generating one sample')
         outfile = sys.argv[1]
         GenerateSamples(grammar_dir, output_dir, [outfile])
         merge_files(os.path.join(input_dir, 'wasm-module-builder.js'), \
                 os.path.join(output_dir, 'testwasm.js'), \
                 os.path.join(output_dir, 'merged_wasm.js'))
-
-    if len(sys.argv) == 3:
+    # python3 generator.py testwasm.js --enable_test On/Off
+    if len(sys.argv) == 4:
+        print('Generating one sample and running the sample in v8')
         outfile = sys.argv[1]
-        enable_test = sys.argv[2]
-        if enable_test == 'True' or enable_test == 'False':
+        enable_test = get_option('--enable_test')
+        if enable_test == 'On' or enable_test == 'Off':
             GenerateSamples(grammar_dir, output_dir, [outfile])
             merge_files(os.path.join(input_dir, 'wasm-module-builder.js'), \
                 os.path.join(output_dir, 'testwasm.js'), \
                 os.path.join(output_dir, 'merged_wasm.js'))
-            get_test_cases_v8_output(output_dir, enable_test)
+            if(enable_test == 'On'):
+                get_test_cases_v8_output(output_dir, enable_test)
         else:
             print(
-                "Invalid argument for test cases. Please enter 'True' or 'False' for enable_test commad."
+                "Invalid argument for test cases. Please enter 'On' or 'Off' for enable_test commad."
             )
             print("Usage:")
-            print("\tpython generator.py <output file> <enable_test>")
-
-
+            print("\tpython generator.py <output file> --enable_test <On/Off>")
+    # python3 generator.py --output_dir /home/xyf/antlr_wat/wasm_domato/webassembly/output --no_of_files 1
+    if len(sys.argv) == 5:
+        multiple_samples = False
+        for a in sys.argv:
+            if a.startswith('--output_dir='):
+                multiple_samples = True
+        if '--output_dir' in sys.argv:
+            multiple_samples = True
+        if multiple_samples:
+            out_dir = get_option('--output_dir')
+            nsamples = int(get_option('--no_of_files'))
+            print('Output directory: ' + out_dir)
+            print('Number of samples: ' + str(nsamples))
+            if not os.path.exists(out_dir):
+                os.mkdir(out_dir)
+            outfiles = []
+            for i in range(nsamples):
+                outfiles.append(os.path.join(out_dir, 'fuzz-' + str(i).zfill(5) + '.html'))
+            GenerateSamples(grammar_dir, output_dir, outfiles)
 if __name__ == '__main__':
     main()
+
+
+# import sys
+
+# def get_option(option_name):
+#     if option_name in sys.argv:
+#         return sys.argv[sys.argv.index(option_name) + 1]
+#     else:
+#         return None
+
+# def GenerateSamples(grammar_dir, output_dir, outfile):
+#     pass
+
+# def merge_files(input_file, output_file, merged_file):
+#     pass
+
+# def get_test_cases_v8_output(output_dir, enable_test):
+#     pass
+
+# if __name__ == "__main__":
+#     grammar_dir = None
+#     output_dir = None
+#     input_dir = None
+
+#     if len(sys.argv) >= 2:
+#         outfile = sys.argv[1]
+#         GenerateSamples(grammar_dir, output_dir, [outfile])
+#         merge_files(os.path.join(input_dir, 'wasm-module-builder.js'), \
+#                 os.path.join(output_dir, 'testwasm.js'), \
+#                 os.path.join(output_dir, 'merged_wasm.js'))
+
+#     if len(sys.argv) >= 4:
+#         enable_test = get_option('--enable_test')
+#         if enable_test is None:
+#             enable_test = 'Off'
+#         if enable_test == 'On' or enable_test == 'Off':
+#             if(enable_test == 'On'):
+#                 get_test_cases_v8_output(output_dir, enable_test)
+#         else:
+#             print(
+#                 "Invalid argument for test cases. Please enter 'On' or 'Off' for enable_test command."
+#             )
+#             print("Usage:")
+#             print("\tpython generator.py <output file> --enable_test <On/Off>")
