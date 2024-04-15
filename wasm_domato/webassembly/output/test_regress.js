@@ -1,3 +1,5 @@
+// wasm header 0, 97, 115, 109, 1, 0, 0, 0
+// d8.file.execute('test/mjsunit/wasm/wasm-module-builder.js');
 // Copyright 2016 the V8 project authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -2308,7 +2310,18 @@ function ToPromising(wasm_export) {
       wrapper_sig, wasm_export, {promising: 'first'});
 
 }
+
 const builder = new WasmModuleBuilder();
-builder.addFunction('main', makeSig([], [])).addBodyWithEnd([kExprEnd,]).exportFunc();
+let tFunc = builder.addType(makeSig([kWasmI32], [kWasmI32]));
+
+
+builder.addFunction('main', tFunc).addBodyWithEnd([
+    kExprLocalGet, 0,
+    kExprI32Const, 10,
+    kExprI32Add,
+    kExprEnd,
+]).exportFunc();
+
 const instance = builder.instantiate();
-instance.exports.main();
+let sb = 42;
+instance.exports.main(sb);
