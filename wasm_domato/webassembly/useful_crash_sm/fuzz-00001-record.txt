@@ -1,7 +1,0 @@
-Command: /home/xyf/spidermonkey/js/src/20240416_fuzz_commit_23ad6bdb310c9a46e6f37885b0d88ec5da3c00f7/dist/bin/js --wasm-compiler=baseline+optimizing             --setpref=wasm_exnref=true             --setpref=wasm_gc=true             --setpref=wasm_js_string_builtins=true             --setpref=wasm_memory_control=true             --setpref=wasm_moz_intgemm=true             --setpref=wasm_multi_memory=true             --setpref=wasm_relaxed_simd=true             --setpref=wasm_tail_calls=true             --setpref=wasm_test_serialization=true	/home/xyf/antlr_wat/wasm_domato/webassembly/output_merge/fuzz-00000.js
-
-Return code: 0
-
-Output: 
-
-Error: 

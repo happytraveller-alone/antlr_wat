@@ -1,19 +1,19 @@
 !include common.txt
-<type_parms p=0.3> = <kValue_type>,<type_parms>
-<type_parms p=0.3> = <kwasmRef_Null_type>,<type_parms>
-<type_parms p=0.3> = <kwasmRef_type>,<type_parms>
+<type_parms> = <kValue_type>,<type_parms>
+#<type_parms p=0.3> = <kwasmRef_Null_type>,<type_parms>
+#<type_parms p=0.3> = <kwasmRef_type>,<type_parms>
 <type_parms nonrecursive> =
-<type_results p=0.3> = <kValue_type>,<type_results>
-<type_results p=0.3> = <kwasmRef_Null_type>,<type_results>
-<type_results p=0.3> = <kwasmRef_type>,<type_results>
+<type_results> = <kValue_type>,<type_results>
+#<type_results p=0.3> = <kwasmRef_Null_type>,<type_results>
+#<type_results p=0.3> = <kwasmRef_type>,<type_results>
 <type_results nonrecursive> =
 <type_start> = builder.startRecGroup();
 <type_end> = builder.endRecGroup();
 <type_single_body> = builder.addType(makeSig([<type_parms>],[<type_results>]));<newline>
 <type_body> = <type_single_body><type_body>
 <type_body nonrecursive> =
-<type_single_rec_group p=0.5> = <type_body>
-<type_single_rec_group p=0.5> = <type_start><newline><type_body><type_end>
+<type_single_rec_group> = <type_body>
+#<type_single_rec_group p=0.5> = <type_start><newline><type_body><type_end>
 !begin lines
 #builder.addType(<kSig>);
 #builder.addType(makeSig([<type_parms>],[<type_results>]))

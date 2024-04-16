@@ -2309,6 +2309,9 @@ function ToPromising(wasm_export) {
 
 }
 const builder = new WasmModuleBuilder();
-builder.addFunction('main', makeSig([], [])).addBodyWithEnd([kExprEnd,]).exportFunc();
+builder.addType(makeSig([kWasmI64,],[]));
+builder.addType(makeSig([],[]));
+
+builder.addFunction('main', makeSig([kWasmI64], [])).addBodyWithEnd([kExprEnd,]).exportFunc();
 const instance = builder.instantiate();
 instance.exports.main();

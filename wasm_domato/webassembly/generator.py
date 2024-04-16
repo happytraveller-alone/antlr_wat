@@ -17,8 +17,8 @@ def generate_sample_body(wasm_function_body_grammar, \
                       num_lines):
     result = ''
     result += 'const builder = new WasmModuleBuilder();\n'
-    # result += wasm_type_grammar._generate_code(num_lines)
-    # result += '\n'
+    result += wasm_type_grammar._generate_code(num_lines)
+    result += '\n'
     result += wasm_function_body_grammar._generate_code(num_lines)
     # result += '\nbuilder.addExport(\'main\', 0)\n'
     result += '\nconst instance = builder.instantiate();\n'
@@ -110,23 +110,21 @@ def get_test_results(dir_path_map, outfiles, develop_shell, base_dir,
 
 def print_usage():
     print("Usage:")
-    # print("\tpython generator.py <output file>")
-    # print("\tpython generator.py <output file> --enable_test <On/False>")
     print("\tpython generator.py --output_dir <dir> --no_of_files <count>")
     print(
         "\tpython generator.py --output_dir <dir> --no_of_files <count> --enable_test <On/False>"
     )
     print("build v8 command:")
+    print("\tgn gen out/example --args='is_clang=true is_debug=false is_component_build=false v8_enable_webassembly=true v8_enable_i18n_support=false symbol_level=0")  
+    print("\tstrip_debug_info=true   target_cpu=\"x64\" v8_static_library=true is_component_build=false v8_monolithic=false v8_use_external_startup_data=false") 
+    print("\tuse_custom_libcxx=false use_custom_libcxx_for_host=false")
+    print("\n\tninja -j 20 -C out/example d8")
+    print("build jsc command:")
+    print("\tTools/Scripts/build-jsc --jsc-only  --build-dir=example --makeargs=-j18")
+    print("\t--cmakeargs='-DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_C_COMPILER=/usr/bin/clang -DENABLE_STATIC_JSC=ON'")
+    print("build sm command:")
+    print("\t../configure CC=/usr/bin/clang CXX=/usr/bin/clang++ --enable-fuzzing --disable-jemalloc --enable-debug --enable-optimize --disable-shared-js")
     sys.exit(1)
-
-
-# def validate_enable_test_option(option):
-#     if option not in ["On", "False"]:
-#         print(
-#             "Invalid argument for test cases. Please enter 'On' or 'False' for enable_test command."
-#         )
-#         print_usage()
-#         sys.exit(2)
 
 
 def generate_samples_name(dir_path_map, out_dir, file_count):
@@ -135,14 +133,13 @@ def generate_samples_name(dir_path_map, out_dir, file_count):
     ]
     generate_samples(dir_path_map['grammar_dir'], dir_path_map['input_dir'],
                      out_dir, outfiles)
-    # if enable_test == 'On':
-    #     get_test_cases_v8_output(dir_path_map, enable_test, outfiles)
-
 
 def check_arguments(dir_path_map, arg_map):
-    if '--help' in sys.argv:
-        print_usage()
-        sys.exit(0)
+    help_arg = ['--help', '-h', '--help_build_v8', '--help_build_jsc', '--help_build_sm']
+    for arg in help_arg:
+        if arg in sys.argv:
+            print_usage()
+            sys.exit(1)
     if '--enable_test' in sys.argv:
         # validate_enable_test_option(arg_map['--enable_test'])
         arg_map['--enable_test'] = True
@@ -153,20 +150,17 @@ def check_arguments(dir_path_map, arg_map):
     else:
         print('enable_test is not set, default to False')
         if '--enable_test_v8' in sys.argv:
-            # validate_enable_test_option(arg_map['--enable_test_v8'])
             arg_map['--enable_test_v8'] = True
             print('enable_test_v8 is set to ' + str(arg_map['--enable_test_v8']))
         else:
             print('enable_test_v8 is not set, default to False')
         if '--enable_test_jsc' in sys.argv:
             arg_map['--enable_test_jsc'] = True
-            # validate_enable_test_option(arg_map['--enable_test_jsc'])
             print('enable_test_jsc is set to ' + str(arg_map['--enable_test_jsc']))
         else:
             print('enable_test_jsc is not set, default to False')
         if '--enable_test_sm' in sys.argv:
             arg_map['--enable_test_sm'] = True
-            # validate_enable_test_option(arg_map['--enable_test_sm'])
             print('enable_test_sm is set to ' + str(arg_map['--enable_test_sm']))
         else:
             print('enable_test_sm is not set, default to False')

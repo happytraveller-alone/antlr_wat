@@ -7,6 +7,9 @@
 #<number p=0.2> = 4
 #<number p=0.2> = 5
 
+!begin function parametersrecord
+    context['size'] = ret_val
+!end function
 !begin lines
-builder.addFunction('main', makeSig([], [])).addBodyWithEnd([kExprEnd,]).exportFunc();
+builder.addFunction('main', <kSig>).addBodyWithEnd([kExprEnd,]).exportFunc();
 !end lines
