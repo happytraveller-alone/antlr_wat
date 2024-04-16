@@ -4,11 +4,6 @@ import sys
 from grammar import Grammar
 import subprocess
 
-# import re
-# import random
-
-_N_MAIN_LINES = 1000
-_N_EVENTHANDLER_LINES = 500
 """
 Parses grammar rules from string.
 
@@ -18,7 +13,7 @@ Args:
 Returns:
   A string containing sample data.
 """
-def GenerateNewSample(wasm_function_body_grammar, \
+def generate_sample_body(wasm_function_body_grammar, \
                       wasm_type_grammar, \
                       num_lines):
     result = ''
@@ -64,189 +59,181 @@ Args:
 Returns:
   None
 """
-def GenerateSamples(grammar_dir, \
-                    output_dir, \
+def generate_samples(grammar_dir, \
+                    input_dir, \
+                    output_merge_dir, \
                     outfiles):
     wasm_funtion_body_grammar = parse_grammar(grammar_dir,
                                               'wasmfunctionbody.txt')
     wasm_type_grammar = parse_grammar(grammar_dir, 'wasmtype.txt')
 
     for outfile in outfiles:
-        result = GenerateNewSample(wasm_funtion_body_grammar, \
+        result = generate_sample_body(wasm_funtion_body_grammar, \
                                    wasm_type_grammar, \
                                    1)
         if result is not None:
             print('Writing a sample to ' + outfile)
             try:
-                f = open(os.path.join(output_dir, outfile), 'w')
-                f.write(result)
-                f.close()
+                f1 = open(os.path.join(output_merge_dir, outfile), 'w')
+                f2 = open(os.path.join(input_dir, 'wasm-module-builder.js'), 'r')
+                f1.write(f2.read())
+                f2.close()
+                f1.write(result)
+                f1.close()
+                
             except IOError:
                 print('Error writing to output')
     return
 
 
-def get_test_cases_v8_output(output_dir, enable_test):
+def get_test_cases_v8_output(output_dir, enable_test, outfiles):
     if enable_test == 'On':
         print('Test cases are enabled in v8')
         v8_executable = "/home/xyf/v8/v8/out/CVE_2024_2887_debug_tag_12.4.176/d8"
-        wasm_file = os.path.join(output_dir, 'merged_wasm.js')
-        command = v8_executable + "\t"  + wasm_file
-        result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        # Get the return code
-        return_code = result.returncode
-        if(return_code == 11):
-            print('Segmentation fault')
-            # with open
-        # Get the output
-        output = result.stdout.decode()
-        # Get the error message (if any)
-        error = result.stderr.decode()
-        # Print the return code, output, and error message
-        print(f"Return code: {return_code}")
-        print(f"Output: {output}")
-        print(f"Error: {error}")
+        for outfile in outfiles:
+            wasm_file = os.path.join(output_dir, outfile)
+            command = v8_executable + "\t"  + wasm_file
+            result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            # Get the return code
+            return_code = result.returncode
+            if(return_code == 11):
+                print('Segmentation fault')
+                # with open
+            # Get the output
+            output = result.stdout.decode()
+            # Get the error message (if any)
+            error = result.stderr.decode()
+            # Print the return code, output, and error message
+            print(f"Return code: {return_code}")
+            print(f"Output: {output}")
+            print(f"Error: {error}")
     if enable_test == 'Off':
         print('Test cases are disabled in v8')
 
 
-"""
-Merges the contents of two files into a new file.
-Args:
-    file_module_builder (str): The path to the first file.
-    file_wasm_test (str): The path to the second file.
-    file_merged (str): The path to the merged file.
-Returns:
-    None
-"""
-def merge_files(file_module_builder, \
-                file_wasm_test, \
-                file_merged):
+def print_usage():
+    print("Usage:")
+    # print("\tpython generator.py <output file>")
+    # print("\tpython generator.py <output file> --enable_test <On/Off>")
+    print("\tpython generator.py --output_dir <dir> --no_of_files <count>")
+    print("\tpython generator.py --output_dir <dir> --no_of_files <count> --enable_test <On/Off>")
+    sys.exit(1)
 
-    with open(file_module_builder, 'r') as f1, \
-         open(file_wasm_test, 'r') as f2, \
-         open(file_merged, 'w') as f3:
-        f3.write(f1.read())
-        f3.write(f2.read())
-        f3.close()
-    print(
-        f"Files {file_module_builder} and {file_wasm_test} have been merged into {file_merged}."
-    )
-    return
+def validate_enable_test_option(option):
+    if option not in ["On", "Off"]:
+        print("Invalid argument for test cases. Please enter 'On' or 'Off' for enable_test command.")
+        print_usage()
+        sys.exit(2)
 
-def get_option(option_name):
-    for i in range(len(sys.argv)):
-        if (sys.argv[i] == option_name) and ((i + 1) < len(sys.argv)):
-            return sys.argv[i + 1]
-        elif sys.argv[i].startswith(option_name + '='):
-            return sys.argv[i][len(option_name) + 1:]
-    return None
+
+
+def generate_samples_name(dir_path_map, out_dir, file_count, enable_test):
+
+    outfiles = [os.path.join(out_dir, f'fuzz-{i:05d}.js') for i in range(file_count)]
+
+    generate_samples(dir_path_map['grammar_dir'], dir_path_map['input_dir'], out_dir, outfiles)
+    
+    if enable_test == 'On':
+        get_test_cases_v8_output(out_dir, enable_test, outfiles)
+
+def check_arguments(dir_path_map, arg_map):
+    if '--help' in sys.argv:
+        print_usage()
+        sys.exit(0)
+    for key, value in arg_map.items():
+        if key in sys.argv:
+            index = sys.argv.index(key)
+            try:
+                arg_map[key] = sys.argv[index + 1]
+            except IndexError:
+                print(f"Missing value for {key}")
+                print_usage()
+    if '--enable_test' in sys.argv:
+        validate_enable_test_option(arg_map['--enable_test'])
+        print('enable_test is set to ' + arg_map['--enable_test'])
+    else:
+        print('enable_test is not set, default to Off')
+    if '--no_of_files' in sys.argv:
+        arg_map['--no_of_files'] = int(arg_map['--no_of_files'])
+        print('no_of_files is set to ' + str(arg_map['--no_of_files']))
+    else:
+        print('no_of_files is not set, default to 1')
+    if '--output_dir' in sys.argv:
+        if not os.path.isabs(arg_map['--output_dir']):
+            arg_map['--output_dir'] = os.path.join(dir_path_map['fuzz_dir'], arg_map['--output_dir'])
+        if not os.path.exists(arg_map['--output_dir']):
+            os.makedirs(arg_map['--output_dir'])
+        print('output_dir is set to ' + arg_map['--output_dir'])
+    else:
+        print('output_dir is not set, default to output_merge')
+        # arg_map['--output_dir'] = dir_path_map['output_merge_dir']
+    
 
 def main():
-    # /home/xyf/antlr_wat/wasm_domato/webassembly
     fuzz_dir = os.path.dirname(__file__)
-    # /home/xyf/antlr_wat/wasm_domato/webassembly/grammar
-    grammar_dir = os.path.join(fuzz_dir, 'grammar')
-    # /home/xyf/antlr_wat/wasm_domato/webassembly/output
-    output_dir = os.path.join(fuzz_dir, 'output')
-    # /home/xyf/antlr_wat/wasm_domato/webassembly/input
-    input_dir = os.path.join(fuzz_dir, 'input')
+    # 以上路径整理在map中
+    dir_path_map = {
+        'fuzz_dir': fuzz_dir,
+        'grammar_dir': os.path.join(fuzz_dir, 'grammar'),
+        'output_orig_dir': os.path.join(fuzz_dir, 'output_orig'),
+        'input_dir': os.path.join(fuzz_dir, 'input'),
+        'output_merge_dir': os.path.join(fuzz_dir, 'output_merge')
+    }
+    # 参数map
+    arg_map = {
+        '--output_dir': dir_path_map['output_merge_dir'],
+        '--no_of_files': 1,
+        '--enable_test': 'Off',
+        '--help': False
+    }
+    # 参数填充
+    check_arguments(dir_path_map, arg_map)
+    # 生成样本
+    generate_samples_name(dir_path_map, arg_map['--output_dir'], arg_map['--no_of_files'], arg_map['--enable_test'])
 
-    # Check if the number of arguments is correct, arguments missing
-    if len(sys.argv) == 1:
-        print('Arguments missing')
-        print("Usage:")
-        print("\tpython generator.py <output file>")
-        print("\tpython generator.py <output file> <enable_test>")
-        sys.exit(1)
-    # python3 generator.py testwasm.js
-    if len(sys.argv) == 2:
-        print('Generating one sample')
-        outfile = sys.argv[1]
-        GenerateSamples(grammar_dir, output_dir, [outfile])
-        merge_files(os.path.join(input_dir, 'wasm-module-builder.js'), \
-                os.path.join(output_dir, 'testwasm.js'), \
-                os.path.join(output_dir, 'merged_wasm.js'))
-    # python3 generator.py testwasm.js --enable_test On/Off
-    if len(sys.argv) == 4:
-        print('Generating one sample and running the sample in v8')
-        outfile = sys.argv[1]
-        enable_test = get_option('--enable_test')
-        if enable_test == 'On' or enable_test == 'Off':
-            GenerateSamples(grammar_dir, output_dir, [outfile])
-            merge_files(os.path.join(input_dir, 'wasm-module-builder.js'), \
-                os.path.join(output_dir, 'testwasm.js'), \
-                os.path.join(output_dir, 'merged_wasm.js'))
-            if(enable_test == 'On'):
-                get_test_cases_v8_output(output_dir, enable_test)
-        else:
-            print(
-                "Invalid argument for test cases. Please enter 'On' or 'Off' for enable_test commad."
-            )
-            print("Usage:")
-            print("\tpython generator.py <output file> --enable_test <On/Off>")
-    # python3 generator.py --output_dir /home/xyf/antlr_wat/wasm_domato/webassembly/output --no_of_files 1
-    if len(sys.argv) == 5:
-        multiple_samples = False
-        for a in sys.argv:
-            if a.startswith('--output_dir='):
-                multiple_samples = True
-        if '--output_dir' in sys.argv:
-            multiple_samples = True
-        if multiple_samples:
-            out_dir = get_option('--output_dir')
-            nsamples = int(get_option('--no_of_files'))
-            print('Output directory: ' + out_dir)
-            print('Number of samples: ' + str(nsamples))
-            if not os.path.exists(out_dir):
-                os.mkdir(out_dir)
-            outfiles = []
-            for i in range(nsamples):
-                outfiles.append(os.path.join(out_dir, 'fuzz-' + str(i).zfill(5) + '.html'))
-            GenerateSamples(grammar_dir, output_dir, outfiles)
+    
+
 if __name__ == '__main__':
     main()
 
 
-# import sys
+# """
+# Merges the contents of two files into a new file.
+# Args:
+#     file_module_builder (str): The path to the first file.
+#     file_wasm_test (str): The path to the second file.
+#     file_merged (str): The path to the merged file.
+# Returns:
+#     None
+# """
+# def merge_files(file_module_builder, \
+#                 file_wasm_test, \
+#                 file_merged):
 
+#     with open(file_module_builder, 'r') as f1, \
+#          open(file_wasm_test, 'r') as f2, \
+#          open(file_merged, 'w') as f3:
+#         f3.write(f1.read())
+#         f3.write(f2.read())
+#         f3.close()
+#     print(
+#         f"Files {file_module_builder} and {file_wasm_test} have been merged into {file_merged}."
+#     )
+#     return
+
+# """
+# Retrieves the value of the specified command line option.
+# Args:
+#     option_name (str): The name of the option to retrieve.
+# Returns:
+#     str or None: The value of the option if found, or None if the option is not present.
+# """
 # def get_option(option_name):
 #     if option_name in sys.argv:
-#         return sys.argv[sys.argv.index(option_name) + 1]
-#     else:
-#         return None
-
-# def GenerateSamples(grammar_dir, output_dir, outfile):
-#     pass
-
-# def merge_files(input_file, output_file, merged_file):
-#     pass
-
-# def get_test_cases_v8_output(output_dir, enable_test):
-#     pass
-
-# if __name__ == "__main__":
-#     grammar_dir = None
-#     output_dir = None
-#     input_dir = None
-
-#     if len(sys.argv) >= 2:
-#         outfile = sys.argv[1]
-#         GenerateSamples(grammar_dir, output_dir, [outfile])
-#         merge_files(os.path.join(input_dir, 'wasm-module-builder.js'), \
-#                 os.path.join(output_dir, 'testwasm.js'), \
-#                 os.path.join(output_dir, 'merged_wasm.js'))
-
-#     if len(sys.argv) >= 4:
-#         enable_test = get_option('--enable_test')
-#         if enable_test is None:
-#             enable_test = 'Off'
-#         if enable_test == 'On' or enable_test == 'Off':
-#             if(enable_test == 'On'):
-#                 get_test_cases_v8_output(output_dir, enable_test)
-#         else:
-#             print(
-#                 "Invalid argument for test cases. Please enter 'On' or 'Off' for enable_test command."
-#             )
-#             print("Usage:")
-#             print("\tpython generator.py <output file> --enable_test <On/Off>")
+#         index = sys.argv.index(option_name)
+#         try:
+#             return sys.argv[index + 1]
+#         except IndexError:
+#             print(f"Missing value for {option_name}")
+#             print_usage()
+#     return None
