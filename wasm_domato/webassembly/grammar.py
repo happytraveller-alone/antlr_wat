@@ -525,11 +525,11 @@ class Grammar(object):
             ret_parts.append(expanded)
 
         # Add all newly created variables to the context
-        additional_lines = []
+        # additional_lines = []
         for v in new_vars:
             if v['type'] not in _NONINTERESTING_TYPES:
                 self._add_variable(v['name'], v['type'], context)
-                additional_lines.append("if (!" + v['name'] + ") { " + v['name'] + " = GetVariable(fuzzervars, '" + v['type'] + "'); } else { " + self._get_variable_setters(v['name'], v['type']) + " }")
+                # additional_lines.append("if (!" + v['name'] + ") { " + v['name'] + " = GetVariable(fuzzervars, '" + v['type'] + "'); } else { " + self._get_variable_setters(v['name'], v['type']) + " }")
 
         # Return the result.
         # In case of 'ordinary' grammar rules, return the filled rule.
@@ -540,7 +540,7 @@ class Grammar(object):
             return filed_rule
         else:
             context['lines'].append(filed_rule)
-            context['lines'].extend(additional_lines)
+            # context['lines'].extend(additional_lines)
             if symbol == 'line':
                 return filed_rule
             else:

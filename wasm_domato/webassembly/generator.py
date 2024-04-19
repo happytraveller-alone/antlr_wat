@@ -12,15 +12,12 @@ Args:
 Returns:
   A string containing sample data.
 """
-def generate_sample_body(wasm_function_body_grammar, \
-                      wasm_type_grammar, \
-                      num_lines):
+def generate_sample_body(wasm_garmmar_set,num_lines):
     result = ''
     result += 'const builder = new WasmModuleBuilder();\n'
-    result += wasm_type_grammar._generate_code(num_lines)
-    result += '\n'
-    result += wasm_function_body_grammar._generate_code(num_lines)
-    # result += '\nbuilder.addExport(\'main\', 0)\n'
+    for  wasm_grammar in wasm_garmmar_set:
+        result += wasm_grammar._generate_code(num_lines)
+        result += '\n'
     result += '\nconst instance = builder.instantiate();\n'
     result += 'instance.exports.main();\n'
 
@@ -61,26 +58,36 @@ Returns:
 def generate_samples(grammar_dir, \
                     input_dir, \
                     output_merge_dir, \
-                    outfiles):
-    wasm_funtion_body_grammar = parse_grammar(grammar_dir,
-                                              'wasmfunctionbody.txt')
-    wasm_type_grammar = parse_grammar(grammar_dir, 'wasmtype.txt')
-
-    for outfile in outfiles:
-        result = generate_sample_body(wasm_funtion_body_grammar, \
-                                   wasm_type_grammar, \
-                                   1)
+                    output_orig_dir, \
+                    out_files_snippet, \
+                    grammar_files):
+    
+    wasm_garmmar_set = []
+    for wasm_grammar in grammar_files:
+        wasm_garmmar_part = parse_grammar(grammar_dir, wasm_grammar + '.txt')
+        if wasm_garmmar_part is not None:
+            wasm_garmmar_set.append(wasm_garmmar_part)
+    for outfile in out_files_snippet:
+        output_merge_file_path = os.path.join(output_merge_dir, outfile)
+        output_orig_file_path = os.path.join(output_orig_dir, outfile)
+        result = generate_sample_body(wasm_garmmar_set,1)
         if result is not None:
-            print('Writing a sample to ' + outfile)
+            print('Writing a sample to ' + output_merge_file_path)
             try:
-                f1 = open(os.path.join(output_merge_dir, outfile), 'w')
+                f1 = open(output_merge_file_path, 'w')
                 f2 = open(os.path.join(input_dir, 'wasm-module-builder.js'),
                           'r')
                 f1.write(f2.read())
                 f2.close()
                 f1.write(result)
                 f1.close()
-
+            except IOError:
+                print('Error writing to output')
+            print('Writing a sample to ' + output_orig_file_path)
+            try:
+                f3 = open(output_orig_file_path, 'w')
+                f3.write(result)
+                f3.close()
             except IOError:
                 print('Error writing to output')
     return
@@ -107,7 +114,6 @@ def get_test_results(dir_path_map, outfiles, develop_shell, base_dir,
             f.write(f"Error: {result.stderr.decode()}\n")
             f.close()
 
-
 def print_usage():
     print("Usage:")
     print("\tpython generator.py --output_dir <dir> --no_of_files <count>")
@@ -126,13 +132,10 @@ def print_usage():
     print("\t../configure CC=/usr/bin/clang CXX=/usr/bin/clang++ --enable-fuzzing --disable-jemalloc --enable-debug --enable-optimize --disable-shared-js")
     sys.exit(1)
 
-
-def generate_samples_name(dir_path_map, out_dir, file_count):
-    outfiles = [
-        os.path.join(out_dir, f'fuzz-{i:05d}.js') for i in range(file_count)
-    ]
+def generate_samples_name(dir_path_map, out_dir, out_orig_dir, file_count, grammar_files):
+    out_files_snippet = [(f'fuzz-{i:05d}.js') for i in range(file_count)]
     generate_samples(dir_path_map['grammar_dir'], dir_path_map['input_dir'],
-                     out_dir, outfiles)
+                     out_dir, out_orig_dir, out_files_snippet, grammar_files)
 
 def check_arguments(dir_path_map, arg_map):
     help_arg = ['--help', '-h', '--help_build_v8', '--help_build_jsc', '--help_build_sm']
@@ -180,13 +183,17 @@ def check_arguments(dir_path_map, arg_map):
     else:
         print('output_dir is not set, default to output_merge')
 
-
 def clean_dir(dir_path_map):
     if os.path.exists(dir_path_map['output_merge_dir']):
         for file in os.listdir(dir_path_map['output_merge_dir']):
             os.remove(os.path.join(dir_path_map['output_merge_dir'], file))
     else:
         os.makedirs(dir_path_map['output_merge_dir'])
+    if os.path.exists(dir_path_map['output_orig_dir']):
+        for file in os.listdir(dir_path_map['output_orig_dir']):
+            os.remove(os.path.join(dir_path_map['output_orig_dir'], file))
+    else:
+        os.makedirs(dir_path_map['output_orig_dir'])
     if os.path.exists(dir_path_map['useful_crash_v8']):
         for file in os.listdir(dir_path_map['useful_crash_v8']):
             os.remove(os.path.join(dir_path_map['useful_crash_v8'], file))
@@ -202,7 +209,6 @@ def clean_dir(dir_path_map):
             os.remove(os.path.join(dir_path_map['useful_crash_sm'], file))
     else:
         os.makedirs(dir_path_map['useful_crash_sm'])
-
 
 def test_samples(dir_path_map, args_map, develop_shell_map,
                  develop_shell_args_map):
@@ -252,12 +258,14 @@ def main():
         'useful_crash_jsc': os.path.join(fuzz_dir, 'useful_crash_jsc'),
         'useful_crash_sm': os.path.join(fuzz_dir, 'useful_crash_sm'),
         'input_dir': os.path.join(fuzz_dir, 'input'),
-        'output_merge_dir': os.path.join(fuzz_dir, 'output_merge')
+        'output_merge_dir': os.path.join(fuzz_dir, 'output_merge'),
+        'output_orig_dir': os.path.join(fuzz_dir, 'output_orig'),
     }
 
     # 参数map
     arg_map = {
         '--output_dir': dir_path_map['output_merge_dir'],
+        '--output_orig_dir': dir_path_map['output_orig_dir'],
         '--no_of_files': 1,
         '--enable_test': False,
         '--enable_test_v8': False,
@@ -268,13 +276,19 @@ def main():
         '--help_build_jsc': False,
         '--help_build_sm': False,
     }
+    # 语法文件填充,在grammar路径下，os.list遍历
+    grammar_files = [
+        'wasm_type',
+        'wasm_memory',
+        'wasm_function_body',
+    ]
     # 参数填充
     check_arguments(dir_path_map, arg_map)
     # 清空文件夹
     clean_dir(dir_path_map)
     # 生成样本
-    generate_samples_name(dir_path_map, arg_map['--output_dir'],
-                          arg_map['--no_of_files'])
+    generate_samples_name(dir_path_map, arg_map['--output_dir'], arg_map['--output_orig_dir'],
+                          arg_map['--no_of_files'], grammar_files)
     # 测试样本
     develop_shell_map = {
         'develop_shell_v8':

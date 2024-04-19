@@ -1,0 +1,38 @@
+!include common.txt
+!varformat memory_simple_%03d
+<memory_number p=0.3> = 1
+<memory_number p=0.3> = 2
+<memory_number p=0.3> = 4
+<memory_number p=0.3> = 8
+<memory_number p=0.3> = 16
+
+!begin function saveminsize
+  context['min_memory_size'] = ret_val
+!end function
+
+!begin function createmaxsize
+  n = int(context['min_memory_size'])
+  ret_val = str(2 * n)
+!end function
+
+!begin function saveminsize64
+  context['min_memory_size_64'] = ret_val
+!end function
+
+!begin function createmaxsize64
+  n = int(context['min_memory_size_64'])
+  ret_val = str(2 * n)
+!end function
+
+<min_memory> = <memory_number beforeoutput=saveminsize>
+<max_memory> = <call function=createmaxsize>
+<is_shared> = false
+<single_momory> = builder.addMemory(<min_memory>, <max_memory>, <is_shared>);
+<assign_single_memory> = const memory_simple_ = <single_momory>
+<min_memory_64> = <memory_number beforeoutput=saveminsize>
+<max_memory_64> = <call function=createmaxsize>
+<single_momory_64> = builder.addMemory64(<min_memory>, <max_memory>, <is_shared>);
+
+!begin lines
+<new element> = <single_momory>
+!end lines
