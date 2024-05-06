@@ -179,7 +179,7 @@ public:
 };
 
 // Path: antlr_wat/antlr4_grammar_check_cpp/Check.h
-class CustomWatVisitor : public JavaScriptParserBaseVisitor
+class CustomJavaScriptVisitor : public JavaScriptParserBaseVisitor
 {
 private:
     // input stream
@@ -237,7 +237,7 @@ private:
     CustomErrorListener ParserErrorListener;
 
 public:
-    CustomWatVisitor(std::string input_filename, std::string parent_path)
+    CustomJavaScriptVisitor(std::string input_filename, std::string parent_path)
         : input_filename(input_filename), input_file(input_filename),
           stream(input_file), lexer(&stream), tokens(&lexer), parser(&tokens),
           rewriter_original(&tokens), // rewriter_changed(&tokens),
@@ -314,13 +314,13 @@ public:
         //        rewriter_changed.replace(token, getRandomCompare(text));
         //      }}};
 
-        // std::cout << "init CustomWatVisitor success" << std::endl;
-        fprintf(stdout, "init CustomWatVisitor success\n");
+        // std::cout << "init CustomJavaScriptVisitor success" << std::endl;
+        fprintf(stdout, "init CustomJavaScriptVisitor success\n");
     }
 
-    ~CustomWatVisitor()
+    ~CustomJavaScriptVisitor()
     {
-        // fprintf(stdout, "CustomWatVisitor destructor\n");
+        // fprintf(stdout, "CustomJavaScriptVisitor destructor\n");
         try
         {
             original_outputfile.fileClose();
@@ -464,33 +464,33 @@ public:
 };
 
 // const std::map<std::string, std::pair<int, int>>
-//     CustomWatVisitor::dist_map_binary_array = {{"i32", {0, 14}},
+//     CustomJavaScriptVisitor::dist_map_binary_array = {{"i32", {0, 14}},
 //                                                {"i64", {15, 29}},
 //                                                {"f32", {30, 36}},
 //                                                {"f64", {37, 43}}};
 
 // const std::map<std::string, std::pair<int, int>>
-//     CustomWatVisitor::dist_map_convert_array = {{"i32", {0, 5}},
+//     CustomJavaScriptVisitor::dist_map_convert_array = {{"i32", {0, 5}},
 //                                                 {"i64", {6, 12}},
 //                                                 {"f32", {13, 18}},
 //                                                 {"f64", {19, 24}}};
 
 // const std::map<std::string, std::pair<int, int>>
-//     CustomWatVisitor::dist_map_const_array = {
+//     CustomJavaScriptVisitor::dist_map_const_array = {
 //         {"i32", {0, 0}}, {"i64", {1, 1}}, {"f32", {2, 2}}, {"f64", {3, 3}}};
 
 // const std::map<std::string, std::pair<int, int>>
-//     CustomWatVisitor::dist_map_load_array = {{"i32", {0, 4}},
+//     CustomJavaScriptVisitor::dist_map_load_array = {{"i32", {0, 4}},
 //                                              {"i64", {5, 11}},
 //                                              {"f32", {12, 12}},
 //                                              {"f64", {13, 13}}};
 
 // const std::map<std::string, std::pair<int, int>>
-//     CustomWatVisitor::dist_map_store_array = {
+//     CustomJavaScriptVisitor::dist_map_store_array = {
 //         {"i32", {0, 2}}, {"i64", {3, 6}}, {"f32", {7, 7}}, {"f64", {8, 8}}};
 
 // const std::map<std::string, std::pair<int, int>>
-//     CustomWatVisitor::dist_map_compare_array = {
+//     CustomJavaScriptVisitor::dist_map_compare_array = {
 //         {"i32", {0, 9}},
 //         {"i64", {10, 19}},
 //         {"f32", {20, 25}},
@@ -499,7 +499,7 @@ public:
 // ;
 
 // // 替换array初始化
-// const std::array<std::string, 44> CustomWatVisitor::binaryArray = {
+// const std::array<std::string, 44> CustomJavaScriptVisitor::binaryArray = {
 //     "i32.add",   "i32.sub",      "i32.mul",   "i32.div_s",   "i32.div_u",
 //     "i32.rem_s", "i32.rem_u",    "i32.and",   "i32.or",      "i32.xor",
 //     "i32.shl",   "i32.shr_s",    "i32.shr_u", "i32.rotl",    "i32.rotr",
@@ -509,7 +509,7 @@ public:
 //     "f32.add",   "f32.sub",      "f32.mul",   "f32.div",     "f32.min",
 //     "f32.max",   "f32.copysign", "f64.add",   "f64.sub",     "f64.mul",
 //     "f64.div",   "f64.min",      "f64.max",   "f64.copysign"};
-// const std::array<std::string, 25> CustomWatVisitor::convertArray = {
+// const std::array<std::string, 25> CustomJavaScriptVisitor::convertArray = {
 //     "i32.wrap_i64",        "i32.trunc_f32_s",   "i32.trunc_f32_u",
 //     "i32.trunc_f64_s",     "i32.trunc_f64_u",   "i32.reinterpret_f32",
 //     "i64.extend_i32_s",    "i64.extend_i32_u",  "i64.trunc_f32_s",
@@ -519,21 +519,29 @@ public:
 //     "f32.reinterpret_i32", "f64.convert_i32_s", "f64.convert_i32_u",
 //     "f64.convert_i64_s",   "f64.convert_i64_u", "f64.promote_f32",
 //     "f64.reinterpret_i64"};
-// const std::array<std::string, 4> CustomWatVisitor::constArray = {
+// const std::array<std::string, 4> CustomJavaScriptVisitor::constArray = {
 //     "i32.const", "i64.const", "f32.const", "f64.const"};
-// const std::array<std::string, 14> CustomWatVisitor::loadArray = {
+// const std::array<std::string, 14> CustomJavaScriptVisitor::loadArray = {
 //     "i32.load",     "i32.load8_s",  "i32.load8_u",  "i32.load16_s",
 //     "i32.load16_u", "i64.load",     "i64.load8_s",  "i64.load8_u",
 //     "i64.load16_s", "i64.load16_u", "i64.load32_s", "i64.load32_u",
 //     "f32.load",     "f64.load"};
-// const std::array<std::string, 9> CustomWatVisitor::storeArray = {
+// const std::array<std::string, 9> CustomJavaScriptVisitor::storeArray = {
 //     "i32.store",   "i32.store8",  "i32.store16", "i64.store", "i64.store8",
 //     "i64.store16", "i64.store32", "f32.store",   "f64.store",
 // };
-// const std::array<std::string, 32> CustomWatVisitor::compareArray = {
+// const std::array<std::string, 32> CustomJavaScriptVisitor::compareArray = {
 //     "i32.eq",   "i32.ne",   "i32.lt_s", "i32.lt_u", "i32.gt_s", "i32.gt_u",
 //     "i32.le_s", "i32.le_u", "i32.ge_s", "i32.ge_u", "i64.eq",   "i64.ne",
 //     "i64.lt_s", "i64.lt_u", "i64.gt_s", "i64.gt_u", "i64.le_s", "i64.le_u",
 //     "i64.ge_s", "i64.ge_u", "f32.eq",   "f32.ne",   "f32.lt",   "f32.gt",
 //     "f32.le",   "f32.ge",   "f64.eq",   "f64.ne",   "f64.lt",   "f64.gt",
 //     "f64.le",   "f64.ge"};
+
+void CheckDirectory(const std::string_view document_check_path, const std::string_view js_enginee_name);
+void FileCopyAndRename(const std::string_view document_check_path, const std::string_view new_copy_path, const std::string_view js_enginee_name);
+void DocumentClear(const std::string_view document_check_path);
+void DocumentCreate(const std::string_view input_file_path, const std::string_view output_file_path,  const std::string_view suffix);
+bool CheckFileEmpty(const std::string_view file_path);
+void ClearEmptyFile(const std::string_view file_path);
+int CheckFileNum(const std::string_view file_path);

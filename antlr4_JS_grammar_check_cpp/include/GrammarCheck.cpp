@@ -47,12 +47,12 @@ void DocumentClear(const std::string_view document_check_path) {
     // std::this_thread::sleep_for(std::chrono::seconds(3));
 }
 
-void DocumentCreate(const std::string_view input_file_path, const std::string_view output_file_path) {
+void DocumentCreate(const std::string_view input_file_path, const std::string_view output_file_path, const std::string_view suffix) {
     // 创建文件夹
     for (auto &p : std::filesystem::directory_iterator(input_file_path)) {
         std::string file_name = p.path().filename().string();
-        // 去除尾缀.wat
-        file_name = file_name.substr(0, file_name.length() - 4);
+        // 去除尾缀.js
+        file_name = file_name.substr(0, file_name.length() - suffix.length());
         std::string new_file_path = std::string(output_file_path) + "/" + file_name;
         std::filesystem::create_directory(new_file_path);
     }

@@ -15,6 +15,7 @@ include_directories(${ANTLR4_ROOT}/runtime/src)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 # include_directories(${CMAKE_SOURCE_DIR}/common)
 file(GLOB_RECURSE SOURCES_COMMON "common/*.cpp" "common/*.h")
+file(GLOB_RECURSE SOURCES_INCLUDE "include/*.cpp" "include/*.h")
 # file(GLOB_RECURSE SOURCES_INCLUDE "include/*.h")
 
 set(SOURCE_ENTRY src/main.cpp)
@@ -22,6 +23,7 @@ set(SOURCE_ENTRY src/main.cpp)
 add_executable(JavaScript_Grammar_Check
     ${SOURCE_ENTRY}
     ${SOURCES_COMMON}
+    ${SOURCES_INCLUDE}
 )
 
 # Link against the ANTLR4 runtime library
@@ -29,10 +31,10 @@ target_link_libraries(JavaScript_Grammar_Check ${ANTLR4_ROOT}/run/usr/local/lib/
 
 # Add compile flags
 target_compile_options(JavaScript_Grammar_Check PRIVATE
-    -Wall            # Enable all warnings
+    # -Wall            # Enable all warnings
     -Wno-unused-parameter # Disable unused parameter warning
     # -Werror          # Treat warnings as errors
-    -Wextra          # Enable extra warnings
+    # -Wextra          # Enable extra warnings
     -std=c++17       # cplusplus 17 standard
     # Add any additional flags here
 )
