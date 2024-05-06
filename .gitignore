@@ -1,19 +1,39 @@
+# file
 *.out
 *.class
-antlr4_grammar_check_cpp/antlr4-cpp-runtime/
-antlr4_grammar_check_cpp/runtime/
-antlr4_grammar_check_cpp/build/
-AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles/
-antlr4_grammar_check_cpp/output_file/
+
+# folder
 .vscode/
 .build/
-antlr4_original_grammar_check_java/.antlr/
-AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser/.antlr/
-wat_original_grammar_check_java/.antlr/
-wat_grammar_check_java/.antlr/
-antlr4_grammar_check_cpp/rewrite_g4_file/.antlr/
+
+# antlr4_grammar_check_cpp
+antlr4_grammar_check_cpp/runtime/
+antlr4_grammar_check_cpp/build/
+antlr4_grammar_check_cpp/output_file/
 antlr4_grammar_check_cpp/.antlr/
-./vscode/
+
+# antlr4_JS_grammar_check_cpp
+antlr4_JS_grammar_check_cpp/build
+antlr4_JS_grammar_check_cpp/runtime/
+antlr4_JS_grammar_check_cpp/.antlr/
+
+# antlr4_original_grammar_check_java
+antlr4_original_grammar_check_java/.antlr/
+
+
+# wat_original_grammar_check_java
+wat_original_grammar_check_java/.antlr/
+
+# wat_original_grammar_check_java
+wat_grammar_check_java/.antlr/
+
+# wasm_fuzz
+wasm_fuzz/V8/hello_world
+wasm_fuzz/V8/wasm
+
+# AFLplusplus_v4.09c
+AFLplusplus_v4.09c/custom_mutators/antlr4_test/antlr_parser/.antlr/
+AFLplusplus_v4.09c/custom_mutators/antlr4_test/CMakeFiles/
 AFLplusplus_v4.09c/custom_mutators/wasm_grammar_mutator/.github/
 AFLplusplus_v4.09c/custom_mutators/wasm_grammar_mutator/wasm-grammar/.antlr/
 AFLplusplus_v4.09c/afl-gcc*
@@ -21,6 +41,3 @@ AFLplusplus_v4.09c/afl-clang*
 AFLplusplus_v4.09c/afl-llvm*
 AFLplusplus_v4.09c/afl-persistent-config
 AFLplusplus_v4.09c/utils/aflpp_driver/aflpp_driver_test
-# wasm_fuzz/static_library/libv8_monolith.a
-wasm_fuzz/V8/hello_world
-wasm_fuzz/V8/wasm

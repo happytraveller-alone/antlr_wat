@@ -276,7 +276,7 @@ def main():
         '--help_build_jsc': False,
         '--help_build_sm': False,
     }
-    # 语法文件填充,在grammar路径下，os.list遍历
+    # 语法文件填充
     grammar_files = [
         'wasm_type',
         'wasm_memory',
